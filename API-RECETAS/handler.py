@@ -94,7 +94,8 @@ def lambda_handler(event, context):
             {
               "producto": "Nombre del medicamento",
               "dosis": "Dosis exacta si aparece",
-              "frecuencia": "Frecuencia (ej. 1 cada 8 horas) o null",
+              "frecuencia_valor": "Valor entero de la frecuencia (ej. 8) o null",
+              "frecuencia_unidad": "Unidad de tiempo de la frecuencia. Valores permitidos: 'hora', 'dia', 'mes' o null",
               "duracion": "Duración del tratamiento o null"
             }
           ]
