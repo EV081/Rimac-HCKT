@@ -27,7 +27,6 @@ functions:
           path: analizar
           method: post
           cors: true
-          # payload: '1.0'  <-- eliminado: propiedad no reconocida en esta versión
 
 package:
   individually: true
@@ -36,9 +35,9 @@ custom:
   pythonRequirements:
     layer: false
     slim: true
-    # Evitar uso de Docker en el build (útil en contenedores sin Docker)
-    dockerizePip: false
-    # Forzar el binario Python usado por el empaquetador (evita spawn python3.12 ENOENT)
+    # IMPORTANTE: activar dockerizePip para compilar dependencias nativas (pydantic-core)
+    dockerizePip: true
+    # mantener pythonBin para evitar problemas de búsqueda de python en entorno local
     pythonBin: python3
     useDownloadCache: false
     useStaticCache: false
