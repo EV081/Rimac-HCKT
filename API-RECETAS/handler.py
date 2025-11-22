@@ -24,12 +24,23 @@ def lambda_handler(event, context):
         # ===============================
         # 2a. Extraer imagen del multipart/form-data
         # ===============================
-        content_type = event['headers'].get('content-type') or event['headers'].get('Content-Type')
+        headers_raw = event.get('headers') or {}
+        # Normalizar headers a minúsculas para búsqueda case-insensitive
+        headers = {k.lower(): v for k, v in headers_raw.items()}
+        content_type = headers.get('content-type')
         if not content_type:
             return _response(400, {"message": "Content-Type header faltante"})
         
         # Parsear body como multipart
-        body_bytes = base64.b64decode(event['body']) if event.get('isBase64Encoded') else event['body'].encode()
+        if event.get('isBase64Encoded'):
+            body_bytes = base64.b64decode(event.get('body') or "")
+        else:
+            body = event.get('body') or ""
+            if isinstance(body, str):
+                body_bytes = body.encode('utf-8')
+            else:
+                body_bytes = body  # en caso de ya ser bytes
+        
         env = {'REQUEST_METHOD': 'POST', 'CONTENT_TYPE': content_type}
         fs = cgi.FieldStorage(fp=BytesIO(body_bytes), environ=env, keep_blank_values=True)
         
@@ -86,12 +97,30 @@ def lambda_handler(event, context):
         )
 
         # ===============================
-        # 2d. Validar JSON
+        # 2d. Validar JSON (con extracción robusta del texto)
         # ===============================
+        raw_text = None
+        if hasattr(response, 'text') and response.text:
+            raw_text = response.text
+        else:
+            # Intentos alternativos de extracción
+            try:
+                # algunos SDKs usan output/outputs o candidates
+                if hasattr(response, 'output') and response.output:
+                    raw_text = getattr(response.output[0], 'content', None) or str(response.output[0])
+                elif hasattr(response, 'outputs') and response.outputs:
+                    raw_text = getattr(response.outputs[0], 'content', None) or str(response.outputs[0])
+                elif hasattr(response, 'candidates') and response.candidates:
+                    raw_text = getattr(response.candidates[0], 'content', None) or str(response.candidates[0])
+                else:
+                    raw_text = str(response)
+            except Exception:
+                raw_text = str(response)
+
         try:
-            data = json.loads(response.text)
+            data = json.loads(raw_text)
         except Exception:
-            return _response(500, {"message": "Error al parsear respuesta de Gemini", "raw": response.text})
+            return _response(500, {"message": "Error al parsear respuesta de Gemini", "raw": raw_text})
 
         return _response(200, data)
 
@@ -111,3 +140,10 @@ def _response(status_code, body):
         },
         "body": json.dumps(body, ensure_ascii=False)
     }
+
+# ------------------------------------------------------------------
+# Wrapper para Serverless (serverless.yml apunta a handler.analizarReceta)
+# ------------------------------------------------------------------
+def analizarReceta(event, context):
+    # pequeño wrapper para que serverless encuentre la función esperada
+    return lambda_handler(event, context)
