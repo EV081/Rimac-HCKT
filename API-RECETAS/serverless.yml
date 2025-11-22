@@ -10,10 +10,10 @@ provider:
 
 functions:
   analizarReceta:
-    handler: handler.lambda_handler
+    handler: handler.analizarReceta
     events:
-      - httpApi:
-          path: /recetas/analizar
+      - http:
+          path: analizar
           method: post
           cors: true
 
