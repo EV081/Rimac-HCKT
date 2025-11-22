@@ -15,7 +15,6 @@ provider:
     AWS_ACCOUNT_ID: ${env:AWS_ACCOUNT_ID}
     role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/LabRole
 
-  # Agregar configuración para tipos binarios (multipart) en API Gateway REST
   apiGateway:
     binaryMediaTypes:
       - 'multipart/form-data'
@@ -36,8 +35,8 @@ package:
 
 custom:
   pythonRequirements:
-    layer: true
+    layer: false
     slim: true
-    dockerizePip: true
+    dockerizePip: false
     useDownloadCache: false
     useStaticCache: false
