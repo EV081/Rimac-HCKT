@@ -31,16 +31,26 @@ INSTITUCIONES = [
 ]
 
 MEDICAMENTOS = [
-    {"producto": "Trevissage", "dosis": "20 mg", "frecuencia": "1 cápsula diaria", "duracion": "2 meses"},
-    {"producto": "Paracetamol", "dosis": "500 mg", "frecuencia": "cada 8 horas", "duracion": "5 días"},
-    {"producto": "Ibuprofeno", "dosis": "400 mg", "frecuencia": "cada 12 horas", "duracion": "3 días"},
-    {"producto": "Amoxicilina", "dosis": "875 mg", "frecuencia": "cada 12 horas", "duracion": "7 días"},
-    {"producto": "nasalub", "dosis": None, "frecuencia": "cada 2-3 horas", "duracion": None},
-    {"producto": "Lagrifilm", "dosis": None, "frecuencia": "cada 2-3 horas", "duracion": None},
-    {"producto": "agua Thermal", "dosis": None, "frecuencia": "cada 2-3 horas", "duracion": None},
-    {"producto": "Labello", "dosis": None, "frecuencia": "cada 2-3 horas", "duracion": None},
-    {"producto": "Omeprazol", "dosis": "20 mg", "frecuencia": "1 vez al día", "duracion": "14 días"},
-    {"producto": "Loratadina", "dosis": "10 mg", "frecuencia": "cada 24 horas", "duracion": "10 días"}
+    {"producto": "Trevissage", "dosis": "20 mg", "frecuencia": 1, "medicion_frecuencia": "dias", "duracion": 2, "duracion_frecuencia": "meses"},
+    {"producto": "Paracetamol", "dosis": "500 mg", "frecuencia": 8, "medicion_frecuencia": "horas", "duracion": 5, "duracion_frecuencia": "dias"},
+    {"producto": "Ibuprofeno", "dosis": "400 mg", "frecuencia": 12, "medicion_frecuencia": "horas", "duracion": 3, "duracion_frecuencia": "dias"},
+    {"producto": "Amoxicilina", "dosis": "875 mg", "frecuencia": 12, "medicion_frecuencia": "horas", "duracion": 7, "duracion_frecuencia": "dias"},
+    {"producto": "nasalub", "dosis": None, "frecuencia": 2, "medicion_frecuencia": "horas", "duracion": 1, "duracion_frecuencia": "meses"},
+    {"producto": "Lagrifilm", "dosis": None, "frecuencia": 3, "medicion_frecuencia": "horas", "duracion": 1, "duracion_frecuencia": "meses"},
+    {"producto": "agua Thermal", "dosis": None, "frecuencia": 2, "medicion_frecuencia": "horas", "duracion": 2, "duracion_frecuencia": "meses"},
+    {"producto": "Labello", "dosis": None, "frecuencia": 3, "medicion_frecuencia": "horas", "duracion": 1, "duracion_frecuencia": "meses"},
+    {"producto": "Omeprazol", "dosis": "20 mg", "frecuencia": 1, "medicion_frecuencia": "dias", "duracion": 14, "duracion_frecuencia": "dias"},
+    {"producto": "Loratadina", "dosis": "10 mg", "frecuencia": 24, "medicion_frecuencia": "horas", "duracion": 10, "duracion_frecuencia": "dias"},
+    {"producto": "Aspirina", "dosis": "100 mg", "frecuencia": 1, "medicion_frecuencia": "dias", "duracion": 1, "duracion_frecuencia": "meses"},
+    {"producto": "Metformina", "dosis": "850 mg", "frecuencia": 12, "medicion_frecuencia": "horas", "duracion": 3, "duracion_frecuencia": "meses"},
+    {"producto": "Atorvastatina", "dosis": "20 mg", "frecuencia": 1, "medicion_frecuencia": "dias", "duracion": 6, "duracion_frecuencia": "meses"},
+    {"producto": "Losartán", "dosis": "50 mg", "frecuencia": 1, "medicion_frecuencia": "dias", "duracion": 3, "duracion_frecuencia": "meses"},
+    {"producto": "Cetirizina", "dosis": "10 mg", "frecuencia": 1, "medicion_frecuencia": "dias", "duracion": 15, "duracion_frecuencia": "dias"},
+    {"producto": "Azitromicina", "dosis": "500 mg", "frecuencia": 1, "medicion_frecuencia": "dias", "duracion": 3, "duracion_frecuencia": "dias"},
+    {"producto": "Diclofenaco", "dosis": "75 mg", "frecuencia": 12, "medicion_frecuencia": "horas", "duracion": 5, "duracion_frecuencia": "dias"},
+    {"producto": "Ranitidina", "dosis": "150 mg", "frecuencia": 12, "medicion_frecuencia": "horas", "duracion": 30, "duracion_frecuencia": "dias"},
+    {"producto": "Clonazepam", "dosis": "0.5 mg", "frecuencia": 1, "medicion_frecuencia": "dias", "duracion": 2, "duracion_frecuencia": "meses"},
+    {"producto": "Vitamina D3", "dosis": "1000 UI", "frecuencia": 1, "medicion_frecuencia": "dias", "duracion": 3, "duracion_frecuencia": "meses"}
 ]
 
 AUTHORITY_NAME = os.getenv("AUTHORITY_USUARIO_NOMBRE", "Autoridad UTEC")
@@ -116,11 +126,24 @@ def generar_recetas(cantidad=None):
         num_medicamentos = random.randint(1, 5)
         medicamentos_receta = random.sample(MEDICAMENTOS, min(num_medicamentos, len(MEDICAMENTOS)))
         
+        # Copiar los medicamentos para no modificar los originales
+        medicamentos_formateados = []
+        for med in medicamentos_receta:
+            medicamento = {
+                "producto": med["producto"],
+                "dosis": med["dosis"],
+                "frecuencia": med["frecuencia"],
+                "medicion_frecuencia": med["medicion_frecuencia"],
+                "duracion": med["duracion"],
+                "duracion_frecuencia": med["duracion_frecuencia"]
+            }
+            medicamentos_formateados.append(medicamento)
+        
         receta = {
             "receta_id": f"rec-{str(uuid.uuid4())[:8]}",
             "paciente": paciente,
             "institucion": institucion,
-            "recetas": medicamentos_receta
+            "recetas": medicamentos_formateados
         }
         
         recetas.append(receta)
