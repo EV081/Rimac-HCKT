@@ -1,0 +1,29 @@
+service: api-recetas
+
+provider:
+  name: aws
+  runtime: python3.13
+  region: us-east-1
+  stage: ${opt:stage, 'dev'}
+  environment:
+    GEMINI_API_KEY: ${env:GEMINI_API_KEY}
+
+functions:
+  analizarReceta:
+    handler: handler.lambda_handler
+    events:
+      - httpApi:
+          path: /recetas/analizar
+          method: post
+          cors: true
+
+plugins:
+  - serverless-python-requirements
+
+package:
+  individually: true
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    layer: true

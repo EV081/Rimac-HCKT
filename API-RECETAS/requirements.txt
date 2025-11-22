@@ -1,0 +1,3 @@
+google-genai==0.13.0  # Cliente oficial de Gemini
+python-dotenv==1.0.0  # Para manejar variables de entorno en local/testing
+requests==2.31.0      # Dependencia auxiliar que google-genai podría usar
