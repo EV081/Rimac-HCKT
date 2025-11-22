@@ -1,0 +1,58 @@
+org: faridaquino
+service: calendar-api-system
+
+provider:
+  name: aws
+  # IMPORTANTE: Esto debe coincidir con la versión de python que usas para el 'pip install'
+  runtime: python3.9 
+  region: us-east-1
+  environment:
+    # Pega aquí los valores REALES de tus archivos json
+    GOOGLE_CLIENT_ID: "TU_CLIENT_ID_AQUI.apps.googleusercontent.com"
+    GOOGLE_CLIENT_SECRET: "TU_CLIENT_SECRET_AQUI"
+    GOOGLE_REFRESH_TOKEN: "TU_REFRESH_TOKEN_LARGO_AQUI"
+    TABLE_NAME: ${sls:stage}-t_citas 
+
+package:
+  patterns:
+    - '!node_modules/**'       # Ignorar carpeta de node
+    - '!.serverless/**'        # Ignorar carpeta oculta de despliegue
+    - '!venv/**'               # Ignorar entorno virtual (si tienes uno)
+    - '!__pycache__/**'        # Ignorar archivos compilados de python
+    - '!package-lock.json'
+    - ./** # Incluir todo lo demás (tu código + librerías instaladas)
+
+functions:
+  scheduleAppointment:
+    handler: handler.create_medical_appointment
+    events:
+      - http:
+          path: calendar/appointment
+          method: post
+          cors: true
+
+  scheduleTreatment:
+    handler: handler.create_recurring_event
+    events:
+      - http:
+          path: calendar/treatment
+          method: post
+          cors: true
+resources:
+  Resources:
+    TablaComentarios:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.TABLE_NAME}
+        AttributeDefinitions:
+          - AttributeName: tenant_id
+            AttributeType: S
+          - AttributeName: uuid
+            AttributeType: S
+        KeySchema:
+          - AttributeName: tenant_id
+            KeyType: HASH
+          - AttributeName: uuid
+            KeyType: RANGE
+        # Set the capacity to auto-scale
+        BillingMode: PAY_PER_REQUEST
