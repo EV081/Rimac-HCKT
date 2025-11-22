@@ -2,25 +2,50 @@ import os
 import json
 import base64
 import boto3
-from google import genai
-from google.genai import types
+
+# Intentar importar google-genai sin romper la importación del módulo
+try:
+    from google import genai
+    from google.genai import types
+    _IMPORT_ERROR = None
+except Exception as e:
+    genai = None
+    types = None
+    _IMPORT_ERROR = str(e)
+
 from io import BytesIO
 import cgi
 
 # ===============================
-# 1. Inicializar cliente Gemini
+# 1. Inicializar cliente Gemini (no fallar en import-time)
 # ===============================
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
-if not GEMINI_API_KEY:
-    raise ValueError("❌ GEMINI_API_KEY no configurada en el entorno")
-
-client = genai.Client(api_key=GEMINI_API_KEY)
+client = None
+_INIT_ERROR = None
+if genai is not None and GEMINI_API_KEY:
+    try:
+        client = genai.Client(api_key=GEMINI_API_KEY)
+    except Exception as e:
+        _INIT_ERROR = str(e)
+else:
+    # No crear client; registramos motivo para usarlo después
+    if genai is None:
+        _INIT_ERROR = f"Dependencia faltante: { _IMPORT_ERROR }"
+    elif not GEMINI_API_KEY:
+        _INIT_ERROR = "GEMINI_API_KEY no configurada en el entorno"
 
 # ===============================
 # 2. Lambda Handler
 # ===============================
 def lambda_handler(event, context):
     try:
+        # Validaciones tempranas de dependencias/clave
+        if client is None:
+            return _response(500, {
+                "message": "Dependencia o inicialización faltante",
+                "detail": _INIT_ERROR
+            })
+
         # ===============================
         # 2a. Extraer imagen del multipart/form-data
         # ===============================
@@ -31,7 +56,6 @@ def lambda_handler(event, context):
         if not content_type:
             return _response(400, {"message": "Content-Type header faltante"})
         
-        # Parsear body como multipart
         if event.get('isBase64Encoded'):
             body_bytes = base64.b64decode(event.get('body') or "")
         else:
@@ -39,7 +63,7 @@ def lambda_handler(event, context):
             if isinstance(body, str):
                 body_bytes = body.encode('utf-8')
             else:
-                body_bytes = body  # en caso de ya ser bytes
+                body_bytes = body
         
         env = {'REQUEST_METHOD': 'POST', 'CONTENT_TYPE': content_type}
         fs = cgi.FieldStorage(fp=BytesIO(body_bytes), environ=env, keep_blank_values=True)

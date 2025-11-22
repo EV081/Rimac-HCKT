@@ -1,5 +1,9 @@
 service: api-recetas
 
+# Agregar plugin para empaquetar dependencias Python
+plugins:
+  - serverless-python-requirements
+
 provider:
   name: aws
   runtime: python3.12
