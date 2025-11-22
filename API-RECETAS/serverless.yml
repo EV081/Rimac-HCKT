@@ -2,7 +2,7 @@ service: api-recetas
 
 provider:
   name: aws
-  runtime: python3.13
+  runtime: python3.12
   region: us-east-1
   stage: ${opt:stage, 'dev'}
   environment:
@@ -10,20 +10,20 @@ provider:
 
 functions:
   analizarReceta:
-    handler: handler.lambda_handler
+    handler: handler.analizarReceta
     events:
-      - httpApi:
-          path: /recetas/analizar
+      - http:
+          path: analizar
           method: post
           cors: true
-
-plugins:
-  - serverless-python-requirements
 
 package:
   individually: true
 
 custom:
   pythonRequirements:
-    dockerizePip: true
     layer: true
+    slim: true
+    dockerizePip: true
+    useDownloadCache: false
+    useStaticCache: false
