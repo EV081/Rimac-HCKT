@@ -17,13 +17,11 @@ functions:
           method: post
           cors: true
 
-plugins:
-  - serverless-python-requirements
-
 package:
   individually: true
 
 custom:
   pythonRequirements:
-    dockerizePip: true
     layer: true
+    slim: true
+    dockerizePip: true
