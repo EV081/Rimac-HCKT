@@ -3,14 +3,20 @@ service: calendar-api-system
 
 provider:
   name: aws
-  
   runtime: python3.10
   region: us-east-1
-  iam:
-    role: arn:aws:iam::551642315125:role/LabRole
 
-  environment:
-    
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:PutItem
+        - dynamodb:GetItem
+        - dynamodb:Query
+        - dynamodb:Scan
+      Resource:
+        - Fn::GetAtt: [TablaComentarios, Arn] # Apunta dinámicamente a la tabla creada abajo
+  
+  environment:  
     GOOGLE_CLIENT_ID: "TU_CLIENT_ID_AQUI.apps.googleusercontent.com"
     GOOGLE_CLIENT_SECRET: "TU_CLIENT_SECRET_AQUI"
     GOOGLE_REFRESH_TOKEN: "TU_REFRESH_TOKEN_LARGO_AQUI"

@@ -160,6 +160,7 @@ def create_cita(event, context):
         return {"statusCode": 500, "body": json.dumps({"error": str(e)}, default=str)}
 
 def create_recurring_event(event, context):
+    """Endpoint para Recordatorios de Pastillas (Eventos Recurrentes)"""
     try:
         # 1. Parseo
         body = event.get('body', {})
@@ -174,46 +175,50 @@ def create_recurring_event(event, context):
         
         indicacion = body.get('indicacion') # 'Desayuno', 'Almuerzo', 'Cena' o None
         medicion_frecuencia = body.get('medicion_frecuencia') # 'Horas' o 'Dias'
-        frecuencia = int(body.get('frecuencia', 0) if body.get('frecuencia') else 1)
+        
+        raw_frecuencia = body.get('frecuencia')
+        frecuencia = int(raw_frecuencia) if raw_frecuencia else 1
+        if frecuencia < 1: frecuencia = 1
+        
         indicaciones_consumo = body.get('indicaciones_consumo', '')
 
-        # Zona horaria para cálculos de recurrencia (usamos pytz para compatibilidad con rrule)
         tz = pytz.timezone('America/Lima')
-        now = datetime.now(tz)
-
-        # 2. Calcular fecha FIN del tratamiento (RRULE UNTIL)
-        if medicion_duracion == 'Meses':
-            treatment_end_date = now + relativedelta(months=+duracion)
-        else: # Dias
-            treatment_end_date = now + relativedelta(days=+duracion)
-        
-        # Formato UTC requerido por Google para UNTIL: YYYYMMDDTHHMMSSZ
-        until_str = treatment_end_date.astimezone(pytz.utc).strftime('%Y%m%dT%H%M%SZ')
+        now = datetime.now(tz).replace(microsecond=0) 
 
         start_dt = None
         end_dt = None
         recurrence_rule = []
         description = f"Recordatorio médico: {pill_name}.\n{indicaciones_consumo}"
 
-        # 3. Lógica de Horarios
         if indicacion in ['Desayuno', 'Almuerzo', 'Cena']:
-            # -- Lógica por Comidas --
             meal_times = {
                 'Desayuno': {'hour': 8, 'minute': 0},
                 'Almuerzo': {'hour': 13, 'minute': 0},
                 'Cena':     {'hour': 20, 'minute': 0}
             }
             target = meal_times[indicacion]
-            
-            # Configuramos para hoy a la hora de la comida
-            start_dt = now.replace(hour=target['hour'], minute=target['minute'], second=0, microsecond=0)
+            start_dt = now.replace(hour=target['hour'], minute=target['minute'], second=0)
             end_dt = start_dt + timedelta(minutes=30)
             
             description += f"\nTomar después del {indicacion}."
-            recurrence_rule = [f'RRULE:FREQ=DAILY;UNTIL={until_str}']
+
+            if medicion_duracion == 'Dias':
+                recurrence_rule = [f'RRULE:FREQ=DAILY;COUNT={duracion}']
+            else:
+                treatment_end_date = now + relativedelta(months=+duracion)
+                until_utc = treatment_end_date.astimezone(pytz.utc)
+                until_str = until_utc.strftime('%Y%m%dT%H%M%SZ')
+                recurrence_rule = [f'RRULE:FREQ=DAILY;UNTIL={until_str}']
 
         else:
-            # -- Lógica por Frecuencia (Cada X horas) --
+            if medicion_duracion == 'Meses':
+                treatment_end_date = now + relativedelta(months=+duracion)
+            else: 
+                treatment_end_date = now + relativedelta(days=+duracion)
+            
+            until_utc = treatment_end_date.astimezone(pytz.utc)
+            until_str = until_utc.strftime('%Y%m%dT%H%M%SZ')
+
             start_dt = now
             end_dt = start_dt + timedelta(minutes=15)
             
@@ -222,36 +227,27 @@ def create_recurring_event(event, context):
             
             description += f"\nTomar cada {frecuencia} {medicion_frecuencia}."
             recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};UNTIL={until_str}']
-
-        # 4. Llamada a Google Calendar
+            
         creds = get_google_creds() 
         service = build('calendar', 'v3', credentials=creds)
 
         event_body = {
             'summary': f'💊 Tomar: {pill_name}',
             'description': description,
-            'start': {
-                'dateTime': start_dt.isoformat(), 
-                'timeZone': 'America/Lima'
-            },
-            'end': {
-                'dateTime': end_dt.isoformat(), 
-                'timeZone': 'America/Lima'
-            },
+            'start': { 'dateTime': start_dt.isoformat(), 'timeZone': 'America/Lima' },
+            'end': { 'dateTime': end_dt.isoformat(), 'timeZone': 'America/Lima' },
             'recurrence': recurrence_rule,
-            'attendees': [{'email': patient_email}], # El paciente recibe la invitación
+            'attendees': [{'email': patient_email}],
             'reminders': {
                 'useDefault': False,
-                'overrides': [
-                    {'method': 'popup', 'minutes': 0},
-                ],
+                'overrides': [{'method': 'popup', 'minutes': 0}],
             },
         }
 
         response = service.events().insert(
-            calendarId='primary', # Tu calendario de secretario
+            calendarId='primary',
             body=event_body, 
-            sendUpdates='all'     # Importante: Notifica al paciente
+            sendUpdates='all'
         ).execute()
 
         return {
@@ -265,5 +261,6 @@ def create_recurring_event(event, context):
         }
 
     except Exception as e:
-        print(f"Error creando evento recurrente: {e}")
-        return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+        print(f"Error: {e}")
+        return {"statusCode": 400, "body": json.dumps({"error": str(e)})}
+
