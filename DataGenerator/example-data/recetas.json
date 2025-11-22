@@ -1,0 +1,276 @@
+[
+  {
+    "receta_id": "rec-0c816426",
+    "paciente": "Diego Morales",
+    "institucion": "Instituto Nacional de Salud",
+    "recetas": [
+      {
+        "producto": "agua Thermal",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      },
+      {
+        "producto": "Amoxicilina",
+        "dosis": "875 mg",
+        "frecuencia": "cada 12 horas",
+        "duracion": "7 días"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-f827488c",
+    "paciente": "Pedro Flores",
+    "institucion": "Hospital General de México",
+    "recetas": [
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia": "1 cápsula diaria",
+        "duracion": "2 meses"
+      },
+      {
+        "producto": "Omeprazol",
+        "dosis": "20 mg",
+        "frecuencia": "1 vez al día",
+        "duracion": "14 días"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-b462eac1",
+    "paciente": "Miguel Torres",
+    "institucion": "Clínica Las Américas",
+    "recetas": [
+      {
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      },
+      {
+        "producto": "agua Thermal",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      },
+      {
+        "producto": "Labello",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      },
+      {
+        "producto": "Omeprazol",
+        "dosis": "20 mg",
+        "frecuencia": "1 vez al día",
+        "duracion": "14 días"
+      },
+      {
+        "producto": "Amoxicilina",
+        "dosis": "875 mg",
+        "frecuencia": "cada 12 horas",
+        "duracion": "7 días"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-4230f0ff",
+    "paciente": "Magali Flores",
+    "institucion": "Instituto Nacional de Salud",
+    "recetas": [
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia": "1 cápsula diaria",
+        "duracion": "2 meses"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-6ac9c32b",
+    "paciente": "Camila Rojas",
+    "institucion": "Clínica Santa María",
+    "recetas": [
+      {
+        "producto": "Paracetamol",
+        "dosis": "500 mg",
+        "frecuencia": "cada 8 horas",
+        "duracion": "5 días"
+      },
+      {
+        "producto": "Loratadina",
+        "dosis": "10 mg",
+        "frecuencia": "cada 24 horas",
+        "duracion": "10 días"
+      },
+      {
+        "producto": "Lagrifilm",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      },
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia": "1 cápsula diaria",
+        "duracion": "2 meses"
+      },
+      {
+        "producto": "Amoxicilina",
+        "dosis": "875 mg",
+        "frecuencia": "cada 12 horas",
+        "duracion": "7 días"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-e6d2a17c",
+    "paciente": "Magali Flores",
+    "institucion": "Clínica Santa María",
+    "recetas": [
+      {
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-8447f42d",
+    "paciente": "María García",
+    "institucion": "Centro Médico ABC",
+    "recetas": [
+      {
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      },
+      {
+        "producto": "Labello",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      },
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia": "1 cápsula diaria",
+        "duracion": "2 meses"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-87c40ea4",
+    "paciente": "Magali Flores",
+    "institucion": "Hospital Universitario",
+    "recetas": [
+      {
+        "producto": "Ibuprofeno",
+        "dosis": "400 mg",
+        "frecuencia": "cada 12 horas",
+        "duracion": "3 días"
+      },
+      {
+        "producto": "Lagrifilm",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      },
+      {
+        "producto": "Amoxicilina",
+        "dosis": "875 mg",
+        "frecuencia": "cada 12 horas",
+        "duracion": "7 días"
+      },
+      {
+        "producto": "Loratadina",
+        "dosis": "10 mg",
+        "frecuencia": "cada 24 horas",
+        "duracion": "10 días"
+      },
+      {
+        "producto": "Paracetamol",
+        "dosis": "500 mg",
+        "frecuencia": "cada 8 horas",
+        "duracion": "5 días"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-e358fb88",
+    "paciente": "Andrés Silva",
+    "institucion": "Clínica Santa María",
+    "recetas": [
+      {
+        "producto": "Ibuprofeno",
+        "dosis": "400 mg",
+        "frecuencia": "cada 12 horas",
+        "duracion": "3 días"
+      },
+      {
+        "producto": "Labello",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      },
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia": "1 cápsula diaria",
+        "duracion": "2 meses"
+      },
+      {
+        "producto": "Loratadina",
+        "dosis": "10 mg",
+        "frecuencia": "cada 24 horas",
+        "duracion": "10 días"
+      },
+      {
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-397a3f21",
+    "paciente": "Laura Sánchez",
+    "institucion": "Clínica Las Américas",
+    "recetas": [
+      {
+        "producto": "Lagrifilm",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      },
+      {
+        "producto": "agua Thermal",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      },
+      {
+        "producto": "Omeprazol",
+        "dosis": "20 mg",
+        "frecuencia": "1 vez al día",
+        "duracion": "14 días"
+      },
+      {
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia": "cada 2-3 horas",
+        "duracion": null
+      },
+      {
+        "producto": "Ibuprofeno",
+        "dosis": "400 mg",
+        "frecuencia": "cada 12 horas",
+        "duracion": "3 días"
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Servicios",
+  "type": "object",
+  "x-dynamodb": {
+    "partition_key": "nombre"
+  },
+  "properties": {
+    "nombre": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "nombre",
+    "descripcion"
+  ],
+  "additionalProperties": false
+}
