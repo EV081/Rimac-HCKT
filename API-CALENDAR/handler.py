@@ -159,6 +159,7 @@ def create_cita(event, context):
         print(f"Error critico: {str(e)}")
         return {"statusCode": 500, "body": json.dumps({"error": str(e)}, default=str)}
 
+
 def create_recurring_event(event, context):
     """Endpoint para Recordatorios de Pastillas (Eventos Recurrentes)"""
     try:
@@ -182,14 +183,19 @@ def create_recurring_event(event, context):
         
         indicaciones_consumo = body.get('indicaciones_consumo', '')
 
+        # 2. Configuración de Tiempo (LIMPIEZA TOTAL DE SEGUNDOS)
         tz = pytz.timezone('America/Lima')
-        now = datetime.now(tz).replace(microsecond=0) 
+        # .replace(second=0, microsecond=0) es CRUCIAL para que Google acepte el RRULE
+        now = datetime.now(tz).replace(second=0, microsecond=0)
 
         start_dt = None
         end_dt = None
         recurrence_rule = []
         description = f"Recordatorio médico: {pill_name}.\n{indicaciones_consumo}"
 
+        # ==============================================================================
+        # ESTRATEGIA A: POR COMIDAS (Uso de COUNT para precisión de días)
+        # ==============================================================================
         if indicacion in ['Desayuno', 'Almuerzo', 'Cena']:
             meal_times = {
                 'Desayuno': {'hour': 8, 'minute': 0},
@@ -197,28 +203,37 @@ def create_recurring_event(event, context):
                 'Cena':     {'hour': 20, 'minute': 0}
             }
             target = meal_times[indicacion]
+            # Aquí ya forzamos second=0
             start_dt = now.replace(hour=target['hour'], minute=target['minute'], second=0)
             end_dt = start_dt + timedelta(minutes=30)
             
             description += f"\nTomar después del {indicacion}."
-
+            
             if medicion_duracion == 'Dias':
+                # Por precisión, si es días, usamos COUNT
                 recurrence_rule = [f'RRULE:FREQ=DAILY;COUNT={duracion}']
             else:
+                # Meses: Usamos UNTIL
                 treatment_end_date = now + relativedelta(months=+duracion)
                 until_utc = treatment_end_date.astimezone(pytz.utc)
                 until_str = until_utc.strftime('%Y%m%dT%H%M%SZ')
                 recurrence_rule = [f'RRULE:FREQ=DAILY;UNTIL={until_str}']
 
+        # ==============================================================================
+        # ESTRATEGIA B: POR FRECUENCIA (Uso de UNTIL para ventana de tiempo)
+        # ==============================================================================
         else:
+            # Calcular ventana de tiempo total
             if medicion_duracion == 'Meses':
                 treatment_end_date = now + relativedelta(months=+duracion)
             else: 
                 treatment_end_date = now + relativedelta(days=+duracion)
             
+            # Convertir UNTIL a UTC y asegurar formato limpio
             until_utc = treatment_end_date.astimezone(pytz.utc)
             until_str = until_utc.strftime('%Y%m%dT%H%M%SZ')
 
+            # Start también debe tener second=0 (ya lo hicimos arriba con 'now')
             start_dt = now
             end_dt = start_dt + timedelta(minutes=15)
             
@@ -227,7 +242,12 @@ def create_recurring_event(event, context):
             
             description += f"\nTomar cada {frecuencia} {medicion_frecuencia}."
             recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};UNTIL={until_str}']
-            
+
+        # Debug: Imprimir para verificar en logs si falla")
+        print(f"DEBUG RRULE: {recurrence_rule}")
+        print(f"DEBUG START: {start_dt.isoformat()}")
+
+        # 3. Llamada a Google Calendar
         creds = get_google_creds() 
         service = build('calendar', 'v3', credentials=creds)
 
@@ -263,4 +283,5 @@ def create_recurring_event(event, context):
     except Exception as e:
         print(f"Error: {e}")
         return {"statusCode": 400, "body": json.dumps({"error": str(e)})}
+
 
