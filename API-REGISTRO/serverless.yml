@@ -1,30 +1,31 @@
+org: faridaquino
 service: auth-service
-frameworkVersion: '3'
 
 provider:
   name: aws
   runtime: python3.9
   region: us-east-1
   environment:
-    USER_POOL_ID: "us-east-1_XXXXXX"     # <--- TU ID DE COGNITO
-    CLIENT_ID: "5m3kXXXXXXX"             # <--- TU APP CLIENT ID
+    USER_POOL_ID: "us-east-1_XXXXXX"     # <--- PON TU ID REAL AQUÍ
+    CLIENT_ID: "5m3kXXXXXXX"             # <--- PON TU ID REAL AQUÍ
     USERS_TABLE: users-table-${sls:stage}
   
-  # Aquí definimos qué permisos tiene la Lambda
+  # --- OPCIÓN A: Si tienes permisos de administrador ---
   iamRoleStatements:
-    # Permisos para Cognito
     - Effect: Allow
       Action:
         - cognito-idp:SignUp
         - cognito-idp:InitiateAuth
       Resource: "arn:aws:cognito-idp:us-east-1:*:userpool/*"
-    # Permisos para DynamoDB
     - Effect: Allow
       Action:
         - dynamodb:PutItem
         - dynamodb:GetItem
       Resource: 
         - Fn::GetAtt: [UsersTable, Arn]
+
+  # --- OPCIÓN B: Si usas AWS Academy/Workshop (Descomenta esto y comenta lo de arriba) ---
+  # role: arn:aws:iam::TU_ACCOUNT_ID:role/WSParticipantRole
 
 functions:
   login:
