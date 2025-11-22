@@ -3,11 +3,11 @@ service: calendar-api-system
 
 provider:
   name: aws
-  # IMPORTANTE: Esto debe coincidir con la versión de python que usas para el 'pip install'
+  
   runtime: python3.9 
   region: us-east-1
   environment:
-    # Pega aquí los valores REALES de tus archivos json
+    
     GOOGLE_CLIENT_ID: "TU_CLIENT_ID_AQUI.apps.googleusercontent.com"
     GOOGLE_CLIENT_SECRET: "TU_CLIENT_SECRET_AQUI"
     GOOGLE_REFRESH_TOKEN: "TU_REFRESH_TOKEN_LARGO_AQUI"
@@ -24,10 +24,10 @@ package:
 
 functions:
   scheduleAppointment:
-    handler: handler.create_medical_appointment
+    handler: handler.create_cita
     events:
       - http:
-          path: calendar/appointment
+          path: calendar/cita
           method: post
           cors: true
 
@@ -35,7 +35,7 @@ functions:
     handler: handler.create_recurring_event
     events:
       - http:
-          path: calendar/treatment
+          path: calendar/tratamiento
           method: post
           cors: true
 resources:

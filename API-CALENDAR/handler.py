@@ -1,20 +1,21 @@
 import json
+import boto3
+import uuid
 import os
+from datetime import datetime
+from zoneinfo import ZoneInfo
 from googleapiclient.discovery import build
 from utils import get_google_creds # Asumimos que tienes el utils.py del paso anterior
 
-def create_medical_appointment(event, context):
+def create_medical_appointment(cita):
     try:
-        # 1. Recibir datos
-        body = json.loads(event.get('body', '{}'))
+        doctor_email = cita.get('doctor_email')
+        patient_email = cita.get('patient_email')
+        patient_name = cita.get('patient_name', 'Paciente')
+        reason = cita.get('reason', 'Consulta General')
         
-        doctor_email = body.get('doctor_email')
-        patient_email = body.get('patient_email')
-        patient_name = body.get('patient_name', 'Paciente')
-        reason = body.get('reason', 'Consulta General')
-        
-        start_iso = body.get('start_time') # '2025-11-22T15:00:00'
-        end_iso = body.get('end_time')     # '2025-11-22T15:30:00'
+        start_iso = cita.get('start_iso') # '2025-11-22T15:00:00'
+        end_iso = cita.get('end_iso')     # '2025-11-22T15:30:00'
         
         # Validar datos mínimos
         if not doctor_email or not patient_email:
@@ -45,7 +46,7 @@ def create_medical_appointment(event, context):
             # Generar Link de Meet automáticamente
             'conferenceData': {
                 'createRequest': {
-                    'requestId': f"meet-{start_iso}", 
+                    'requestId': f"meet-{uuid.uuid4()}", 
                     'conferenceSolutionKey': {'type': "hangoutsMeet"}
                 }
             },
@@ -68,14 +69,11 @@ def create_medical_appointment(event, context):
         ).execute()
 
         return {
-            "statusCode": 200, 
-            "body": json.dumps({
-                "message": "Cita agendada exitosamente",
-                "meet_link": response.get('hangoutLink'), # Link de la video llamada
-                "event_link": response.get('htmlLink')
-            })
+        "meet_link": response.get('hangoutLink'),
+        "event_link": response.get('htmlLink'),
+        "event_id": response.get('id')
         }
-
+    
     except Exception as e:
         print(f"Error: {e}")
         return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
@@ -129,3 +127,69 @@ def create_recurring_event(event, context):
 
     except Exception as e:
         return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+
+def create_cita(event, context):
+    try:
+        print(event) # Log json en CloudWatch
+        body = json.loads(event['body'])
+
+        patient_email = body['patient_email']
+        patient_name = body.get('patient_name', 'Paciente')
+        doctor_email = body['doctor_email']
+        doctor_name= body.get('doctor_name', 'Doctor')
+        razon_cita = body['razon_cita']
+        hora_inicio_peru= body['hora_inicio_peru']
+        hora_fin_peru= body['hora_fin_peru']
+        nombre_tabla = os.environ["TABLE_NAME"]
+
+        fmt = "%Y-%m-%d %H:%M"
+        dt_inicio_pe = datetime.strptime(hora_inicio_peru, fmt).replace(tzinfo=ZoneInfo("America/Lima"))
+        dt_fin_pe    = datetime.strptime(hora_fin_peru, fmt).replace(tzinfo=ZoneInfo("America/Lima"))
+
+        dt_inicio_utc = dt_inicio_pe.astimezone(ZoneInfo("UTC"))
+        dt_fin_utc    = dt_fin_pe.astimezone(ZoneInfo("UTC"))
+        
+        uuidv4 = str(uuid.uuid4())
+        datos_para_calendar = {
+            'patient_email': patient_email,
+            'patient_name': patient_name,
+            'doctor_email': doctor_email,
+            'doctor_name': doctor_name,
+            'reason': razon_cita,
+            'start_iso': dt_inicio_pe.isoformat(), 
+            'end_iso': dt_fin_pe.isoformat()
+        }
+
+        #Creamos evento calendar
+        try:
+            response_calendar = create_medical_appointment(datos_para_calendar)
+        except Exception as e:
+            print(f"Error creando evento en Calendar: {e}")
+            return {"statusCode": 500, "body": json.dumps({"error": "Error creando evento en Calendar: " + str(e)})}
+        cita_db = {
+            'tenant_id': f"{patient_email}#{doctor_email}",
+            'uuid': uuidv4,
+            'patient_email': patient_email,
+            'patient_name': patient_name,
+            'doctor_email': doctor_email,
+            'doctor_name': doctor_name,
+            'hora_inicio_utc': dt_inicio_utc.isoformat(), # Guardamos UTC
+            'hora_fin_utc': dt_fin_utc.isoformat(),       # Guardamos UTC
+            'razon_cita': razon_cita,
+            'meet_link': response_calendar.get('meet_link'), # Guardamos el link generado
+            'event_id': response_calendar.get('event_id')
+        }
+
+        dynamodb = boto3.resource('dynamodb')
+        table = dynamodb.Table(nombre_tabla)
+        response = table.put_item(Item=cita_db)
+        # Salida (json)
+        print(cita_db) # Log json en CloudWatch
+        return {
+            'statusCode': 200,
+            'cita': cita_db,
+            'response': response
+        }
+    except Exception as e:
+        return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+    
