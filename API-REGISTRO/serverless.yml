@@ -42,7 +42,14 @@ functions:
           path: register
           method: post
           cors: true
-
+  confirm:
+    handler: handler.confirm_account
+    events:
+      - http:
+          path: confirm
+          method: post
+          cors: true
+          
 resources:
   Resources:
     UsersTable:

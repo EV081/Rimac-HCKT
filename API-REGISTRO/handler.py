@@ -81,6 +81,34 @@ def register(event, context):
         print(f"Error General Register: {e}")
         return build_response(500, {"error": "Error interno del servidor"})
 
+def confirm_account(event, context):
+    try:
+        body = json.loads(event['body'])
+        email = body.get('email')
+        code = body.get('code')
+
+        if not email or not code:
+            return build_response(400, {"error": "Email y código son requeridos"})
+
+        # Llamada a Cognito para verificar el código
+        try:
+            cognito.confirm_sign_up(
+                ClientId=CLIENT_ID,
+                Username=email,
+                ConfirmationCode=code
+            )
+        except ClientError as e:
+            # Errores comunes: Código expirado (CodeMismatchException, ExpiredCodeException)
+            return build_response(400, {"error": str(e)})
+
+        # Si todo sale bien:
+        return build_response(200, {
+            "message": "Cuenta confirmada exitosamente. Ya puedes iniciar sesión."
+        })
+
+    except Exception as e:
+        return build_response(500, {"error": str(e)})
+
 def login(event, context):
     try:
         body = json.loads(event['body'])
