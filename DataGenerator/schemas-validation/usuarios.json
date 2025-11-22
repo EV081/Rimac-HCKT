@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Usuarios",
+  "type": "object",
+  "x-dynamodb": {
+    "partition_key": "correo"
+  },
+  "properties": {
+    "correo": {
+      "type": "string",
+      "format": "email"
+    },
+    "contrasena": { "type": "string" },
+    "nombre": { "type": "string" },
+    "rol": {
+      "type": "string",
+      "enum": ["estudiante", "personal_administrativo", "autoridad"]
+    }
+  },
+  "required": ["correo", "nombre", "rol", "contrasena"],
+  "additionalProperties": false
+}

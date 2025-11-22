@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Tomar un descanso de 10 minutos",
+    "descripcion": "Se detectaron altos niveles de estrés o se bajó un 10% el nivel de sueño"
+  },
+  {
+    "nombre": "Realizar ejercicios de respiración",
+    "descripcion": "La frecuencia cardíaca supera los 100 bpm en reposo"
+  },
+  {
+    "nombre": "Hidratarse con un vaso de agua",
+    "descripcion": "Han pasado más de 2 horas sin registrar ingesta de líquidos"
+  },
+  {
+    "nombre": "Hacer estiramientos de 5 minutos",
+    "descripcion": "Se detectó más de 2 horas de inactividad continua"
+  },
+  {
+    "nombre": "Salir a caminar 15 minutos",
+    "descripcion": "Los niveles de vitamina D están bajos o no hay exposición solar"
+  },
+  {
+    "nombre": "Meditar durante 10 minutos",
+    "descripcion": "Los niveles de ansiedad superan el umbral normal"
+  },
+  {
+    "nombre": "Tomar un snack saludable",
+    "descripcion": "Los niveles de glucosa están por debajo del rango óptimo"
+  },
+  {
+    "nombre": "Descansar la vista (regla 20-20-20)",
+    "descripcion": "Más de 1 hora frente a pantallas sin descanso"
+  },
+  {
+    "nombre": "Escuchar música relajante",
+    "descripcion": "Se detectaron patrones de estrés o tensión muscular"
+  },
+  {
+    "nombre": "Realizar ejercicio cardiovascular",
+    "descripcion": "No se ha registrado actividad física en las últimas 24 horas"
+  },
+  {
+    "nombre": "Practicar yoga o pilates",
+    "descripcion": "Los niveles de flexibilidad o movilidad han disminuido"
+  },
+  {
+    "nombre": "Tomar una siesta de 20 minutos",
+    "descripcion": "El nivel de sueño acumulado es menor a 6 horas"
+  },
+  {
+    "nombre": "Socializar con compañeros",
+    "descripcion": "No se han registrado interacciones sociales en 48 horas"
+  },
+  {
+    "nombre": "Organizar el espacio de trabajo",
+    "descripcion": "Los niveles de productividad han bajado un 15%"
+  },
+  {
+    "nombre": "Leer un libro o artículo",
+    "descripcion": "Se detectó fatiga mental o necesidad de cambio de actividad"
+  },
+  {
+    "nombre": "Tomar el medicamento prescrito",
+    "descripcion": "Es hora de la dosis según la receta médica"
+  },
+  {
+    "nombre": "Realizar ejercicios de postura",
+    "descripcion": "Se detectó mala postura durante más de 30 minutos"
+  },
+  {
+    "nombre": "Consumir frutas o verduras",
+    "descripcion": "No se ha registrado consumo de nutrientes esenciales hoy"
+  },
+  {
+    "nombre": "Practicar mindfulness",
+    "descripcion": "Los niveles de concentración están por debajo del 70%"
+  },
+  {
+    "nombre": "Desconectar dispositivos electrónicos",
+    "descripcion": "Tiempo de pantalla supera las 8 horas continuas"
+  }
+]
