@@ -2,6 +2,7 @@ import os
 import json
 import base64
 import boto3
+import re
 
 # Intentar importar google-genai sin romper la importación del módulo
 try:
@@ -141,10 +142,31 @@ def lambda_handler(event, context):
             except Exception:
                 raw_text = str(response)
 
+        # --- NUEVA LÓGICA: limpiar fences de Markdown y extraer objeto JSON ---
+        def _extract_json_candidate(text):
+            if not text:
+                return None
+            t = text.strip()
+            # quitar fences de código (```json ... ``` o ``` ... ```)
+            t = re.sub(r"^```(?:json)?\s*", "", t, flags=re.IGNORECASE)
+            t = re.sub(r"\s*```$", "", t, flags=re.IGNORECASE)
+            # buscar primer '{' y última '}' y extraer
+            start = t.find('{')
+            end = t.rfind('}')
+            if start != -1 and end != -1 and end > start:
+                return t[start:end+1].strip()
+            return t
+
+        candidate = _extract_json_candidate(raw_text)
+
         try:
-            data = json.loads(raw_text)
+            data = json.loads(candidate)
         except Exception:
-            return _response(500, {"message": "Error al parsear respuesta de Gemini", "raw": raw_text})
+            return _response(500, {
+                "message": "Error al parsear respuesta de Gemini",
+                "raw": raw_text,
+                "candidate": candidate
+            })
 
         return _response(200, data)
 
