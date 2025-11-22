@@ -10,6 +10,6 @@ stage: ${opt:stage, 'dev'}
 
 services:
   api-recetas:
-    path: API-RECETAS/
+    path: API-RECETAS/serverless.yml
     params:
       stage: ${self:stage}
