@@ -15,6 +15,12 @@ provider:
     AWS_ACCOUNT_ID: ${env:AWS_ACCOUNT_ID}
     role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/LabRole
 
+  # Agregar configuración para tipos binarios (multipart) en API Gateway REST
+  apiGateway:
+    binaryMediaTypes:
+      - 'multipart/form-data'
+      - 'image/*'
+
 functions:
   analizarReceta:
     handler: handler.analizarReceta
@@ -23,6 +29,7 @@ functions:
           path: analizar
           method: post
           cors: true
+          payload: '1.0'
 
 package:
   individually: true
