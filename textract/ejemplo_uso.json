@@ -1,8 +1,0 @@
-{
-  "nombre_paciente": "Juan_Lopez",
-  "nombre_archivo": "imagen_2.png",
-  "imagen_base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
-}
-
-// Esto creará la imagen en S3 en la ruta:
-// textract-bucket-123456789/Juan_Lopez/imagen_2.png
