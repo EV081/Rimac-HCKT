@@ -42,6 +42,31 @@ def extraer_medicinas_del_texto(lineas):
     return medicinas
 
 
+def extraer_doctor_paciente(lineas):
+    """
+    Extrae información del doctor y paciente del texto.
+    """
+    doctor = ""
+    paciente = ""
+    
+    for i, linea in enumerate(lineas):
+        linea_lower = linea.lower()
+        
+        # Buscar doctor
+        if linea_lower.startswith('dr.') or linea_lower.startswith('dr '):
+            doctor = linea.strip()
+        
+        # Buscar paciente
+        if 'paciente' in linea_lower:
+            # El nombre del paciente suele estar en la misma línea o la siguiente
+            if ':' in linea:
+                paciente = linea.split(':', 1)[1].strip()
+            elif i + 1 < len(lineas):
+                paciente = lineas[i + 1].strip()
+    
+    return doctor, paciente
+
+
 def analizar_receta_medica(bucket, key):
     """
     Función reutilizable para analizar recetas médicas.
@@ -55,7 +80,7 @@ def analizar_receta_medica(bucket, key):
         dict: Información extraída de la receta
     """
     try:
-        # Obtener TODO el texto de la receta
+        # Obtener TODO el texto de la receta usando detect_document_text
         response_text = textract_client.detect_document_text(
             Document={"S3Object": {"Bucket": bucket, "Name": key}}
         )
@@ -66,51 +91,8 @@ def analizar_receta_medica(bucket, key):
             if block.get("BlockType") == "LINE":
                 lineas.append(block.get("Text", ""))
         
-        # Usar queries para información específica
-        queries = [
-            {"Text": "¿Quién es el doctor que recetó?", "Alias": "Doctor", "Pages": ["1"]},
-            {"Text": "¿Cuál es el nombre del doctor?", "Alias": "NombreDoctor", "Pages": ["1"]},
-            {"Text": "¿Quién es el paciente?", "Alias": "Paciente", "Pages": ["1"]},
-            {"Text": "¿Cuál es el nombre del paciente?", "Alias": "NombrePaciente", "Pages": ["1"]},
-        ]
-        
-        response_queries = textract_client.analyze_document(
-            Document={"S3Object": {"Bucket": bucket, "Name": key}},
-            FeatureTypes=["QUERIES"],
-            QueriesConfig={"Queries": queries}
-        )
-        
-        # Extraer respuestas de queries
-        blocks = {b["Id"]: b for b in response_queries.get("Blocks", [])}
-        resultados = {}
-        
-        for block in blocks.values():
-            if block.get("BlockType") == "QUERY":
-                alias = (block.get("Query", {}) or {}).get("Alias")
-                if not alias:
-                    continue
-                
-                related_ids = []
-                for rel in block.get("Relationships", []):
-                    if rel.get("Type") == "ANSWER":
-                        related_ids.extend(rel.get("Ids", []))
-                
-                best_text = ""
-                best_conf = -1.0
-                for rid in related_ids:
-                    ans = blocks.get(rid, {})
-                    if ans.get("BlockType") != "QUERY_RESULT":
-                        continue
-                    text = ans.get("Text") or ""
-                    conf = ans.get("Confidence", 0.0)
-                    if conf > best_conf and text.strip():
-                        best_text, best_conf = text.strip(), conf
-                
-                resultados[alias] = {"texto": best_text, "confianza": best_conf}
-        
-        # Consolidar información
-        doctor = resultados.get("Doctor", {}).get("texto") or resultados.get("NombreDoctor", {}).get("texto", "")
-        paciente = resultados.get("Paciente", {}).get("texto") or resultados.get("NombrePaciente", {}).get("texto", "")
+        # Extraer doctor y paciente del texto
+        doctor, paciente = extraer_doctor_paciente(lineas)
         
         # Extraer medicinas del texto completo
         medicinas = extraer_medicinas_del_texto(lineas)
@@ -119,6 +101,7 @@ def analizar_receta_medica(bucket, key):
         otras_indicaciones = ""
         for i, linea in enumerate(lineas):
             if "otras indicaciones" in linea.lower():
+                # Tomar las siguientes líneas como otras indicaciones
                 if i + 1 < len(lineas):
                     otras_indicaciones = lineas[i + 1]
                 break
@@ -133,7 +116,11 @@ def analizar_receta_medica(bucket, key):
         }
         
     except Exception as e:
-        return {"error": f"Error al analizar con Textract: {str(e)}"}
+        import traceback
+        return {
+            "error": f"Error al analizar con Textract: {str(e)}",
+            "traceback": traceback.format_exc()
+        }
 
 
 def lambda_handler(event, context):

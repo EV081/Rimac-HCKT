@@ -25,11 +25,16 @@ La función `uploadS3.lambda_handler` realiza:
 ### Request
 ```json
 {
-  "nombre_paciente": "JulianaHealth",
-  "nombre_archivo": "receta_09ago2023.png",
+  "nombre_paciente": "Elmer Villegas",
+  "nombre_archivo": "receta.png",
   "imagen_base64": "<TU_IMAGEN_EN_BASE64>"
 }
 ```
+
+**Nota:** 
+- El `nombre_archivo` es opcional. Si no se provee, se usa "receta" por defecto.
+- El sistema automáticamente agrega la fecha y hora al nombre: `receta_20231109_143025.png`
+- Los espacios en el nombre del paciente se convierten a guiones bajos: `Elmer Villegas` → `Elmer_Villegas`
 
 ### Response Exitoso
 ```json
@@ -37,12 +42,15 @@ La función `uploadS3.lambda_handler` realiza:
   "mensaje": "Receta subida y analizada exitosamente",
   "s3": {
     "bucket": "textract-bucket-123456789",
-    "key": "JulianaHealth/receta_09ago2023.png",
-    "tamaño_bytes": 45678
+    "key": "Elmer_Villegas/receta_20231109_143025.png",
+    "nombre_original_paciente": "Elmer Villegas",
+    "nombre_sanitizado_paciente": "Elmer_Villegas",
+    "tamaño_bytes": 145611,
+    "fecha_subida": "20231109_143025"
   },
   "analisis": {
     "doctor": "Dr. Nombre Apellido",
-    "paciente": "Juliana Health",
+    "paciente": "Elmer Villegas",
     "medicinas": [
       {
         "nombre": "Paracetamol 500 miligramos",
@@ -51,20 +59,24 @@ La función `uploadS3.lambda_handler` realiza:
         ]
       },
       {
-        "nombre": "Paracetamol 500 miligramos",
+        "nombre": "Ibuprofeno 400 mg",
         "indicaciones": [
-          "1 tableta. Vía oral. 2 veces al día. Por 30 días."
+          "1 cápsula cada 8 horas. Por 5 días."
         ]
       }
     ],
     "otras_indicaciones": "Tomar 2 tabletas solo en caso de mucho dolor.",
     "total_medicinas": 2,
-    "texto_completo": ["Dr. Nombre Apellido", "Paciente Juliana Health", "..."]
+    "texto_completo": ["Dr. Nombre Apellido", "Paciente Elmer Villegas", "..."]
   }
 }
 ```
 
-**Nota:** El sistema detecta automáticamente TODAS las medicinas e indicaciones presentes en la receta, sin importar cuántas sean.
+**Características:**
+- ✅ Detecta automáticamente TODAS las medicinas e indicaciones
+- ✅ Agrega fecha y hora automáticamente al nombre del archivo
+- ✅ Sanitiza nombres (espacios → guiones bajos)
+- ✅ Extrae doctor, paciente, medicinas e indicaciones
 
 ## Estructura en S3
 
@@ -175,7 +187,9 @@ Ver archivo completo: `ejemplo_nodejs.js`
 
 ## Resultado en S3
 
-La imagen se guardará en:
+La imagen se guardará con fecha automática:
 ```
-textract-bucket-123456789/Juan_Lopez/imagen_2.png
+textract-bucket-123456789/Elmer_Villegas/receta_20231109_143025.png
 ```
+
+Formato: `{bucket}/{nombre_paciente_sanitizado}/{nombre_archivo}_{YYYYMMDD_HHMMSS}.png`
