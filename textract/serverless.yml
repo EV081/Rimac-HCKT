@@ -5,9 +5,24 @@ provider:
   name: aws
   runtime: python3.12
   memorySize: 1024
-  timeout: 30
+  timeout: 29
+  region: us-east-1
   iam:
-    role: arn:aws:iam::468251834706:role/LabRole
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:PutObject
+            - s3:GetObject
+            - s3:ListBucket
+          Resource:
+            - arn:aws:s3:::textract-bucket-123456789
+            - arn:aws:s3:::textract-bucket-123456789/*
+        - Effect: Allow
+          Action:
+            - textract:DetectDocumentText
+            - textract:AnalyzeDocument
+          Resource: "*"
   environment:
     S3_BUCKET: textract-bucket-123456789
 functions:

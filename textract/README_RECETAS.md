@@ -85,6 +85,97 @@ cd textract
 serverless deploy
 ```
 
-## Endpoint
+Después del deploy, obtendrás una URL como:
+```
+POST - https://abc123xyz.execute-api.us-east-1.amazonaws.com/dev/uploadS3
+```
 
-POST: `https://tu-api-gateway.amazonaws.com/dev/uploadS3`
+## Ejemplos de Uso
+
+### 1. Python
+
+```python
+import base64
+import requests
+
+# Convertir imagen a base64
+with open('receta.png', 'rb') as f:
+    imagen_base64 = base64.b64encode(f.read()).decode('utf-8')
+
+# Hacer request
+response = requests.post(
+    'https://TU-API-ID.execute-api.us-east-1.amazonaws.com/dev/uploadS3',
+    json={
+        "nombre_paciente": "Juan_Lopez",
+        "nombre_archivo": "imagen_2.png",
+        "imagen_base64": imagen_base64
+    }
+)
+
+print(response.json())
+```
+
+Ver archivo completo: `test_upload.py`
+
+### 2. cURL
+
+```bash
+# Convertir imagen a base64
+IMAGEN_BASE64=$(base64 -w 0 receta.png)
+
+# Hacer request
+curl -X POST "https://TU-API-ID.execute-api.us-east-1.amazonaws.com/dev/uploadS3" \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"nombre_paciente\": \"Juan_Lopez\",
+    \"nombre_archivo\": \"imagen_2.png\",
+    \"imagen_base64\": \"$IMAGEN_BASE64\"
+  }"
+```
+
+Ver archivo completo: `ejemplo_curl.sh`
+
+### 3. JavaScript/Node.js
+
+```javascript
+const fs = require('fs');
+
+// Convertir imagen a base64
+const imagenBase64 = fs.readFileSync('receta.png').toString('base64');
+
+// Hacer request con fetch
+fetch('https://TU-API-ID.execute-api.us-east-1.amazonaws.com/dev/uploadS3', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    nombre_paciente: 'Juan_Lopez',
+    nombre_archivo: 'imagen_2.png',
+    imagen_base64: imagenBase64
+  })
+})
+.then(res => res.json())
+.then(data => console.log(data));
+```
+
+Ver archivo completo: `ejemplo_nodejs.js`
+
+### 4. Postman
+
+1. Método: `POST`
+2. URL: `https://TU-API-ID.execute-api.us-east-1.amazonaws.com/dev/uploadS3`
+3. Headers: `Content-Type: application/json`
+4. Body (raw JSON):
+```json
+{
+  "nombre_paciente": "Juan_Lopez",
+  "nombre_archivo": "imagen_2.png",
+  "imagen_base64": "<PEGA_AQUI_TU_BASE64>"
+}
+```
+
+## Resultado en S3
+
+La imagen se guardará en:
+```
+textract-bucket-123456789/Juan_Lopez/imagen_2.png
+```
