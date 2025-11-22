@@ -3,10 +3,17 @@ service: api-recetas
 provider:
   name: aws
   runtime: python3.12
+  memorySize: 512
+  timeout: 300
   region: us-east-1
-  stage: ${opt:stage, 'dev'}
+  stage: ${param:stage}
+
   environment:
     GEMINI_API_KEY: ${env:GEMINI_API_KEY}
+
+  iam:
+    AWS_ACCOUNT_ID: ${env:AWS_ACCOUNT_ID}
+    role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/LabRole
 
 functions:
   analizarReceta:
