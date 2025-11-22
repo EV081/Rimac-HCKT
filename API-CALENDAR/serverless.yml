@@ -6,6 +6,9 @@ provider:
   
   runtime: python3.9 
   region: us-east-1
+  iam:
+    role: arn:aws:iam::551642315125:role/LabRole
+    
   environment:
     
     GOOGLE_CLIENT_ID: "TU_CLIENT_ID_AQUI.apps.googleusercontent.com"
