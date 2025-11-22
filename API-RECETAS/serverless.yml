@@ -25,3 +25,5 @@ custom:
     layer: true
     slim: true
     dockerizePip: true
+    useDownloadCache: false
+    useStaticCache: false
