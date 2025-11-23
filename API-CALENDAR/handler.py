@@ -217,7 +217,7 @@ def create_recurring_event(event, context):
             start_dt = lima_now.replace(hour=target['hour'], minute=target['minute'], second=0)
             end_dt = start_dt + timedelta(minutes=30)
             
-            # Payload con TimeZone explícito (Requerido para reglas diarias locales)
+            # Payload con TimeZone explícito 'America/Lima'
             start_payload = {
                 'dateTime': start_dt.isoformat(),
                 'timeZone': 'America/Lima'
@@ -238,26 +238,30 @@ def create_recurring_event(event, context):
                 recurrence_rule = [f'RRULE:FREQ=DAILY;UNTIL={until_str}']
 
         # ==============================================================================
-        # ESTRATEGIA B: POR FRECUENCIA (Forzamos UTC y SIN campo TimeZone)
+        # ESTRATEGIA B: POR FRECUENCIA (Forzamos UTC y TimeZone UTC)
         # ==============================================================================
         else:
             # Convertimos "Ahora" a UTC puro
             start_utc = lima_now.astimezone(pytz.utc)
             end_utc = start_utc + timedelta(minutes=15)
             
-            # CORRECCIÓN CRÍTICA:
-            # 1. Usamos formato 'Z' explícito.
-            # 2. NO enviamos la clave 'timeZone' en el payload. Google infiere UTC por la 'Z'.
-            # Esto evita el conflicto "Invalid recurrence rule" en reglas horarias.
-            start_payload = {'dateTime': start_utc.strftime('%Y-%m-%dT%H:%M:%SZ')}
-            end_payload = {'dateTime': end_utc.strftime('%Y-%m-%dT%H:%M:%SZ')}
+            # CORRECCIÓN: Agregamos 'timeZone': 'UTC' explícitamente.
+            # Al usar UTC + COUNT (calculado abajo), Google acepta la regla sin problemas.
+            start_payload = {
+                'dateTime': start_utc.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                'timeZone': 'UTC' 
+            }
+            end_payload = {
+                'dateTime': end_utc.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                'timeZone': 'UTC'
+            }
             
             freq_map = {'Horas': 'HOURLY', 'Dias': 'DAILY'}
             rrule_freq = freq_map.get(medicion_frecuencia, 'DAILY')
             
             description += f"\nTomar cada {frecuencia} {medicion_frecuencia}."
             
-            # Usamos COUNT (Matemática) para evitar errores de fecha UNTIL
+            # CÁLCULO DE COUNT (Matemática para evitar error de UNTIL en Hourly)
             count = 1
             if medicion_duracion == 'Dias':
                 total_horas = duracion * 24
@@ -266,8 +270,7 @@ def create_recurring_event(event, context):
                 else: # Dias
                     count = math.ceil(duracion / frecuencia)
             else:
-                # Si es meses, asumimos 30 días promedio para calcular count aproximado
-                # o usamos UNTIL si prefieres, pero COUNT es más seguro para HOURLY
+                # Si es meses, estimamos tomas
                 dias_aprox = duracion * 30
                 total_horas = dias_aprox * 24
                 count = math.ceil(total_horas / frecuencia)
