@@ -239,7 +239,7 @@ def create_recurring_event(event, context):
         else:
 
             lima_now = datetime.now(lima_tz).replace(second=0, microsecond=0)
-            start_dt = lima_now.replace(hour=target['hour'], minute=target['minute'], second=0)
+            start_dt = lima_now
             end_dt = start_dt + timedelta(minutes=10)
             
             start_payload = {
