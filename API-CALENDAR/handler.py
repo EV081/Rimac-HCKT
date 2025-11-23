@@ -269,30 +269,39 @@ def create_recurring_event(event, context):
         # Construcción del Body (Siempre America/Lima)
         # start_dt.isoformat() generará algo como "2025-11-23T00:48:00-05:00"
         # Esto + timeZone='America/Lima' es la combinación nativa que Google prefiere.
-        event_body = {
-            'summary': f'💊 Tomar: {pill_name}',
-            'description': description,
+        fixed_event_body = {
+            'summary': '💊 Tomar: Paracetamol 1g',
+            'description': 'Recordatorio médico: Paracetamol 1g.\nSi persiste la fiebre.\nTomar cada 8 Horas.',
+            
+            # Hora de inicio fija (Ejemplo)
             'start': {
-                'dateTime': start_dt.isoformat(),
+                'dateTime': '2025-11-23T01:00:00-05:00', 
                 'timeZone': 'America/Lima'
             },
+            
+            # Fin del evento (15 minutos después)
             'end': {
-                'dateTime': end_dt.isoformat(),
-                'timeZone': 'America/Lima' 
+                'dateTime': '2025-11-23T01:15:00-05:00', 
+                'timeZone': 'America/Lima'
             },
-            'recurrence': recurrence_rule,
-            'attendees': [{'email': patient_email}],
+            
+            # Recurrencia Calculada: 
+            # 2 días * 24 horas = 48 horas totales.
+            # 48 / 8 horas frecuencia = 6 repeticiones exactas.
+            'recurrence': ['RRULE:FREQ=HOURLY;INTERVAL=8;COUNT=6'],
+            
+            'attendees': [{'email': 'farid.aquino@utec.edu.pe'}],
             'reminders': {
                 'useDefault': False,
                 'overrides': [{'method': 'popup', 'minutes': 0}],
             },
         }
 
-        print(f"DEBUG Event Body Completo: {event_body}")
+        print(f"DEBUG Event Body Completo: {fixed_event_body}")
 
         response = service.events().insert(
             calendarId='primary',
-            body=event_body, 
+            body=fixed_event_body, 
             sendUpdates='all'
         ).execute()
 
