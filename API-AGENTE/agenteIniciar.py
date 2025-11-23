@@ -67,6 +67,31 @@ def get_user_data(correo):
     response = table.get_item(Key={'correo': correo})
     return response.get('Item')
 
+def get_user_from_cognito(event):
+    """Obtiene datos del usuario directamente de Cognito usando el token"""
+    headers = {k.lower(): v for k, v in (event.get('headers') or {}).items()}
+    auth_header = headers.get('authorization')
+    
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return None
+        
+    token = auth_header.split(" ")[1]
+    cognito = boto3.client('cognito-idp')
+    
+    try:
+        response = cognito.get_user(AccessToken=token)
+        attributes = {attr['Name']: attr['Value'] for attr in response.get('UserAttributes', [])}
+        
+        return {
+            'correo': attributes.get('email'),
+            'nombre': attributes.get('name', 'Usuario'),
+            'rol': attributes.get('custom:rol', 'USER'),
+            'sexo': attributes.get('gender', '')
+        }
+    except Exception as e:
+        print(f"Error fetching from Cognito: {str(e)}")
+        return None
+
 def get_recent_memory(correo):
     table = dynamodb.Table(TABLE_MEMORIA)
     try:
@@ -137,8 +162,14 @@ def iniciarAgente(event, context):
         # 2. Obtener Datos del Usuario
         print(f"DEBUG: Querying user data for: {correo}")
         usuario = get_user_data(correo)
-        print(f"DEBUG: User data found: {usuario}")
+        print(f"DEBUG: User data found in DynamoDB: {usuario}")
         
+        # Si no está en DynamoDB, intentar obtener de Cognito directamente
+        if not usuario:
+            print("DEBUG: User not found in DynamoDB, trying Cognito...")
+            usuario = get_user_from_cognito(event)
+            print(f"DEBUG: User data found in Cognito: {usuario}")
+
         if not usuario:
             return build_response(404, {"error": f"Usuario no encontrado para el correo: {correo}"})
             
