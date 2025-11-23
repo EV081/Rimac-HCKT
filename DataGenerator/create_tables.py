@@ -19,6 +19,18 @@ SCHEMA_MAPPING = {
     "historial_medico.json": os.getenv('TABLE_HISTORIAL_MEDICO', 'HistorialMedico')
 }
 
+# Definición de tablas sin esquema (creación directa)
+TABLES_WITHOUT_SCHEMA = {
+    'MemoriaContextual': {
+        'partition_key': {'name': 'userId', 'type': 'S'},
+        'sort_key': {'name': 'timestamp', 'type': 'N'}
+    },
+    'HistorialMedico': {
+        'partition_key': {'name': 'userId', 'type': 'S'},
+        'sort_key': {'name': 'fecha', 'type': 'S'}
+    }
+}
+
 SCHEMAS_DIR = "schemas-validation"
 
 def get_dynamodb_type(json_type):
@@ -27,14 +39,62 @@ def get_dynamodb_type(json_type):
     elif json_type == "integer" or json_type == "number":
         return "N"
     elif json_type == "boolean":
-        return "BOOL" # Not valid for KeySchema usually
-    return "S" # Default
+        return "BOOL"
+    return "S"
+
+def create_table_from_definition(table_name, definition):
+    """Crear tabla desde definición directa (sin esquema JSON)"""
+    pk = definition['partition_key']
+    key_schema = [
+        {'AttributeName': pk['name'], 'KeyType': 'HASH'}
+    ]
+    attribute_definitions = [
+        {'AttributeName': pk['name'], 'AttributeType': pk['type']}
+    ]
+
+    # Agregar sort key si existe
+    if 'sort_key' in definition:
+        sk = definition['sort_key']
+        key_schema.append({'AttributeName': sk['name'], 'KeyType': 'RANGE'})
+        attribute_definitions.append({'AttributeName': sk['name'], 'AttributeType': sk['type']})
+
+    try:
+        print(f"📊 Verificando tabla: {table_name}")
+        dynamodb.describe_table(TableName=table_name)
+        print(f"   ✅ La tabla '{table_name}' ya existe")
+        return True
+    except ClientError as e:
+        if e.response['Error']['Code'] == 'ResourceNotFoundException':
+            print(f"   🔨 Creando tabla '{table_name}'...")
+            try:
+                dynamodb.create_table(
+                    TableName=table_name,
+                    KeySchema=key_schema,
+                    AttributeDefinitions=attribute_definitions,
+                    BillingMode='PAY_PER_REQUEST'
+                )
+                waiter = dynamodb.get_waiter('table_exists')
+                waiter.wait(TableName=table_name)
+                print(f"   ✅ Tabla '{table_name}' creada exitosamente")
+                return True
+            except Exception as create_error:
+                print(f"   ❌ Error al crear tabla: {str(create_error)}")
+                return False
+        else:
+            print(f"   ❌ Error al verificar tabla: {str(e)}")
+            return False
 
 def create_table_from_schema(filename, table_name):
+    """Crear tabla desde archivo de esquema JSON"""
     filepath = os.path.join(SCHEMAS_DIR, filename)
     if not os.path.exists(filepath):
-        print(f"❌ Esquema no encontrado: {filepath}")
-        return False
+        print(f"⚠️  Esquema no encontrado: {filepath}, intentando creación directa...")
+        # Si no existe el esquema, intentar con definición directa
+        if table_name in TABLES_WITHOUT_SCHEMA:
+            return create_table_from_definition(table_name, TABLES_WITHOUT_SCHEMA[table_name])
+        else:
+            print(f"❌ No hay definición alternativa para {table_name}")
+            return False
 
     with open(filepath, 'r') as f:
         schema = json.load(f)
@@ -44,7 +104,6 @@ def create_table_from_schema(filename, table_name):
         return False
 
     pk_name = schema["x-dynamodb"]["partition_key"]
-    # Buscar el tipo del PK en properties
     pk_type = "S"
     if "properties" in schema and pk_name in schema["properties"]:
         pk_type = get_dynamodb_type(schema["properties"][pk_name].get("type", "string"))
@@ -56,7 +115,7 @@ def create_table_from_schema(filename, table_name):
         {'AttributeName': pk_name, 'AttributeType': pk_type}
     ]
 
-    # Verificar si existe sort key (no definido en los esquemas actuales pero por si acaso)
+    # Verificar si existe sort key
     if "sort_key" in schema["x-dynamodb"]:
         sk_name = schema["x-dynamodb"]["sort_key"]
         sk_type = "S"
@@ -94,16 +153,19 @@ def create_table_from_schema(filename, table_name):
 
 def main():
     print("🏗️  Creando tablas base desde esquemas...")
+    print()
     success = True
+    
     for schema_file, table_name in SCHEMA_MAPPING.items():
         if not create_table_from_schema(schema_file, table_name):
             success = False
+        print()
     
     if success:
-        print("✅ Todas las tablas verificadas/creadas")
+        print("✅ Todas las tablas verificadas/creadas correctamente")
         exit(0)
     else:
-        print("❌ Hubo errores al crear tablas")
+        print("⚠️  Algunas tablas no pudieron ser creadas")
         exit(1)
 
 if __name__ == "__main__":
