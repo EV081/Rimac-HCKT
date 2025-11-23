@@ -112,7 +112,10 @@ def iniciarAgente(event, context):
 
     try:
         # 1. Autenticación
+        print(f"DEBUG: Headers received: {event.get('headers')}")
         correo = get_user_email(event)
+        print(f"DEBUG: Extracted email: {correo}")
+        
         if not correo:
             return build_response(401, {"error": "No autorizado. Token faltante o inválido."})
 
@@ -132,9 +135,12 @@ def iniciarAgente(event, context):
             })
 
         # 2. Obtener Datos del Usuario
+        print(f"DEBUG: Querying user data for: {correo}")
         usuario = get_user_data(correo)
+        print(f"DEBUG: User data found: {usuario}")
+        
         if not usuario:
-            return build_response(404, {"error": "Usuario no encontrado"})
+            return build_response(404, {"error": f"Usuario no encontrado para el correo: {correo}"})
             
         nombre_usuario = usuario.get('nombre', 'Usuario')
         
