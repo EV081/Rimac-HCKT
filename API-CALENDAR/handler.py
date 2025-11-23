@@ -194,19 +194,22 @@ def create_recurring_event(event, context):
         indicaciones_consumo = body.get('indicaciones_consumo', '')
 
         # 2. CONFIGURACIÓN DE TIEMPO BASE (Lima)
+        # Usamos siempre Lima para evitar conflictos de validación geográfica en Google
         lima_tz = pytz.timezone('America/Lima')
         lima_now = datetime.now(lima_tz).replace(second=0, microsecond=0)
 
-        # Variables para armar el payload
-        start_payload = {}
-        end_payload = {}
+        # Variables unificadas
+        start_dt = None
+        end_dt = None
         recurrence_rule = []
         
         description = f"Recordatorio médico: {pill_name}.\n{indicaciones_consumo}"
 
         # ==============================================================================
-        # ESTRATEGIA A: POR COMIDAS (Usamos Hora Local y TimeZone explícito)
+        # LÓGICA UNIFICADA (Siempre America/Lima)
         # ==============================================================================
+        
+        # CASO A: POR COMIDAS (Horas Fijas)
         if indicacion in ['Desayuno', 'Almuerzo', 'Cena']:
             meal_times = {
                 'Desayuno': {'hour': 8, 'minute': 0},
@@ -217,51 +220,30 @@ def create_recurring_event(event, context):
             start_dt = lima_now.replace(hour=target['hour'], minute=target['minute'], second=0)
             end_dt = start_dt + timedelta(minutes=30)
             
-            # Payload con TimeZone explícito 'America/Lima'
-            start_payload = {
-                'dateTime': start_dt.isoformat(),
-                'timeZone': 'America/Lima'
-            }
-            end_payload = {
-                'dateTime': end_dt.isoformat(),
-                'timeZone': 'America/Lima'
-            }
-            
             description += f"\nTomar después del {indicacion}."
             
+            # Recurrencia Diaria
             if medicion_duracion == 'Dias':
                 recurrence_rule = [f'RRULE:FREQ=DAILY;COUNT={duracion}']
             else:
+                # Si es meses, UNTIL funciona bien con DAILY (menos estricto que HOURLY)
                 treatment_end_date = lima_now + relativedelta(months=+duracion)
                 until_utc = treatment_end_date.astimezone(pytz.utc)
                 until_str = until_utc.strftime('%Y%m%dT%H%M%SZ')
                 recurrence_rule = [f'RRULE:FREQ=DAILY;UNTIL={until_str}']
 
-        # ==============================================================================
-        # ESTRATEGIA B: POR FRECUENCIA (Forzamos UTC y TimeZone UTC)
-        # ==============================================================================
+        # CASO B: POR FRECUENCIA (Calculado desde Ahora)
         else:
-            # Convertimos "Ahora" a UTC puro
-            start_utc = lima_now.astimezone(pytz.utc)
-            end_utc = start_utc + timedelta(minutes=15)
-            
-            # CORRECCIÓN: Agregamos 'timeZone': 'UTC' explícitamente.
-            # Al usar UTC + COUNT (calculado abajo), Google acepta la regla sin problemas.
-            start_payload = {
-                'dateTime': start_utc.strftime('%Y-%m-%dT%H:%M:%SZ'),
-                'timeZone': 'UTC' 
-            }
-            end_payload = {
-                'dateTime': end_utc.strftime('%Y-%m-%dT%H:%M:%SZ'),
-                'timeZone': 'UTC'
-            }
+            start_dt = lima_now
+            end_dt = start_dt + timedelta(minutes=15)
             
             freq_map = {'Horas': 'HOURLY', 'Dias': 'DAILY'}
             rrule_freq = freq_map.get(medicion_frecuencia, 'DAILY')
             
             description += f"\nTomar cada {frecuencia} {medicion_frecuencia}."
             
-            # CÁLCULO DE COUNT (Matemática para evitar error de UNTIL en Hourly)
+            # CÁLCULO DE COUNT (La clave del éxito)
+            # Usamos COUNT siempre para evitar conflictos de UTC/Lima con UNTIL
             count = 1
             if medicion_duracion == 'Dias':
                 total_horas = duracion * 24
@@ -269,8 +251,8 @@ def create_recurring_event(event, context):
                     count = math.ceil(total_horas / frecuencia)
                 else: # Dias
                     count = math.ceil(duracion / frecuencia)
-            else:
-                # Si es meses, estimamos tomas
+            else: # Meses
+                # Estimación segura
                 dias_aprox = duracion * 30
                 total_horas = dias_aprox * 24
                 count = math.ceil(total_horas / frecuencia)
@@ -279,17 +261,25 @@ def create_recurring_event(event, context):
             recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};COUNT={int(count)}']
 
         print(f"DEBUG RRULE: {recurrence_rule}")
-        print(f"DEBUG START PAYLOAD: {start_payload}")
 
         # 3. LLAMADA A GOOGLE CALENDAR
         creds = get_google_creds() 
         service = build('calendar', 'v3', credentials=creds)
 
+        # Construcción del Body (Siempre America/Lima)
+        # start_dt.isoformat() generará algo como "2025-11-23T00:48:00-05:00"
+        # Esto + timeZone='America/Lima' es la combinación nativa que Google prefiere.
         event_body = {
             'summary': f'💊 Tomar: {pill_name}',
             'description': description,
-            'start': start_payload,
-            'end': end_payload,
+            'start': {
+                'dateTime': start_dt.isoformat(),
+                'timeZone': 'America/Lima'
+            },
+            'end': {
+                'dateTime': end_dt.isoformat(),
+                'timeZone': 'America/Lima' 
+            },
             'recurrence': recurrence_rule,
             'attendees': [{'email': patient_email}],
             'reminders': {
