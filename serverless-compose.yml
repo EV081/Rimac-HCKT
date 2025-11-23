@@ -13,3 +13,8 @@ services:
     path: API-RECETAS/
     params:
       stage: ${self:stage}
+
+  api-agente:
+    path: API-AGENTE/
+    params:
+      stage: ${self:stage}
