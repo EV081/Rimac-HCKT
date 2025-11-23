@@ -27,6 +27,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:Query
         - dynamodb:Scan
+        - dynamodb:DescribeTable
       Resource:
         - "arn:aws:dynamodb:us-east-1:*:table/${env:TABLE_USUARIOS}"
         - "arn:aws:dynamodb:us-east-1:*:table/${env:TABLE_SERVICIOS}"

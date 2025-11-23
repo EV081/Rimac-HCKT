@@ -48,7 +48,8 @@ class AuthService:
                 print("❌ No se pudo decodificar el token")
                 return None
             
-            email = payload.get('email') or payload.get('cognito:username')
+            # Extraer email y limpiar espacios/caracteres extra
+            email = (payload.get('email') or payload.get('cognito:username') or '').strip()
             if not email:
                 print("❌ No se encontró email en el token")
                 return None
