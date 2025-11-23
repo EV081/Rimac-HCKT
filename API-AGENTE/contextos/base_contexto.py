@@ -3,7 +3,8 @@ Clase base abstracta para todos los contextos del agente
 """
 from abc import ABC, abstractmethod
 from typing import Dict, List, Optional
-from dao.usuarios_dao import DAOFactory
+from dao.base import DAOFactory
+
 
 class BaseContexto(ABC):
     """Clase base para procesadores de contexto"""
@@ -71,7 +72,7 @@ class BaseContexto(ABC):
         # Construir memoria contextual
         contexto_memoria = self._formatear_memoria(memoria)
         
-        # Construir datos específicos del contexto
+        # Construir datos específicos del contexto  
         contexto_datos = self._formatear_datos_contexto(datos_contexto)
         
         # Ensamblar prompt completo
@@ -164,16 +165,28 @@ Rol: {usuario.get('role', 'USER')}
         """
         return self.usuarios_dao.existe_usuario(correo)
 
+
 # ===== FACTORY PARA CONTEXTOS =====
 class ContextoFactory:
     """Factory para crear instancias de contextos"""
     
-    _contextos = {
-        'General': GeneralContexto,
-        'Servicios': ServiciosContexto,
-        'Estadisticas': EstadisticasContexto,
-        'Recetas': RecetasContexto
-    }
+    _contextos = {}  # Will be populated lazily
+    
+    @classmethod
+    def _lazy_load_contextos(cls):
+        """Lazy load contexto classes to avoid circular imports"""
+        if not cls._contextos:
+            from .general_contexto import GeneralContexto
+            from .servicios_contexto import ServiciosContexto
+            from .estadisticas_contexto import EstadisticasContexto
+            from .recetas_contexto import RecetasContexto
+            
+            cls._contextos = {
+                'General': GeneralContexto,
+                'Servicios': ServiciosContexto,
+                'Estadisticas': EstadisticasContexto,
+                'Recetas': RecetasContexto
+            }
     
     @classmethod
     def get_contexto(cls, nombre_contexto: str) -> BaseContexto:
@@ -186,9 +199,11 @@ class ContextoFactory:
         Returns:
             Instancia del contexto
         
-        Raises:
+       Raises:
             ValueError: Si el contexto no existe
         """
+        cls._lazy_load_contextos()
+        
         if nombre_contexto not in cls._contextos:
             raise ValueError(
                 f"Contexto '{nombre_contexto}' no existe. "
@@ -200,4 +215,5 @@ class ContextoFactory:
     @classmethod
     def get_contextos_disponibles(cls) -> List[str]:
         """Retorna lista de contextos disponibles"""
+        cls._lazy_load_contextos()
         return list(cls._contextos.keys())

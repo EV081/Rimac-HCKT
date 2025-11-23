@@ -1,5 +1,5 @@
 """
-=== prompts/__init__.py ===
+Prompts package - Prompt templates for different contexts
 """
 from .base_prompt import BasePrompt
 from .general_prompt import GeneralPrompt

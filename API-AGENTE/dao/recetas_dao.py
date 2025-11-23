@@ -12,7 +12,7 @@ class RecetasDAO(BaseDAO):
     """DAO para la tabla de recetas"""
     
     def __init__(self):
-        super().__init__(Config.TABLA_RECETAS)
+        super().__init__(Config.TABLE_RECETAS)
     
     def get_recetas_usuario(self, correo: str) -> List[Dict]:
         """Obtiene todas las recetas de un usuario"""

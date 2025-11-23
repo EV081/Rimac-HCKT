@@ -12,7 +12,7 @@ class ServiciosDAO(BaseDAO):
     """DAO para la tabla de servicios"""
     
     def __init__(self):
-        super().__init__(Config.TABLA_SERVICIOS)
+        super().__init__(Config.TABLE_SERVICIOS)
     
     def get_todos_servicios(self, limit: Optional[int] = None) -> List[Dict]:
         """Obtiene todos los servicios disponibles"""

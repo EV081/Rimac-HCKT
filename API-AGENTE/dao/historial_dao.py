@@ -12,7 +12,7 @@ class HistorialDAO(BaseDAO):
     """DAO para la tabla de historial médico"""
     
     def __init__(self):
-        super().__init__(Config.TABLA_HISTORIAL)
+        super().__init__(Config.TABLE_HISTORIAL)
     
     def get_historial_reciente(self, correo: str, dias: int = 30) -> List[Dict]:
         """

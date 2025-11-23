@@ -12,7 +12,7 @@ class MemoriaDAO(BaseDAO):
     """DAO para la tabla de memoria contextual"""
     
     def __init__(self):
-        super().__init__(Config.TABLA_MEMORIA)
+        super().__init__(Config.TABLE_MEMORIA)
     
     def get_memoria_reciente(self, correo: str, limite: Optional[int] = None) -> List[Dict]:
         """

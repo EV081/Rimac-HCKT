@@ -12,7 +12,7 @@ class UsuariosDAO(BaseDAO):
     """DAO para la tabla de usuarios"""
     
     def __init__(self):
-        super().__init__(Config.TABLA_USUARIOS)
+        super().__init__(Config.TABLE_USUARIOS)
     
     def get_usuario(self, correo: str) -> Optional[Dict]:
         """Obtiene un usuario por correo"""
