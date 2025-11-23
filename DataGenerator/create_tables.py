@@ -103,10 +103,15 @@ def create_table_from_schema(filename, table_name):
         print(f"❌ Definición x-dynamodb faltante en {filename}")
         return False
 
-    pk_name = schema["x-dynamodb"]["partition_key"]
+    x_dynamodb = schema["x-dynamodb"]
+    pk_name = x_dynamodb["partition_key"]
     pk_type = "S"
     if "properties" in schema and pk_name in schema["properties"]:
-        pk_type = get_dynamodb_type(schema["properties"][pk_name].get("type", "string"))
+        prop_type = schema["properties"][pk_name].get("type", "string")
+        # Manejar tipos que pueden ser arrays (ej: ["string", "null"])
+        if isinstance(prop_type, list):
+            prop_type = next((t for t in prop_type if t != "null"), "string")
+        pk_type = get_dynamodb_type(prop_type)
 
     key_schema = [
         {'AttributeName': pk_name, 'KeyType': 'HASH'}
@@ -116,11 +121,15 @@ def create_table_from_schema(filename, table_name):
     ]
 
     # Verificar si existe sort key
-    if "sort_key" in schema["x-dynamodb"]:
-        sk_name = schema["x-dynamodb"]["sort_key"]
+    if "sort_key" in x_dynamodb:
+        sk_name = x_dynamodb["sort_key"]
         sk_type = "S"
         if "properties" in schema and sk_name in schema["properties"]:
-            sk_type = get_dynamodb_type(schema["properties"][sk_name].get("type", "string"))
+            prop_type = schema["properties"][sk_name].get("type", "string")
+            # Manejar tipos que pueden ser arrays (ej: ["string", "null"])
+            if isinstance(prop_type, list):
+                prop_type = next((t for t in prop_type if t != "null"), "string")
+            sk_type = get_dynamodb_type(prop_type)
         
         key_schema.append({'AttributeName': sk_name, 'KeyType': 'RANGE'})
         attribute_definitions.append({'AttributeName': sk_name, 'AttributeType': sk_type})
