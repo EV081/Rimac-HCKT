@@ -203,8 +203,8 @@ log "🪣 CONFIGURACIÓN DEL BUCKET S3"
 log "═══════════════════════════════════════════════════════"
 
 # Verificar script setup_s3.py
-if [ ! -f "Infra/setup_s3.py" ]; then
-    log_error "No se encontró Infra/setup_s3.py"
+if [ ! -f "DataGenerator/setup_s3.py" ]; then
+    log_error "No se encontró DataGenerator/setup_s3.py"
     exit 1
 fi
 
