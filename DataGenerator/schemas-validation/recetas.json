@@ -3,11 +3,11 @@
   "title": "Recetas",
   "type": "object",
   "x-dynamodb": {
-    "partition_key": "email",
+    "partition_key": "correo",
     "sort_key": "receta_id"
   },
   "properties": {
-    "email": {
+    "correo": {
       "type": "string",
       "format": "email"
     },
