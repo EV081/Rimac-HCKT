@@ -295,7 +295,7 @@ def create_recurring_event(event, context):
         }
 
 
-        print("DEBUG SENDING:", json.dumps(event, indent=4))
+        print("DEBUG SENDING:", json.dumps(fixed_event_body, indent=4))
 
         response = service.events().insert(
             calendarId='primary',
