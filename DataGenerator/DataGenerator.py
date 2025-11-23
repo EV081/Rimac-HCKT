@@ -102,11 +102,11 @@ def generar_usuarios(cantidad=None):
     objetivo = max(1, cantidad or USUARIOS_TOTAL)
     
     autoridad = {
-        "correo": AUTHORITY_EMAIL,
-        "contrasena": AUTHORITY_PASSWORD,
+        "email": AUTHORITY_EMAIL,
+        "password": AUTHORITY_PASSWORD,
         "nombre": AUTHORITY_NAME,
         "sexo": random.choice(["M", "F"]),
-        "rol": "TUTOR"
+        "role": "TUTOR"
     }
     usuarios.append(autoridad)
     correos_usados = {AUTHORITY_EMAIL}
@@ -117,15 +117,15 @@ def generar_usuarios(cantidad=None):
         if correo in correos_usados:
             continue
         usuarios.append({
-            "correo": correo,
-            "contrasena": f"hash_{uuid.uuid4().hex[:16]}",
+            "email": correo,
+            "password": f"hash_{uuid.uuid4().hex[:16]}",
             "nombre": nombre,
             "sexo": random.choice(["M", "F"]),
-            "rol": random.choice(roles_no_autoridad)
+            "role": random.choice(roles_no_autoridad)
         })
         correos_usados.add(correo)
     
-    if not any(u["rol"] == "USER" for u in usuarios):
+    if not any(u["role"] == "USER" for u in usuarios):
         while True:
             nombre = random.choice(NOMBRES)
             correo = generar_correo(nombre)
@@ -136,7 +136,7 @@ def generar_usuarios(cantidad=None):
                 "contrasena": f"hash_{uuid.uuid4().hex[:16]}",
                 "nombre": nombre,
                 "sexo": random.choice(["M", "F"]),
-                "rol": "USER"
+                "role": "USER"
             })
             correos_usados.add(correo)
             break
@@ -173,7 +173,7 @@ def generar_recetas(usuarios):
                     medicamentos_formateados.append(medicamento)
                 
                 receta = {
-                    "correo": usuario["correo"],
+                    "correo": usuario["email"],
                     "receta_id": f"rec-{str(uuid.uuid4())[:8]}",
                     "paciente": usuario["nombre"],
                     "institucion": institucion,
@@ -229,7 +229,7 @@ def generar_memoria_contextual(usuarios):
                 datos_extraidos["horas_promedio"] = random.randint(4, 9)
             
             memoria = {
-                "correo": usuario["correo"],
+                "correo": usuario["email"],
                 "context_id": f"ctx-{uuid.uuid4().hex[:8]}",
                 "fecha": fecha,
                 "resumen_conversacion": f"El usuario consultó sobre {tema} y se le recomendó mejorar sus hábitos.",
@@ -254,7 +254,7 @@ def generar_historial_medico(usuarios):
             ritmo = random.randint(60, 100)
             
             registro = {
-                "correo": usuario["correo"],
+                "email": usuario["correo"],
                 "fecha": fecha,
                 "sensores": {
                     "pasos": pasos,
@@ -277,7 +277,7 @@ def generar_historial_medico(usuarios):
 def generar_usuarios_dependientes(usuarios):
     """Genera usuarios dependientes vinculados a tutores"""
     dependientes = []
-    tutores = [u for u in usuarios if u["rol"] == "TUTOR"]
+    tutores = [u for u in usuarios if u["role"] == "TUTOR"]
     
     if not tutores:
         print("⚠️  No hay tutores disponibles para generar dependientes")
@@ -301,7 +301,7 @@ def generar_usuarios_dependientes(usuarios):
                 cumpleanos = (datetime.now() - timedelta(days=edad_anos * 365 + random.randint(0, 364))).strftime("%Y-%m-%d")
             
             dependiente = {
-                "correo_tutor": tutor["correo"],
+                "correo_tutor": tutor["email"],
                 "dependiente_id": f"dep-{uuid.uuid4().hex[:8]}",
                 "nombre": random.choice(NOMBRES_DEPENDIENTES),
                 "cumpleanos": cumpleanos,
