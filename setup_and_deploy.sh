@@ -51,6 +51,13 @@ setup_database() {
         log_error "requirements.txt no encontrado en DataGenerator"
         cd ..
         exit 1
+    fi
+    
+    # Verificar si las tablas tienen datos
+    log "🔍 Verificando estado de las tablas..."
+    HAS_DATA=$(python3 -c "
+import boto3
+import os
 from dotenv import load_dotenv
 load_dotenv()
 dynamodb = boto3.resource('dynamodb', region_name=os.getenv('AWS_REGION', 'us-east-1'))
@@ -86,7 +93,7 @@ print('YES' if has_data else 'NO')
         fi
     fi
     
-    # 3. Ejecutar poblador si es necesario
+    # Ejecutar poblador si es necesario
     if [ "$RUN_POPULATOR" = true ]; then
         log "🚀 Ejecutando DataPoblator..."
         python3 DataPoblator.py
