@@ -2,6 +2,7 @@ import json
 import boto3
 import os
 import uuid
+import base64
 from datetime import datetime
 from botocore.exceptions import ClientError
 
@@ -23,6 +24,35 @@ def build_response(status_code, body):
         "body": json.dumps(body, ensure_ascii=False)
     }
 
+def decode_jwt_payload(token):
+    """Decodifica el payload de un JWT sin verificar firma"""
+    try:
+        parts = token.split('.')
+        if len(parts) != 3:
+            return None
+        payload = parts[1]
+        # Ajustar padding base64
+        padding = '=' * (4 - len(payload) % 4)
+        decoded = base64.urlsafe_b64decode(payload + padding).decode('utf-8')
+        return json.loads(decoded)
+    except Exception:
+        return None
+
+def get_user_email(event):
+    """Extrae el email del usuario desde el token en headers"""
+    headers = {k.lower(): v for k, v in (event.get('headers') or {}).items()}
+    auth_header = headers.get('authorization')
+    
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return None
+    
+    token = auth_header.split(" ")[1]
+    payload = decode_jwt_payload(token)
+    
+    if payload:
+        return payload.get('email') or payload.get('username')
+    return None
+
 def validar_fecha(fecha_str):
     """Valida formato de fecha YYYY-MM-DD"""
     try:
@@ -35,8 +65,8 @@ def agregar_dependiente(event, context):
     """
     Lambda para agregar dependientes a un tutor
     Método: POST
+    Headers: Authorization: Bearer <token>
     Body: {
-        "correo_tutor": "tutor@example.com",
         "nombre": "Juan Pérez",
         "cumpleanos": "2015-05-20",
         "parentesco": "HIJO",
@@ -44,10 +74,17 @@ def agregar_dependiente(event, context):
     }
     """
     try:
+        # Obtener correo del tutor desde el token
+        correo_tutor = get_user_email(event)
+        
+        if not correo_tutor:
+            return build_response(401, {
+                "error": "No autorizado. Token faltante o inválido."
+            })
+        
         # Parsear body
         body = json.loads(event.get('body', '{}'))
         
-        correo_tutor = body.get('correo_tutor')
         nombre = body.get('nombre')
         cumpleanos = body.get('cumpleanos')
         parentesco = body.get('parentesco')
@@ -55,7 +92,6 @@ def agregar_dependiente(event, context):
         
         # Validaciones de campos requeridos
         campos_requeridos = {
-            'correo_tutor': correo_tutor,
             'nombre': nombre,
             'cumpleanos': cumpleanos,
             'parentesco': parentesco,
