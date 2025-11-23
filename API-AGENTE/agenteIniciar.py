@@ -45,30 +45,6 @@ def decode_jwt_payload(token):
         payload = parts[1]
         # Ajustar padding base64
         padding = '=' * (4 - len(payload) % 4)
-        decoded = base64.urlsafe_b64decode(payload + padding).decode('utf-8')
-        return json.loads(decoded)
-    except Exception:
-        return None
-
-def get_user_email(event):
-    """Extrae el email del usuario desde el token en headers"""
-    headers = {k.lower(): v for k, v in (event.get('headers') or {}).items()}
-    auth_header = headers.get('authorization')
-    
-    if not auth_header or not auth_header.startswith("Bearer "):
-        return None
-    
-    token = auth_header.split(" ")[1]
-    payload = decode_jwt_payload(token)
-    
-    if payload:
-        return payload.get('email') or payload.get('username')
-    return None
-
-def get_user_data(correo):
-    table = dynamodb.Table(TABLE_USUARIOS)
-    response = table.get_item(Key={'correo': correo})
-    return response.get('Item')
 
 def get_recent_memory(correo):
     table = dynamodb.Table(TABLE_MEMORIA)

@@ -32,19 +32,9 @@ functions:
   
   actualizarMemoria:
     handler: actualizarMemoria.actualizarMemoria
-    events:
-      - http:
-          path: agente/memoria
-          method: post
-          cors: true
 
   actualizarHistorial:
     handler: actualizarHistorial.actualizarHistorial
-    events:
-      - http:
-          path: agente/historial
-          method: post
-          cors: true
 
 package:
   patterns:
