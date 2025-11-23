@@ -161,7 +161,6 @@ def create_cita(event, context):
         return {"statusCode": 500, "body": json.dumps({"error": str(e)}, default=str)}
 
 def create_recurring_event(event, context):
-    """Endpoint para Recordatorios de Pastillas (Eventos Recurrentes)"""
     try:
         # 1. OBTENCIÓN Y SANITIZACIÓN DEL BODY
         raw_body = event.get('body', '{}')
@@ -197,14 +196,16 @@ def create_recurring_event(event, context):
         lima_tz = pytz.timezone('America/Lima')
         lima_now = datetime.now(lima_tz).replace(second=0, microsecond=0)
 
-        # Variables para armar el payload
-        start_payload = {}
-        end_payload = {}
-        recurrence_rule = []
-        
-        description = f"Recordatorio médico: {pill_name}.\n{indicaciones_consumo}"
+        creds = get_google_creds() 
+        service = build('calendar', 'v3', credentials=creds)
+        created_links = [] 
 
+        # ==============================================================================
+        # CASO 1: HAY INDICACIÓN (COMIDAS) -> SIEMPRE RRULE NATIVA
+        # ==============================================================================
         if indicacion in ['Desayuno', 'Almuerzo', 'Cena']:
+            print("ESTRATEGIA: RRULE NATIVA (Comidas)")
+            
             meal_times = {
                 'Desayuno': {'hour': 8, 'minute': 0},
                 'Almuerzo': {'hour': 13, 'minute': 0},
@@ -214,104 +215,99 @@ def create_recurring_event(event, context):
             start_dt = lima_now.replace(hour=target['hour'], minute=target['minute'], second=0)
             end_dt = start_dt + timedelta(minutes=30)
             
-            start_payload = {
-                'dateTime': start_dt.isoformat(),
-                'timeZone': 'America/Lima'
-            }
-            end_payload = {
-                'dateTime': end_dt.isoformat(),
-                'timeZone': 'America/Lima'
-            }
+            description = f"Recordatorio médico: {pill_name}.\n{indicaciones_consumo}\nTomar después del {indicacion}."
             
-            description += f"\nTomar después del {indicacion}."
-            
-            if medicion_duracion == 'Dias':
-                recurrence_rule = [f'RRULE:FREQ=DAILY;INTERVAL=2;COUNT={duracion}']
-            else:
-                treatment_end_date = lima_now + relativedelta(months=+duracion)
-                until_utc = treatment_end_date.astimezone(pytz.utc)
-                until_str = until_utc.strftime('%Y%m%dT%H%M%SZ')
-                recurrence_rule = [f'RRULE:FREQ=DAILY;INTERVAL=2;UNTIL={until_str}']
-
-        # ==============================================================================
-        # ESTRATEGIA B: POR FRECUENCIA (Forzamos UTC y TimeZone UTC)
-        # ==============================================================================
-        else:
-
-            lima_now = datetime.now(lima_tz).replace(second=0, microsecond=0)
-            start_dt = lima_now
-            end_dt = start_dt + timedelta(minutes=10)
-            
-            start_payload = {
-                'dateTime': start_dt.isoformat(),
-                'timeZone': 'America/Lima'
-            }
-            end_payload = {
-                'dateTime': end_dt.isoformat(),
-                'timeZone': 'America/Lima'
-            }
-            
-            freq_map = {'Horas': 'HOURLY', 'Dias': 'DAILY'}
-            rrule_freq = freq_map.get(medicion_frecuencia, 'DAILY')
-            
-            description += f"\nTomar cada {frecuencia} {medicion_frecuencia}."
-            
-            count = 1
-            if medicion_duracion == 'Dias':
-                total_horas = duracion * 24
-                if medicion_frecuencia == 'Horas':
-                    count = math.ceil(total_horas / frecuencia)
-                else: # Dias
-                    count = math.ceil(duracion / frecuencia)
-            else:
-                # Si es meses, estimamos tomas
-                dias_aprox = duracion * 30
-                total_horas = dias_aprox * 24
-                count = math.ceil(total_horas / frecuencia)
-            
-            if count < 1: count = 1
-
             recurrence_rule = []
-            if (medicion_frecuencia == 'Horas'):
-                recurrence_rule = [f'RRULE:FREQ=HOURLY;INTERVAL=8;COUNT=6']
+            if medicion_duracion == 'Dias':
+                recurrence_rule = [f'RRULE:FREQ=DAILY;COUNT={duracion}']
             else:
-                recurrence_rule = [f'RRULE:FREQ=DAILY;INTERVAL={frecuencia};COUNT={int(count)}']
+                until_str = (lima_now + relativedelta(months=+duracion)).astimezone(pytz.utc).strftime('%Y%m%dT%H%M%SZ')
+                recurrence_rule = [f'RRULE:FREQ=DAILY;UNTIL={until_str}']
 
-        print(f"DEBUG RRULE: {recurrence_rule}")
-        print(f"DEBUG START PAYLOAD: {start_payload}")
+            event_body = {
+                'summary': f'💊 Tomar: {pill_name}',
+                'description': description,
+                'start': {'dateTime': start_dt.isoformat(), 'timeZone': 'America/Lima'},
+                'end': {'dateTime': end_dt.isoformat(), 'timeZone': 'America/Lima'},
+                'recurrence': recurrence_rule,
+                'attendees': [{'email': patient_email}],
+                'reminders': {'useDefault': False, 'overrides': [{'method': 'popup', 'minutes': 0}]}
+            }
+            response = service.events().insert(calendarId='primary', body=event_body, sendUpdates='all').execute()
+            created_links.append(response.get('htmlLink'))
 
-        # 3. LLAMADA A GOOGLE CALENDAR
-        creds = get_google_creds() 
-        service = build('calendar', 'v3', credentials=creds)
+        else:
+            
+            if medicion_frecuencia == 'Dias':
+                print("ESTRATEGIA: RRULE NATIVA (Por Días)")
+                
+                start_dt = lima_now
+                end_dt = start_dt + timedelta(minutes=15)
+                description = f"Recordatorio médico: {pill_name}.\n{indicaciones_consumo}\nTomar cada {frecuencia} Dias."
+                
+                until_str = ""
+                if medicion_duracion == 'Dias':
+                    until_str = (lima_now + timedelta(days=duracion)).astimezone(pytz.utc).strftime('%Y%m%dT%H%M%SZ')
+                else:
+                    until_str = (lima_now + relativedelta(months=+duracion)).astimezone(pytz.utc).strftime('%Y%m%dT%H%M%SZ')
+                
+                recurrence_rule = [f'RRULE:FREQ=DAILY;INTERVAL={frecuencia};UNTIL={until_str}']
 
-        event_body = {
-            'summary': f'💊 Tomar: {pill_name}',
-            'description': description,
-            'start': start_payload,
-            'end': end_payload,
-            'recurrence': recurrence_rule,
-            'attendees': [{'email': patient_email}],
-            'reminders': {
-                'useDefault': False,
-                'overrides': [{'method': 'popup', 'minutes': 0}],
-            },
-        }
+                event_body = {
+                    'summary': f'💊 Tomar: {pill_name}',
+                    'description': description,
+                    'start': {'dateTime': start_dt.isoformat(), 'timeZone': 'America/Lima'},
+                    'end': {'dateTime': end_dt.isoformat(), 'timeZone': 'America/Lima'},
+                    'recurrence': recurrence_rule,
+                    'attendees': [{'email': patient_email}],
+                    'reminders': {'useDefault': False, 'overrides': [{'method': 'popup', 'minutes': 0}]}
+                }
+                response = service.events().insert(calendarId='primary', body=event_body, sendUpdates='all').execute()
+                created_links.append(response.get('htmlLink'))
+            
+            # 2.B: FRECUENCIA ES HORAS (Ej: Cada 8 horas) -> USAR BUCLE FOR (Para evitar error 400)
+            else:
 
-        print(f"DEBUG Event Body Completo: {event_body}")
+                total_horas = 0
+                if medicion_duracion == 'Dias':
+                    total_horas = duracion * 24
+                else: # Meses
+                    total_horas = (duracion * 30) * 24
+                    
+                count = math.ceil(total_horas / frecuencia)
+                if count < 1: count = 1
+                if count > 100: count = 100 # Seguridad
 
-        response = service.events().insert(
-            calendarId='primary',
-            body=event_body, 
-            sendUpdates='all'
-        ).execute()
+                current_start_dt = lima_now
+                
+                for i in range(count):
+                    current_end_dt = current_start_dt + timedelta(minutes=15)
+                    iter_desc = f"Recordatorio médico: {pill_name}.\n{indicaciones_consumo}\nToma {i+1} de {count}."
+                    
+                    event_body = {
+                        'summary': f'💊 Tomar: {pill_name} ({i+1}/{count})',
+                        'description': iter_desc,
+                        'start': {'dateTime': current_start_dt.isoformat(), 'timeZone': 'America/Lima'},
+                        'end': {'dateTime': current_end_dt.isoformat(), 'timeZone': 'America/Lima'},
+                        'attendees': [{'email': patient_email}],
+                        'reminders': {'useDefault': False, 'overrides': [{'method': 'popup', 'minutes': 0}]}
+                    }
+                    
+                    try:
+                        response = service.events().insert(calendarId='primary', body=event_body, sendUpdates='all').execute()
+                        created_links.append(response.get('htmlLink'))
+                    except Exception as e_inner:
+                        print(f"Error en evento {i}: {e_inner}")
+                    
+                    current_start_dt = current_start_dt + timedelta(hours=frecuencia)
 
         return {
             "statusCode": 200, 
             "headers": { "Access-Control-Allow-Origin": "*" },
             "body": json.dumps({
                 "message": "Tratamiento agendado exitosamente", 
-                "link": response.get('htmlLink'),
-                "rule": recurrence_rule
+                "total_eventos_creados": len(created_links),
+                "links": created_links
             })
         }
 
