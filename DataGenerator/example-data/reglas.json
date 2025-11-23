@@ -1,0 +1,92 @@
+[
+  {
+    "nombre": "Vacuna BCG",
+    "descripcion": "Vacuna contra tuberculosis, aplicada al nacer",
+    "categoria": "vacunas",
+    "grupo_edad": "pediatria",
+    "unidad": "dias",
+    "regla_activa_empieza_dias": 0,
+    "regla_activa_termina_dias": 30,
+    "frecuencia_meses": 1
+  },
+  {
+    "nombre": "Vacuna Pentavalente",
+    "descripcion": "Vacuna pentavalente (DPT, Hib, Hepatitis B)",
+    "categoria": "vacunas",
+    "grupo_edad": "pediatria",
+    "unidad": "meses",
+    "regla_activa_empieza_meses": 2,
+    "regla_activa_termina_meses": 6,
+    "frecuencia_meses": 2
+  },
+  {
+    "nombre": "Control de niño sano - Primer año",
+    "descripcion": "Controles mensuales durante el primer año de vida",
+    "categoria": "chequeos_pediatria",
+    "grupo_edad": "pediatria",
+    "unidad": "meses",
+    "regla_activa_empieza_meses": 0,
+    "regla_activa_termina_meses": 12,
+    "frecuencia_meses": 1
+  },
+  {
+    "nombre": "Control de niño sano - Segundo año",
+    "descripcion": "Controles cada 2 meses durante el segundo año",
+    "categoria": "chequeos_pediatria",
+    "grupo_edad": "pediatria",
+    "unidad": "meses",
+    "regla_activa_empieza_meses": 12,
+    "regla_activa_termina_meses": 24,
+    "frecuencia_meses": 2
+  },
+  {
+    "nombre": "Tamizaje auditivo neonatal",
+    "descripcion": "Prueba de audición en recién nacidos",
+    "categoria": "tamizajes_pediatria",
+    "grupo_edad": "pediatria",
+    "unidad": "dias",
+    "regla_activa_empieza_dias": 0,
+    "regla_activa_termina_dias": 30,
+    "frecuencia_meses": 1
+  },
+  {
+    "nombre": "Primera visita al dentista",
+    "descripcion": "Primera consulta odontológica",
+    "categoria": "odontologia",
+    "grupo_edad": "pediatria",
+    "unidad": "meses",
+    "regla_activa_empieza_meses": 6,
+    "regla_activa_termina_meses": 12,
+    "frecuencia_meses": 6
+  },
+  {
+    "nombre": "Control de presión arterial",
+    "descripcion": "Monitoreo mensual de presión arterial",
+    "categoria": "cronicos_seguimiento",
+    "grupo_edad": "adulto_mayor",
+    "unidad": "meses",
+    "regla_activa_empieza_meses": 720,
+    "regla_activa_termina_meses": 1200,
+    "frecuencia_meses": 1
+  },
+  {
+    "nombre": "Control de glucosa",
+    "descripcion": "Monitoreo trimestral de glucosa en sangre",
+    "categoria": "cronicos_seguimiento",
+    "grupo_edad": "adulto_mayor",
+    "unidad": "meses",
+    "regla_activa_empieza_meses": 720,
+    "regla_activa_termina_meses": 1200,
+    "frecuencia_meses": 3
+  },
+  {
+    "nombre": "Evaluación funcional geriátrica",
+    "descripcion": "Evaluación semestral de capacidades funcionales",
+    "categoria": "funcional_mayor",
+    "grupo_edad": "adulto_mayor",
+    "unidad": "meses",
+    "regla_activa_empieza_meses": 720,
+    "regla_activa_termina_meses": 1200,
+    "frecuencia_meses": 6
+  }
+]

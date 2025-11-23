@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Alerta Dependientes",
+  "type": "object",
+  "x-dynamodb": {
+    "partition_key": "alerta_id"
+  },
+  "properties": {
+    "alerta_id": { "type": "string", "minLength": 1 },
+    "correo_tutor": { "type": "string", "format": "email" },
+    "dependent_id": { "type": "string", "minLength": 1 },
+    "regla_nombre": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "message": { "type": "string", "minLength": 1 },
+    "estado": { "type": "boolean", "description": "true=activa/sin atender; false=atendida/descartada" }
+  },
+  "required": ["alerta_id", "correo_tutor", "dependent_id", "regla_nombre", "title", "message", "estado"],
+  "additionalProperties": false
+}

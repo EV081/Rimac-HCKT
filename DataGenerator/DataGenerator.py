@@ -18,6 +18,14 @@ NOMBRES = [
     "Magali Flores", "Roberto Díaz", "Patricia Ruiz", "Fernando Vega"
 ]
 
+NOMBRES_DEPENDIENTES = [
+    "Pedrito", "Anita", "Carlitos", "Lucía", "Mateo", "Valentina",
+    "Sebastián", "Emma", "Santiago", "Mía", "Benjamín", "Isabella",
+    "Nicolás", "Sofía", "Martín", "Victoria", "Joaquín", "Camila",
+    "Abuela Rosa", "Abuelo José", "Abuela Carmen", "Abuelo Luis",
+    "Abuela María", "Abuelo Pedro", "Abuela Ana", "Abuelo Carlos"
+]
+
 CORREOS_DOMINIOS = ["utec.edu.pe", "gmail.com", "outlook.com"]
 
 INSTITUCIONES = [
@@ -90,14 +98,15 @@ def generar_correo(nombre):
 
 def generar_usuarios(cantidad=None):
     usuarios = []
-    roles_no_autoridad = ["estudiante", "personal_administrativo"]
+    roles_no_autoridad = ["USER", "ADMIN"]
     objetivo = max(1, cantidad or USUARIOS_TOTAL)
     
     autoridad = {
         "correo": AUTHORITY_EMAIL,
         "contrasena": AUTHORITY_PASSWORD,
         "nombre": AUTHORITY_NAME,
-        "rol": "autoridad"
+        "sexo": random.choice(["M", "F"]),
+        "rol": "TUTOR"
     }
     usuarios.append(autoridad)
     correos_usados = {AUTHORITY_EMAIL}
@@ -111,11 +120,12 @@ def generar_usuarios(cantidad=None):
             "correo": correo,
             "contrasena": f"hash_{uuid.uuid4().hex[:16]}",
             "nombre": nombre,
+            "sexo": random.choice(["M", "F"]),
             "rol": random.choice(roles_no_autoridad)
         })
         correos_usados.add(correo)
     
-    if not any(u["rol"] == "estudiante" for u in usuarios):
+    if not any(u["rol"] == "USER" for u in usuarios):
         while True:
             nombre = random.choice(NOMBRES)
             correo = generar_correo(nombre)
@@ -125,7 +135,8 @@ def generar_usuarios(cantidad=None):
                 "correo": correo,
                 "contrasena": f"hash_{uuid.uuid4().hex[:16]}",
                 "nombre": nombre,
-                "rol": "estudiante"
+                "sexo": random.choice(["M", "F"]),
+                "rol": "USER"
             })
             correos_usados.add(correo)
             break
@@ -263,6 +274,201 @@ def generar_historial_medico(usuarios):
             
     return historiales
 
+def generar_usuarios_dependientes(usuarios):
+    """Genera usuarios dependientes vinculados a tutores"""
+    dependientes = []
+    tutores = [u for u in usuarios if u["rol"] == "TUTOR"]
+    
+    if not tutores:
+        print("⚠️  No hay tutores disponibles para generar dependientes")
+        return dependientes
+    
+    for tutor in tutores:
+        # Cada tutor tiene entre 1 y 3 dependientes
+        num_dependientes = random.randint(1, 3)
+        
+        for _ in range(num_dependientes):
+            parentesco = random.choice(["HIJO", "ADULTO_MAYOR"])
+            
+            # Generar fecha de cumpleaños según el parentesco
+            if parentesco == "HIJO":
+                # Niños entre 0 y 17 años
+                edad_anos = random.randint(0, 17)
+                cumpleanos = (datetime.now() - timedelta(days=edad_anos * 365 + random.randint(0, 364))).strftime("%Y-%m-%d")
+            else:
+                # Adultos mayores entre 60 y 90 años
+                edad_anos = random.randint(60, 90)
+                cumpleanos = (datetime.now() - timedelta(days=edad_anos * 365 + random.randint(0, 364))).strftime("%Y-%m-%d")
+            
+            dependiente = {
+                "correo_tutor": tutor["correo"],
+                "dependiente_id": f"dep-{uuid.uuid4().hex[:8]}",
+                "nombre": random.choice(NOMBRES_DEPENDIENTES),
+                "cumpleanos": cumpleanos,
+                "parentesco": parentesco,
+                "sexo": random.choice(["M", "F"])
+            }
+            dependientes.append(dependiente)
+    
+    return dependientes
+
+def generar_reglas():
+    """Genera reglas de salud para pediatría y adultos mayores"""
+    reglas = [
+        # Reglas de vacunas para pediatría
+        {
+            "nombre": "Vacuna BCG",
+            "descripcion": "Vacuna contra tuberculosis, aplicada al nacer",
+            "categoria": "vacunas",
+            "grupo_edad": "pediatria",
+            "unidad": "dias",
+            "regla_activa_empieza_dias": 0,
+            "regla_activa_termina_dias": 30,
+            "frecuencia_meses": 1
+        },
+        {
+            "nombre": "Vacuna Pentavalente",
+            "descripcion": "Vacuna pentavalente (DPT, Hib, Hepatitis B)",
+            "categoria": "vacunas",
+            "grupo_edad": "pediatria",
+            "unidad": "meses",
+            "regla_activa_empieza_meses": 2,
+            "regla_activa_termina_meses": 6,
+            "frecuencia_meses": 2
+        },
+        # Reglas de chequeos pediátricos
+        {
+            "nombre": "Control de niño sano - Primer año",
+            "descripcion": "Controles mensuales durante el primer año de vida",
+            "categoria": "chequeos_pediatria",
+            "grupo_edad": "pediatria",
+            "unidad": "meses",
+            "regla_activa_empieza_meses": 0,
+            "regla_activa_termina_meses": 12,
+            "frecuencia_meses": 1
+        },
+        {
+            "nombre": "Control de niño sano - Segundo año",
+            "descripcion": "Controles cada 2 meses durante el segundo año",
+            "categoria": "chequeos_pediatria",
+            "grupo_edad": "pediatria",
+            "unidad": "meses",
+            "regla_activa_empieza_meses": 12,
+            "regla_activa_termina_meses": 24,
+            "frecuencia_meses": 2
+        },
+        # Reglas de tamizajes pediátricos
+        {
+            "nombre": "Tamizaje auditivo neonatal",
+            "descripcion": "Prueba de audición en recién nacidos",
+            "categoria": "tamizajes_pediatria",
+            "grupo_edad": "pediatria",
+            "unidad": "dias",
+            "regla_activa_empieza_dias": 0,
+            "regla_activa_termina_dias": 30,
+            "frecuencia_meses": 1
+        },
+        # Reglas de odontología
+        {
+            "nombre": "Primera visita al dentista",
+            "descripcion": "Primera consulta odontológica",
+            "categoria": "odontologia",
+            "grupo_edad": "pediatria",
+            "unidad": "meses",
+            "regla_activa_empieza_meses": 6,
+            "regla_activa_termina_meses": 12,
+            "frecuencia_meses": 6
+        },
+        # Reglas para adultos mayores - seguimiento de crónicos
+        {
+            "nombre": "Control de presión arterial",
+            "descripcion": "Monitoreo mensual de presión arterial",
+            "categoria": "cronicos_seguimiento",
+            "grupo_edad": "adulto_mayor",
+            "unidad": "meses",
+            "regla_activa_empieza_meses": 720,  # 60 años
+            "regla_activa_termina_meses": 1200,  # 100 años
+            "frecuencia_meses": 1
+        },
+        {
+            "nombre": "Control de glucosa",
+            "descripcion": "Monitoreo trimestral de glucosa en sangre",
+            "categoria": "cronicos_seguimiento",
+            "grupo_edad": "adulto_mayor",
+            "unidad": "meses",
+            "regla_activa_empieza_meses": 720,
+            "regla_activa_termina_meses": 1200,
+            "frecuencia_meses": 3
+        },
+        # Reglas funcionales para adultos mayores
+        {
+            "nombre": "Evaluación funcional geriátrica",
+            "descripcion": "Evaluación semestral de capacidades funcionales",
+            "categoria": "funcional_mayor",
+            "grupo_edad": "adulto_mayor",
+            "unidad": "meses",
+            "regla_activa_empieza_meses": 720,
+            "regla_activa_termina_meses": 1200,
+            "frecuencia_meses": 6
+        }
+    ]
+    
+    return reglas
+
+def generar_alerta_dependientes(dependientes, reglas):
+    """Genera alertas para dependientes basadas en reglas"""
+    alertas = []
+    
+    # Mapeo de reglas a mensajes de alerta
+    reglas_pediatria = [r for r in reglas if r["grupo_edad"] == "pediatria"]
+    reglas_adulto_mayor = [r for r in reglas if r["grupo_edad"] == "adulto_mayor"]
+    
+    for dependiente in dependientes:
+        # Seleccionar reglas según el parentesco
+        if dependiente["parentesco"] == "HIJO":
+            reglas_aplicables = reglas_pediatria
+        else:  # ADULTO_MAYOR
+            reglas_aplicables = reglas_adulto_mayor
+        
+        # 50% de probabilidad de tener alertas activas
+        if random.random() < 0.5 and reglas_aplicables:
+            num_alertas = random.randint(1, 2)
+            reglas_seleccionadas = random.sample(reglas_aplicables, min(num_alertas, len(reglas_aplicables)))
+            
+            for regla in reglas_seleccionadas:
+                # Generar mensaje según la categoría
+                if regla["categoria"] == "vacunas":
+                    title = f"Vacuna pendiente: {regla['nombre']}"
+                    message = f"Es momento de aplicar {regla['descripcion'].lower()}"
+                elif regla["categoria"] == "chequeos_pediatria":
+                    title = f"Control médico: {regla['nombre']}"
+                    message = f"Se acerca la fecha de {regla['descripcion'].lower()}"
+                elif regla["categoria"] == "odontologia":
+                    title = f"Cita odontológica: {regla['nombre']}"
+                    message = f"Recordatorio: {regla['descripcion'].lower()}"
+                elif regla["categoria"] == "cronicos_seguimiento":
+                    title = f"Control de salud: {regla['nombre']}"
+                    message = f"Es necesario realizar {regla['descripcion'].lower()}"
+                elif regla["categoria"] == "funcional_mayor":
+                    title = f"Evaluación: {regla['nombre']}"
+                    message = f"Corresponde realizar {regla['descripcion'].lower()}"
+                else:
+                    title = f"Recordatorio: {regla['nombre']}"
+                    message = regla["descripcion"]
+                
+                alerta = {
+                    "alerta_id": f"alert-{uuid.uuid4().hex[:8]}",
+                    "correo_tutor": dependiente["correo_tutor"],
+                    "dependent_id": dependiente["dependiente_id"],
+                    "regla_nombre": regla["nombre"],
+                    "title": title,
+                    "message": message,
+                    "estado": random.choice([True, False])  # True = activa, False = atendida
+                }
+                alertas.append(alerta)
+    
+    return alertas
+
 def validar_con_esquema(datos, nombre_esquema):
     """Valida que los datos cumplan con el esquema definido"""
     try:
@@ -305,6 +511,27 @@ def main():
     usuarios = generar_usuarios()
     validar_con_esquema(usuarios, "usuarios")
     guardar_json(usuarios, "usuarios.json")
+    print()
+    
+    # Generar usuarios dependientes
+    print("📊 Generando usuarios dependientes...")
+    dependientes = generar_usuarios_dependientes(usuarios)
+    validar_con_esquema(dependientes, "usuarios_dependientes")
+    guardar_json(dependientes, "usuarios_dependientes.json")
+    print()
+    
+    # Generar reglas
+    print("📊 Generando reglas...")
+    reglas = generar_reglas()
+    validar_con_esquema(reglas, "reglas")
+    guardar_json(reglas, "reglas.json")
+    print()
+    
+    # Generar alertas de dependientes (requiere dependientes y reglas)
+    print("📊 Generando alertas de dependientes...")
+    alertas = generar_alerta_dependientes(dependientes, reglas)
+    validar_con_esquema(alertas, "alerta_dependientes")
+    guardar_json(alertas, "alerta_dependientes.json")
     print()
     
     # Generar servicios

@@ -7,27 +7,27 @@
   {
     "nombre": "Realizar ejercicios de respiración",
     "descripcion": "La frecuencia cardíaca supera los 100 bpm en reposo",
-    "categoria": "bienestar"
+    "categoria": "salud"
   },
   {
     "nombre": "Hidratarse con un vaso de agua",
     "descripcion": "Han pasado más de 2 horas sin registrar ingesta de líquidos",
-    "categoria": "social"
+    "categoria": "productividad"
   },
   {
     "nombre": "Hacer estiramientos de 5 minutos",
     "descripcion": "Se detectó más de 2 horas de inactividad continua",
-    "categoria": "salud"
+    "categoria": "social"
   },
   {
     "nombre": "Salir a caminar 15 minutos",
     "descripcion": "Los niveles de vitamina D están bajos o no hay exposición solar",
-    "categoria": "bienestar"
+    "categoria": "productividad"
   },
   {
     "nombre": "Meditar durante 10 minutos",
     "descripcion": "Los niveles de ansiedad superan el umbral normal",
-    "categoria": "productividad"
+    "categoria": "bienestar"
   },
   {
     "nombre": "Tomar un snack saludable",
@@ -42,7 +42,7 @@
   {
     "nombre": "Escuchar música relajante",
     "descripcion": "Se detectaron patrones de estrés o tensión muscular",
-    "categoria": "bienestar"
+    "categoria": "social"
   },
   {
     "nombre": "Realizar ejercicio cardiovascular",
@@ -62,12 +62,12 @@
   {
     "nombre": "Socializar con compañeros",
     "descripcion": "No se han registrado interacciones sociales en 48 horas",
-    "categoria": "bienestar"
+    "categoria": "productividad"
   },
   {
     "nombre": "Organizar el espacio de trabajo",
     "descripcion": "Los niveles de productividad han bajado un 15%",
-    "categoria": "productividad"
+    "categoria": "social"
   },
   {
     "nombre": "Leer un libro o artículo",
@@ -77,26 +77,26 @@
   {
     "nombre": "Tomar el medicamento prescrito",
     "descripcion": "Es hora de la dosis según la receta médica",
-    "categoria": "bienestar"
+    "categoria": "social"
   },
   {
     "nombre": "Realizar ejercicios de postura",
     "descripcion": "Se detectó mala postura durante más de 30 minutos",
-    "categoria": "salud"
+    "categoria": "productividad"
   },
   {
     "nombre": "Consumir frutas o verduras",
     "descripcion": "No se ha registrado consumo de nutrientes esenciales hoy",
-    "categoria": "bienestar"
+    "categoria": "productividad"
   },
   {
     "nombre": "Practicar mindfulness",
     "descripcion": "Los niveles de concentración están por debajo del 70%",
-    "categoria": "bienestar"
+    "categoria": "salud"
   },
   {
     "nombre": "Desconectar dispositivos electrónicos",
     "descripcion": "Tiempo de pantalla supera las 8 horas continuas",
-    "categoria": "salud"
+    "categoria": "productividad"
   }
 ]
