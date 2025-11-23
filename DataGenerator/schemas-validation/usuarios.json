@@ -12,11 +12,15 @@
     },
     "contrasena": { "type": "string" },
     "nombre": { "type": "string" },
+    "sexo": { 
+        "type": "string",
+        "enum": ["M", "F"]
+    },
     "rol": {
       "type": "string",
-      "enum": ["estudiante", "personal_administrativo", "autoridad"]
+      "enum": ["USER", "ADMIN", "TUTOR"]
     }
   },
-  "required": ["correo", "nombre", "rol", "contrasena"],
+  "required": ["correo", "nombre", "sexo" ,"rol", "contrasena"],
   "additionalProperties": false
 }
