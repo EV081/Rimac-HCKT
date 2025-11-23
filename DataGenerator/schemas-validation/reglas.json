@@ -30,18 +30,18 @@
     "descripcion",
     "categoria",
     "grupo_edad",
-    "edad_unidad",
+    "unidad",
     "frecuencia_meses"
   ],
   "allOf": [
     {
-      "if": { "properties": { "edad_unidad": { "const": "meses" } } },
+      "if": { "properties": { "unidad": { "const": "meses" } } },
       "then": {
         "required": ["regla_activa_empieza_meses", "regla_activa_termina_meses"]
       }
     },
     {
-      "if": { "properties": { "edad_unidad": { "const": "dias" } } },
+      "if": { "properties": { "unidad": { "const": "dias" } } },
       "then": {
         "required": ["regla_activa_empieza_dias", "regla_activa_termina_dias"]
       }

@@ -21,6 +21,6 @@
       "enum": ["USER", "ADMIN", "TUTOR"]
     }
   },
-  "required": ["correo", "nombre", "sexo" ,"rol", "contrasena"],
+  "required": ["correo", "nombre", "sexo", "role", "contrasena"],
   "additionalProperties": false
 }
