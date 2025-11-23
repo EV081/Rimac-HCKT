@@ -12,7 +12,9 @@ import cgi
 # 0. Configuración y Clientes AWS
 # ===============================
 dynamodb = boto3.resource('dynamodb')
+s3 = boto3.client('s3')
 TABLE_RECETAS = os.environ.get('TABLE_RECETAS', 'Recetas')
+S3_BUCKET = os.environ.get('S3_BUCKET_RECETAS')
 table_recetas = dynamodb.Table(TABLE_RECETAS)
 
 # ===============================
@@ -203,10 +205,29 @@ def lambda_handler(event, context):
             })
 
         # ===============================
-        # 3d. Guardar en DynamoDB
+        # 3d. Subir imagen a S3
+        # ===============================
+        url_receta = None
+        if S3_BUCKET:
+            try:
+                s3_key = f"recetas/{user_email}/{receta_id}.jpg"
+                s3.put_object(
+                    Bucket=S3_BUCKET,
+                    Key=s3_key,
+                    Body=image_bytes,
+                    ContentType='image/jpeg'
+                )
+                # Generar URL pública
+                url_receta = f"https://{S3_BUCKET}.s3.amazonaws.com/{s3_key}"
+            except Exception as s3_error:
+                print(f"Error al subir a S3: {s3_error}")
+                # Continuar sin URL si falla S3
+
+        # ===============================
+        # 3e. Guardar en DynamoDB
         # ===============================
         receta_id = f"rec-{uuid.uuid4().hex[:8]}"
-        timestamp = datetime.now().isoformat() if 'datetime' in globals() else time.strftime("%Y-%m-%dT%H:%M:%S")
+        timestamp = time.strftime("%Y-%m-%dT%H:%M:%S")
         
         item = {
             'correo': user_email,
@@ -217,8 +238,9 @@ def lambda_handler(event, context):
             'recetas': data.get('recetas', [])
         }
         
-        # Limpiar None por null (DynamoDB a veces prefiere no tener atributos nulos o usar NULL)
-        # Boto3 maneja None como NULL de DynamoDB, lo cual es correcto.
+        # Agregar URL si existe
+        if url_receta:
+            item['url_receta'] = url_receta
         
         try:
             table_recetas.put_item(Item=item)
@@ -226,11 +248,12 @@ def lambda_handler(event, context):
             return _response(500, {"message": f"Error al guardar en BD: {str(e)}"})
 
         # ===============================
-        # 3e. Respuesta Final
+        # 3f. Respuesta Final
         # ===============================
         return _response(200, {
             "message": "Receta procesada y guardada exitosamente",
             "receta_id": receta_id,
+            "url_receta": url_receta,
             "data": data
         })
 

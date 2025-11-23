@@ -51,25 +51,6 @@ setup_database() {
         log_error "requirements.txt no encontrado en DataGenerator"
         cd ..
         exit 1
-    fi
-
-    # 1. Crear tablas basadas en esquemas
-    log "🏗️  Creando/Verificando arquitectura de tablas..."
-    python3 create_tables.py
-    
-    if [ $? -ne 0 ]; then
-        log_error "Error al crear las tablas"
-        cd ..
-        exit 1
-    fi
-    
-    # 2. Verificar si hay datos y preguntar
-    log "🔍 Verificando datos existentes..."
-    
-    # Script de python embebido para verificar datos
-    HAS_DATA=$(python3 -c "
-import boto3
-import os
 from dotenv import load_dotenv
 load_dotenv()
 dynamodb = boto3.resource('dynamodb', region_name=os.getenv('AWS_REGION', 'us-east-1'))
