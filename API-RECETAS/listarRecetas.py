@@ -3,6 +3,20 @@ import json
 import boto3
 import base64
 from botocore.exceptions import ClientError
+from decimal import Decimal
+
+def convert_decimal(obj):
+    if isinstance(obj, Decimal):
+        # si es entero devuelve int, si no float
+        if obj % 1 == 0:
+            return int(obj)
+        else:
+            return float(obj)
+    if isinstance(obj, list):
+        return [convert_decimal(i) for i in obj]
+    if isinstance(obj, dict):
+        return {k: convert_decimal(v) for k, v in obj.items()}
+    return obj
 
 dynamodb = boto3.resource('dynamodb')
 TABLE_RECETAS = os.environ.get('TABLE_RECETAS', 'Recetas')
@@ -60,7 +74,8 @@ def lambda_handler(event, context):
             )
             
             recetas = response.get('Items', [])
-            
+            recetas = convert_decimal(recetas)
+
             return _response(200, {
                 "message": "Recetas obtenidas exitosamente",
                 "count": len(recetas),
