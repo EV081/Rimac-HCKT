@@ -17,9 +17,6 @@ provider:
       - 'multipart/form-data'
       - 'image/*'
 
-plugins:
-  - serverless-python-requirements
-
 functions:
   subirReceta:
     handler: subirReceta.subirReceta

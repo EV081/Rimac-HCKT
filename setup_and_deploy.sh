@@ -34,6 +34,68 @@ fi
 
 log_success "Archivo .env encontrado"
 
+# Función para verificar y configurar variables de entorno
+configure_env() {
+    log "🔧 Verificando configuración de variables de entorno..."
+    
+    # Cargar .env
+    source .env
+    
+    # Verificar AWS_ACCOUNT_ID
+    if [ -z "$AWS_ACCOUNT_ID" ]; then
+        log_warning "AWS_ACCOUNT_ID no configurado"
+        log_info "Obteniendo AWS Account ID..."
+        AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text 2>/dev/null)
+        
+        if [ -z "$AWS_ACCOUNT_ID" ]; then
+            log_error "No se pudo obtener AWS Account ID. Configura tus credenciales AWS."
+            exit 1
+        fi
+        
+        # Actualizar .env
+        echo "AWS_ACCOUNT_ID=$AWS_ACCOUNT_ID" >> .env
+        log_success "AWS_ACCOUNT_ID configurado: $AWS_ACCOUNT_ID"
+    else
+        log_success "AWS_ACCOUNT_ID: $AWS_ACCOUNT_ID"
+    fi
+    
+    # Configurar nombre del bucket S3 basado en AWS_ACCOUNT_ID
+    EXPECTED_BUCKET="recetas-medicas-data-${AWS_ACCOUNT_ID}"
+    
+    if [ -z "$S3_BUCKET_RECETAS" ] || [ "$S3_BUCKET_RECETAS" != "$EXPECTED_BUCKET" ]; then
+        log_warning "Actualizando S3_BUCKET_RECETAS en .env..."
+        
+        # Remover línea antigua si existe
+        sed -i.bak '/^S3_BUCKET_RECETAS=/d' .env
+        
+        # Agregar nueva línea
+        echo "S3_BUCKET_RECETAS=$EXPECTED_BUCKET" >> .env
+        
+        log_success "S3_BUCKET_RECETAS configurado: $EXPECTED_BUCKET"
+    else
+        log_success "S3_BUCKET_RECETAS: $S3_BUCKET_RECETAS"
+    fi
+    
+    # Verificar otras variables críticas
+    local missing_vars=()
+    
+    [ -z "$GEMINI_API_KEY" ] && missing_vars+=("GEMINI_API_KEY")
+    [ -z "$TABLE_RECETAS" ] && missing_vars+=("TABLE_RECETAS")
+    [ -z "$TABLE_SERVICIOS" ] && missing_vars+=("TABLE_SERVICIOS")
+    [ -z "$TABLE_USUARIOS" ] && missing_vars+=("TABLE_USUARIOS")
+    
+    if [ ${#missing_vars[@]} -gt 0 ]; then
+        log_error "Variables faltantes en .env:"
+        for var in "${missing_vars[@]}"; do
+            log_error "  - $var"
+        done
+        log_info "Por favor configura estas variables en .env"
+        exit 1
+    fi
+    
+    log_success "Todas las variables de entorno están configuradas correctamente"
+}
+
 # Función para configurar la base de datos
 setup_database() {
     log ""
@@ -131,6 +193,9 @@ echo "  3) 🗑️  Eliminar todo"
 echo "═══════════════════════════════════════════════════════"
 echo ""
 read -p "Selecciona una opción (1-3): " opcion
+
+# Configurar variables de entorno primero
+configure_env
 
 case $opcion in
     1)
