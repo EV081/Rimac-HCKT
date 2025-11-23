@@ -183,8 +183,8 @@ def validarFecha(jsonToken):
     return current_timestamp < exp_timestamp
 
 def create_recurring_event(event, context):
-    query_params = event.get('queryStringParameters', {}) or {}
-    token = query_params.get('token', '')
+    autorization = event.get('headers', {}).get('Authorization', '')
+    token= autorization.replace('Bearer ', '')
     if not validarFecha(token):
         return {
             "statusCode": 401,
