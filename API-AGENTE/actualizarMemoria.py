@@ -68,7 +68,7 @@ def actualizarMemoria(event, context):
         if not correo:
             return build_response(401, {"error": "No autorizado. Token faltante o inválido."})
 
-        body = json.loads(event.get('body', '{}'))
+        body = json.loads(event.get('body') or '{}')
         
         # Si no viene context_id, generamos uno nuevo (Create)
         context_id = body.get('context_id')
