@@ -1,19 +1,6 @@
 """
-DAOs package - Data Access Objects for DynamoDB tables
+Inicialización del módulo DAO
 """
-from .base import BaseDAO, DAOFactory
-from .usuarios_dao import UsuariosDAO
-from .recetas_dao import RecetasDAO
-from .servicios_dao import ServiciosDAO
-from .historial_dao import HistorialDAO
-from .memoria_dao import MemoriaDAO
+from dao.base import BaseDAO, DAOFactory
 
-__all__ = [
-    'BaseDAO',
-    'DAOFactory',
-    'UsuariosDAO',
-    'RecetasDAO',
-    'ServiciosDAO',
-    'HistorialDAO',
-    'MemoriaDAO'
-]
+__all__ = ['BaseDAO', 'DAOFactory']

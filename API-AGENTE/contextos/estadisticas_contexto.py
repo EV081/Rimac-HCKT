@@ -3,7 +3,7 @@ Implementaciones específicas de cada contexto
 """
 from typing import Dict, List
 from .base_contexto import BaseContexto
-from dao.usuarios_dao import DAOFactory
+from dao.base import DAOFactory
 
 # ===== CONTEXTO ESTADÍSTICAS =====
 class EstadisticasContexto(BaseContexto):
