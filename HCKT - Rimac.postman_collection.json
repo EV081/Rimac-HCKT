@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "0800ddaa-d01b-4404-9418-d05a92b73a94",
+		"name": "HCKT - Rimac",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43509885",
+		"_collection_link": "https://dark-sunset-246817.postman.co/workspace/DBP~16941fd4-2fc3-45ac-91eb-0146a2c045ea/collection/43509885-0800ddaa-d01b-4404-9418-d05a92b73a94?action=share&source=collection_link&creator=43509885"
+	},
+	"item": [
+		{
+			"name": "API - Recetas",
+			"item": [
+				{
+					"name": "Extraer receta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/ADMIN/Downloads/receta.webp"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl_recetas}}/analizar",
+							"host": [
+								"{{baseUrl_recetas}}"
+							],
+							"path": [
+								"analizar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API - REGISTRO",
+			"item": [
+				{
+					"name": "Login Usuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();\r",
+									"pm.collectionVariables.set(\"userToken\", response.id_token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"farid.aquino@utec.edu.pe\",\r\n    \"password\": \"Password123!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl_registro}}/login",
+							"host": [
+								"{{baseUrl_registro}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registro",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();\r",
+									"pm.collectionVariables.set(\"userToken\", response.id_token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"fabricio.lanche@utec.edu.pe\",\r\n  \"password\": \"12Desetiembre!!!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl_registro}}/register",
+							"host": [
+								"{{baseUrl_registro}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API - CALENDAR",
+			"item": []
+		},
+		{
+			"name": "API - AGENTE",
+			"item": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl_recetas",
+			"value": ""
+		},
+		{
+			"key": "baseUrl_registro",
+			"value": ""
+		},
+		{
+			"key": "userToken",
+			"value": ""
+		}
+	]
+}
