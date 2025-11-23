@@ -3,6 +3,7 @@ import boto3
 import uuid
 import os
 import math
+import base64
 import pytz # Requiere Layer en Lambda
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta # Requiere Layer en Lambda
@@ -13,7 +14,6 @@ from utils import get_google_creds
 dynamodb = boto3.resource('dynamodb')
 
 def json_serial(obj):
-    """Helper para serializar objetos datetime a string ISO"""
     if isinstance(obj, (datetime)):
         return obj.isoformat()
     raise TypeError (f"Type {type(obj)} not serializable")
@@ -160,7 +160,36 @@ def create_cita(event, context):
         print(f"Error critico: {str(e)}")
         return {"statusCode": 500, "body": json.dumps({"error": str(e)}, default=str)}
 
+def decode_jwt_payload(token):
+    """Decodifica el payload de un JWT sin verificar firma"""
+    try:
+        parts = token.split('.')
+        if len(parts) != 3:
+            return None
+        payload = parts[1]
+        # Ajustar padding base64
+        padding = '=' * (4 - len(payload) % 4)
+        decoded = base64.urlsafe_b64decode(payload + padding).decode('utf-8')
+        return json.loads(decoded)
+    except Exception:
+        return None
+
+def validarFecha(jsonToken):
+    payload = decode_jwt_payload(jsonToken)
+    if not payload or 'exp' not in payload:
+        return False
+    exp_timestamp = payload['exp']
+    current_timestamp = datetime.now().timestamp()
+    return current_timestamp < exp_timestamp
+
 def create_recurring_event(event, context):
+    query_params = event.get('queryStringParameters', {}) or {}
+    token = query_params.get('token', '')
+    if not validarFecha(token):
+        return {
+            "statusCode": 401,
+            "body": json.dumps({"error": "Token inválido o expirado"})
+        }
     try:
         # 1. OBTENCIÓN Y SANITIZACIÓN DEL BODY
         raw_body = event.get('body', '{}')
