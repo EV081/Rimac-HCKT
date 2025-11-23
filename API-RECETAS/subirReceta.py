@@ -96,6 +96,31 @@ def get_user_email(event, fs=None):
         return payload.get('email') or payload.get('username')
     return None
 
+def extract_number(value, default=30):
+    """
+    Extrae el primer número entero de un string.
+    Ejemplos: '2 Rees' -> 2, '30 días' -> 30, '15' -> 15
+    """
+    if value is None:
+        return default
+    
+    # Si ya es int, retornar directamente
+    if isinstance(value, int):
+        return value
+    
+    # Convertir a string y buscar números
+    value_str = str(value).strip()
+    
+    # Buscar el primer número en el string
+    match = re.search(r'\d+', value_str)
+    if match:
+        try:
+            return int(match.group())
+        except ValueError:
+            return default
+    
+    return default
+
 def schedule_calendar_notifications(medicamentos, user_email, auth_header):
     """
     Programa notificaciones en Google Calendar para cada medicamento.
@@ -108,9 +133,13 @@ def schedule_calendar_notifications(medicamentos, user_email, auth_header):
             # Construir nombre del medicamento
             pill_name = f"{medicamento.get('producto', 'Medicamento')} {medicamento.get('dosis', '')}".strip()
             
-            # Extraer frecuencia
+            # Extraer frecuencia con validación robusta
             frec_val = medicamento.get('frecuencia_valor')
             frec_uni = medicamento.get('frecuencia_unidad', '').lower()
+            
+            # Extraer duración de forma robusta
+            duracion_raw = medicamento.get('duracion')
+            duracion_limpia = extract_number(duracion_raw, default=30)
             
             # Construir payload para el Lambda de calendario
             cal_payload = {
@@ -118,7 +147,7 @@ def schedule_calendar_notifications(medicamentos, user_email, auth_header):
                 'pill_name': pill_name,
                 'indicaciones_consumo': 'Según receta médica',
                 'medicion_duracion': 'Dias',
-                'duracion': int(medicamento.get('duracion', 30)) if medicamento.get('duracion') else 30
+                'duracion': duracion_limpia
             }
             
             # Determinar frecuencia (default: 1 vez al día)
@@ -131,7 +160,8 @@ def schedule_calendar_notifications(medicamentos, user_email, auth_header):
                     cal_payload['medicion_frecuencia'] = 'Meses'
                 else:
                     cal_payload['medicion_frecuencia'] = 'Dias'
-                cal_payload['frecuencia'] = int(frec_val)
+                # Limpiar frecuencia_valor también
+                cal_payload['frecuencia'] = extract_number(frec_val, default=1)
             else:
                 cal_payload['indicacion'] = None
                 cal_payload['medicion_frecuencia'] = 'Dias'
