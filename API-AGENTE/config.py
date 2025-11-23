@@ -16,7 +16,7 @@ class Config:
     
     # API Configuration
     GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
-    GEMINI_MODEL = os.getenv('GEMINI_MODEL', 'gemini-3-pro')
+    GEMINI_MODEL = os.getenv('GEMINI_MODEL', 'gemini-2.0-flash')
     
     # Límites de consulta
     LIMITE_HISTORIAL = int(os.getenv('LIMITE_HISTORIAL', '30'))
