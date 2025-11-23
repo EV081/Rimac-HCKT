@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "0800ddaa-d01b-4404-9418-d05a92b73a94",
+		"_postman_id": "38f13517-3b1e-4b20-a191-3aff8207711f",
 		"name": "HCKT - Rimac",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "43509885",
-		"_collection_link": "https://dark-sunset-246817.postman.co/workspace/DBP~16941fd4-2fc3-45ac-91eb-0146a2c045ea/collection/43509885-0800ddaa-d01b-4404-9418-d05a92b73a94?action=share&source=collection_link&creator=43509885"
+		"_exporter_id": "43507435"
 	},
 	"item": [
 		{
@@ -88,7 +87,7 @@
 							},
 							"status": "OK",
 							"code": 200,
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": "Text",
 							"header": [
 								{
 									"key": "Content-Type",
@@ -187,7 +186,7 @@
 							},
 							"status": "OK",
 							"code": 200,
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": "Text",
 							"header": [
 								{
 									"key": "Content-Type",
@@ -300,7 +299,7 @@
 							},
 							"status": "OK",
 							"code": 200,
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": "Text",
 							"header": [
 								{
 									"key": "Content-Type",
@@ -431,7 +430,7 @@
 							},
 							"status": "OK",
 							"code": 200,
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": "Text",
 							"header": [
 								{
 									"key": "Content-Type",
@@ -544,7 +543,7 @@
 							},
 							"status": "OK",
 							"code": 200,
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": "Text",
 							"header": [
 								{
 									"key": "Content-Type",
@@ -627,7 +626,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"correo\": \"farid.aquino@utec.edu.pe\",\r\n    \"contrasena\": \"Password123!\"\r\n}",
+							"raw": "{\r\n  \"correo\": \"maria.rios@example.com\",\r\n  \"contrasena\": \"ClaveFuerte!2024\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -671,7 +670,7 @@
 							},
 							"status": "OK",
 							"code": 200,
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": "Text",
 							"header": [
 								{
 									"key": "Content-Type",
@@ -728,6 +727,90 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"message\": \"Login exitoso\",\n    \"usuario\": {\n        \"correo\": \"farid.aquino@utec.edu.pe\",\n        \"nombre\": \"\",\n        \"sexo\": \"\",\n        \"rol\": \"USER\"\n    },\n    \"access_token\": \"eyJraWQiOiJuMVVGeTJoRlZDXC9rREJjbitpcGpxRWFoSDVzWm5JUkpiUEJUSEJJZnFcLzQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJlNGQ4OTRiOC1kMDExLTcwNjktYWYzYS1jMDE0MGY1YmUzODEiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9DYkR5aEFjcUUiLCJjbGllbnRfaWQiOiIzc3JwYjFoNXMzbzZkMmE1cXU0YnZvb21xOSIsIm9yaWdpbl9qdGkiOiI2YWJhMjA3Yi1jYmI4LTQzNDgtOTJlZS00ZDM3NjAxZjdlOWIiLCJldmVudF9pZCI6IjFhZjg1ZDVmLWQxY2MtNDUxZS04YWI3LTI3MjQxMmE1MmRlNiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3NjM4ODc4MDAsImV4cCI6MTc2Mzg5MTQwMCwiaWF0IjoxNzYzODg3ODAwLCJqdGkiOiIxZDA3YjRlMy0yN2VmLTQ2M2MtODBkOS0yMjMwZTFjNzA2M2QiLCJ1c2VybmFtZSI6ImU0ZDg5NGI4LWQwMTEtNzA2OS1hZjNhLWMwMTQwZjViZTM4MSJ9.Lbx200T-fE3HGG0ZeyUq5b-a_pvfdDaJ5qOY85NThi2aAqqaZHcnrER0GgU3dcvtQRSp8tF6PTTJh6qIN4JCt6sSSAtXBpIyMJPT2tmNf8F7YdFFyjxuu5eo8bQljUCFMz2mNuAgLWZCWcmR1ul0f1EAkDWrKsbNyqK-gjGaJEXxMBIF8RtyS5jDZTQl6ytymtPI1z9O9kG6m0nKRqW7USA16lelokBvXmciC4Q9GKs0p-M9W89bO5DASoug077gG0vD0S-QCKJtpChwVZ4phJULrgYsd8n01164MguxDrWUkR3_Ya0Y2Lg4HBU1vcePEys1ioJfaYqTk4y0WVi1-w\",\n    \"id_token\": \"eyJraWQiOiI0dktyRkMxVGFxSyt2SVFSYmRySkxwYXNFQ0huYjdFdmJHWnhGYTJhVzNJPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJlNGQ4OTRiOC1kMDExLTcwNjktYWYzYS1jMDE0MGY1YmUzODEiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX0NiRHloQWNxRSIsImNvZ25pdG86dXNlcm5hbWUiOiJlNGQ4OTRiOC1kMDExLTcwNjktYWYzYS1jMDE0MGY1YmUzODEiLCJvcmlnaW5fanRpIjoiNmFiYTIwN2ItY2JiOC00MzQ4LTkyZWUtNGQzNzYwMWY3ZTliIiwiYXVkIjoiM3NycGIxaDVzM282ZDJhNXF1NGJ2b29tcTkiLCJldmVudF9pZCI6IjFhZjg1ZDVmLWQxY2MtNDUxZS04YWI3LTI3MjQxMmE1MmRlNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzYzODg3ODAwLCJleHAiOjE3NjM4OTE0MDAsImlhdCI6MTc2Mzg4NzgwMCwianRpIjoiMmQyOTA5ODQtNmFkOS00MmIxLTg2MDMtNGVhYzk4OTAxMTVkIiwiZW1haWwiOiJmYXJpZC5hcXVpbm9AdXRlYy5lZHUucGUifQ.Zz0TFwRim5UAmP4W6bdoX1KDO29IE2qR5rlXRDjk9lNk43qmtuKPdA1KvOlOVHM0vafLwswVR1ZSM149Hi_eFF5M7O4T4DIw3K25IzvLeGwax7dx0ptAIcR0t4WlUcEWiJXeRQdslUJig2rFy9kLSmi6qqoea3Qi6YQ3btxSx7bL51k2jvnO0BDVtB1p96S1gXHAX4fcVZWsXK3lZsnP4Hh6NPgKwi8s64lExL3fmHuKsu-v87RAQUjqjnUll8BspUnJ_deXNJc9ITx_Yl8UMVBzTyB8GhQbs8LCtFSxiv_Bu4L4Q4qDWIZmrFktjwMvoN0pLPAjtkmZETGix3b_xw\"\n}"
+						},
+						{
+							"name": "Login Usuario",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"correo\": \"maria.rios@example.com\",\r\n  \"contrasena\": \"ClaveFuerte!2024\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl_registro}}/login",
+									"host": [
+										"{{baseUrl_registro}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2340"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Nov 2025 09:16:31 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "7caeb209-6c32-4dc4-8bc9-1124b888b48c"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "UfWVSE6BoAMEL8A="
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6922d0ee-2ee4a11e2136fa671df95218;Parent=2779e854e5882ccd;Sampled=0;Lineage=1:2decfcf3:0"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 e10f5a2809f551f49db0ef4e9e7c1228.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LIM50-P1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "wbOmG-dmq0U4VWv-TKA3NQLMLMnwhk__nqYwbrutgiGZO39NgtxitA=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Login exitoso\",\n    \"usuario\": {\n        \"correo\": \"maria.rios@example.com\",\n        \"nombre\": \"María Ríos\",\n        \"sexo\": \"F\",\n        \"rol\": \"TUTOR\"\n    },\n    \"access_token\": \"eyJraWQiOiJuMVVGeTJoRlZDXC9rREJjbitpcGpxRWFoSDVzWm5JUkpiUEJUSEJJZnFcLzQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIxNDc4YjQxOC1mMDUxLTcwODYtMGQ2MS1hZTA4ZmFiYTVmNmMiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9DYkR5aEFjcUUiLCJjbGllbnRfaWQiOiIzc3JwYjFoNXMzbzZkMmE1cXU0YnZvb21xOSIsIm9yaWdpbl9qdGkiOiIyZDhiZDZhYi03MjVhLTQ5ZTMtYTBjMS0wYTUxODgyMzg4ZGMiLCJldmVudF9pZCI6IjU0NmI1OTJlLWJkMTktNDFkMy05NGI4LTNkN2ZmOGY3OWEyZiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3NjM4ODkzOTEsImV4cCI6MTc2Mzg5Mjk5MSwiaWF0IjoxNzYzODg5MzkxLCJqdGkiOiI0NzQzOTIzYi03YTg0LTQ0ZWQtYjY1Ni0wYWJkNzk1Mjc4YzQiLCJ1c2VybmFtZSI6IjE0NzhiNDE4LWYwNTEtNzA4Ni0wZDYxLWFlMDhmYWJhNWY2YyJ9.ddsoiHvBslyDLQWSnGfYVtZ3NVdqsbVNcakWo0WD0VosTZCZY-zyDLY3KfRKXY4pqK9I3RgY8w6CbJMSMCSOxWgEMAc3jr1wVr7Trt1crQMRE4d5LSP0_R9MQO4bW4l713yDGoeePQoenpxF1FQOZ5TSonp1WuMxDzotpdmQr7o8d_LDMgAUstAOOyC6DavxuSWY_g0b8TH77awtDP5ZM3UD87uhA0XA93UM4wL3MCZoCeVFB__iuhLHRd91Sjn2VKhwog0WJBTb05q2Z8LpVr0EcK-QMdi8lnYol41iIbK4J21wLdIe6T9IUqn8YakHavKbD2LXOpf9ec1EeN4AoA\",\n    \"id_token\": \"eyJraWQiOiI0dktyRkMxVGFxSyt2SVFSYmRySkxwYXNFQ0huYjdFdmJHWnhGYTJhVzNJPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIxNDc4YjQxOC1mMDUxLTcwODYtMGQ2MS1hZTA4ZmFiYTVmNmMiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX0NiRHloQWNxRSIsImNvZ25pdG86dXNlcm5hbWUiOiIxNDc4YjQxOC1mMDUxLTcwODYtMGQ2MS1hZTA4ZmFiYTVmNmMiLCJvcmlnaW5fanRpIjoiMmQ4YmQ2YWItNzI1YS00OWUzLWEwYzEtMGE1MTg4MjM4OGRjIiwiYXVkIjoiM3NycGIxaDVzM282ZDJhNXF1NGJ2b29tcTkiLCJldmVudF9pZCI6IjU0NmI1OTJlLWJkMTktNDFkMy05NGI4LTNkN2ZmOGY3OWEyZiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzYzODg5MzkxLCJleHAiOjE3NjM4OTI5OTEsImlhdCI6MTc2Mzg4OTM5MSwianRpIjoiNGNiNWQ3ODItYmQzYy00ZGIxLWEwOGEtY2JjZTI3MmMwNDAxIiwiZW1haWwiOiJtYXJpYS5yaW9zQGV4YW1wbGUuY29tIn0.lnSisfwUbubmcgEf-aY4G9FuPJVQJgvWHT2hWOcH7G-4mQSaN03Cmg6khJ5U2-bWm4WnxmIRXJOlnBBknjaPekADnJy-eRgar0mFmU3wWRNwNDL7XUxkVgSgYqkfuSWDRHKCRYDxHXm7l4QngrBWJhQBy6nfI6PCiTuZXRY8FdzHYIAk5T32IlwfMcw9omKWLPjNX4N-ihoDl5jdMOtd__ifNPN_EStfaFpvD-rhAry5E_FRaa9PgYUJ6sqy15N-BjvnmCZ-MOl3hRRnx24rQkQgg01yCPnLk_YqHdHfYi6V21ED-aD3s6zrXeHt6kuZUSRH2F2TY1gmPjPzIZJfgQ\"\n}"
 						}
 					]
 				},
@@ -753,7 +836,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"correo\": \"fabricio.lanche@utec.edu.pe.SU\",\r\n  \"nombre\": \"Fabricio Alonso\",\r\n  \"sexo\": \"M\",\r\n  \"contrasena\": \"12Desetiembre!!!\"\r\n}",
+							"raw": "{\r\n  \"correo\": \"yaritza.villegas@example.com\",\r\n  \"contrasena\": \"ClaveFuerte!2024\",\r\n  \"nombre\": \"Yaritza Villegas\",\r\n  \"sexo\": \"F\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -797,7 +880,7 @@
 							},
 							"status": "OK",
 							"code": 200,
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": "Text",
 							"header": [
 								{
 									"key": "Content-Type",
@@ -854,6 +937,356 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"message\": \"Registro completado. Sesión iniciada.\",\n    \"usuario\": {\n        \"correo\": \"fabricio.lanche@utec.edu.pe.SU\",\n        \"nombre\": \"Fabricio Alonso\",\n        \"sexo\": \"M\",\n        \"rol\": \"USER\"\n    },\n    \"access_token\": \"eyJraWQiOiJuMVVGeTJoRlZDXC9rREJjbitpcGpxRWFoSDVzWm5JUkpiUEJUSEJJZnFcLzQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI4NGY4NDQzOC01MDYxLTcwMWEtNmFlYi1iYzQwYjk5MzgzNzQiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9DYkR5aEFjcUUiLCJjbGllbnRfaWQiOiIzc3JwYjFoNXMzbzZkMmE1cXU0YnZvb21xOSIsIm9yaWdpbl9qdGkiOiIyYWYxNjExMy1kY2FhLTQyNDAtYjM3Mi0zZTc4Yzc5ODY3ZGUiLCJldmVudF9pZCI6IjBhNTg5OWNiLWU1ZjItNDg2NC1iZWMwLTY4NDMwMjMyMjVjZSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3NjM4ODc4NzksImV4cCI6MTc2Mzg5MTQ3OSwiaWF0IjoxNzYzODg3ODc5LCJqdGkiOiIyNjJiNjZlMi00NmY2LTRhYjEtYWVjMS1iYWQxYmY1MWNhM2MiLCJ1c2VybmFtZSI6Ijg0Zjg0NDM4LTUwNjEtNzAxYS02YWViLWJjNDBiOTkzODM3NCJ9.M4OGBqVA0aEU-0uKhRoEha4_xoG6R41rR5OQyqAG4CbflmzkdLzCXJicEII3EJSGoO_rwH_UGvtkWTSuk4_2YTuFS_dJup2Tl_X3eB6GBwGY1z4UuIfOSvpLp0aOLv0mbOTwvhvc8UoPB4pK-CZehFiPtBgM62XmTE7tVWOOlbHI9JqzhmhEJFBFmUOUbEUR1cVXizMUA5IEv6xsMPBdxnRJeg5lM-EO-eOv6TQpJ50UiShquzO1Axi7AEF584u8dUVvLJlTRL51Svw9lpPpSe4lsi3is0I4wNxGRN4-P-kEGEMPmtg4_XrxOeC2CLlx-jT6OxBZNO21N-MHco9JTg\",\n    \"id_token\": \"eyJraWQiOiI0dktyRkMxVGFxSyt2SVFSYmRySkxwYXNFQ0huYjdFdmJHWnhGYTJhVzNJPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI4NGY4NDQzOC01MDYxLTcwMWEtNmFlYi1iYzQwYjk5MzgzNzQiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX0NiRHloQWNxRSIsImNvZ25pdG86dXNlcm5hbWUiOiI4NGY4NDQzOC01MDYxLTcwMWEtNmFlYi1iYzQwYjk5MzgzNzQiLCJvcmlnaW5fanRpIjoiMmFmMTYxMTMtZGNhYS00MjQwLWIzNzItM2U3OGM3OTg2N2RlIiwiYXVkIjoiM3NycGIxaDVzM282ZDJhNXF1NGJ2b29tcTkiLCJldmVudF9pZCI6IjBhNTg5OWNiLWU1ZjItNDg2NC1iZWMwLTY4NDMwMjMyMjVjZSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzYzODg3ODc5LCJleHAiOjE3NjM4OTE0NzksImlhdCI6MTc2Mzg4Nzg3OSwianRpIjoiYjdiMjc3MmYtNTJkMy00M2M4LWI3NjEtNDZjNTI2YTIxZTU2IiwiZW1haWwiOiJmYWJyaWNpby5sYW5jaGVAdXRlYy5lZHUucGUuU1UifQ.h-V-S3ym0d4EFSr17PxR0T95ZtqRWfzQdJZuEknc3pqFQ05MJHI2MeoREL9mv_eEwuu__ITEvd6Xy8OaCkFvh7WnT1M0jirUUBOtkrucEFn4e8GbRAJ7Hr_pBhJca20WRjVy0rsfw5lHYn1plWPGP33Zi83PcYOOpQKHoleK13hmmKWqci2W4Wg3MjZjLr3CA3gC39TAFBIzwmm-3JRuX2WhVdOtZsGM1YxucJFaOt-QUyX-Rl8F0dNTKie0nO4-s1LfnnHe73plScJzgyaXeNov7BsKqRhAY_38pTOW0mD3xyUQMxLurOVWKE6VcvmQ4ClcrKHjJvmBCvQuV-edaw\"\n}"
+						},
+						{
+							"name": "Registro",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"correo\": \"yaritza.villegas@example.com\",\r\n  \"contrasena\": \"ClaveFuerte!2024\",\r\n  \"nombre\": \"Yaritza Villegas\",\r\n  \"sexo\": \"F\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl_registro}}/register",
+									"host": [
+										"{{baseUrl_registro}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2378"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Nov 2025 09:18:22 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "ab7ef9d5-6b74-402c-a982-4086d42806de"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "UfWmpHGZoAMEOng="
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6922d15d-01d4d2cb331d98e101e46968;Parent=2042582baffd6154;Sampled=0;Lineage=1:1f92d88e:0"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 e10f5a2809f551f49db0ef4e9e7c1228.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LIM50-P1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "gO_OyAWMy39xud-dVY9lcP_N3f9Q9Pavg2yg0dUVrLKsoy8uaUv-mQ=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Registro completado. Sesión iniciada.\",\n    \"usuario\": {\n        \"correo\": \"yaritza.villegas@example.com\",\n        \"nombre\": \"Yaritza Villegas\",\n        \"sexo\": \"F\",\n        \"rol\": \"USER\"\n    },\n    \"access_token\": \"eyJraWQiOiJuMVVGeTJoRlZDXC9rREJjbitpcGpxRWFoSDVzWm5JUkpiUEJUSEJJZnFcLzQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIxNGY4YzQzOC02MDQxLTcwZmYtNzA4Zi1jZjBmMWFmNzA1NDIiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9DYkR5aEFjcUUiLCJjbGllbnRfaWQiOiIzc3JwYjFoNXMzbzZkMmE1cXU0YnZvb21xOSIsIm9yaWdpbl9qdGkiOiJiODA0MmI5YS1jNTc0LTQzYWEtYjFjNi05MzFmM2U4YjlkN2QiLCJldmVudF9pZCI6ImJjZTU5NTdlLWE0MDgtNDU4My04MDIwLWZkZjI0MDNjZDI3MyIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3NjM4ODk1MDIsImV4cCI6MTc2Mzg5MzEwMiwiaWF0IjoxNzYzODg5NTAyLCJqdGkiOiI4NWY3MDFkNC04MmU2LTRlMmMtYTk0Ni04OGRlNzRhMzUxNTYiLCJ1c2VybmFtZSI6IjE0ZjhjNDM4LTYwNDEtNzBmZi03MDhmLWNmMGYxYWY3MDU0MiJ9.GwmS-REIr0sqjvARUrfs4LY7s5CelxFN6qozSiAuTYP399UgW7tERLtQ7wti7fU0zVoZvg8dY_2f3eOdffDUWyQNtLLC4hgDfvQOHx-Dqoj29ZKcVzNGO5ZiZttA1CO7-HC5Rmi07764me3Bu_baVMRoRhelGkaIefEXhYHO-uZRNcltUuD98apCId1bdSZQKZBaubv6DObr3adMliWTSzSOgoqdtwzYFGfY7ZyqMoo-Qr78yxizPVZnfaYCE4YDWlx8DqcsB-D3SoyHZ_NIz3YBgqRdyoZ1QigP35bgkTORtPe1RNYjoO2V5s4rtiAHg8IBbyy6Ji9DXqXRiQLYow\",\n    \"id_token\": \"eyJraWQiOiI0dktyRkMxVGFxSyt2SVFSYmRySkxwYXNFQ0huYjdFdmJHWnhGYTJhVzNJPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIxNGY4YzQzOC02MDQxLTcwZmYtNzA4Zi1jZjBmMWFmNzA1NDIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX0NiRHloQWNxRSIsImNvZ25pdG86dXNlcm5hbWUiOiIxNGY4YzQzOC02MDQxLTcwZmYtNzA4Zi1jZjBmMWFmNzA1NDIiLCJvcmlnaW5fanRpIjoiYjgwNDJiOWEtYzU3NC00M2FhLWIxYzYtOTMxZjNlOGI5ZDdkIiwiYXVkIjoiM3NycGIxaDVzM282ZDJhNXF1NGJ2b29tcTkiLCJldmVudF9pZCI6ImJjZTU5NTdlLWE0MDgtNDU4My04MDIwLWZkZjI0MDNjZDI3MyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzYzODg5NTAyLCJleHAiOjE3NjM4OTMxMDIsImlhdCI6MTc2Mzg4OTUwMiwianRpIjoiNDU0ZWEyMTItMzA2MC00MWY3LTlhMjMtNDIxYWZjNjI3OTMxIiwiZW1haWwiOiJ5YXJpdHphLnZpbGxlZ2FzQGV4YW1wbGUuY29tIn0.Uz0-RVBt29fY17RKFae7qPAb224LKHcBZy1fGrhB2jPJJFJj5-UrfKfUZp7laPfFZ5GILwWNwcjaLthx7RH60JJk0gUmWKBBeB8X_lLQ9D48_0fTSD3DT3rkcADrnv2OWLsitzyigitPGnK0vXkIgcAjyJThv5AnpfV4VomHdgReGqD7tU0Sk6aeh3qRqDu8PUP8DbQRN1-hyMbLDgbIiFjuRdeSuZlyra7M53X1tM7_EDw-OwVVtAwaMEyvmF-Je5afo3yeSAjZ3j-uTh9RRoxt8rkBXi2h3mm2fbvF2BhP8v3ZdSlOW4N3EUSX6nN7kjf3qko2KNYnPfeAQJySKg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Agregar Dependiente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Alondra Pérez\",\n  \"cumpleanos\": \"2015-05-20\",\n  \"parentesco\": \"HIJO\",\n  \"sexo\": \"F\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://blkmrdvd75.execute-api.us-east-1.amazonaws.com/dev/agregar-dependiente",
+							"protocol": "https",
+							"host": [
+								"blkmrdvd75",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"agregar-dependiente"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Agregar Dependiente",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nombre\": \"Alondra Pérez\",\n  \"cumpleanos\": \"2015-05-20\",\n  \"parentesco\": \"HIJO\",\n  \"sexo\": \"F\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://blkmrdvd75.execute-api.us-east-1.amazonaws.com/dev/agregar-dependiente",
+									"protocol": "https",
+									"host": [
+										"blkmrdvd75",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"agregar-dependiente"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "262"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Nov 2025 09:20:01 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "bfe63ea6-3dc2-4694-ad1b-16f762f61a30"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "UfW2JF7noAMEA1w="
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6922d1c0-7445c4a77ac9f8db3b292407;Parent=26ca83baabe411fe;Sampled=0;Lineage=1:2855fcfa:0"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 a095f5c394e0c42139106277f3743592.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LIM50-P1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "1Fj3n8z2SPL_OhybZPghrrrRBAYp-SRUEeA5FTmG07__qbAZSHZbOw=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Dependiente agregado exitosamente\",\n    \"dependiente\": {\n        \"correo_tutor\": \"yaritza.villegas@example.com\",\n        \"dependiente_id\": \"8dbeaa64-b8d9-4431-93a6-50642ea65598\",\n        \"nombre\": \"Alondra Pérez\",\n        \"cumpleanos\": \"2015-05-20\",\n        \"parentesco\": \"HIJO\",\n        \"sexo\": \"F\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Activar Modo Familiar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://blkmrdvd75.execute-api.us-east-1.amazonaws.com/dev/activar-modo-familiar",
+							"protocol": "https",
+							"host": [
+								"blkmrdvd75",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"activar-modo-familiar"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Modo Familiar",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://blkmrdvd75.execute-api.us-east-1.amazonaws.com/dev/activar-modo-familiar",
+									"protocol": "https",
+									"host": [
+										"blkmrdvd75",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"activar-modo-familiar"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Nov 2025 09:19:24 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "7a102fd5-639a-4527-9f58-078f106afffb"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "UfWwWEIwoAMEBfA="
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6922d19b-4f87fd9148c6d4c81c948470;Parent=0bf37ca069adb526;Sampled=0;Lineage=1:c0743aee:0"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 a095f5c394e0c42139106277f3743592.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LIM50-P1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "CHJhR7QOz5yLqQQOSh96fWuT0i9K2zb1ujODEhyfR712EpdkJbHd5w=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Modo familiar activado exitosamente\",\n    \"correo\": \"yaritza.villegas@example.com\",\n    \"rol_anterior\": \"USER\",\n    \"rol_nuevo\": \"TUTOR\"\n}"
 						}
 					]
 				}
