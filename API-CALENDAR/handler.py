@@ -194,21 +194,20 @@ def create_recurring_event(event, context):
         indicaciones_consumo = body.get('indicaciones_consumo', '')
 
         # 2. CONFIGURACIÓN DE TIEMPO BASE (Lima)
-        # Usamos pytz para consistencia con el resto del archivo y las conversiones UTC
         lima_tz = pytz.timezone('America/Lima')
         lima_now = datetime.now(lima_tz).replace(second=0, microsecond=0)
 
-        # Variables unificadas para ambas estrategias
         start_iso = None
         end_iso = None
+        # Por defecto enviamos Lima, pero si usamos frecuencia cambiaremos a UTC
+        event_timezone = 'America/Lima'
         recurrence_rule = []
         
         description = f"Recordatorio médico: {pill_name}.\n{indicaciones_consumo}"
 
-        # ==============================================================================
-        # ESTRATEGIA A: POR COMIDAS
-        # ==============================================================================
         if indicacion in ['Desayuno', 'Almuerzo', 'Cena']:
+            event_timezone = 'America/Lima' # Mantenemos local
+            
             meal_times = {
                 'Desayuno': {'hour': 8, 'minute': 0},
                 'Almuerzo': {'hour': 13, 'minute': 0},
@@ -218,7 +217,6 @@ def create_recurring_event(event, context):
             start_dt = lima_now.replace(hour=target['hour'], minute=target['minute'], second=0)
             end_dt = start_dt + timedelta(minutes=30)
             
-            # Asignamos a las variables comunes
             start_iso = start_dt.isoformat()
             end_iso = end_dt.isoformat()
             
@@ -233,15 +231,18 @@ def create_recurring_event(event, context):
                 recurrence_rule = [f'RRULE:FREQ=DAILY;UNTIL={until_str}']
 
         # ==============================================================================
-        # ESTRATEGIA B: POR FRECUENCIA
+        # ESTRATEGIA B: POR FRECUENCIA (Forzamos UTC para evitar Error 400)
         # ==============================================================================
         else:
-            start_dt = lima_now
-            end_dt = start_dt + timedelta(minutes=15)
+            # Cambiamos la zona horaria del evento a UTC explícitamente
+            event_timezone = 'UTC'
             
-            # Asignamos a las variables comunes
-            start_iso = start_dt.isoformat()
-            end_iso = end_dt.isoformat()
+            # Convertimos la hora actual de Lima a UTC puro
+            start_utc = lima_now.astimezone(pytz.utc)
+            end_utc = start_utc + timedelta(minutes=15)
+            
+            start_iso = start_utc.isoformat()
+            end_iso = end_utc.isoformat()
             
             freq_map = {'Horas': 'HOURLY', 'Dias': 'DAILY'}
             rrule_freq = freq_map.get(medicion_frecuencia, 'DAILY')
@@ -250,16 +251,17 @@ def create_recurring_event(event, context):
             
             until_str = ""
             if medicion_duracion == 'Dias':
-                # Calculamos el UNTIL sumando los días a la fecha actual
-                until_date = lima_now + timedelta(days=duracion)
-                until_str = until_date.astimezone(pytz.utc).strftime('%Y%m%dT%H%M%SZ')
+                # Calculamos UNTIL sumando días (usando el objeto UTC)
+                until_date = start_utc + timedelta(days=duracion)
+                until_str = until_date.strftime('%Y%m%dT%H%M%SZ')
             else:
-                until_date = lima_now + relativedelta(months=+duracion)
-                until_str = until_date.astimezone(pytz.utc).strftime('%Y%m%dT%H%M%SZ')
+                until_date = start_utc + relativedelta(months=+duracion)
+                until_str = until_date.strftime('%Y%m%dT%H%M%SZ')
 
             recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};UNTIL={until_str}']
 
         print(f"DEBUG RRULE: {recurrence_rule}")
+        print(f"DEBUG TIMEZONE ENVIO: {event_timezone}")
 
         # 3. LLAMADA A GOOGLE CALENDAR
         creds = get_google_creds() 
@@ -268,14 +270,14 @@ def create_recurring_event(event, context):
         event_body = {
             'summary': f'💊 Tomar: {pill_name}',
             'description': description,
-            # Ahora usamos start_iso y end_iso que siempre están definidos
+            # Usamos la zona horaria dinámica (UTC o Lima según el caso)
             'start': {
                 'dateTime': start_iso,
-                'timeZone': "America/Lima"
+                'timeZone': event_timezone
             },
             'end': {
                 'dateTime': end_iso,
-                'timeZone': "America/Lima" 
+                'timeZone': event_timezone 
             },
             'recurrence': recurrence_rule,
             'attendees': [{'email': patient_email}],
