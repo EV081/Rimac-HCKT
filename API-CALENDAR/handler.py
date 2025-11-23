@@ -161,20 +161,32 @@ def create_cita(event, context):
         return {"statusCode": 500, "body": json.dumps({"error": str(e)}, default=str)}
 
 def create_recurring_event(event, context):
+    """Endpoint para Recordatorios de Pastillas (Eventos Recurrentes)"""
     try:
-        # 1. Parseo
-        body = event.get('body', {})
-        if isinstance(body, str):
-            body = json.loads(body)
-            
+        # 1. OBTENCIÓN Y SANITIZACIÓN DEL BODY
+        raw_body = event.get('body', '{}')
+        print(f"RAW BODY RECIBIDO: {repr(raw_body)}") 
+
+        body = {}
+        if isinstance(raw_body, str):
+            try:
+                # Limpieza de caracteres invisibles
+                clean_body = raw_body.replace('\xa0', ' ').strip()
+                body = json.loads(clean_body)
+            except json.JSONDecodeError as e:
+                return {
+                    "statusCode": 400, 
+                    "body": json.dumps({"error": "JSON inválido", "detalle": str(e)})
+                }
+        else:
+            body = raw_body
+
         patient_email = body.get('patient_email')
         pill_name = body.get('pill_name')
-        
-        medicion_duracion = body.get('medicion_duracion') # 'Dias' o 'Meses'
+        medicion_duracion = body.get('medicion_duracion') 
         duracion = int(body.get('duracion', 1))
-        
-        indicacion = body.get('indicacion') # 'Desayuno', 'Almuerzo', 'Cena' o None
-        medicion_frecuencia = body.get('medicion_frecuencia') # 'Horas' o 'Dias'
+        indicacion = body.get('indicacion') 
+        medicion_frecuencia = body.get('medicion_frecuencia') 
         
         raw_frecuencia = body.get('frecuencia')
         frecuencia = int(raw_frecuencia) if raw_frecuencia else 1
@@ -182,8 +194,8 @@ def create_recurring_event(event, context):
         
         indicaciones_consumo = body.get('indicaciones_consumo', '')
 
-        # 2. Configuración de Tiempo
-        # Trabajamos en hora Perú internamente para calcular los inicios correctos
+        # 2. CONFIGURACIÓN DE TIEMPO (LIMA)
+        # Limpiamos segundos a 00 para asegurar que UNTIL coincida matemáticamente con DTSTART
         lima_tz = pytz.timezone('America/Lima')
         now_lima = datetime.now(lima_tz).replace(second=0, microsecond=0)
 
@@ -193,7 +205,7 @@ def create_recurring_event(event, context):
         description = f"Recordatorio médico: {pill_name}.\n{indicaciones_consumo}"
 
         # ==============================================================================
-        # ESTRATEGIA A: POR COMIDAS
+        # ESTRATEGIA A: POR COMIDAS (COUNT funciona bien aquí porque es DAILY)
         # ==============================================================================
         if indicacion in ['Desayuno', 'Almuerzo', 'Cena']:
             meal_times = {
@@ -216,9 +228,10 @@ def create_recurring_event(event, context):
                 recurrence_rule = [f'RRULE:FREQ=DAILY;UNTIL={until_str}']
 
         # ==============================================================================
-        # ESTRATEGIA B: POR FRECUENCIA
+        # ESTRATEGIA B: POR FRECUENCIA (USAMOS UNTIL OBLIGATORIAMENTE)
         # ==============================================================================
         else:
+            # Empezamos AHORA (Lima)
             start_dt_lima = now_lima
             end_dt_lima = start_dt_lima + timedelta(minutes=15)
             
@@ -227,41 +240,34 @@ def create_recurring_event(event, context):
             
             description += f"\nTomar cada {frecuencia} {medicion_frecuencia}."
             
+            # CÁLCULO DE FECHA LÍMITE (UNTIL)
+            # Volvemos a UNTIL porque Google valida mejor esto para reglas horarias complejas
+            treatment_end_date = None
             if medicion_duracion == 'Dias':
-                total_horas_tratamiento = duracion * 24
-                count = 0
-                if medicion_frecuencia == 'Horas':
-                    count = math.ceil(total_horas_tratamiento / frecuencia)
-                    if count < 1: count = 1
-                elif medicion_frecuencia == 'Dias':
-                    count = math.ceil(duracion / frecuencia)
-                
-                recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};COUNT={int(count)}']
-            else:
-                treatment_end_date = now_lima + relativedelta(months=+duracion)
-                until_utc = treatment_end_date.astimezone(pytz.utc)
-                until_str = until_utc.strftime('%Y%m%dT%H%M%SZ')
-                recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};UNTIL={until_str}']
+                treatment_end_date = start_dt_lima + timedelta(days=duracion)
+            else: # Meses
+                treatment_end_date = start_dt_lima + relativedelta(months=duracion)
+            
+            # Convertir a UTC "Z" (Requisito estricto de RFC 5545 para UNTIL)
+            until_utc = treatment_end_date.astimezone(pytz.utc)
+            until_str = until_utc.strftime('%Y%m%dT%H%M%SZ')
+            
+            # Generamos la regla
+            recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};UNTIL={until_str}']
 
-        # Debug
-        print(f"DEBUG RRULE: {recurrence_rule}")
+        print(f"DEBUG RRULE FINAL: {recurrence_rule}")
 
-        # --- CORRECCIÓN FINAL (NUCLEAR) ---
-        # Convertimos las fechas de inicio/fin a UTC explícitamente.
-        # Al enviar timeZone='UTC', Google no tiene que hacer conversiones raras que rompen el RRULE.
-        start_utc = start_dt_lima.astimezone(pytz.utc)
-        end_utc = end_dt_lima.astimezone(pytz.utc)
-
-        # 3. Llamada a Google Calendar
+        # 3. LLAMADA A GOOGLE CALENDAR
         creds = get_google_creds() 
         service = build('calendar', 'v3', credentials=creds)
 
         event_body = {
             'summary': f'💊 Tomar: {pill_name}',
             'description': description,
-            # Enviamos UTC ('Z') y le decimos a Google que es UTC.
-            'start': { 'dateTime': start_utc.isoformat(), 'timeZone': 'UTC' },
-            'end': { 'dateTime': end_utc.isoformat(), 'timeZone': 'UTC' },
+            # Enviamos hora Local (Lima) con su zona horaria explícita.
+            # Google manejará la conversión interna.
+            'start': { 'dateTime': start_dt_lima.isoformat(), 'timeZone': 'America/Lima' },
+            'end': { 'dateTime': end_dt_lima.isoformat(), 'timeZone': 'America/Lima' },
             'recurrence': recurrence_rule,
             'attendees': [{'email': patient_email}],
             'reminders': {
@@ -287,8 +293,7 @@ def create_recurring_event(event, context):
         }
 
     except Exception as e:
-        # Imprimimos el error completo para verlo en CloudWatch
         print(f"Error CRITICO creando evento: {repr(e)}")
-        return {"statusCode": 400, "body": json.dumps({"error": str(e)})}
+        return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
 
 
