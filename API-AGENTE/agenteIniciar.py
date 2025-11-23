@@ -45,6 +45,10 @@ def decode_jwt_payload(token):
         payload = parts[1]
         # Ajustar padding base64
         padding = '=' * (4 - len(payload) % 4)
+        decoded = base64.urlsafe_b64decode(payload + padding).decode('utf-8')
+        return json.loads(decoded)
+    except Exception:
+        return None
 
 def get_recent_memory(correo):
     table = dynamodb.Table(TABLE_MEMORIA)
