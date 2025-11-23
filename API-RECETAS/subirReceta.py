@@ -222,7 +222,8 @@ def lambda_handler(event, context):
                     Bucket=S3_BUCKET,
                     Key=s3_key,
                     Body=image_bytes,
-                    ContentType='image/jpeg'
+                    ContentType='image/jpeg',
+                    ACL='public-read'
                 )
                 # Generar URL pública
                 url_receta = f"https://{S3_BUCKET}.s3.amazonaws.com/{s3_key}"

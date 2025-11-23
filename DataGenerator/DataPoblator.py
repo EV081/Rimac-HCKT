@@ -248,7 +248,7 @@ def populate_table(filename, table_config):
     
     # Verificar que la tabla existe
     if not table_exists(table_name):
-        print(f"   ⚠️  Tabla '{table_name}' no existe. Ejecuta CreateTables.py primero")
+        print(f"   ⚠️  Tabla '{table_name}' no existe. Ejecuta create_tables.py primero")
         return False
     
     print(f"   ✅ Tabla '{table_name}' existe")

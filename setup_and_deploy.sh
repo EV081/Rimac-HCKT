@@ -117,7 +117,7 @@ setup_database() {
     
     # Crear tablas si no existen
     log "🏗️  Creando tablas DynamoDB si no existen..."
-    python3 CreateTables.py
+    python3 create_tables.py
     
     if [ $? -ne 0 ]; then
         log_error "Error al crear tablas"
