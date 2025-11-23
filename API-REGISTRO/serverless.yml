@@ -6,23 +6,26 @@ provider:
   runtime: python3.9
   region: us-east-1
   environment:
-    USER_POOL_ID: "us-east-1_CbDyhAcqE"     # <--- TU ID DE COGNITO
-    CLIENT_ID: "3srpb1h5s3o6d2a5qu4bvoomq9"             # <--- TU APP CLIENT ID
-    TABLE_USUARIOS: ${env:TABLE_USUARIOS, 'TABLE_USUARIOS'}
-    TABLE_DEPENDIENTES: ${env:TABLE_DEPENDIENTES, 'TABLE_DEPENDIENTES'}
+    USER_POOL_ID: "us-east-1_CbDyhAcqE"
+    CLIENT_ID: "3srpb1h5s3o6d2a5qu4bvoomq9"
+    TABLE_USUARIOS: Usuarios
+    TABLE_DEPENDIENTES: UsuariosDependientes
   
   iamRoleStatements:
     - Effect: Allow
       Action:
         - cognito-idp:SignUp
         - cognito-idp:InitiateAuth
-        - cognito-idp:AdminConfirmSignUp  # <--- PERMISO OBLIGATORIO PARA AUTO-CONFIRMAR
+        - cognito-idp:AdminConfirmSignUp
       Resource: "arn:aws:cognito-idp:us-east-1:*:userpool/*"
     - Effect: Allow
       Action:
         - dynamodb:PutItem
         - dynamodb:GetItem
         - dynamodb:UpdateItem
+      Resource:
+        - "arn:aws:dynamodb:us-east-1:*:table/Usuarios"
+        - "arn:aws:dynamodb:us-east-1:*:table/UsuariosDependientes"
 
 functions:
   login:
