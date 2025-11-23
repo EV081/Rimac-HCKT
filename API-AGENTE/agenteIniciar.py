@@ -62,6 +62,11 @@ def decode_jwt_payload(token):
     except Exception:
         return None
 
+def get_user_data(correo):
+    table = dynamodb.Table(TABLE_USUARIOS)
+    response = table.get_item(Key={'correo': correo})
+    return response.get('Item')
+
 def get_recent_memory(correo):
     table = dynamodb.Table(TABLE_MEMORIA)
     try:
