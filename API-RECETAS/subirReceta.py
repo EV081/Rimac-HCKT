@@ -39,7 +39,7 @@ if genai is not None and GEMINI_API_KEY:
         _INIT_ERROR = str(e)
 else:
     if genai is None:
-        _INIT_ERROR = f"Dependencia faltante: { _IMPORT_ERROR }"
+        _INIT_ERROR = f"Dependencia faltante: {_IMPORT_ERROR}"
     elif not GEMINI_API_KEY:
         _INIT_ERROR = "GEMINI_API_KEY no configurada en el entorno"
 
@@ -139,7 +139,13 @@ def lambda_handler(event, context):
             return _response(401, {"message": "No autorizado. Token faltante o inválido."})
 
         # ===============================
-        # 3c. Análisis con Gemini
+        # 3c. Generar ID temprano (ANTES de S3)
+        # ===============================
+        receta_id = f"rec-{uuid.uuid4().hex[:8]}"
+        timestamp = time.strftime("%Y-%m-%dT%H:%M:%S")
+
+        # ===============================
+        # 3d. Análisis con Gemini
         # ===============================
         prompt = """
         Eres un analizador especializado en recetas médicas.
@@ -205,11 +211,12 @@ def lambda_handler(event, context):
             })
 
         # ===============================
-        # 3d. Subir imagen a S3
+        # 3e. Subir imagen a S3
         # ===============================
         url_receta = None
         if S3_BUCKET:
             try:
+                # Usar receta_id ya generado
                 s3_key = f"recetas/{user_email}/{receta_id}.jpg"
                 s3.put_object(
                     Bucket=S3_BUCKET,
@@ -219,16 +226,16 @@ def lambda_handler(event, context):
                 )
                 # Generar URL pública
                 url_receta = f"https://{S3_BUCKET}.s3.amazonaws.com/{s3_key}"
+                print(f"✅ Imagen subida a S3: {url_receta}")
             except Exception as s3_error:
-                print(f"Error al subir a S3: {s3_error}")
+                print(f"❌ Error al subir a S3: {s3_error}")
                 # Continuar sin URL si falla S3
+        else:
+            print("⚠️ S3_BUCKET no configurado, saltando subida de imagen")
 
         # ===============================
-        # 3e. Guardar en DynamoDB
+        # 3f. Guardar en DynamoDB
         # ===============================
-        receta_id = f"rec-{uuid.uuid4().hex[:8]}"
-        timestamp = time.strftime("%Y-%m-%dT%H:%M:%S")
-        
         item = {
             'correo': user_email,
             'receta_id': receta_id,
@@ -244,11 +251,12 @@ def lambda_handler(event, context):
         
         try:
             table_recetas.put_item(Item=item)
+            print(f"✅ Receta guardada en DynamoDB: {receta_id}")
         except Exception as e:
             return _response(500, {"message": f"Error al guardar en BD: {str(e)}"})
 
         # ===============================
-        # 3f. Respuesta Final
+        # 3g. Respuesta Final
         # ===============================
         return _response(200, {
             "message": "Receta procesada y guardada exitosamente",
@@ -258,6 +266,9 @@ def lambda_handler(event, context):
         })
 
     except Exception as e:
+        import traceback
+        print(f"❌ Error general: {str(e)}")
+        traceback.print_exc()
         return _response(500, {"message": str(e)})
 
 # Wrapper para Serverless
