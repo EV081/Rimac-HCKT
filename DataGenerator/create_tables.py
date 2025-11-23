@@ -86,6 +86,52 @@ def create_table_from_definition(table_name, definition):
             print(f"   ❌ Error al verificar tabla: {str(e)}")
             return False
 
+def verify_table_structure(table_name, expected_key_schema):
+    """Verifica si la estructura de la tabla coincide con la esperada"""
+    try:
+        response = dynamodb.describe_table(TableName=table_name)
+        current_key_schema = response['Table']['KeySchema']
+        
+        # Comparar esquemas de claves
+        if len(current_key_schema) != len(expected_key_schema):
+            return False
+        
+        for expected_key in expected_key_schema:
+            if expected_key not in current_key_schema:
+                return False
+        
+        return True
+    except ClientError:
+        return False
+
+def recreate_table(table_name, key_schema, attribute_definitions):
+    """Elimina y recrea una tabla con la nueva estructura"""
+    try:
+        print(f"   🗑️  Eliminando tabla existente con estructura incorrecta...")
+        dynamodb.delete_table(TableName=table_name)
+        waiter = dynamodb.get_waiter('table_not_exists')
+        waiter.wait(TableName=table_name)
+        print(f"   ✅ Tabla eliminada")
+    except Exception as e:
+        print(f"   ❌ Error al eliminar tabla: {str(e)}")
+        return False
+    
+    try:
+        print(f"   🔨 Recreando tabla con estructura correcta...")
+        dynamodb.create_table(
+            TableName=table_name,
+            KeySchema=key_schema,
+            AttributeDefinitions=attribute_definitions,
+            BillingMode='PAY_PER_REQUEST'
+        )
+        waiter = dynamodb.get_waiter('table_exists')
+        waiter.wait(TableName=table_name)
+        print(f"   ✅ Tabla recreada exitosamente")
+        return True
+    except Exception as e:
+        print(f"   ❌ Error al recrear tabla: {str(e)}")
+        return False
+
 def create_table_from_schema(filename, table_name):
     """Crear tabla desde archivo de esquema JSON"""
     filepath = os.path.join(SCHEMAS_DIR, filename)
@@ -138,29 +184,38 @@ def create_table_from_schema(filename, table_name):
 
     try:
         print(f"📊 Verificando tabla: {table_name}")
-        dynamodb.describe_table(TableName=table_name)
-        print(f"   ✅ La tabla '{table_name}' ya existe")
-        return True
-    except ClientError as e:
-        if e.response['Error']['Code'] == 'ResourceNotFoundException':
-            print(f"   🔨 Creando tabla '{table_name}'...")
-            try:
-                dynamodb.create_table(
-                    TableName=table_name,
-                    KeySchema=key_schema,
-                    AttributeDefinitions=attribute_definitions,
-                    BillingMode='PAY_PER_REQUEST'
-                )
-                waiter = dynamodb.get_waiter('table_exists')
-                waiter.wait(TableName=table_name)
-                print(f"   ✅ Tabla '{table_name}' creada exitosamente")
+        table_exists = True
+        try:
+            dynamodb.describe_table(TableName=table_name)
+        except ClientError as e:
+            if e.response['Error']['Code'] == 'ResourceNotFoundException':
+                table_exists = False
+            else:
+                raise
+        
+        if table_exists:
+            # Verificar si la estructura es correcta
+            if verify_table_structure(table_name, key_schema):
+                print(f"   ✅ La tabla '{table_name}' ya existe con la estructura correcta")
                 return True
-            except Exception as create_error:
-                print(f"   ❌ Error al crear tabla: {str(create_error)}")
-                return False
+            else:
+                print(f"   ⚠️  La tabla '{table_name}' existe pero con estructura incorrecta")
+                return recreate_table(table_name, key_schema, attribute_definitions)
         else:
-            print(f"   ❌ Error al verificar tabla: {str(e)}")
-            return False
+            print(f"   🔨 Creando tabla '{table_name}'...")
+            dynamodb.create_table(
+                TableName=table_name,
+                KeySchema=key_schema,
+                AttributeDefinitions=attribute_definitions,
+                BillingMode='PAY_PER_REQUEST'
+            )
+            waiter = dynamodb.get_waiter('table_exists')
+            waiter.wait(TableName=table_name)
+            print(f"   ✅ Tabla '{table_name}' creada exitosamente")
+            return True
+    except Exception as e:
+        print(f"   ❌ Error: {str(e)}")
+        return False
 
 def main():
     print("🏗️  Creando tablas base desde esquemas...")
