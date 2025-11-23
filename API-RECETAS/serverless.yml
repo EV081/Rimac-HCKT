@@ -7,14 +7,11 @@ provider:
   timeout: 300
   region: us-east-1
   stage: ${param:stage}
-
   environment:
     GEMINI_API_KEY: ${env:GEMINI_API_KEY}
     TABLE_RECETAS: ${env:TABLE_RECETAS}
     S3_BUCKET_RECETAS: ${env:S3_BUCKET_RECETAS}
-
   role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/LabRole
-
   apiGateway:
     binaryMediaTypes:
       - 'multipart/form-data'
@@ -25,7 +22,7 @@ plugins:
 
 functions:
   subirReceta:
-    handler: subirReceta.lambda_handler
+    handler: subirReceta.subirReceta
     events:
       - http:
           path: recetas
@@ -66,6 +63,13 @@ functions:
 
 package:
   individually: true
+  patterns:
+    - '!.venv/**'
+    - '!node_modules/**'
+    - '!.serverless/**'
+    - '!__pycache__/**'
+    - '!*.pyc'
+    - '!.pytest_cache/**'
 
 custom:
   pythonRequirements:
@@ -75,3 +79,4 @@ custom:
     pythonBin: python3
     useDownloadCache: false
     useStaticCache: false
+    zip: true

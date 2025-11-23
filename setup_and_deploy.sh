@@ -142,8 +142,17 @@ case $opcion in
         # Verificar e instalar dependencias de Node.js
         if [ ! -d "node_modules" ] || [ ! -f "package.json" ]; then
             log_warning "Instalando dependencias de Serverless..."
-            sudo npm install --save-dev serverless-python-requirements
+            npm install --save-dev serverless-python-requirements
         fi
+        
+        # Limpiar carpetas .serverless en todas las APIs
+        log_info "Limpiando archivos temporales..."
+        for api_dir in API-*/; do
+            if [ -d "${api_dir}.serverless" ]; then
+                rm -rf "${api_dir}.serverless"
+                log_info "   Limpiado: ${api_dir}.serverless"
+            fi
+        done
         
         if [ -f serverless-compose.yml ]; then
             log_info "Desplegando con Serverless Compose..."
