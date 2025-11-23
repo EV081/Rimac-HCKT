@@ -219,7 +219,7 @@ fi
 
 # Ejecutar script setup_s3.py
 log_info "Ejecutando configuración de S3..."
-python3 Infra/setup_s3.py
+python3 DataGenerator/setup_s3.py
 
 if [ $? -ne 0 ]; then
     log_error "Error durante configuración de S3"
