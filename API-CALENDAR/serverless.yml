@@ -1,4 +1,3 @@
-org: faridaquino
 service: calendar-api-system
 
 provider:

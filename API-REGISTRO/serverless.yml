@@ -1,4 +1,3 @@
-org: faridaquino
 service: auth-service
 
 provider:
