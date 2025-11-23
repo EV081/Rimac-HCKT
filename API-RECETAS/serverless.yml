@@ -22,7 +22,7 @@ plugins:
 
 functions:
   subirReceta:
-    handler: subirReceta.subirReceta
+    handler: subirReceta.lambda_handler
     events:
       - http:
           path: recetas
@@ -75,8 +75,9 @@ custom:
   pythonRequirements:
     layer: false
     slim: true
-    dockerizePip: true
+    dockerizePip: false
     pythonBin: python3
     useDownloadCache: false
     useStaticCache: false
     zip: true
+    invalidateCaches: true

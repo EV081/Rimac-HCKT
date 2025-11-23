@@ -145,14 +145,25 @@ case $opcion in
             npm install --save-dev serverless-python-requirements
         fi
         
-        # Limpiar carpetas .serverless en todas las APIs
-        log_info "Limpiando archivos temporales..."
+        # Limpiar carpetas .serverless y cachés en todas las APIs
+        log_info "Limpiando archivos temporales y cachés..."
         for api_dir in API-*/; do
             if [ -d "${api_dir}.serverless" ]; then
                 rm -rf "${api_dir}.serverless"
                 log_info "   Limpiado: ${api_dir}.serverless"
             fi
+            if [ -d "${api_dir}__pycache__" ]; then
+                rm -rf "${api_dir}__pycache__"
+            fi
+            # Limpiar archivos .pyc
+            find "${api_dir}" -name "*.pyc" -delete 2>/dev/null || true
         done
+        
+        # Limpiar caché global de serverless-python-requirements
+        if [ -d ".serverless" ]; then
+            rm -rf ".serverless"
+            log_info "   Limpiado: .serverless global"
+        fi
         
         if [ -f serverless-compose.yml ]; then
             log_info "Desplegando con Serverless Compose..."
