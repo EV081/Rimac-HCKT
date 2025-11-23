@@ -22,11 +22,11 @@ SCHEMA_MAPPING = {
 # Definición de tablas sin esquema (creación directa)
 TABLES_WITHOUT_SCHEMA = {
     'MemoriaContextual': {
-        'partition_key': {'name': 'userId', 'type': 'S'},
-        'sort_key': {'name': 'timestamp', 'type': 'N'}
+        'partition_key': {'name': 'correo', 'type': 'S'},
+        'sort_key': {'name': 'context_id', 'type': 'S'}
     },
     'HistorialMedico': {
-        'partition_key': {'name': 'userId', 'type': 'S'},
+        'partition_key': {'name': 'correo', 'type': 'S'},
         'sort_key': {'name': 'fecha', 'type': 'S'}
     }
 }

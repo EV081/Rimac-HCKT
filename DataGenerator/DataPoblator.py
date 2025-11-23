@@ -47,12 +47,12 @@ TABLE_MAPPING = {
     },
     "memoria_contextual.json": {
         "table_name": TABLE_MEMORIA_CONTEXTUAL,
-        "pk": "userId",
-        "sk": "timestamp"
+        "pk": "correo",
+        "sk": "context_id"
     },
     "historial_medico.json": {
         "table_name": TABLE_HISTORIAL_MEDICO,
-        "pk": "userId",
+        "pk": "correo",
         "sk": "fecha"
     }
 }
