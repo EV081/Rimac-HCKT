@@ -21,7 +21,7 @@ provider:
 
 functions:
   analizarReceta:
-    handler: handler.analizarReceta
+    handler: handler.subirReceta
     events:
       - http:
           path: analizar

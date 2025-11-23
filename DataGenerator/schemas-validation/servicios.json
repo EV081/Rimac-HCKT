@@ -11,6 +11,15 @@
     },
     "descripcion": {
       "type": "string"
+    },
+    "categoria": {
+      "type": "string",
+      "enum": [
+        "bienestar",
+        "salud",
+        "productividad",
+        "social"
+      ]
     }
   },
   "required": [

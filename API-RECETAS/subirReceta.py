@@ -4,6 +4,9 @@ import base64
 import boto3
 import re
 
+# Actualizar este endpoint para que suba a la bd la info extraida formateada
+# 
+
 # Intentar importar google-genai sin romper la importación del módulo
 try:
     from google import genai
