@@ -197,20 +197,17 @@ def create_recurring_event(event, context):
         lima_tz = pytz.timezone('America/Lima')
         lima_now = datetime.now(lima_tz).replace(second=0, microsecond=0)
 
-        # Variables unificadas
-        start_iso = None
-        end_iso = None
-        event_timezone = 'America/Lima' # Default
+        # Variables para armar el payload
+        start_payload = {}
+        end_payload = {}
         recurrence_rule = []
         
         description = f"Recordatorio médico: {pill_name}.\n{indicaciones_consumo}"
 
         # ==============================================================================
-        # ESTRATEGIA A: POR COMIDAS (Mantenemos Local Time 'America/Lima')
+        # ESTRATEGIA A: POR COMIDAS (Usamos Hora Local y TimeZone explícito)
         # ==============================================================================
         if indicacion in ['Desayuno', 'Almuerzo', 'Cena']:
-            event_timezone = 'America/Lima'
-            
             meal_times = {
                 'Desayuno': {'hour': 8, 'minute': 0},
                 'Almuerzo': {'hour': 13, 'minute': 0},
@@ -220,8 +217,15 @@ def create_recurring_event(event, context):
             start_dt = lima_now.replace(hour=target['hour'], minute=target['minute'], second=0)
             end_dt = start_dt + timedelta(minutes=30)
             
-            start_iso = start_dt.isoformat()
-            end_iso = end_dt.isoformat()
+            # Payload con TimeZone explícito (Requerido para reglas diarias locales)
+            start_payload = {
+                'dateTime': start_dt.isoformat(),
+                'timeZone': 'America/Lima'
+            }
+            end_payload = {
+                'dateTime': end_dt.isoformat(),
+                'timeZone': 'America/Lima'
+            }
             
             description += f"\nTomar después del {indicacion}."
             
@@ -234,38 +238,45 @@ def create_recurring_event(event, context):
                 recurrence_rule = [f'RRULE:FREQ=DAILY;UNTIL={until_str}']
 
         # ==============================================================================
-        # ESTRATEGIA B: POR FRECUENCIA (Forzamos TODO a UTC para evitar Error 400)
+        # ESTRATEGIA B: POR FRECUENCIA (Forzamos UTC y SIN campo TimeZone)
         # ==============================================================================
         else:
-            # CAMBIO CLAVE: Cambiamos explícitamente a UTC para que coincida con el UNTIL
-            event_timezone = 'UTC'
-            
-            # Convertimos "Ahora" (Lima) a UTC puro
+            # Convertimos "Ahora" a UTC puro
             start_utc = lima_now.astimezone(pytz.utc)
             end_utc = start_utc + timedelta(minutes=15)
             
-            # Forzamos formato 'Z' para que Google no se confunda con offsets
-            start_iso = start_utc.strftime('%Y-%m-%dT%H:%M:%SZ')
-            end_iso = end_utc.strftime('%Y-%m-%dT%H:%M:%SZ')
+            # CORRECCIÓN CRÍTICA:
+            # 1. Usamos formato 'Z' explícito.
+            # 2. NO enviamos la clave 'timeZone' en el payload. Google infiere UTC por la 'Z'.
+            # Esto evita el conflicto "Invalid recurrence rule" en reglas horarias.
+            start_payload = {'dateTime': start_utc.strftime('%Y-%m-%dT%H:%M:%SZ')}
+            end_payload = {'dateTime': end_utc.strftime('%Y-%m-%dT%H:%M:%SZ')}
             
             freq_map = {'Horas': 'HOURLY', 'Dias': 'DAILY'}
             rrule_freq = freq_map.get(medicion_frecuencia, 'DAILY')
             
             description += f"\nTomar cada {frecuencia} {medicion_frecuencia}."
             
-            until_str = ""
+            # Usamos COUNT (Matemática) para evitar errores de fecha UNTIL
+            count = 1
             if medicion_duracion == 'Dias':
-                # Calculamos UNTIL sumando días (usando el objeto UTC)
-                until_date = start_utc + timedelta(days=duracion)
-                until_str = until_date.strftime('%Y%m%dT%H%M%SZ')
+                total_horas = duracion * 24
+                if medicion_frecuencia == 'Horas':
+                    count = math.ceil(total_horas / frecuencia)
+                else: # Dias
+                    count = math.ceil(duracion / frecuencia)
             else:
-                until_date = start_utc + relativedelta(months=+duracion)
-                until_str = until_date.strftime('%Y%m%dT%H%M%SZ')
-
-            recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};UNTIL={until_str}']
+                # Si es meses, asumimos 30 días promedio para calcular count aproximado
+                # o usamos UNTIL si prefieres, pero COUNT es más seguro para HOURLY
+                dias_aprox = duracion * 30
+                total_horas = dias_aprox * 24
+                count = math.ceil(total_horas / frecuencia)
+            
+            if count < 1: count = 1
+            recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};COUNT={int(count)}']
 
         print(f"DEBUG RRULE: {recurrence_rule}")
-        print(f"DEBUG TZ ENVIADO: {event_timezone}")
+        print(f"DEBUG START PAYLOAD: {start_payload}")
 
         # 3. LLAMADA A GOOGLE CALENDAR
         creds = get_google_creds() 
@@ -274,15 +285,8 @@ def create_recurring_event(event, context):
         event_body = {
             'summary': f'💊 Tomar: {pill_name}',
             'description': description,
-            # Aquí usamos las variables que forzamos a UTC en el else
-            'start': {
-                'dateTime': start_iso,
-                'timeZone': event_timezone
-            },
-            'end': {
-                'dateTime': end_iso,
-                'timeZone': event_timezone 
-            },
+            'start': start_payload,
+            'end': end_payload,
             'recurrence': recurrence_rule,
             'attendees': [{'email': patient_email}],
             'reminders': {
@@ -291,7 +295,7 @@ def create_recurring_event(event, context):
             },
         }
 
-        print(f"DEBUG Event Body: {event_body}")
+        print(f"DEBUG Event Body Completo: {event_body}")
 
         response = service.events().insert(
             calendarId='primary',
