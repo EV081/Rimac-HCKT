@@ -1,7 +1,5 @@
 # ============================================================
-# SERVERLESS COMPOSE
-# ============================================================
-# Este archivo orquesta el despliegue de todos los microservicios
+# SERVERLESS COMPOSE - RIMAC HCKT
 # ============================================================
 
 org: ${env:ORG_NAME}
@@ -16,5 +14,15 @@ services:
 
   api-agente:
     path: API-AGENTE/
+    params:
+      stage: ${self:stage}
+
+  api-calendar:
+    path: API-CALENDAR/
+    params:
+      stage: ${self:stage}
+
+  api-registro:
+    path: API-REGISTRO/
     params:
       stage: ${self:stage}
