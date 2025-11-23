@@ -55,7 +55,7 @@ setup_database() {
     
     # Crear tablas si no existen
     log "🏗️  Creando tablas DynamoDB si no existen..."
-    python3 create_tables.py
+    python3 CreateTables.py
     
     if [ $? -ne 0 ]; then
         log_error "Error al crear tablas"
@@ -138,11 +138,18 @@ case $opcion in
         ;;
     2)
         log_info "Iniciando despliegue con Serverless..."
+        
+        # Verificar e instalar dependencias de Node.js
+        if [ ! -d "node_modules" ] || [ ! -f "package.json" ]; then
+            log_warning "Instalando dependencias de Serverless..."
+            sudo npm install --save-dev serverless-python-requirements
+        fi
+        
         if [ -f serverless-compose.yml ]; then
+            log_info "Desplegando con Serverless Compose..."
             serverless deploy
         else
             log_warning "No se encontró serverless-compose.yml, intentando despliegue individual..."
-            # Aquí podrías agregar lógica para iterar carpetas si fuera necesario
             serverless deploy
         fi
         ;;
