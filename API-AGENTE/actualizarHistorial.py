@@ -35,18 +35,15 @@ def decode_jwt_payload(token):
         return None
 
 def get_user_email(event):
-    """Extrae el email del usuario desde el token en headers"""
+    """Extrae el email del usuario desde el token"""
     headers = {k.lower(): v for k, v in (event.get('headers') or {}).items()}
     auth_header = headers.get('authorization')
     
-    if not auth_header or not auth_header.startswith("Bearer "):
-        return None
-    
-    token = auth_header.split(" ")[1]
-    payload = decode_jwt_payload(token)
-    
-    if payload:
-        return payload.get('email') or payload.get('username')
+    if auth_header and auth_header.startswith("Bearer "):
+        token = auth_header.split(" ")[1]
+        payload = decode_jwt_payload(token)
+        if payload:
+            return payload.get('email') or payload.get('username')
     return None
 
 def actualizarHistorial(event, context):
