@@ -23,6 +23,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:GetItem
         - dynamodb:UpdateItem
+        - dynamodb:Query
       Resource:
         - "arn:aws:dynamodb:us-east-1:*:table/Usuarios"
         - "arn:aws:dynamodb:us-east-1:*:table/UsuariosDependientes"
@@ -55,4 +56,11 @@ functions:
       - http:
           path: agregar-dependiente
           method: post
+          cors: true
+  listarDependientes:
+    handler: listarDependientes.listar_dependientes
+    events:
+      - http:
+          path: listar-dependientes
+          method: get
           cors: true
