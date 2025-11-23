@@ -237,12 +237,10 @@ def create_recurring_event(event, context):
         # ESTRATEGIA B: POR FRECUENCIA (Forzamos UTC y TimeZone UTC)
         # ==============================================================================
         else:
-            # Convertimos "Ahora" a UTC puro
-            start_dt = lima_now.replace(hour=target['hour'], minute=target['minute'], second=0)
+
+            lima_now = datetime.now(lima_tz).replace(second=0, microsecond=0)
             end_dt = start_dt + timedelta(minutes=10)
             
-            # CORRECCIÓN: Agregamos 'timeZone': 'UTC' explícitamente.
-            # Al usar UTC + COUNT (calculado abajo), Google acepta la regla sin problemas.
             start_payload = {
                 'dateTime': start_dt.isoformat(),
                 'timeZone': 'America/Lima'
