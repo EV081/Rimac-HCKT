@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Aumentar memoria de Node.js para Serverless Framework
-export NODE_OPTIONS="--max-old-space-size=4096"
+export NODE_OPTIONS="--max-old-space-size=8192"
 
 # Colores para los logs
 RED='\033[0;31m'
@@ -138,6 +138,19 @@ case $opcion in
         ;;
     2)
         log_info "Iniciando despliegue con Serverless..."
+        
+        # Verificar Docker
+        if ! command -v docker &> /dev/null; then
+            log_error "Docker no está instalado. Se requiere para empaquetar dependencias Python."
+            exit 1
+        fi
+        
+        if ! docker ps &> /dev/null; then
+            log_error "Docker no está corriendo. Inícialo con: sudo systemctl start docker"
+            exit 1
+        fi
+        
+        log_success "Docker está disponible"
         
         # Verificar e instalar dependencias de Node.js
         if [ ! -d "node_modules" ] || [ ! -f "package.json" ]; then

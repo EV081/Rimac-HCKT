@@ -22,7 +22,7 @@ plugins:
 
 functions:
   subirReceta:
-    handler: subirReceta.lambda_handler
+    handler: subirReceta.subirReceta
     events:
       - http:
           path: recetas
@@ -30,7 +30,7 @@ functions:
           cors: true
   
   listarRecetas:
-    handler: listarRecetas.lambda_handler
+    handler: listarRecetas.listarRecetas
     events:
       - http:
           path: recetas
@@ -38,7 +38,7 @@ functions:
           cors: true
   
   obtenerReceta:
-    handler: obtenerReceta.lambda_handler
+    handler: obtenerReceta.obtenerReceta
     events:
       - http:
           path: recetas/{id}
@@ -46,7 +46,7 @@ functions:
           cors: true
   
   actualizarReceta:
-    handler: actualizarReceta.lambda_handler
+    handler: actualizarReceta.actualizarReceta
     events:
       - http:
           path: recetas/{id}
@@ -54,7 +54,7 @@ functions:
           cors: true
   
   eliminarReceta:
-    handler: eliminarReceta.lambda_handler
+    handler: eliminarReceta.eliminarReceta
     events:
       - http:
           path: recetas/{id}
@@ -62,7 +62,6 @@ functions:
           cors: true
 
 package:
-  individually: true
   patterns:
     - '!.venv/**'
     - '!node_modules/**'
@@ -70,14 +69,16 @@ package:
     - '!__pycache__/**'
     - '!*.pyc'
     - '!.pytest_cache/**'
+    - '!.git/**'
+    - '!tests/**'
 
 custom:
   pythonRequirements:
-    layer: false
+    dockerizePip: true
+    dockerImage: public.ecr.aws/sam/build-python3.12:latest
     slim: true
-    dockerizePip: false
-    pythonBin: python3
     useDownloadCache: false
     useStaticCache: false
-    zip: true
     invalidateCaches: true
+    pipCmdExtraArgs:
+      - '--no-cache-dir'
