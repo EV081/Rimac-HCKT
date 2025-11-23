@@ -1,118 +1,10 @@
 [
   {
     "correo": "autoridad@utec.edu.pe",
-    "receta_id": "rec-5dfe3046",
+    "receta_id": "rec-e36ec090",
     "paciente": "Autoridad UTEC",
     "institucion": "Hospital General de México",
     "recetas": [
-      {
-        "producto": "Vitamina D3",
-        "dosis": "1000 UI",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      },
-      {
-        "producto": "Omeprazol",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "14 dias"
-      }
-    ]
-  },
-  {
-    "correo": "autoridad@utec.edu.pe",
-    "receta_id": "rec-b6320363",
-    "paciente": "Autoridad UTEC",
-    "institucion": "Clínica Santa María",
-    "recetas": [
-      {
-        "producto": "Cetirizina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "15 dias"
-      },
-      {
-        "producto": "Ibuprofeno",
-        "dosis": "400 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "3 dias"
-      },
-      {
-        "producto": "Vitamina D3",
-        "dosis": "1000 UI",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      }
-    ]
-  },
-  {
-    "correo": "autoridad@utec.edu.pe",
-    "receta_id": "rec-cbb7c8bd",
-    "paciente": "Autoridad UTEC",
-    "institucion": "Clínica Las Américas",
-    "recetas": [
-      {
-        "producto": "Losartán",
-        "dosis": "50 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      },
-      {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "7 dias"
-      },
-      {
-        "producto": "Clonazepam",
-        "dosis": "0.5 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
-      },
-      {
-        "producto": "Atorvastatina",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "6 meses"
-      },
-      {
-        "producto": "Omeprazol",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "14 dias"
-      }
-    ]
-  },
-  {
-    "correo": "pedro.flores@gmail.com",
-    "receta_id": "rec-d905c729",
-    "paciente": "Pedro Flores",
-    "institucion": "Centro Médico ABC",
-    "recetas": [
-      {
-        "producto": "Cetirizina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "15 dias"
-      },
-      {
-        "producto": "Loratadina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 24,
-        "frecuencia_unidad": "horas",
-        "duracion": "10 dias"
-      },
       {
         "producto": "Lagrifilm",
         "dosis": null,
@@ -123,11 +15,39 @@
     ]
   },
   {
-    "correo": "pedro.flores@gmail.com",
-    "receta_id": "rec-59c18979",
-    "paciente": "Pedro Flores",
-    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
+    "correo": "josé.gonzález@utec.edu.pe",
+    "receta_id": "rec-5060a607",
+    "paciente": "José González",
+    "institucion": "Hospital Universitario",
     "recetas": [
+      {
+        "producto": "Labello",
+        "dosis": null,
+        "frecuencia_valor": 3,
+        "frecuencia_unidad": "horas",
+        "duracion": "1 mes"
+      },
+      {
+        "producto": "Clonazepam",
+        "dosis": "0.5 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "2 meses"
+      },
+      {
+        "producto": "Azitromicina",
+        "dosis": "500 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "3 dias"
+      },
+      {
+        "producto": "Loratadina",
+        "dosis": "10 mg",
+        "frecuencia_valor": 24,
+        "frecuencia_unidad": "horas",
+        "duracion": "10 dias"
+      },
       {
         "producto": "Aspirina",
         "dosis": "100 mg",
@@ -138,112 +58,24 @@
     ]
   },
   {
-    "correo": "pedro.flores@gmail.com",
-    "receta_id": "rec-3306e11a",
-    "paciente": "Pedro Flores",
-    "institucion": "Centro Médico ABC",
-    "recetas": [
-      {
-        "producto": "Ibuprofeno",
-        "dosis": "400 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "3 dias"
-      },
-      {
-        "producto": "Loratadina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 24,
-        "frecuencia_unidad": "horas",
-        "duracion": "10 dias"
-      },
-      {
-        "producto": "Paracetamol",
-        "dosis": "500 mg",
-        "frecuencia_valor": 8,
-        "frecuencia_unidad": "horas",
-        "duracion": "5 dias"
-      }
-    ]
-  },
-  {
-    "correo": "luis.rodríguez@gmail.com",
-    "receta_id": "rec-f082ba59",
-    "paciente": "Luis Rodríguez",
-    "institucion": "Hospital General de México",
-    "recetas": [
-      {
-        "producto": "Cetirizina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "15 dias"
-      },
-      {
-        "producto": "Omeprazol",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "14 dias"
-      }
-    ]
-  },
-  {
-    "correo": "luis.rodríguez@gmail.com",
-    "receta_id": "rec-ecd3d897",
-    "paciente": "Luis Rodríguez",
-    "institucion": "Hospital General de México",
-    "recetas": [
-      {
-        "producto": "Omeprazol",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "14 dias"
-      }
-    ]
-  },
-  {
-    "correo": "luis.rodríguez@gmail.com",
-    "receta_id": "rec-47364ce0",
-    "paciente": "Luis Rodríguez",
+    "correo": "carlos.lópez@gmail.com",
+    "receta_id": "rec-724776fe",
+    "paciente": "Carlos López",
     "institucion": "Instituto Nacional de Salud",
     "recetas": [
       {
-        "producto": "Paracetamol",
-        "dosis": "500 mg",
-        "frecuencia_valor": 8,
-        "frecuencia_unidad": "horas",
-        "duracion": "5 dias"
-      },
-      {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "7 dias"
-      },
-      {
-        "producto": "Labello",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      }
-    ]
-  },
-  {
-    "correo": "juan.pérez@outlook.com",
-    "receta_id": "rec-217f3a82",
-    "paciente": "Juan Pérez",
-    "institucion": "Hospital Universitario",
-    "recetas": [
-      {
-        "producto": "Trevissage",
-        "dosis": "20 mg",
+        "producto": "Losartán",
+        "dosis": "50 mg",
         "frecuencia_valor": 1,
         "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
+        "duracion": "3 meses"
+      },
+      {
+        "producto": "Aspirina",
+        "dosis": "100 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "1 mes"
       },
       {
         "producto": "Lagrifilm",
@@ -253,26 +85,70 @@
         "duracion": "1 mes"
       },
       {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
-        "frecuencia_valor": 12,
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia_valor": 2,
         "frecuencia_unidad": "horas",
-        "duracion": "7 dias"
+        "duracion": "1 mes"
       },
       {
-        "producto": "Ranitidina",
-        "dosis": "150 mg",
+        "producto": "Diclofenaco",
+        "dosis": "75 mg",
         "frecuencia_valor": 12,
         "frecuencia_unidad": "horas",
-        "duracion": "30 dias"
+        "duracion": "5 dias"
       }
     ]
   },
   {
-    "correo": "juan.pérez@outlook.com",
-    "receta_id": "rec-ae928970",
-    "paciente": "Juan Pérez",
-    "institucion": "Clínica Santa María",
+    "correo": "carlos.lópez@gmail.com",
+    "receta_id": "rec-7e265eeb",
+    "paciente": "Carlos López",
+    "institucion": "Centro Médico ABC",
+    "recetas": [
+      {
+        "producto": "Losartán",
+        "dosis": "50 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "3 meses"
+      },
+      {
+        "producto": "Clonazepam",
+        "dosis": "0.5 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "2 meses"
+      },
+      {
+        "producto": "Ibuprofeno",
+        "dosis": "400 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "3 dias"
+      }
+    ]
+  },
+  {
+    "correo": "carlos.lópez@gmail.com",
+    "receta_id": "rec-0a62e1f1",
+    "paciente": "Carlos López",
+    "institucion": "Clínica Las Américas",
+    "recetas": [
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "2 meses"
+      }
+    ]
+  },
+  {
+    "correo": "camila.rojas@utec.edu.pe",
+    "receta_id": "rec-8f2d2bfa",
+    "paciente": "Camila Rojas",
+    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
     "recetas": [
       {
         "producto": "Omeprazol",
@@ -280,6 +156,354 @@
         "frecuencia_valor": 1,
         "frecuencia_unidad": "dia",
         "duracion": "14 dias"
+      }
+    ]
+  },
+  {
+    "correo": "camila.rojas@utec.edu.pe",
+    "receta_id": "rec-18a60e6c",
+    "paciente": "Camila Rojas",
+    "institucion": "Instituto Nacional de Salud",
+    "recetas": [
+      {
+        "producto": "Aspirina",
+        "dosis": "100 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "1 mes"
+      },
+      {
+        "producto": "Paracetamol",
+        "dosis": "500 mg",
+        "frecuencia_valor": 8,
+        "frecuencia_unidad": "horas",
+        "duracion": "5 dias"
+      }
+    ]
+  },
+  {
+    "correo": "camila.rojas@utec.edu.pe",
+    "receta_id": "rec-0b0224fc",
+    "paciente": "Camila Rojas",
+    "institucion": "Hospital Universitario",
+    "recetas": [
+      {
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia_valor": 2,
+        "frecuencia_unidad": "horas",
+        "duracion": "1 mes"
+      }
+    ]
+  },
+  {
+    "correo": "carlos.lópez@outlook.com",
+    "receta_id": "rec-f70d6fce",
+    "paciente": "Carlos López",
+    "institucion": "Instituto Nacional de Salud",
+    "recetas": [
+      {
+        "producto": "Omeprazol",
+        "dosis": "20 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "14 dias"
+      },
+      {
+        "producto": "Atorvastatina",
+        "dosis": "20 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "6 meses"
+      },
+      {
+        "producto": "Lagrifilm",
+        "dosis": null,
+        "frecuencia_valor": 3,
+        "frecuencia_unidad": "horas",
+        "duracion": "1 mes"
+      },
+      {
+        "producto": "Azitromicina",
+        "dosis": "500 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "3 dias"
+      }
+    ]
+  },
+  {
+    "correo": "carlos.lópez@outlook.com",
+    "receta_id": "rec-a60e4177",
+    "paciente": "Carlos López",
+    "institucion": "Instituto Nacional de Salud",
+    "recetas": [
+      {
+        "producto": "Amoxicilina",
+        "dosis": "875 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "7 dias"
+      },
+      {
+        "producto": "Atorvastatina",
+        "dosis": "20 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "6 meses"
+      }
+    ]
+  },
+  {
+    "correo": "luis.rodríguez@gmail.com",
+    "receta_id": "rec-4de17758",
+    "paciente": "Luis Rodríguez",
+    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
+    "recetas": [
+      {
+        "producto": "Aspirina",
+        "dosis": "100 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "1 mes"
+      },
+      {
+        "producto": "Metformina",
+        "dosis": "850 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "3 meses"
+      },
+      {
+        "producto": "Amoxicilina",
+        "dosis": "875 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "7 dias"
+      },
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "2 meses"
+      }
+    ]
+  },
+  {
+    "correo": "luis.rodríguez@gmail.com",
+    "receta_id": "rec-60973288",
+    "paciente": "Luis Rodríguez",
+    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
+    "recetas": [
+      {
+        "producto": "Paracetamol",
+        "dosis": "500 mg",
+        "frecuencia_valor": 8,
+        "frecuencia_unidad": "horas",
+        "duracion": "5 dias"
+      },
+      {
+        "producto": "Cetirizina",
+        "dosis": "10 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "15 dias"
+      }
+    ]
+  },
+  {
+    "correo": "carmen.fernández@utec.edu.pe",
+    "receta_id": "rec-537f704e",
+    "paciente": "Carmen Fernández",
+    "institucion": "Clínica Las Américas",
+    "recetas": [
+      {
+        "producto": "Lagrifilm",
+        "dosis": null,
+        "frecuencia_valor": 3,
+        "frecuencia_unidad": "horas",
+        "duracion": "1 mes"
+      },
+      {
+        "producto": "Paracetamol",
+        "dosis": "500 mg",
+        "frecuencia_valor": 8,
+        "frecuencia_unidad": "horas",
+        "duracion": "5 dias"
+      },
+      {
+        "producto": "Aspirina",
+        "dosis": "100 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "1 mes"
+      }
+    ]
+  },
+  {
+    "correo": "valentina.ortiz@gmail.com",
+    "receta_id": "rec-0ee458a3",
+    "paciente": "Valentina Ortiz",
+    "institucion": "Centro Médico ABC",
+    "recetas": [
+      {
+        "producto": "Vitamina D3",
+        "dosis": "1000 UI",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "3 meses"
+      },
+      {
+        "producto": "Aspirina",
+        "dosis": "100 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "1 mes"
+      }
+    ]
+  },
+  {
+    "correo": "valentina.ortiz@gmail.com",
+    "receta_id": "rec-002626f0",
+    "paciente": "Valentina Ortiz",
+    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
+    "recetas": [
+      {
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia_valor": 2,
+        "frecuencia_unidad": "horas",
+        "duracion": "1 mes"
+      },
+      {
+        "producto": "Vitamina D3",
+        "dosis": "1000 UI",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "3 meses"
+      },
+      {
+        "producto": "Clonazepam",
+        "dosis": "0.5 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "2 meses"
+      },
+      {
+        "producto": "agua Thermal",
+        "dosis": null,
+        "frecuencia_valor": 2,
+        "frecuencia_unidad": "horas",
+        "duracion": "2 meses"
+      }
+    ]
+  },
+  {
+    "correo": "valentina.ortiz@gmail.com",
+    "receta_id": "rec-698ddffc",
+    "paciente": "Valentina Ortiz",
+    "institucion": "Instituto Nacional de Salud",
+    "recetas": [
+      {
+        "producto": "Loratadina",
+        "dosis": "10 mg",
+        "frecuencia_valor": 24,
+        "frecuencia_unidad": "horas",
+        "duracion": "10 dias"
+      },
+      {
+        "producto": "agua Thermal",
+        "dosis": null,
+        "frecuencia_valor": 2,
+        "frecuencia_unidad": "horas",
+        "duracion": "2 meses"
+      },
+      {
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia_valor": 2,
+        "frecuencia_unidad": "horas",
+        "duracion": "1 mes"
+      },
+      {
+        "producto": "Azitromicina",
+        "dosis": "500 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "3 dias"
+      },
+      {
+        "producto": "Aspirina",
+        "dosis": "100 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "1 mes"
+      }
+    ]
+  },
+  {
+    "correo": "sofía.castro@gmail.com",
+    "receta_id": "rec-7cb8b60e",
+    "paciente": "Sofía Castro",
+    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
+    "recetas": [
+      {
+        "producto": "Ranitidina",
+        "dosis": "150 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "30 dias"
+      },
+      {
+        "producto": "Clonazepam",
+        "dosis": "0.5 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "2 meses"
+      },
+      {
+        "producto": "Paracetamol",
+        "dosis": "500 mg",
+        "frecuencia_valor": 8,
+        "frecuencia_unidad": "horas",
+        "duracion": "5 dias"
+      },
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "2 meses"
+      }
+    ]
+  },
+  {
+    "correo": "sofía.castro@gmail.com",
+    "receta_id": "rec-65ae9c32",
+    "paciente": "Sofía Castro",
+    "institucion": "Hospital General de México",
+    "recetas": [
+      {
+        "producto": "Paracetamol",
+        "dosis": "500 mg",
+        "frecuencia_valor": 8,
+        "frecuencia_unidad": "horas",
+        "duracion": "5 dias"
+      },
+      {
+        "producto": "Omeprazol",
+        "dosis": "20 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "14 dias"
+      },
+      {
+        "producto": "Diclofenaco",
+        "dosis": "75 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "5 dias"
       },
       {
         "producto": "Trevissage",
@@ -292,225 +516,16 @@
   },
   {
     "correo": "pedro.flores@utec.edu.pe",
-    "receta_id": "rec-1b84b4ad",
+    "receta_id": "rec-17cbeb93",
     "paciente": "Pedro Flores",
     "institucion": "Hospital General de México",
     "recetas": [
       {
-        "producto": "Trevissage",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
-      },
-      {
         "producto": "Loratadina",
         "dosis": "10 mg",
         "frecuencia_valor": 24,
         "frecuencia_unidad": "horas",
         "duracion": "10 dias"
-      },
-      {
-        "producto": "Clonazepam",
-        "dosis": "0.5 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
-      }
-    ]
-  },
-  {
-    "correo": "patricia.ruiz@outlook.com",
-    "receta_id": "rec-bdd03c5c",
-    "paciente": "Patricia Ruiz",
-    "institucion": "Instituto Nacional de Salud",
-    "recetas": [
-      {
-        "producto": "nasalub",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Losartán",
-        "dosis": "50 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      },
-      {
-        "producto": "Diclofenaco",
-        "dosis": "75 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "5 dias"
-      },
-      {
-        "producto": "Paracetamol",
-        "dosis": "500 mg",
-        "frecuencia_valor": 8,
-        "frecuencia_unidad": "horas",
-        "duracion": "5 dias"
-      }
-    ]
-  },
-  {
-    "correo": "patricia.ruiz@outlook.com",
-    "receta_id": "rec-c649c765",
-    "paciente": "Patricia Ruiz",
-    "institucion": "Hospital Universitario",
-    "recetas": [
-      {
-        "producto": "Ibuprofeno",
-        "dosis": "400 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "3 dias"
-      },
-      {
-        "producto": "Cetirizina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "15 dias"
-      },
-      {
-        "producto": "Lagrifilm",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      }
-    ]
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "receta_id": "rec-5f227287",
-    "paciente": "Patricia Ruiz",
-    "institucion": "Hospital Universitario",
-    "recetas": [
-      {
-        "producto": "Labello",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Ibuprofeno",
-        "dosis": "400 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "3 dias"
-      },
-      {
-        "producto": "Omeprazol",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "14 dias"
-      },
-      {
-        "producto": "Azitromicina",
-        "dosis": "500 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 dias"
-      },
-      {
-        "producto": "Lagrifilm",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      }
-    ]
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "receta_id": "rec-a5d1c907",
-    "paciente": "Patricia Ruiz",
-    "institucion": "Instituto Nacional de Salud",
-    "recetas": [
-      {
-        "producto": "Azitromicina",
-        "dosis": "500 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 dias"
-      },
-      {
-        "producto": "nasalub",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Clonazepam",
-        "dosis": "0.5 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
-      },
-      {
-        "producto": "Ibuprofeno",
-        "dosis": "400 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "3 dias"
-      },
-      {
-        "producto": "Labello",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      }
-    ]
-  },
-  {
-    "correo": "isabel.ramírez@utec.edu.pe",
-    "receta_id": "rec-1faeaf52",
-    "paciente": "Isabel Ramírez",
-    "institucion": "Hospital Universitario",
-    "recetas": [
-      {
-        "producto": "Labello",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Ranitidina",
-        "dosis": "150 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "30 dias"
-      }
-    ]
-  },
-  {
-    "correo": "laura.sánchez@gmail.com",
-    "receta_id": "rec-548477f9",
-    "paciente": "Laura Sánchez",
-    "institucion": "Centro Médico ABC",
-    "recetas": [
-      {
-        "producto": "Clonazepam",
-        "dosis": "0.5 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
-      },
-      {
-        "producto": "Metformina",
-        "dosis": "850 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "3 meses"
       },
       {
         "producto": "agua Thermal",
@@ -520,40 +535,33 @@
         "duracion": "2 meses"
       },
       {
+        "producto": "Labello",
+        "dosis": null,
+        "frecuencia_valor": 3,
+        "frecuencia_unidad": "horas",
+        "duracion": "1 mes"
+      },
+      {
         "producto": "nasalub",
         "dosis": null,
         "frecuencia_valor": 2,
         "frecuencia_unidad": "horas",
         "duracion": "1 mes"
-      },
-      {
-        "producto": "Cetirizina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "15 dias"
       }
     ]
   },
   {
-    "correo": "laura.sánchez@gmail.com",
-    "receta_id": "rec-cd5b3443",
-    "paciente": "Laura Sánchez",
+    "correo": "pedro.flores@utec.edu.pe",
+    "receta_id": "rec-721a06a4",
+    "paciente": "Pedro Flores",
     "institucion": "Clínica Las Américas",
     "recetas": [
       {
-        "producto": "Trevissage",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
-      },
-      {
-        "producto": "Ibuprofeno",
-        "dosis": "400 mg",
-        "frecuencia_valor": 12,
+        "producto": "Labello",
+        "dosis": null,
+        "frecuencia_valor": 3,
         "frecuencia_unidad": "horas",
-        "duracion": "3 dias"
+        "duracion": "1 mes"
       },
       {
         "producto": "Metformina",
@@ -561,244 +569,57 @@
         "frecuencia_valor": 12,
         "frecuencia_unidad": "horas",
         "duracion": "3 meses"
-      },
-      {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "7 dias"
       }
     ]
   },
   {
-    "correo": "fernando.vega@gmail.com",
-    "receta_id": "rec-2c053a0b",
-    "paciente": "Fernando Vega",
-    "institucion": "Centro Médico ABC",
-    "recetas": [
-      {
-        "producto": "Azitromicina",
-        "dosis": "500 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 dias"
-      },
-      {
-        "producto": "Omeprazol",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "14 dias"
-      },
-      {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "7 dias"
-      }
-    ]
-  },
-  {
-    "correo": "fernando.vega@gmail.com",
-    "receta_id": "rec-3bcfba17",
-    "paciente": "Fernando Vega",
-    "institucion": "Hospital General de México",
-    "recetas": [
-      {
-        "producto": "Diclofenaco",
-        "dosis": "75 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "5 dias"
-      },
-      {
-        "producto": "Lagrifilm",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      }
-    ]
-  },
-  {
-    "correo": "fernando.vega@gmail.com",
-    "receta_id": "rec-87a87d7a",
-    "paciente": "Fernando Vega",
-    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
-    "recetas": [
-      {
-        "producto": "Ibuprofeno",
-        "dosis": "400 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "3 dias"
-      },
-      {
-        "producto": "agua Thermal",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "2 meses"
-      },
-      {
-        "producto": "Losartán",
-        "dosis": "50 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      },
-      {
-        "producto": "Vitamina D3",
-        "dosis": "1000 UI",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      },
-      {
-        "producto": "Omeprazol",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "14 dias"
-      }
-    ]
-  },
-  {
-    "correo": "diego.morales@utec.edu.pe",
-    "receta_id": "rec-07897d53",
-    "paciente": "Diego Morales",
-    "institucion": "Clínica Las Américas",
-    "recetas": [
-      {
-        "producto": "Cetirizina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "15 dias"
-      },
-      {
-        "producto": "nasalub",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Aspirina",
-        "dosis": "100 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Azitromicina",
-        "dosis": "500 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 dias"
-      },
-      {
-        "producto": "Diclofenaco",
-        "dosis": "75 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "5 dias"
-      }
-    ]
-  },
-  {
-    "correo": "diego.morales@utec.edu.pe",
-    "receta_id": "rec-3018c85e",
-    "paciente": "Diego Morales",
-    "institucion": "Centro Médico ABC",
-    "recetas": [
-      {
-        "producto": "Loratadina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 24,
-        "frecuencia_unidad": "horas",
-        "duracion": "10 dias"
-      },
-      {
-        "producto": "Aspirina",
-        "dosis": "100 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Azitromicina",
-        "dosis": "500 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 dias"
-      },
-      {
-        "producto": "nasalub",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Cetirizina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "15 dias"
-      }
-    ]
-  },
-  {
-    "correo": "diego.morales@utec.edu.pe",
-    "receta_id": "rec-741a32dc",
-    "paciente": "Diego Morales",
+    "correo": "carmen.fernández@outlook.com",
+    "receta_id": "rec-18f7879f",
+    "paciente": "Carmen Fernández",
     "institucion": "Clínica Santa María",
     "recetas": [
       {
-        "producto": "Ranitidina",
-        "dosis": "150 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "30 dias"
-      },
-      {
-        "producto": "Paracetamol",
+        "producto": "Azitromicina",
         "dosis": "500 mg",
-        "frecuencia_valor": 8,
-        "frecuencia_unidad": "horas",
-        "duracion": "5 dias"
-      },
-      {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "7 dias"
-      },
-      {
-        "producto": "Cetirizina",
-        "dosis": "10 mg",
         "frecuencia_valor": 1,
         "frecuencia_unidad": "dia",
-        "duracion": "15 dias"
-      }
-    ]
-  },
-  {
-    "correo": "roberto.díaz@outlook.com",
-    "receta_id": "rec-4e12eaa8",
-    "paciente": "Roberto Díaz",
-    "institucion": "Hospital Universitario",
-    "recetas": [
+        "duracion": "3 dias"
+      },
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "2 meses"
+      },
+      {
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia_valor": 2,
+        "frecuencia_unidad": "horas",
+        "duracion": "1 mes"
+      },
       {
         "producto": "Vitamina D3",
         "dosis": "1000 UI",
         "frecuencia_valor": 1,
         "frecuencia_unidad": "dia",
         "duracion": "3 meses"
+      }
+    ]
+  },
+  {
+    "correo": "carmen.fernández@outlook.com",
+    "receta_id": "rec-318231d4",
+    "paciente": "Carmen Fernández",
+    "institucion": "Centro Médico ABC",
+    "recetas": [
+      {
+        "producto": "Ranitidina",
+        "dosis": "150 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "30 dias"
       },
       {
         "producto": "Metformina",
@@ -808,85 +629,56 @@
         "duracion": "3 meses"
       },
       {
+        "producto": "Diclofenaco",
+        "dosis": "75 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "5 dias"
+      },
+      {
+        "producto": "Ibuprofeno",
+        "dosis": "400 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "3 dias"
+      }
+    ]
+  },
+  {
+    "correo": "valentina.ortiz@outlook.com",
+    "receta_id": "rec-eae97afc",
+    "paciente": "Valentina Ortiz",
+    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
+    "recetas": [
+      {
+        "producto": "Paracetamol",
+        "dosis": "500 mg",
+        "frecuencia_valor": 8,
+        "frecuencia_unidad": "horas",
+        "duracion": "5 dias"
+      }
+    ]
+  },
+  {
+    "correo": "valentina.ortiz@outlook.com",
+    "receta_id": "rec-cd0a6e58",
+    "paciente": "Valentina Ortiz",
+    "institucion": "Clínica Las Américas",
+    "recetas": [
+      {
+        "producto": "Ranitidina",
+        "dosis": "150 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "30 dias"
+      },
+      {
         "producto": "Ibuprofeno",
         "dosis": "400 mg",
         "frecuencia_valor": 12,
         "frecuencia_unidad": "horas",
         "duracion": "3 dias"
       },
-      {
-        "producto": "Losartán",
-        "dosis": "50 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      },
-      {
-        "producto": "Lagrifilm",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      }
-    ]
-  },
-  {
-    "correo": "roberto.díaz@outlook.com",
-    "receta_id": "rec-d5924e9e",
-    "paciente": "Roberto Díaz",
-    "institucion": "Centro Médico ABC",
-    "recetas": [
-      {
-        "producto": "Clonazepam",
-        "dosis": "0.5 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
-      }
-    ]
-  },
-  {
-    "correo": "roberto.díaz@outlook.com",
-    "receta_id": "rec-1218a5d9",
-    "paciente": "Roberto Díaz",
-    "institucion": "Clínica Las Américas",
-    "recetas": [
-      {
-        "producto": "Cetirizina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "15 dias"
-      },
-      {
-        "producto": "Loratadina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 24,
-        "frecuencia_unidad": "horas",
-        "duracion": "10 dias"
-      },
-      {
-        "producto": "Aspirina",
-        "dosis": "100 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "agua Thermal",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "2 meses"
-      }
-    ]
-  },
-  {
-    "correo": "andrés.silva@outlook.com",
-    "receta_id": "rec-e79ab8ae",
-    "paciente": "Andrés Silva",
-    "institucion": "Hospital General de México",
-    "recetas": [
       {
         "producto": "Vitamina D3",
         "dosis": "1000 UI",
@@ -895,33 +687,55 @@
         "duracion": "3 meses"
       },
       {
-        "producto": "Loratadina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 24,
+        "producto": "agua Thermal",
+        "dosis": null,
+        "frecuencia_valor": 2,
         "frecuencia_unidad": "horas",
-        "duracion": "10 dias"
+        "duracion": "2 meses"
+      },
+      {
+        "producto": "Cetirizina",
+        "dosis": "10 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "15 dias"
       }
     ]
   },
   {
-    "correo": "andrés.silva@outlook.com",
-    "receta_id": "rec-2503ad96",
-    "paciente": "Andrés Silva",
-    "institucion": "Clínica Las Américas",
+    "correo": "valentina.ortiz@outlook.com",
+    "receta_id": "rec-86eeac94",
+    "paciente": "Valentina Ortiz",
+    "institucion": "Centro Médico ABC",
     "recetas": [
       {
-        "producto": "Omeprazol",
-        "dosis": "20 mg",
+        "producto": "Cetirizina",
+        "dosis": "10 mg",
         "frecuencia_valor": 1,
         "frecuencia_unidad": "dia",
-        "duracion": "14 dias"
+        "duracion": "15 dias"
+      }
+    ]
+  },
+  {
+    "correo": "josé.gonzález@gmail.com",
+    "receta_id": "rec-e242b5fe",
+    "paciente": "José González",
+    "institucion": "Instituto Nacional de Salud",
+    "recetas": [
+      {
+        "producto": "Diclofenaco",
+        "dosis": "75 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "5 dias"
       },
       {
-        "producto": "Loratadina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 24,
-        "frecuencia_unidad": "horas",
-        "duracion": "10 dias"
+        "producto": "Aspirina",
+        "dosis": "100 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "1 mes"
       },
       {
         "producto": "Atorvastatina",
@@ -931,11 +745,91 @@
         "duracion": "6 meses"
       },
       {
+        "producto": "Loratadina",
+        "dosis": "10 mg",
+        "frecuencia_valor": 24,
+        "frecuencia_unidad": "horas",
+        "duracion": "10 dias"
+      },
+      {
+        "producto": "Clonazepam",
+        "dosis": "0.5 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "2 meses"
+      }
+    ]
+  },
+  {
+    "correo": "josé.gonzález@gmail.com",
+    "receta_id": "rec-410bbcce",
+    "paciente": "José González",
+    "institucion": "Instituto Nacional de Salud",
+    "recetas": [
+      {
+        "producto": "Labello",
+        "dosis": null,
+        "frecuencia_valor": 3,
+        "frecuencia_unidad": "horas",
+        "duracion": "1 mes"
+      },
+      {
+        "producto": "Clonazepam",
+        "dosis": "0.5 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "2 meses"
+      },
+      {
         "producto": "Metformina",
         "dosis": "850 mg",
         "frecuencia_valor": 12,
         "frecuencia_unidad": "horas",
         "duracion": "3 meses"
+      }
+    ]
+  },
+  {
+    "correo": "josé.gonzález@gmail.com",
+    "receta_id": "rec-178ed0dc",
+    "paciente": "José González",
+    "institucion": "Instituto Nacional de Salud",
+    "recetas": [
+      {
+        "producto": "Cetirizina",
+        "dosis": "10 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "15 dias"
+      },
+      {
+        "producto": "Metformina",
+        "dosis": "850 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "3 meses"
+      },
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "2 meses"
+      }
+    ]
+  },
+  {
+    "correo": "miguel.torres@gmail.com",
+    "receta_id": "rec-5959bd1b",
+    "paciente": "Miguel Torres",
+    "institucion": "Clínica Las Américas",
+    "recetas": [
+      {
+        "producto": "Paracetamol",
+        "dosis": "500 mg",
+        "frecuencia_valor": 8,
+        "frecuencia_unidad": "horas",
+        "duracion": "5 dias"
       },
       {
         "producto": "Vitamina D3",
@@ -943,35 +837,65 @@
         "frecuencia_valor": 1,
         "frecuencia_unidad": "dia",
         "duracion": "3 meses"
+      },
+      {
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia_valor": 2,
+        "frecuencia_unidad": "horas",
+        "duracion": "1 mes"
       }
     ]
   },
   {
-    "correo": "andrés.silva@outlook.com",
-    "receta_id": "rec-1d4f3eef",
-    "paciente": "Andrés Silva",
-    "institucion": "Centro Médico ABC",
+    "correo": "miguel.torres@gmail.com",
+    "receta_id": "rec-0946dd66",
+    "paciente": "Miguel Torres",
+    "institucion": "Hospital General de México",
     "recetas": [
       {
-        "producto": "Ibuprofeno",
-        "dosis": "400 mg",
-        "frecuencia_valor": 12,
+        "producto": "Atorvastatina",
+        "dosis": "20 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "6 meses"
+      }
+    ]
+  },
+  {
+    "correo": "miguel.torres@gmail.com",
+    "receta_id": "rec-edcad8e4",
+    "paciente": "Miguel Torres",
+    "institucion": "Hospital Universitario",
+    "recetas": [
+      {
+        "producto": "Paracetamol",
+        "dosis": "500 mg",
+        "frecuencia_valor": 8,
         "frecuencia_unidad": "horas",
-        "duracion": "3 dias"
+        "duracion": "5 dias"
+      }
+    ]
+  },
+  {
+    "correo": "isabel.ramírez@gmail.com",
+    "receta_id": "rec-65c861f9",
+    "paciente": "Isabel Ramírez",
+    "institucion": "Hospital Universitario",
+    "recetas": [
+      {
+        "producto": "Aspirina",
+        "dosis": "100 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "1 mes"
       },
       {
-        "producto": "Metformina",
-        "dosis": "850 mg",
+        "producto": "Amoxicilina",
+        "dosis": "875 mg",
         "frecuencia_valor": 12,
         "frecuencia_unidad": "horas",
-        "duracion": "3 meses"
-      },
-      {
-        "producto": "agua Thermal",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "2 meses"
+        "duracion": "7 dias"
       },
       {
         "producto": "Azitromicina",
@@ -983,17 +907,110 @@
     ]
   },
   {
-    "correo": "laura.sánchez@outlook.com",
-    "receta_id": "rec-4bf9da13",
-    "paciente": "Laura Sánchez",
+    "correo": "isabel.ramírez@gmail.com",
+    "receta_id": "rec-8ccd7a3a",
+    "paciente": "Isabel Ramírez",
     "institucion": "Centro Médico ABC",
     "recetas": [
       {
-        "producto": "Cetirizina",
+        "producto": "Paracetamol",
+        "dosis": "500 mg",
+        "frecuencia_valor": 8,
+        "frecuencia_unidad": "horas",
+        "duracion": "5 dias"
+      },
+      {
+        "producto": "Loratadina",
         "dosis": "10 mg",
+        "frecuencia_valor": 24,
+        "frecuencia_unidad": "horas",
+        "duracion": "10 dias"
+      },
+      {
+        "producto": "Omeprazol",
+        "dosis": "20 mg",
         "frecuencia_valor": 1,
         "frecuencia_unidad": "dia",
-        "duracion": "15 dias"
+        "duracion": "14 dias"
+      },
+      {
+        "producto": "Amoxicilina",
+        "dosis": "875 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "7 dias"
+      },
+      {
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia_valor": 2,
+        "frecuencia_unidad": "horas",
+        "duracion": "1 mes"
+      }
+    ]
+  },
+  {
+    "correo": "isabel.ramírez@gmail.com",
+    "receta_id": "rec-e9af421d",
+    "paciente": "Isabel Ramírez",
+    "institucion": "Hospital General de México",
+    "recetas": [
+      {
+        "producto": "Azitromicina",
+        "dosis": "500 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "3 dias"
+      },
+      {
+        "producto": "agua Thermal",
+        "dosis": null,
+        "frecuencia_valor": 2,
+        "frecuencia_unidad": "horas",
+        "duracion": "2 meses"
+      },
+      {
+        "producto": "Loratadina",
+        "dosis": "10 mg",
+        "frecuencia_valor": 24,
+        "frecuencia_unidad": "horas",
+        "duracion": "10 dias"
+      },
+      {
+        "producto": "Ibuprofeno",
+        "dosis": "400 mg",
+        "frecuencia_valor": 12,
+        "frecuencia_unidad": "horas",
+        "duracion": "3 dias"
+      },
+      {
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia_valor": 2,
+        "frecuencia_unidad": "horas",
+        "duracion": "1 mes"
+      }
+    ]
+  },
+  {
+    "correo": "juan.pérez@outlook.com",
+    "receta_id": "rec-8b20a9f5",
+    "paciente": "Juan Pérez",
+    "institucion": "Clínica Las Américas",
+    "recetas": [
+      {
+        "producto": "Omeprazol",
+        "dosis": "20 mg",
+        "frecuencia_valor": 1,
+        "frecuencia_unidad": "dia",
+        "duracion": "14 dias"
+      },
+      {
+        "producto": "Lagrifilm",
+        "dosis": null,
+        "frecuencia_valor": 3,
+        "frecuencia_unidad": "horas",
+        "duracion": "1 mes"
       },
       {
         "producto": "nasalub",
@@ -1003,99 +1020,18 @@
         "duracion": "1 mes"
       },
       {
-        "producto": "Metformina",
-        "dosis": "850 mg",
-        "frecuencia_valor": 12,
+        "producto": "agua Thermal",
+        "dosis": null,
+        "frecuencia_valor": 2,
         "frecuencia_unidad": "horas",
-        "duracion": "3 meses"
+        "duracion": "2 meses"
       }
     ]
   },
   {
-    "correo": "laura.sánchez@outlook.com",
-    "receta_id": "rec-90c18331",
+    "correo": "laura.sánchez@gmail.com",
+    "receta_id": "rec-2ed10717",
     "paciente": "Laura Sánchez",
-    "institucion": "Centro Médico ABC",
-    "recetas": [
-      {
-        "producto": "Aspirina",
-        "dosis": "100 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Losartán",
-        "dosis": "50 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      }
-    ]
-  },
-  {
-    "correo": "carlos.lópez@outlook.com",
-    "receta_id": "rec-906e002f",
-    "paciente": "Carlos López",
-    "institucion": "Centro Médico ABC",
-    "recetas": [
-      {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "7 dias"
-      }
-    ]
-  },
-  {
-    "correo": "carlos.lópez@outlook.com",
-    "receta_id": "rec-0314025a",
-    "paciente": "Carlos López",
-    "institucion": "Hospital Universitario",
-    "recetas": [
-      {
-        "producto": "Labello",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Lagrifilm",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      }
-    ]
-  },
-  {
-    "correo": "carlos.lópez@outlook.com",
-    "receta_id": "rec-d14c0339",
-    "paciente": "Carlos López",
-    "institucion": "Clínica Santa María",
-    "recetas": [
-      {
-        "producto": "Labello",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Losartán",
-        "dosis": "50 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      }
-    ]
-  },
-  {
-    "correo": "andrés.silva@utec.edu.pe",
-    "receta_id": "rec-99b785dd",
-    "paciente": "Andrés Silva",
     "institucion": "Clínica Santa María",
     "recetas": [
       {
@@ -1108,83 +1044,11 @@
     ]
   },
   {
-    "correo": "carmen.fernández@gmail.com",
-    "receta_id": "rec-185222fd",
-    "paciente": "Carmen Fernández",
-    "institucion": "Clínica Las Américas",
+    "correo": "fernando.vega@outlook.com",
+    "receta_id": "rec-5d926421",
+    "paciente": "Fernando Vega",
+    "institucion": "Centro Médico ABC",
     "recetas": [
-      {
-        "producto": "Clonazepam",
-        "dosis": "0.5 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
-      },
-      {
-        "producto": "Trevissage",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
-      }
-    ]
-  },
-  {
-    "correo": "isabel.ramírez@outlook.com",
-    "receta_id": "rec-6a9c5ac6",
-    "paciente": "Isabel Ramírez",
-    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
-    "recetas": [
-      {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "7 dias"
-      },
-      {
-        "producto": "nasalub",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Metformina",
-        "dosis": "850 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "3 meses"
-      },
-      {
-        "producto": "Aspirina",
-        "dosis": "100 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "1 mes"
-      }
-    ]
-  },
-  {
-    "correo": "isabel.ramírez@outlook.com",
-    "receta_id": "rec-067f15e0",
-    "paciente": "Isabel Ramírez",
-    "institucion": "Hospital Universitario",
-    "recetas": [
-      {
-        "producto": "nasalub",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Clonazepam",
-        "dosis": "0.5 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
-      },
       {
         "producto": "Losartán",
         "dosis": "50 mg",
@@ -1193,233 +1057,45 @@
         "duracion": "3 meses"
       },
       {
-        "producto": "Azitromicina",
-        "dosis": "500 mg",
+        "producto": "Omeprazol",
+        "dosis": "20 mg",
         "frecuencia_valor": 1,
         "frecuencia_unidad": "dia",
-        "duracion": "3 dias"
-      }
-    ]
-  },
-  {
-    "correo": "isabel.ramírez@outlook.com",
-    "receta_id": "rec-cf8806a5",
-    "paciente": "Isabel Ramírez",
-    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
-    "recetas": [
-      {
-        "producto": "Azitromicina",
-        "dosis": "500 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 dias"
+        "duracion": "14 dias"
       },
       {
-        "producto": "Clonazepam",
-        "dosis": "0.5 mg",
+        "producto": "Trevissage",
+        "dosis": "20 mg",
         "frecuencia_valor": 1,
         "frecuencia_unidad": "dia",
         "duracion": "2 meses"
       },
-      {
-        "producto": "Aspirina",
-        "dosis": "100 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Paracetamol",
-        "dosis": "500 mg",
-        "frecuencia_valor": 8,
-        "frecuencia_unidad": "horas",
-        "duracion": "5 dias"
-      },
-      {
-        "producto": "Loratadina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 24,
-        "frecuencia_unidad": "horas",
-        "duracion": "10 dias"
-      }
-    ]
-  },
-  {
-    "correo": "fernando.vega@utec.edu.pe",
-    "receta_id": "rec-9473d163",
-    "paciente": "Fernando Vega",
-    "institucion": "Clínica Las Américas",
-    "recetas": [
       {
         "producto": "agua Thermal",
         "dosis": null,
         "frecuencia_valor": 2,
         "frecuencia_unidad": "horas",
         "duracion": "2 meses"
-      },
+      }
+    ]
+  },
+  {
+    "correo": "fernando.vega@outlook.com",
+    "receta_id": "rec-fae8de36",
+    "paciente": "Fernando Vega",
+    "institucion": "Hospital General de México",
+    "recetas": [
       {
-        "producto": "Paracetamol",
-        "dosis": "500 mg",
-        "frecuencia_valor": 8,
+        "producto": "Ranitidina",
+        "dosis": "150 mg",
+        "frecuencia_valor": 12,
         "frecuencia_unidad": "horas",
-        "duracion": "5 dias"
-      },
-      {
-        "producto": "Vitamina D3",
-        "dosis": "1000 UI",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      },
-      {
-        "producto": "nasalub",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
+        "duracion": "30 dias"
       },
       {
         "producto": "Lagrifilm",
         "dosis": null,
         "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      }
-    ]
-  },
-  {
-    "correo": "fernando.vega@utec.edu.pe",
-    "receta_id": "rec-f3c21c02",
-    "paciente": "Fernando Vega",
-    "institucion": "Clínica Las Américas",
-    "recetas": [
-      {
-        "producto": "Clonazepam",
-        "dosis": "0.5 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
-      },
-      {
-        "producto": "Ibuprofeno",
-        "dosis": "400 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "3 dias"
-      }
-    ]
-  },
-  {
-    "correo": "fernando.vega@utec.edu.pe",
-    "receta_id": "rec-552a527f",
-    "paciente": "Fernando Vega",
-    "institucion": "Clínica Santa María",
-    "recetas": [
-      {
-        "producto": "nasalub",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Labello",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "7 dias"
-      }
-    ]
-  },
-  {
-    "correo": "patricia.ruiz@utec.edu.pe",
-    "receta_id": "rec-604efa48",
-    "paciente": "Patricia Ruiz",
-    "institucion": "Instituto Nacional de Salud",
-    "recetas": [
-      {
-        "producto": "nasalub",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Vitamina D3",
-        "dosis": "1000 UI",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      },
-      {
-        "producto": "Aspirina",
-        "dosis": "100 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Labello",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Azitromicina",
-        "dosis": "500 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 dias"
-      }
-    ]
-  },
-  {
-    "correo": "patricia.ruiz@utec.edu.pe",
-    "receta_id": "rec-a0c9dda8",
-    "paciente": "Patricia Ruiz",
-    "institucion": "Hospital General de México",
-    "recetas": [
-      {
-        "producto": "Loratadina",
-        "dosis": "10 mg",
-        "frecuencia_valor": 24,
-        "frecuencia_unidad": "horas",
-        "duracion": "10 dias"
-      },
-      {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "7 dias"
-      },
-      {
-        "producto": "Vitamina D3",
-        "dosis": "1000 UI",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      }
-    ]
-  },
-  {
-    "correo": "magali.flores@utec.edu.pe",
-    "receta_id": "rec-3fd01049",
-    "paciente": "Magali Flores",
-    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
-    "recetas": [
-      {
-        "producto": "nasalub",
-        "dosis": null,
-        "frecuencia_valor": 2,
         "frecuencia_unidad": "horas",
         "duracion": "1 mes"
       }
@@ -1427,97 +1103,24 @@
   },
   {
     "correo": "fernando.vega@outlook.com",
-    "receta_id": "rec-590776db",
+    "receta_id": "rec-d98ce02e",
     "paciente": "Fernando Vega",
-    "institucion": "Hospital General de México",
-    "recetas": [
-      {
-        "producto": "Labello",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "7 dias"
-      },
-      {
-        "producto": "agua Thermal",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "2 meses"
-      }
-    ]
-  },
-  {
-    "correo": "ana.martínez@gmail.com",
-    "receta_id": "rec-d9807972",
-    "paciente": "Ana Martínez",
-    "institucion": "Centro Médico ABC",
-    "recetas": [
-      {
-        "producto": "Metformina",
-        "dosis": "850 mg",
-        "frecuencia_valor": 12,
-        "frecuencia_unidad": "horas",
-        "duracion": "3 meses"
-      },
-      {
-        "producto": "nasalub",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      }
-    ]
-  },
-  {
-    "correo": "ana.martínez@gmail.com",
-    "receta_id": "rec-4f5561b8",
-    "paciente": "Ana Martínez",
     "institucion": "Instituto Nacional de Salud",
     "recetas": [
       {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
+        "producto": "Ranitidina",
+        "dosis": "150 mg",
         "frecuencia_valor": 12,
         "frecuencia_unidad": "horas",
-        "duracion": "7 dias"
+        "duracion": "30 dias"
       },
       {
-        "producto": "Aspirina",
-        "dosis": "100 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "1 mes"
+        "producto": "Loratadina",
+        "dosis": "10 mg",
+        "frecuencia_valor": 24,
+        "frecuencia_unidad": "horas",
+        "duracion": "10 dias"
       },
-      {
-        "producto": "Trevissage",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
-      },
-      {
-        "producto": "Omeprazol",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "14 dias"
-      }
-    ]
-  },
-  {
-    "correo": "camila.rojas@gmail.com",
-    "receta_id": "rec-d107bebe",
-    "paciente": "Camila Rojas",
-    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
-    "recetas": [
       {
         "producto": "Cetirizina",
         "dosis": "10 mg",
@@ -1526,105 +1129,11 @@
         "duracion": "15 dias"
       },
       {
-        "producto": "Losartán",
-        "dosis": "50 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      },
-      {
-        "producto": "Lagrifilm",
-        "dosis": null,
-        "frecuencia_valor": 3,
+        "producto": "Amoxicilina",
+        "dosis": "875 mg",
+        "frecuencia_valor": 12,
         "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      }
-    ]
-  },
-  {
-    "correo": "camila.rojas@gmail.com",
-    "receta_id": "rec-1b9a515c",
-    "paciente": "Camila Rojas",
-    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
-    "recetas": [
-      {
-        "producto": "Omeprazol",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "14 dias"
-      },
-      {
-        "producto": "Clonazepam",
-        "dosis": "0.5 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "2 meses"
-      },
-      {
-        "producto": "Aspirina",
-        "dosis": "100 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "1 mes"
-      },
-      {
-        "producto": "Vitamina D3",
-        "dosis": "1000 UI",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "3 meses"
-      },
-      {
-        "producto": "Lagrifilm",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
-      }
-    ]
-  },
-  {
-    "correo": "camila.rojas@gmail.com",
-    "receta_id": "rec-744085a6",
-    "paciente": "Camila Rojas",
-    "institucion": "Centro Médico ABC",
-    "recetas": [
-      {
-        "producto": "Omeprazol",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "14 dias"
-      },
-      {
-        "producto": "agua Thermal",
-        "dosis": null,
-        "frecuencia_valor": 2,
-        "frecuencia_unidad": "horas",
-        "duracion": "2 meses"
-      }
-    ]
-  },
-  {
-    "correo": "sofía.castro@utec.edu.pe",
-    "receta_id": "rec-a9de9e56",
-    "paciente": "Sofía Castro",
-    "institucion": "Hospital Universitario",
-    "recetas": [
-      {
-        "producto": "Atorvastatina",
-        "dosis": "20 mg",
-        "frecuencia_valor": 1,
-        "frecuencia_unidad": "dia",
-        "duracion": "6 meses"
-      },
-      {
-        "producto": "Lagrifilm",
-        "dosis": null,
-        "frecuencia_valor": 3,
-        "frecuencia_unidad": "horas",
-        "duracion": "1 mes"
+        "duracion": "7 dias"
       }
     ]
   }

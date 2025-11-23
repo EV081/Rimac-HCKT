@@ -1,10 +1,26 @@
 [
   {
     "correo_tutor": "autoridad@utec.edu.pe",
-    "dependiente_id": "dep-6b7a82dd",
-    "nombre": "Santiago",
-    "cumpleanos": "1935-01-18",
+    "dependiente_id": "dep-8a88dc3f",
+    "nombre": "Valentina",
+    "cumpleanos": "1951-07-23",
     "parentesco": "ADULTO_MAYOR",
-    "sexo": "M"
+    "sexo": "F"
+  },
+  {
+    "correo_tutor": "autoridad@utec.edu.pe",
+    "dependiente_id": "dep-3625d3e8",
+    "nombre": "Pedrito",
+    "cumpleanos": "1963-09-22",
+    "parentesco": "ADULTO_MAYOR",
+    "sexo": "F"
+  },
+  {
+    "correo_tutor": "autoridad@utec.edu.pe",
+    "dependiente_id": "dep-13bba2e7",
+    "nombre": "Joaquín",
+    "cumpleanos": "2015-10-25",
+    "parentesco": "HIJO",
+    "sexo": "F"
   }
 ]

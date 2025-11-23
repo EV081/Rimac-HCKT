@@ -3,7 +3,8 @@
   "title": "Usuarios Dependientes",
   "type": "object",
   "x-dynamodb": {
-    "partition_key": "correo_tutor"
+    "partition_key": "correo_tutor",
+    "sort_key": "dependiente_id"
   },
   "properties": {
     "correo_tutor": {
