@@ -226,7 +226,7 @@ def create_recurring_event(event, context):
             description += f"\nTomar después del {indicacion}."
             
             if medicion_duracion == 'Dias':
-                recurrence_rule = [f'RRULE:FREQ=DAILY;COUNT={duracion}']
+                recurrence_rule = [f'RRULE:FREQ=DAILY;INTERVAL=2;COUNT={duracion}']
             else:
                 treatment_end_date = lima_now + relativedelta(months=+duracion)
                 until_utc = treatment_end_date.astimezone(pytz.utc)
