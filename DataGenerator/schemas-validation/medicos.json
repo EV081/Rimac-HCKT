@@ -1,0 +1,26 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["nombre", "especialidad", "institucion", "codigo_cmp"],
+    "properties": {
+      "nombre": {
+        "type": "string",
+        "description": "Nombre completo del médico"
+      },
+      "especialidad": {
+        "type": "string",
+        "description": "Especialidad médica"
+      },
+      "institucion": {
+        "type": "string",
+        "description": "Institución donde trabaja"
+      },
+      "codigo_cmp": {
+        "type": "string",
+        "description": "Código del Colegio Médico del Perú",
+        "pattern": "^CMP: [0-9]{5,6}$"
+      }
+    }
+  }
+}
