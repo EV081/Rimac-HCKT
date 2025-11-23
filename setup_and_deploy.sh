@@ -159,7 +159,7 @@ deploy_services() {
     ok "Entorno Node listo"
 
     # 🔹 Deploy Real Compose (rápido)
-    serverless compose deploy --verbose --stage "${stage:-dev}" || {
+    serverless deploy --stage "${stage:-dev}" || {
         err "Falló el deploy"
         exit 1
     }
