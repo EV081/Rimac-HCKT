@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "alerta_id": "alert-ba4aace1",
+    "correo_tutor": "autoridad@utec.edu.pe",
+    "dependent_id": "dep-8a88dc3f",
+    "regla_nombre": "Evaluación funcional geriátrica",
+    "title": "Evaluación: Evaluación funcional geriátrica",
+    "message": "Corresponde realizar evaluación semestral de capacidades funcionales",
+    "estado": false
+  },
+  {
+    "alerta_id": "alert-9b8a7443",
+    "correo_tutor": "autoridad@utec.edu.pe",
+    "dependent_id": "dep-3625d3e8",
+    "regla_nombre": "Control de presión arterial",
+    "title": "Control de salud: Control de presión arterial",
+    "message": "Es necesario realizar monitoreo mensual de presión arterial",
+    "estado": false
+  },
+  {
+    "alerta_id": "alert-0d800abf",
+    "correo_tutor": "autoridad@utec.edu.pe",
+    "dependent_id": "dep-3625d3e8",
+    "regla_nombre": "Evaluación funcional geriátrica",
+    "title": "Evaluación: Evaluación funcional geriátrica",
+    "message": "Corresponde realizar evaluación semestral de capacidades funcionales",
+    "estado": true
+  },
+  {
+    "alerta_id": "alert-0ef3b3f9",
+    "correo_tutor": "autoridad@utec.edu.pe",
+    "dependent_id": "dep-13bba2e7",
+    "regla_nombre": "Primera visita al dentista",
+    "title": "Cita odontológica: Primera visita al dentista",
+    "message": "Recordatorio: primera consulta odontológica",
+    "estado": false
+  }
+]
