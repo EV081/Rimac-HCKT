@@ -4,8 +4,8 @@ Handler principal para iniciar conversación con el agente
 import json
 import traceback
 from services.agente_service import AgenteService
+from services.auth_service import AuthService
 from utils.exceptions import UsuarioNoEncontradoError, ContextoInvalidoError
-from utils.validators import validar_request_agente
 from utils.formatters import formatear_respuesta_exitosa, formatear_respuesta_error
 
 # Instancia global del servicio (reutilizada entre invocaciones Lambda)
@@ -25,34 +25,51 @@ def handler(event, context):
     
     Espera un body JSON con:
     {
-        "correo": "usuario@example.com",
-        "contexto": "General|Servicios|Estadisticas|Recetas",
         "mensaje": "¿Cómo estoy con mis medicamentos?",
-        "historial": [...]  // Opcional
+        "contexto": "General|Servicios|Estadisticas|Recetas"
     }
+    
+    El correo del usuario se extrae automáticamente del token de Authorization
     
     Returns:
         Response JSON con la respuesta del agente
     """
     try:
-        # 1. Parsear body
-        body = json.loads(event.get('body', '{}'))
+        # 1. Obtener usuario desde token (igual que API-REGISTRO)
+        usuario = AuthService.get_user_from_token(event)
         
-        # 2. Validar request
-        errores_validacion = validar_request_agente(body)
-        if errores_validacion:
+        if not usuario:
             return formatear_respuesta_error(
-                400,
-                'Errores de validación',
-                errores_validacion
+                401,
+                'No autorizado',
+                'Token inválido o usuario no encontrado'
             )
         
-        # 3. Extraer parámetros
-        correo = body['correo']
-        contexto = body['contexto']
-        mensaje = body['mensaje']
-        historial = body.get('historial', None)
-        guardar_memoria = body.get('guardar_memoria', True)
+        correo = usuario['correo']
+        print(f"✅ Usuario autenticado: {correo}")
+        
+        # 2. Parsear body
+        body = json.loads(event.get('body', '{}'))
+        
+        # 3. Validar campos requeridos
+        mensaje = body.get('mensaje')
+        contexto = body.get('contexto', 'General')
+        
+        if not mensaje:
+            return formatear_respuesta_error(
+                400,
+                'Campo requerido',
+                'El campo "mensaje" es obligatorio'
+            )
+        
+        # Validar contexto
+        contextos_validos = ['General', 'Servicios', 'Estadisticas', 'Recetas']
+        if contexto not in contextos_validos:
+            return formatear_respuesta_error(
+                400,
+                'Contexto inválido',
+                f'El contexto debe ser uno de: {", ".join(contextos_validos)}'
+            )
         
         # 4. Procesar consulta
         service = get_agente_service()
@@ -60,16 +77,15 @@ def handler(event, context):
             correo=correo,
             contexto=contexto,
             mensaje_usuario=mensaje,
-            historial_conversacion=historial
+            historial_conversacion=None  # Por ahora sin historial
         )
         
-        # 5. Guardar en memoria si se requiere
-        if guardar_memoria:
-            service.guardar_memoria_conversacion(
-                correo=correo,
-                mensaje_usuario=mensaje,
-                respuesta_agente=resultado['respuesta']
-            )
+        # 5. Guardar en memoria automáticamente
+        service.guardar_memoria_conversacion(
+            correo=correo,
+            mensaje_usuario=mensaje,
+            respuesta_agente=resultado['respuesta']
+        )
         
         # 6. Retornar respuesta exitosa
         return formatear_respuesta_exitosa(resultado)
@@ -91,56 +107,3 @@ def handler(event, context):
             'Error interno del servidor',
             'Ocurrió un error procesando tu solicitud'
         )
-
-
-def obtener_sugerencias_handler(event, context):
-    """
-    Handler para obtener sugerencias proactivas basadas en el contexto
-    
-    Espera query params:
-    - correo: Email del usuario
-    - contexto: Tipo de contexto
-    """
-    try:
-        # Extraer parámetros de query string
-        params = event.get('queryStringParameters', {}) or {}
-        
-        correo = params.get('correo')
-        contexto = params.get('contexto', 'General')
-        
-        if not correo:
-            return formatear_respuesta_error(
-                400,
-                'Parámetro faltante',
-                'Se requiere el parámetro "correo"'
-            )
-        
-        # Obtener sugerencias
-        service = get_agente_service()
-        sugerencias = service.obtener_sugerencias_contexto(correo, contexto)
-        
-        return formatear_respuesta_exitosa(sugerencias)
-    
-    except Exception as e:
-        print(f"Error obteniendo sugerencias: {str(e)}")
-        return formatear_respuesta_error(
-            500,
-            'Error interno',
-            'No se pudieron obtener las sugerencias'
-        )
-
-
-def health_check_handler(event, context):
-    """Handler para health check del servicio"""
-    try:
-        from contextos.general_contexto import ContextoFactory
-        
-        return formatear_respuesta_exitosa({
-            'status': 'healthy',
-            'service': 'API-AGENTE',
-            'contextos_disponibles': ContextoFactory.get_contextos_disponibles(),
-            'timestamp': context.get('timestamp', 'N/A')
-        })
-    
-    except Exception as e:
-        return formatear_respuesta_error(503, 'Service Unavailable', str(e))

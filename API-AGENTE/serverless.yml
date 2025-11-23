@@ -15,6 +15,9 @@ provider:
     TABLE_RECETAS: ${env:TABLE_RECETAS}
     TABLE_MEMORIA_CONTEXTUAL: ${env:TABLE_MEMORIA_CONTEXTUAL}
     TABLE_HISTORIAL_MEDICO: ${env:TABLE_HISTORIAL_MEDICO}
+    USER_POOL_ID: ${env:USER_POOL_ID, 'us-east-1_CbDyhAcqE'}
+    CLIENT_ID: ${env:CLIENT_ID, '3srpb1h5s3o6d2a5qu4bvoomq9'}
+    AWS_REGION: ${env:AWS_REGION, 'us-east-1'}
     ORG_NAME: ${env:ORG_NAME}
   
   iamRoleStatements:
