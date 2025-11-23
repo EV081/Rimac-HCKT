@@ -197,6 +197,38 @@ read -p "Selecciona una opción (1-3): " opcion
 # Configurar variables de entorno primero
 configure_env
 
+log ""
+log "═══════════════════════════════════════════════════════"
+log "🪣 CONFIGURACIÓN DEL BUCKET S3"
+log "═══════════════════════════════════════════════════════"
+
+# Verificar script setup_s3.py
+if [ ! -f "Infra/setup_s3.py" ]; then
+    log_error "No se encontró Infra/setup_s3.py"
+    exit 1
+fi
+
+# Instalar dependencias si faltan
+if ! python3 - <<EOF 2>/dev/null
+import boto3, dotenv
+EOF
+then
+    log_info "Instalando dependencias para setup_s3..."
+    pip install boto3 python-dotenv --quiet
+fi
+
+# Ejecutar script setup_s3.py
+log_info "Ejecutando configuración de S3..."
+python3 Infra/setup_s3.py
+
+if [ $? -ne 0 ]; then
+    log_error "Error durante configuración de S3"
+    exit 1
+fi
+
+log_success "S3 configurado correctamente"
+
+
 case $opcion in
     1)
         setup_database
