@@ -191,9 +191,10 @@ class BaseDAO:
             return Decimal(str(obj))
         return obj
 
-# ===== FACTORY PATTERN =====
+
+# ===== FACTORY PARA DAOS =====
 class DAOFactory:
-    """Factory para crear instancias de DAOs"""
+    """Factory para crear y cachear instancias de DAOs"""
     
     _instances = {}
     
@@ -209,13 +210,8 @@ class DAOFactory:
             Instancia del DAO solicitado
         """
         if dao_type not in cls._instances:
-            dao_map = {
-                'usuarios': UsuariosDAO,
-                'recetas': RecetasDAO,
-                'servicios': ServiciosDAO,
-                'historial': HistorialDAO,
-                'memoria': MemoriaDAO
-            }
+            # Lazy import para evitar circular dependencies
+            dao_map = cls._get_dao_map()
             
             if dao_type not in dao_map:
                 raise ValueError(f"DAO tipo '{dao_type}' no existe")
@@ -223,3 +219,23 @@ class DAOFactory:
             cls._instances[dao_type] = dao_map[dao_type]()
         
         return cls._instances[dao_type]
+    
+    @classmethod
+    def _get_dao_map(cls):
+        """
+        Lazy loading de los DAOs para evitar circular imports
+        """
+        # Import here to avoid circular dependency
+        from dao.usuarios_dao import UsuariosDAO
+        from dao.recetas_dao import RecetasDAO
+        from dao.servicios_dao import ServiciosDAO
+        from dao.historial_dao import HistorialDAO
+        from dao.memoria_dao import MemoriaDAO
+        
+        return {
+            'usuarios': UsuariosDAO,
+            'recetas': RecetasDAO,
+            'servicios': ServiciosDAO,
+            'historial': HistorialDAO,
+            'memoria': MemoriaDAO
+        }
