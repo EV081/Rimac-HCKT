@@ -197,16 +197,19 @@ def create_recurring_event(event, context):
         lima_tz = pytz.timezone('America/Lima')
         lima_now = datetime.now(lima_tz).replace(second=0, microsecond=0)
 
+        # Variables unificadas
         start_iso = None
         end_iso = None
-        # Por defecto enviamos Lima, pero si usamos frecuencia cambiaremos a UTC
-        event_timezone = 'America/Lima'
+        event_timezone = 'America/Lima' # Default
         recurrence_rule = []
         
         description = f"Recordatorio médico: {pill_name}.\n{indicaciones_consumo}"
 
+        # ==============================================================================
+        # ESTRATEGIA A: POR COMIDAS (Mantenemos Local Time 'America/Lima')
+        # ==============================================================================
         if indicacion in ['Desayuno', 'Almuerzo', 'Cena']:
-            event_timezone = 'America/Lima' # Mantenemos local
+            event_timezone = 'America/Lima'
             
             meal_times = {
                 'Desayuno': {'hour': 8, 'minute': 0},
@@ -231,18 +234,19 @@ def create_recurring_event(event, context):
                 recurrence_rule = [f'RRULE:FREQ=DAILY;UNTIL={until_str}']
 
         # ==============================================================================
-        # ESTRATEGIA B: POR FRECUENCIA (Forzamos UTC para evitar Error 400)
+        # ESTRATEGIA B: POR FRECUENCIA (Forzamos TODO a UTC para evitar Error 400)
         # ==============================================================================
         else:
-            # Cambiamos la zona horaria del evento a UTC explícitamente
+            # CAMBIO CLAVE: Cambiamos explícitamente a UTC para que coincida con el UNTIL
             event_timezone = 'UTC'
             
-            # Convertimos la hora actual de Lima a UTC puro
+            # Convertimos "Ahora" (Lima) a UTC puro
             start_utc = lima_now.astimezone(pytz.utc)
             end_utc = start_utc + timedelta(minutes=15)
             
-            start_iso = start_utc.isoformat()
-            end_iso = end_utc.isoformat()
+            # Forzamos formato 'Z' para que Google no se confunda con offsets
+            start_iso = start_utc.strftime('%Y-%m-%dT%H:%M:%SZ')
+            end_iso = end_utc.strftime('%Y-%m-%dT%H:%M:%SZ')
             
             freq_map = {'Horas': 'HOURLY', 'Dias': 'DAILY'}
             rrule_freq = freq_map.get(medicion_frecuencia, 'DAILY')
@@ -261,7 +265,7 @@ def create_recurring_event(event, context):
             recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};UNTIL={until_str}']
 
         print(f"DEBUG RRULE: {recurrence_rule}")
-        print(f"DEBUG TIMEZONE ENVIO: {event_timezone}")
+        print(f"DEBUG TZ ENVIADO: {event_timezone}")
 
         # 3. LLAMADA A GOOGLE CALENDAR
         creds = get_google_creds() 
@@ -270,7 +274,7 @@ def create_recurring_event(event, context):
         event_body = {
             'summary': f'💊 Tomar: {pill_name}',
             'description': description,
-            # Usamos la zona horaria dinámica (UTC o Lima según el caso)
+            # Aquí usamos las variables que forzamos a UTC en el else
             'start': {
                 'dateTime': start_iso,
                 'timeZone': event_timezone
@@ -308,4 +312,5 @@ def create_recurring_event(event, context):
     except Exception as e:
         print(f"Error CRITICO creando evento: {repr(e)}")
         return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+
 
