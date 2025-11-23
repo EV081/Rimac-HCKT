@@ -70,14 +70,14 @@ def generar_correo(nombre):
 
 def generar_usuarios(cantidad=None):
     usuarios = []
-    roles_no_autoridad = ["estudiante", "personal_administrativo"]
+    roles_no_autoridad = ["USER", "TUTOR"]
     objetivo = max(1, cantidad or USUARIOS_TOTAL)
     
     autoridad = {
         "correo": AUTHORITY_EMAIL,
         "contrasena": AUTHORITY_PASSWORD,
         "nombre": AUTHORITY_NAME,
-        "rol": "autoridad"
+        "rol": "ADMIN"
     }
     usuarios.append(autoridad)
     correos_usados = {AUTHORITY_EMAIL}

@@ -1,254 +1,23 @@
 [
   {
-    "receta_id": "rec-4711819d",
-    "paciente": "Roberto Díaz",
-    "institucion": "Centro Dermatológico \"Dr. Ladislao de la Pascua\"",
+    "receta_id": "rec-e00f04e5",
+    "paciente": "Patricia Ruiz",
+    "institucion": "Centro Médico ABC",
     "recetas": [
       {
-        "producto": "Diclofenaco",
-        "dosis": "75 mg",
-        "frecuencia": 12,
+        "producto": "Loratadina",
+        "dosis": "10 mg",
+        "frecuencia": 24,
         "medicion_frecuencia": "horas",
-        "duracion": 5,
+        "duracion": 10,
         "duracion_frecuencia": "dias"
       },
       {
-        "producto": "Atorvastatina",
-        "dosis": "20 mg",
-        "frecuencia": 1,
-        "medicion_frecuencia": "dias",
-        "duracion": 6,
-        "duracion_frecuencia": "meses"
-      },
-      {
-        "producto": "Lagrifilm",
+        "producto": "Labello",
         "dosis": null,
         "frecuencia": 3,
         "medicion_frecuencia": "horas",
         "duracion": 1,
-        "duracion_frecuencia": "meses"
-      }
-    ]
-  },
-  {
-    "receta_id": "rec-46768819",
-    "paciente": "Roberto Díaz",
-    "institucion": "Centro Médico ABC",
-    "recetas": [
-      {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
-        "frecuencia": 12,
-        "medicion_frecuencia": "horas",
-        "duracion": 7,
-        "duracion_frecuencia": "dias"
-      }
-    ]
-  },
-  {
-    "receta_id": "rec-65d1d210",
-    "paciente": "Carmen Fernández",
-    "institucion": "Clínica Santa María",
-    "recetas": [
-      {
-        "producto": "Vitamina D3",
-        "dosis": "1000 UI",
-        "frecuencia": 1,
-        "medicion_frecuencia": "dias",
-        "duracion": 3,
-        "duracion_frecuencia": "meses"
-      }
-    ]
-  },
-  {
-    "receta_id": "rec-3f57a9f8",
-    "paciente": "Valentina Ortiz",
-    "institucion": "Clínica Santa María",
-    "recetas": [
-      {
-        "producto": "Clonazepam",
-        "dosis": "0.5 mg",
-        "frecuencia": 1,
-        "medicion_frecuencia": "dias",
-        "duracion": 2,
-        "duracion_frecuencia": "meses"
-      },
-      {
-        "producto": "Atorvastatina",
-        "dosis": "20 mg",
-        "frecuencia": 1,
-        "medicion_frecuencia": "dias",
-        "duracion": 6,
-        "duracion_frecuencia": "meses"
-      },
-      {
-        "producto": "Diclofenaco",
-        "dosis": "75 mg",
-        "frecuencia": 12,
-        "medicion_frecuencia": "horas",
-        "duracion": 5,
-        "duracion_frecuencia": "dias"
-      }
-    ]
-  },
-  {
-    "receta_id": "rec-0c0950ed",
-    "paciente": "Valentina Ortiz",
-    "institucion": "Hospital General de México",
-    "recetas": [
-      {
-        "producto": "Diclofenaco",
-        "dosis": "75 mg",
-        "frecuencia": 12,
-        "medicion_frecuencia": "horas",
-        "duracion": 5,
-        "duracion_frecuencia": "dias"
-      },
-      {
-        "producto": "Vitamina D3",
-        "dosis": "1000 UI",
-        "frecuencia": 1,
-        "medicion_frecuencia": "dias",
-        "duracion": 3,
-        "duracion_frecuencia": "meses"
-      }
-    ]
-  },
-  {
-    "receta_id": "rec-f094e271",
-    "paciente": "Fernando Vega",
-    "institucion": "Hospital General de México",
-    "recetas": [
-      {
-        "producto": "Amoxicilina",
-        "dosis": "875 mg",
-        "frecuencia": 12,
-        "medicion_frecuencia": "horas",
-        "duracion": 7,
-        "duracion_frecuencia": "dias"
-      },
-      {
-        "producto": "Vitamina D3",
-        "dosis": "1000 UI",
-        "frecuencia": 1,
-        "medicion_frecuencia": "dias",
-        "duracion": 3,
-        "duracion_frecuencia": "meses"
-      }
-    ]
-  },
-  {
-    "receta_id": "rec-5815e139",
-    "paciente": "Sofía Castro",
-    "institucion": "Hospital General de México",
-    "recetas": [
-      {
-        "producto": "Ranitidina",
-        "dosis": "150 mg",
-        "frecuencia": 12,
-        "medicion_frecuencia": "horas",
-        "duracion": 30,
-        "duracion_frecuencia": "dias"
-      },
-      {
-        "producto": "nasalub",
-        "dosis": null,
-        "frecuencia": 2,
-        "medicion_frecuencia": "horas",
-        "duracion": 1,
-        "duracion_frecuencia": "meses"
-      },
-      {
-        "producto": "Paracetamol",
-        "dosis": "500 mg",
-        "frecuencia": 8,
-        "medicion_frecuencia": "horas",
-        "duracion": 5,
-        "duracion_frecuencia": "dias"
-      },
-      {
-        "producto": "Omeprazol",
-        "dosis": "20 mg",
-        "frecuencia": 1,
-        "medicion_frecuencia": "dias",
-        "duracion": 14,
-        "duracion_frecuencia": "dias"
-      }
-    ]
-  },
-  {
-    "receta_id": "rec-46d91131",
-    "paciente": "Carmen Fernández",
-    "institucion": "Instituto Nacional de Salud",
-    "recetas": [
-      {
-        "producto": "Atorvastatina",
-        "dosis": "20 mg",
-        "frecuencia": 1,
-        "medicion_frecuencia": "dias",
-        "duracion": 6,
-        "duracion_frecuencia": "meses"
-      },
-      {
-        "producto": "Paracetamol",
-        "dosis": "500 mg",
-        "frecuencia": 8,
-        "medicion_frecuencia": "horas",
-        "duracion": 5,
-        "duracion_frecuencia": "dias"
-      }
-    ]
-  },
-  {
-    "receta_id": "rec-5533de4e",
-    "paciente": "Magali Flores",
-    "institucion": "Clínica Santa María",
-    "recetas": [
-      {
-        "producto": "Metformina",
-        "dosis": "850 mg",
-        "frecuencia": 12,
-        "medicion_frecuencia": "horas",
-        "duracion": 3,
-        "duracion_frecuencia": "meses"
-      },
-      {
-        "producto": "Omeprazol",
-        "dosis": "20 mg",
-        "frecuencia": 1,
-        "medicion_frecuencia": "dias",
-        "duracion": 14,
-        "duracion_frecuencia": "dias"
-      },
-      {
-        "producto": "Ranitidina",
-        "dosis": "150 mg",
-        "frecuencia": 12,
-        "medicion_frecuencia": "horas",
-        "duracion": 30,
-        "duracion_frecuencia": "dias"
-      },
-      {
-        "producto": "Atorvastatina",
-        "dosis": "20 mg",
-        "frecuencia": 1,
-        "medicion_frecuencia": "dias",
-        "duracion": 6,
-        "duracion_frecuencia": "meses"
-      }
-    ]
-  },
-  {
-    "receta_id": "rec-93f6d629",
-    "paciente": "José González",
-    "institucion": "Clínica Santa María",
-    "recetas": [
-      {
-        "producto": "Atorvastatina",
-        "dosis": "20 mg",
-        "frecuencia": 1,
-        "medicion_frecuencia": "dias",
-        "duracion": 6,
         "duracion_frecuencia": "meses"
       },
       {
@@ -260,6 +29,21 @@
         "duracion_frecuencia": "meses"
       },
       {
+        "producto": "Ibuprofeno",
+        "dosis": "400 mg",
+        "frecuencia": 12,
+        "medicion_frecuencia": "horas",
+        "duracion": 3,
+        "duracion_frecuencia": "dias"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-d2183bb4",
+    "paciente": "María García",
+    "institucion": "Clínica Las Américas",
+    "recetas": [
+      {
         "producto": "Loratadina",
         "dosis": "10 mg",
         "frecuencia": 24,
@@ -267,6 +51,230 @@
         "duracion": 10,
         "duracion_frecuencia": "dias"
       },
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia": 1,
+        "medicion_frecuencia": "dias",
+        "duracion": 2,
+        "duracion_frecuencia": "meses"
+      },
+      {
+        "producto": "agua Thermal",
+        "dosis": null,
+        "frecuencia": 2,
+        "medicion_frecuencia": "horas",
+        "duracion": 2,
+        "duracion_frecuencia": "meses"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-3b3f2802",
+    "paciente": "Diego Morales",
+    "institucion": "Hospital General de México",
+    "recetas": [
+      {
+        "producto": "Lagrifilm",
+        "dosis": null,
+        "frecuencia": 3,
+        "medicion_frecuencia": "horas",
+        "duracion": 1,
+        "duracion_frecuencia": "meses"
+      },
+      {
+        "producto": "Vitamina D3",
+        "dosis": "1000 UI",
+        "frecuencia": 1,
+        "medicion_frecuencia": "dias",
+        "duracion": 3,
+        "duracion_frecuencia": "meses"
+      },
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia": 1,
+        "medicion_frecuencia": "dias",
+        "duracion": 2,
+        "duracion_frecuencia": "meses"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-1a05c43e",
+    "paciente": "Valentina Ortiz",
+    "institucion": "Clínica Santa María",
+    "recetas": [
+      {
+        "producto": "agua Thermal",
+        "dosis": null,
+        "frecuencia": 2,
+        "medicion_frecuencia": "horas",
+        "duracion": 2,
+        "duracion_frecuencia": "meses"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-43acfbef",
+    "paciente": "José González",
+    "institucion": "Hospital General de México",
+    "recetas": [
+      {
+        "producto": "Amoxicilina",
+        "dosis": "875 mg",
+        "frecuencia": 12,
+        "medicion_frecuencia": "horas",
+        "duracion": 7,
+        "duracion_frecuencia": "dias"
+      },
+      {
+        "producto": "Omeprazol",
+        "dosis": "20 mg",
+        "frecuencia": 1,
+        "medicion_frecuencia": "dias",
+        "duracion": 14,
+        "duracion_frecuencia": "dias"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-b7d7b012",
+    "paciente": "Diego Morales",
+    "institucion": "Clínica Las Américas",
+    "recetas": [
+      {
+        "producto": "Metformina",
+        "dosis": "850 mg",
+        "frecuencia": 12,
+        "medicion_frecuencia": "horas",
+        "duracion": 3,
+        "duracion_frecuencia": "meses"
+      },
+      {
+        "producto": "Ranitidina",
+        "dosis": "150 mg",
+        "frecuencia": 12,
+        "medicion_frecuencia": "horas",
+        "duracion": 30,
+        "duracion_frecuencia": "dias"
+      },
+      {
+        "producto": "Ibuprofeno",
+        "dosis": "400 mg",
+        "frecuencia": 12,
+        "medicion_frecuencia": "horas",
+        "duracion": 3,
+        "duracion_frecuencia": "dias"
+      },
+      {
+        "producto": "nasalub",
+        "dosis": null,
+        "frecuencia": 2,
+        "medicion_frecuencia": "horas",
+        "duracion": 1,
+        "duracion_frecuencia": "meses"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-5dc4ba95",
+    "paciente": "Pedro Flores",
+    "institucion": "Centro Médico ABC",
+    "recetas": [
+      {
+        "producto": "Omeprazol",
+        "dosis": "20 mg",
+        "frecuencia": 1,
+        "medicion_frecuencia": "dias",
+        "duracion": 14,
+        "duracion_frecuencia": "dias"
+      },
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia": 1,
+        "medicion_frecuencia": "dias",
+        "duracion": 2,
+        "duracion_frecuencia": "meses"
+      },
+      {
+        "producto": "Cetirizina",
+        "dosis": "10 mg",
+        "frecuencia": 1,
+        "medicion_frecuencia": "dias",
+        "duracion": 15,
+        "duracion_frecuencia": "dias"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-48e4af88",
+    "paciente": "Carmen Fernández",
+    "institucion": "Clínica Santa María",
+    "recetas": [
+      {
+        "producto": "Amoxicilina",
+        "dosis": "875 mg",
+        "frecuencia": 12,
+        "medicion_frecuencia": "horas",
+        "duracion": 7,
+        "duracion_frecuencia": "dias"
+      },
+      {
+        "producto": "Labello",
+        "dosis": null,
+        "frecuencia": 3,
+        "medicion_frecuencia": "horas",
+        "duracion": 1,
+        "duracion_frecuencia": "meses"
+      },
+      {
+        "producto": "Ibuprofeno",
+        "dosis": "400 mg",
+        "frecuencia": 12,
+        "medicion_frecuencia": "horas",
+        "duracion": 3,
+        "duracion_frecuencia": "dias"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-c64fed69",
+    "paciente": "Miguel Torres",
+    "institucion": "Centro Médico ABC",
+    "recetas": [
+      {
+        "producto": "Trevissage",
+        "dosis": "20 mg",
+        "frecuencia": 1,
+        "medicion_frecuencia": "dias",
+        "duracion": 2,
+        "duracion_frecuencia": "meses"
+      },
+      {
+        "producto": "Losartán",
+        "dosis": "50 mg",
+        "frecuencia": 1,
+        "medicion_frecuencia": "dias",
+        "duracion": 3,
+        "duracion_frecuencia": "meses"
+      },
+      {
+        "producto": "Ranitidina",
+        "dosis": "150 mg",
+        "frecuencia": 12,
+        "medicion_frecuencia": "horas",
+        "duracion": 30,
+        "duracion_frecuencia": "dias"
+      }
+    ]
+  },
+  {
+    "receta_id": "rec-2e89bfec",
+    "paciente": "Ana Martínez",
+    "institucion": "Hospital Universitario",
+    "recetas": [
       {
         "producto": "Trevissage",
         "dosis": "20 mg",

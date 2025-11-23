@@ -47,6 +47,14 @@ functions:
           path: calendar/tratamiento
           method: post
           cors: true
+
+  schedulePrescription:
+    handler: handler.create_prescription_schedule
+    events:
+      - http:
+          path: calendar/receta
+          method: post
+          cors: true
 resources:
   Resources:
     TablaComentarios:

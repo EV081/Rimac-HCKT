@@ -3,180 +3,186 @@
     "correo": "autoridad@utec.edu.pe",
     "contrasena": "autoridad123",
     "nombre": "Autoridad UTEC",
-    "rol": "autoridad"
+    "rol": "ADMIN"
   },
   {
-    "correo": "fernando.vega@utec.edu.pe",
-    "contrasena": "hash_f83937f1892844f7",
-    "nombre": "Fernando Vega",
-    "rol": "estudiante"
-  },
-  {
-    "correo": "pedro.flores@utec.edu.pe",
-    "contrasena": "hash_4d93ab677eef4354",
-    "nombre": "Pedro Flores",
-    "rol": "estudiante"
-  },
-  {
-    "correo": "valentina.ortiz@gmail.com",
-    "contrasena": "hash_9474e8756b1547d1",
-    "nombre": "Valentina Ortiz",
-    "rol": "estudiante"
-  },
-  {
-    "correo": "laura.sánchez@gmail.com",
-    "contrasena": "hash_06ba1f7a216048af",
-    "nombre": "Laura Sánchez",
-    "rol": "estudiante"
-  },
-  {
-    "correo": "patricia.ruiz@utec.edu.pe",
-    "contrasena": "hash_4c9a701fae494885",
+    "correo": "patricia.ruiz@gmail.com",
+    "contrasena": "hash_0d330828a8d24f83",
     "nombre": "Patricia Ruiz",
-    "rol": "personal_administrativo"
+    "rol": "USER"
   },
   {
-    "correo": "roberto.díaz@outlook.com",
-    "contrasena": "hash_d8c59b8993f34b42",
-    "nombre": "Roberto Díaz",
-    "rol": "estudiante"
-  },
-  {
-    "correo": "miguel.torres@utec.edu.pe",
-    "contrasena": "hash_366ffb3a5b154b69",
-    "nombre": "Miguel Torres",
-    "rol": "personal_administrativo"
-  },
-  {
-    "correo": "josé.gonzález@gmail.com",
-    "contrasena": "hash_4f98a13af45d4e8f",
-    "nombre": "José González",
-    "rol": "estudiante"
-  },
-  {
-    "correo": "sofía.castro@utec.edu.pe",
-    "contrasena": "hash_dbdc213617be44b7",
-    "nombre": "Sofía Castro",
-    "rol": "personal_administrativo"
-  },
-  {
-    "correo": "carmen.fernández@gmail.com",
-    "contrasena": "hash_0b34e44ab930491e",
-    "nombre": "Carmen Fernández",
-    "rol": "estudiante"
-  },
-  {
-    "correo": "fernando.vega@gmail.com",
-    "contrasena": "hash_299aa631b98b41e3",
-    "nombre": "Fernando Vega",
-    "rol": "personal_administrativo"
-  },
-  {
-    "correo": "isabel.ramírez@gmail.com",
-    "contrasena": "hash_728bea3762f44d91",
+    "correo": "isabel.ramírez@utec.edu.pe",
+    "contrasena": "hash_f416a07318014c60",
     "nombre": "Isabel Ramírez",
-    "rol": "personal_administrativo"
+    "rol": "TUTOR"
   },
   {
-    "correo": "ana.martínez@utec.edu.pe",
-    "contrasena": "hash_5b985cb00c5d438b",
-    "nombre": "Ana Martínez",
-    "rol": "personal_administrativo"
-  },
-  {
-    "correo": "luis.rodríguez@gmail.com",
-    "contrasena": "hash_0f46f49e8c5e458c",
-    "nombre": "Luis Rodríguez",
-    "rol": "estudiante"
-  },
-  {
-    "correo": "valentina.ortiz@utec.edu.pe",
-    "contrasena": "hash_4c9ab5efc58c40da",
-    "nombre": "Valentina Ortiz",
-    "rol": "estudiante"
-  },
-  {
-    "correo": "carmen.fernández@outlook.com",
-    "contrasena": "hash_f370fb8651ad4bbb",
-    "nombre": "Carmen Fernández",
-    "rol": "personal_administrativo"
-  },
-  {
-    "correo": "luis.rodríguez@utec.edu.pe",
-    "contrasena": "hash_fa225d5515a143c2",
-    "nombre": "Luis Rodríguez",
-    "rol": "personal_administrativo"
-  },
-  {
-    "correo": "ana.martínez@outlook.com",
-    "contrasena": "hash_11976e0f17124e6c",
-    "nombre": "Ana Martínez",
-    "rol": "personal_administrativo"
-  },
-  {
-    "correo": "roberto.díaz@gmail.com",
-    "contrasena": "hash_6b47e619216c45a9",
-    "nombre": "Roberto Díaz",
-    "rol": "estudiante"
-  },
-  {
-    "correo": "carlos.lópez@outlook.com",
-    "contrasena": "hash_8bf8a1efcabb4495",
-    "nombre": "Carlos López",
-    "rol": "estudiante"
-  },
-  {
-    "correo": "juan.pérez@outlook.com",
-    "contrasena": "hash_9299cfb6ee5f46e9",
-    "nombre": "Juan Pérez",
-    "rol": "personal_administrativo"
-  },
-  {
-    "correo": "camila.rojas@utec.edu.pe",
-    "contrasena": "hash_4c06c756b4ee4cde",
-    "nombre": "Camila Rojas",
-    "rol": "personal_administrativo"
+    "correo": "josé.gonzález@outlook.com",
+    "contrasena": "hash_a1c4f54aacd64df8",
+    "nombre": "José González",
+    "rol": "USER"
   },
   {
     "correo": "carlos.lópez@utec.edu.pe",
-    "contrasena": "hash_e7a6d857dff842d9",
+    "contrasena": "hash_92a08372cbdf4be9",
     "nombre": "Carlos López",
-    "rol": "estudiante"
+    "rol": "USER"
   },
   {
-    "correo": "isabel.ramírez@outlook.com",
-    "contrasena": "hash_6a412a9727be4df4",
-    "nombre": "Isabel Ramírez",
-    "rol": "estudiante"
+    "correo": "roberto.díaz@outlook.com",
+    "contrasena": "hash_55aa0abcbd7d49fd",
+    "nombre": "Roberto Díaz",
+    "rol": "USER"
   },
   {
-    "correo": "andrés.silva@utec.edu.pe",
-    "contrasena": "hash_7238c5bdacff4535",
-    "nombre": "Andrés Silva",
-    "rol": "estudiante"
+    "correo": "luis.rodríguez@outlook.com",
+    "contrasena": "hash_53c695ca3e4b486a",
+    "nombre": "Luis Rodríguez",
+    "rol": "TUTOR"
   },
   {
-    "correo": "carlos.lópez@gmail.com",
-    "contrasena": "hash_1b039541bc0049e9",
-    "nombre": "Carlos López",
-    "rol": "estudiante"
+    "correo": "pedro.flores@outlook.com",
+    "contrasena": "hash_72ed7c51d7244442",
+    "nombre": "Pedro Flores",
+    "rol": "TUTOR"
+  },
+  {
+    "correo": "sofía.castro@utec.edu.pe",
+    "contrasena": "hash_d6bb4d8e8f254c64",
+    "nombre": "Sofía Castro",
+    "rol": "USER"
   },
   {
     "correo": "diego.morales@utec.edu.pe",
-    "contrasena": "hash_c217724ab4224441",
+    "contrasena": "hash_ec8439b8c9534867",
     "nombre": "Diego Morales",
-    "rol": "personal_administrativo"
+    "rol": "TUTOR"
+  },
+  {
+    "correo": "maría.garcía@outlook.com",
+    "contrasena": "hash_9359777a142a4817",
+    "nombre": "María García",
+    "rol": "TUTOR"
+  },
+  {
+    "correo": "juan.pérez@gmail.com",
+    "contrasena": "hash_b5b7e8905ded438c",
+    "nombre": "Juan Pérez",
+    "rol": "USER"
+  },
+  {
+    "correo": "luis.rodríguez@utec.edu.pe",
+    "contrasena": "hash_7d4848b95b6a44ce",
+    "nombre": "Luis Rodríguez",
+    "rol": "USER"
+  },
+  {
+    "correo": "ana.martínez@utec.edu.pe",
+    "contrasena": "hash_6b519be0187847a7",
+    "nombre": "Ana Martínez",
+    "rol": "USER"
+  },
+  {
+    "correo": "luis.rodríguez@gmail.com",
+    "contrasena": "hash_a585b5ea6a8f45c3",
+    "nombre": "Luis Rodríguez",
+    "rol": "TUTOR"
+  },
+  {
+    "correo": "camila.rojas@gmail.com",
+    "contrasena": "hash_6918ba0956004d38",
+    "nombre": "Camila Rojas",
+    "rol": "TUTOR"
+  },
+  {
+    "correo": "maría.garcía@utec.edu.pe",
+    "contrasena": "hash_653c22c495cf4166",
+    "nombre": "María García",
+    "rol": "USER"
   },
   {
     "correo": "juan.pérez@utec.edu.pe",
-    "contrasena": "hash_df970b1a5ab647c1",
+    "contrasena": "hash_865670a8a5954f68",
     "nombre": "Juan Pérez",
-    "rol": "estudiante"
+    "rol": "USER"
   },
   {
     "correo": "pedro.flores@gmail.com",
-    "contrasena": "hash_030d61e2dcc24b2e",
+    "contrasena": "hash_0c87fd5f16e94057",
     "nombre": "Pedro Flores",
-    "rol": "personal_administrativo"
+    "rol": "TUTOR"
+  },
+  {
+    "correo": "camila.rojas@utec.edu.pe",
+    "contrasena": "hash_ac9bf394dd134874",
+    "nombre": "Camila Rojas",
+    "rol": "USER"
+  },
+  {
+    "correo": "magali.flores@outlook.com",
+    "contrasena": "hash_b4624581ceae4323",
+    "nombre": "Magali Flores",
+    "rol": "TUTOR"
+  },
+  {
+    "correo": "magali.flores@utec.edu.pe",
+    "contrasena": "hash_04e47a92b14c45cd",
+    "nombre": "Magali Flores",
+    "rol": "USER"
+  },
+  {
+    "correo": "camila.rojas@outlook.com",
+    "contrasena": "hash_62467cd7e237416c",
+    "nombre": "Camila Rojas",
+    "rol": "USER"
+  },
+  {
+    "correo": "laura.sánchez@utec.edu.pe",
+    "contrasena": "hash_05df7ddeb6a949a6",
+    "nombre": "Laura Sánchez",
+    "rol": "TUTOR"
+  },
+  {
+    "correo": "carmen.fernández@gmail.com",
+    "contrasena": "hash_fd85a65e410d4611",
+    "nombre": "Carmen Fernández",
+    "rol": "USER"
+  },
+  {
+    "correo": "laura.sánchez@gmail.com",
+    "contrasena": "hash_c40491398b3d40ee",
+    "nombre": "Laura Sánchez",
+    "rol": "TUTOR"
+  },
+  {
+    "correo": "diego.morales@outlook.com",
+    "contrasena": "hash_2213f2f47a004272",
+    "nombre": "Diego Morales",
+    "rol": "TUTOR"
+  },
+  {
+    "correo": "patricia.ruiz@outlook.com",
+    "contrasena": "hash_329c9693b4a24cfb",
+    "nombre": "Patricia Ruiz",
+    "rol": "TUTOR"
+  },
+  {
+    "correo": "andrés.silva@outlook.com",
+    "contrasena": "hash_db55e5a371814ad1",
+    "nombre": "Andrés Silva",
+    "rol": "TUTOR"
+  },
+  {
+    "correo": "fernando.vega@gmail.com",
+    "contrasena": "hash_f02375d020d04d9a",
+    "nombre": "Fernando Vega",
+    "rol": "TUTOR"
+  },
+  {
+    "correo": "isabel.ramírez@outlook.com",
+    "contrasena": "hash_aac71a8c14714018",
+    "nombre": "Isabel Ramírez",
+    "rol": "estudiante"
   }
 ]

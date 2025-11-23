@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Usuarios Dependientes",
+  "type": "object",
+  "x-dynamodb": {
+    "partition_key": "correo_tutor"
+  },
+  "properties": {
+    "correo_tutor": {
+      "type": "string",
+      "format": "email"
+    },
+    "dependiente_id": { "type": "string" },
+    "nombre": { "type": "string" },
+    "birthdate": { "type": "string" },
+    "parentesco": { 
+        "type": "string",
+        "enum": ["HIJO", "ADULTO_MAYOR"]
+    },
+    "sexo": { 
+        "type": "string",
+        "enum": ["M", "F"]
+    }
+  },
+  "required": ["correo_tutor", "nombre", "birthdate", "parentesco", "sexo"],
+  "additionalProperties": false
+}

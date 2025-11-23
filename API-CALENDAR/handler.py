@@ -160,131 +160,422 @@ def create_cita(event, context):
         print(f"Error critico: {str(e)}")
         return {"statusCode": 500, "body": json.dumps({"error": str(e)}, default=str)}
 
-def create_recurring_event(event, context):
+def create_prescription_schedule(event, context):
+    """
+    Crea eventos recurrentes para todos los medicamentos de una receta.
+    
+    Body esperado (schema de recetas):
+    {
+        "receta_id": "rec-001",
+        "paciente": "Juan Pérez",
+        "patient_email": "juan.perez@email.com",
+        "institucion": "Hospital General",
+        "recetas": [
+            {
+                "producto": "Paracetamol",
+                "dosis": "500 mg",
+                "frecuencia": 8,
+                "medicion_frecuencia": "horas",
+                "duracion": 5,
+                "duracion_frecuencia": "dias"
+            },
+            ...
+        ],
+        "start_date": "2024-01-15" (opcional)
+    }
+    """
     try:
-        # 1. Parseo
+        body = event.get('body', {})
+        if isinstance(body, str):
+            body = json.loads(body)
+        
+        # Validar campos requeridos
+        patient_email = body.get('patient_email')
+        if not patient_email:
+            raise ValueError("El campo 'patient_email' es requerido")
+        
+        recetas = body.get('recetas', [])
+        if not recetas:
+            raise ValueError("Debe incluir al menos un medicamento en 'recetas'")
+        
+        paciente = body.get('paciente', 'Paciente')
+        receta_id = body.get('receta_id', str(uuid.uuid4()))
+        start_date = body.get('start_date')  # Formato: "YYYY-MM-DD"
+        
+        # Procesar cada medicamento
+        results = []
+        errors = []
+        
+        tz = pytz.timezone('America/Lima')
+        base_time = datetime.now(tz).replace(second=0, microsecond=0)
+        
+        if start_date:
+            try:
+                base_time = datetime.strptime(start_date, '%Y-%m-%d')
+                base_time = tz.localize(base_time.replace(hour=8, minute=0))
+            except ValueError:
+                raise ValueError("start_date debe tener formato 'YYYY-MM-DD'")
+        
+        # Horarios sugeridos para distribuir medicamentos
+        suggested_times = [
+            base_time.replace(hour=8, minute=0),   # 8:00 AM
+            base_time.replace(hour=14, minute=0),  # 2:00 PM
+            base_time.replace(hour=20, minute=0),  # 8:00 PM
+        ]
+        
+        for idx, medicamento in enumerate(recetas):
+            try:
+                # Asignar hora de inicio escalonada
+                start_time = suggested_times[idx % len(suggested_times)]
+                
+                # Crear evento individual para este medicamento
+                medicamento_body = {
+                    'patient_email': patient_email,
+                    'producto': medicamento['producto'],
+                    'dosis': medicamento.get('dosis'),
+                    'frecuencia': medicamento['frecuencia'],
+                    'medicion_frecuencia': medicamento['medicion_frecuencia'],
+                    'duracion': medicamento['duracion'],
+                    'duracion_frecuencia': medicamento['duracion_frecuencia'],
+                    'start_time': start_time.strftime('%Y-%m-%d %H:%M')
+                }
+                
+                # Llamar a la función de evento individual
+                result = create_single_medication_event(medicamento_body)
+                results.append(result)
+                
+            except Exception as e:
+                error_msg = f"Error al agendar {medicamento.get('producto', 'medicamento')}: {str(e)}"
+                print(error_msg)
+                errors.append(error_msg)
+        
+        # Preparar respuesta
+        response_body = {
+            "message": f"Receta procesada: {len(results)} medicamentos agendados",
+            "receta_id": receta_id,
+            "paciente": paciente,
+            "patient_email": patient_email,
+            "medicamentos_agendados": results,
+            "total_exitosos": len(results),
+            "total_errores": len(errors)
+        }
+        
+        if errors:
+            response_body["errores"] = errors
+        
+        status_code = 200 if results else 400
+        
+        return {
+            "statusCode": status_code,
+            "headers": {"Access-Control-Allow-Origin": "*"},
+            "body": json.dumps(response_body, ensure_ascii=False)
+        }
+        
+    except Exception as e:
+        print(f"Error al procesar receta: {e}")
+        import traceback
+        traceback.print_exc()
+        return {
+            "statusCode": 500,
+            "headers": {"Access-Control-Allow-Origin": "*"},
+            "body": json.dumps({"error": str(e)})
+        }
+
+
+def create_single_medication_event(medicamento_data):
+    """
+    Función auxiliar para crear un evento de medicamento individual.
+    Retorna información del evento creado.
+    """
+    creds = get_google_creds()
+    service = build('calendar', 'v3', credentials=creds)
+    
+    producto = medicamento_data['producto']
+    dosis = medicamento_data.get('dosis')
+    frecuencia = int(medicamento_data['frecuencia'])
+    medicion_frecuencia = medicamento_data['medicion_frecuencia'].lower()
+    duracion = int(medicamento_data['duracion'])
+    duracion_frecuencia = medicamento_data['duracion_frecuencia'].lower()
+    patient_email = medicamento_data['patient_email']
+    
+    # Parsear hora de inicio
+    tz = pytz.timezone('America/Lima')
+    start_time_str = medicamento_data.get('start_time')
+    if start_time_str:
+        start_dt = datetime.strptime(start_time_str, '%Y-%m-%d %H:%M')
+        start_dt = tz.localize(start_dt)
+    else:
+        start_dt = datetime.now(tz).replace(second=0, microsecond=0)
+    
+    end_dt = start_dt + timedelta(minutes=15)
+    
+    # Construir descripción
+    description_parts = [f"💊 Medicamento: {producto}"]
+    if dosis:
+        description_parts.append(f"📊 Dosis: {dosis}")
+    description_parts.append(f"⏰ Frecuencia: Cada {frecuencia} {medicion_frecuencia}")
+    description_parts.append(f"📅 Duración: {duracion} {duracion_frecuencia}")
+    description_parts.append("\n⚕️ Recordatorio automático de tratamiento médico")
+    
+    description = "\n".join(description_parts)
+    
+    # Calcular RRULE
+    freq_map = {'horas': 'HOURLY', 'dias': 'DAILY', 'meses': 'MONTHLY'}
+    rrule_freq = freq_map[medicion_frecuencia]
+    
+    count = calculate_event_count(
+        frecuencia, medicion_frecuencia,
+        duracion, duracion_frecuencia
+    )
+    
+    if frecuencia == 1:
+        recurrence_rule = [f'RRULE:FREQ={rrule_freq};COUNT={count}']
+    else:
+        recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};COUNT={count}']
+    
+    # Crear evento
+    event_body = {
+        'summary': f'💊 {producto}' + (f' - {dosis}' if dosis else ''),
+        'description': description,
+        'start': {
+            'dateTime': start_dt.isoformat(),
+            'timeZone': 'America/Lima'
+        },
+        'end': {
+            'dateTime': end_dt.isoformat(),
+            'timeZone': 'America/Lima'
+        },
+        'recurrence': recurrence_rule,
+        'attendees': [{'email': patient_email}],
+        'reminders': {
+            'useDefault': False,
+            'overrides': [
+                {'method': 'popup', 'minutes': 0},
+                {'method': 'email', 'minutes': 30}
+            ],
+        },
+        'colorId': '10'
+    }
+    
+    response = service.events().insert(
+        calendarId='primary',
+        body=event_body,
+        sendUpdates='all'
+    ).execute()
+    
+    return {
+        "producto": producto,
+        "dosis": dosis,
+        "event_id": response.get('id'),
+        "event_link": response.get('htmlLink'),
+        "total_recordatorios": count,
+        "start_time": start_dt.strftime('%Y-%m-%d %H:%M')
+    }
+
+
+def create_recurring_event(event, context):
+    """
+    Crea eventos recurrentes en Google Calendar para recordatorios de medicamentos.
+    
+    Body esperado:
+    {
+        "patient_email": "paciente@email.com",
+        "producto": "Paracetamol",
+        "dosis": "500 mg",
+        "frecuencia": 8,
+        "medicion_frecuencia": "horas",  # "horas", "dias", "meses"
+        "duracion": 5,
+        "duracion_frecuencia": "dias",   # "horas", "dias", "meses"
+        "start_time": "2024-01-15 08:00" (opcional, default: ahora)
+    }
+    """
+    try:
+        # 1. Parseo del body
         body = event.get('body', {})
         if isinstance(body, str):
             body = json.loads(body)
             
+        # Validación de campos requeridos
         patient_email = body.get('patient_email')
-        pill_name = body.get('pill_name')
+        if not patient_email:
+            raise ValueError("El campo 'patient_email' es requerido")
+            
+        producto = body.get('producto')
+        if not producto:
+            raise ValueError("El campo 'producto' es requerido")
         
-        medicion_duracion = body.get('medicion_duracion') # 'Dias' o 'Meses'
+        dosis = body.get('dosis')  # Puede ser None
+        frecuencia = int(body.get('frecuencia', 1))
+        medicion_frecuencia = body.get('medicion_frecuencia', 'dias').lower()
         duracion = int(body.get('duracion', 1))
+        duracion_frecuencia = body.get('duracion_frecuencia', 'dias').lower()
         
-        indicacion = body.get('indicacion') # 'Desayuno', 'Almuerzo', 'Cena' o None
-        medicion_frecuencia = body.get('medicion_frecuencia') # 'Horas' o 'Dias'
+        # Validar valores de enum
+        valid_mediciones = ['horas', 'dias', 'meses']
+        if medicion_frecuencia not in valid_mediciones:
+            raise ValueError(f"medicion_frecuencia debe ser uno de: {valid_mediciones}")
+        if duracion_frecuencia not in valid_mediciones:
+            raise ValueError(f"duracion_frecuencia debe ser uno de: {valid_mediciones}")
         
-        raw_frecuencia = body.get('frecuencia')
-        frecuencia = int(raw_frecuencia) if raw_frecuencia else 1
-        if frecuencia < 1: frecuencia = 1
-        
-        indicaciones_consumo = body.get('indicaciones_consumo', '')
-
-        # 2. Configuración de Tiempo
+        # 2. Configuración de zona horaria y tiempo de inicio
         tz = pytz.timezone('America/Lima')
-        now = datetime.now(tz).replace(second=0, microsecond=0)
-
-        start_dt = None
-        end_dt = None
-        recurrence_rule = []
-        description = f"Recordatorio médico: {pill_name}.\n{indicaciones_consumo}"
-
-        if indicacion in ['Desayuno', 'Almuerzo', 'Cena']:
-            meal_times = {
-                'Desayuno': {'hour': 8, 'minute': 0},
-                'Almuerzo': {'hour': 13, 'minute': 0},
-                'Cena':     {'hour': 20, 'minute': 0}
-            }
-            target = meal_times[indicacion]
-            start_dt = now.replace(hour=target['hour'], minute=target['minute'], second=0)
-            end_dt = start_dt + timedelta(minutes=30)
-            
-            description += f"\nTomar después del {indicacion}."
-            
-            if medicion_duracion == 'Dias':
-                # Por 5 días = 5 veces
-                recurrence_rule = [f'RRULE:FREQ=DAILY;COUNT={duracion}']
-            else:
-                # Meses usamos UNTIL (porque COUNT es difícil de calcular en meses)
-                treatment_end_date = now + relativedelta(months=+duracion)
-                until_utc = treatment_end_date.astimezone(pytz.utc)
-                until_str = until_utc.strftime('%Y%m%dT%H%M%SZ')
-                recurrence_rule = [f'RRULE:FREQ=DAILY;UNTIL={until_str}']
-
+        
+        # Permitir especificar hora de inicio o usar ahora
+        start_time_str = body.get('start_time')
+        if start_time_str:
+            try:
+                start_dt = datetime.strptime(start_time_str, '%Y-%m-%d %H:%M')
+                start_dt = tz.localize(start_dt)
+            except ValueError:
+                raise ValueError("start_time debe tener formato 'YYYY-MM-DD HH:MM'")
         else:
-            start_dt = now
-            end_dt = start_dt + timedelta(minutes=15)
-            
-            freq_map = {'Horas': 'HOURLY', 'Dias': 'DAILY'}
-            rrule_freq = freq_map.get(medicion_frecuencia, 'DAILY')
-            
-            description += f"\nTomar cada {frecuencia} {medicion_frecuencia}."
-            
-            # --- NUEVA LÓGICA ROBUSTA: CALCULAR COUNT ---
-            if medicion_duracion == 'Dias':
-                total_horas_tratamiento = duracion * 24
-                
-                count = 0
-                if medicion_frecuencia == 'Horas':
-                    # Ej: 1 día (24h) / cada 8h = 3 veces
-                    count = math.ceil(total_horas_tratamiento / frecuencia)
-                    # Si el cálculo da 0 o error, forzamos al menos 1
-                    if count < 1: count = 1
-                    
-                elif medicion_frecuencia == 'Dias':
-                    # Ej: 5 días / cada 1 día = 5 veces
-                    count = math.ceil(duracion / frecuencia)
-                
-                # Usamos COUNT en lugar de UNTIL. Esto arregla tu error.
-                recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};COUNT={int(count)}']
-            
-            else:
-                # Si es 'Meses', seguimos obligados a usar UNTIL, pero es menos propenso a fallar con DAILY
-                treatment_end_date = now + relativedelta(months=+duracion)
-                until_utc = treatment_end_date.astimezone(pytz.utc)
-                until_str = until_utc.strftime('%Y%m%dT%H%M%SZ')
-                recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};UNTIL={until_str}']
-
-        # Debug
-        print(f"DEBUG RRULE: {recurrence_rule}")
-
-        # 3. Llamada a Google Calendar
-        creds = get_google_creds() 
+            start_dt = datetime.now(tz).replace(second=0, microsecond=0)
+        
+        # Duración del evento: 15 minutos
+        end_dt = start_dt + timedelta(minutes=15)
+        
+        # 3. Construir descripción
+        description_parts = [f"💊 Medicamento: {producto}"]
+        if dosis:
+            description_parts.append(f"📊 Dosis: {dosis}")
+        description_parts.append(f"⏰ Frecuencia: Cada {frecuencia} {medicion_frecuencia}")
+        description_parts.append(f"📅 Duración del tratamiento: {duracion} {duracion_frecuencia}")
+        description_parts.append("\n⚕️ Recordatorio automático de tratamiento médico")
+        
+        description = "\n".join(description_parts)
+        
+        # 4. Calcular regla de recurrencia (RRULE)
+        recurrence_rule = []
+        
+        # Mapeo de unidades a frecuencias de Google Calendar
+        freq_map = {
+            'horas': 'HOURLY',
+            'dias': 'DAILY',
+            'meses': 'MONTHLY'
+        }
+        
+        rrule_freq = freq_map[medicion_frecuencia]
+        
+        # Calcular el número total de ocurrencias (COUNT)
+        count = calculate_event_count(
+            frecuencia, medicion_frecuencia,
+            duracion, duracion_frecuencia
+        )
+        
+        # Construir RRULE
+        if frecuencia == 1:
+            # Si la frecuencia es 1, no necesitamos INTERVAL
+            recurrence_rule = [f'RRULE:FREQ={rrule_freq};COUNT={count}']
+        else:
+            # Si la frecuencia es mayor a 1, usamos INTERVAL
+            recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};COUNT={count}']
+        
+        print(f"DEBUG - Producto: {producto}")
+        print(f"DEBUG - Frecuencia: cada {frecuencia} {medicion_frecuencia}")
+        print(f"DEBUG - Duración: {duracion} {duracion_frecuencia}")
+        print(f"DEBUG - COUNT calculado: {count}")
+        print(f"DEBUG - RRULE: {recurrence_rule}")
+        
+        # 5. Crear evento en Google Calendar
+        creds = get_google_creds()
         service = build('calendar', 'v3', credentials=creds)
-
+        
         event_body = {
-            'summary': f'💊 Tomar: {pill_name}',
+            'summary': f'💊 {producto}' + (f' - {dosis}' if dosis else ''),
             'description': description,
-            'start': { 'dateTime': start_dt.isoformat(), 'timeZone': 'America/Lima' },
-            'end': { 'dateTime': end_dt.isoformat(), 'timeZone': 'America/Lima' },
+            'start': {
+                'dateTime': start_dt.isoformat(),
+                'timeZone': 'America/Lima'
+            },
+            'end': {
+                'dateTime': end_dt.isoformat(),
+                'timeZone': 'America/Lima'
+            },
             'recurrence': recurrence_rule,
             'attendees': [{'email': patient_email}],
             'reminders': {
                 'useDefault': False,
-                'overrides': [{'method': 'popup', 'minutes': 0}],
+                'overrides': [
+                    {'method': 'popup', 'minutes': 0},  # Notificación al momento
+                    {'method': 'email', 'minutes': 30}  # Email 30 min antes
+                ],
             },
+            'colorId': '10'  # Color verde para medicamentos
         }
-
+        
         response = service.events().insert(
             calendarId='primary',
-            body=event_body, 
+            body=event_body,
             sendUpdates='all'
         ).execute()
-
+        
         return {
-            "statusCode": 200, 
-            "headers": { "Access-Control-Allow-Origin": "*" },
+            "statusCode": 200,
+            "headers": {"Access-Control-Allow-Origin": "*"},
             "body": json.dumps({
-                "message": "Tratamiento agendado exitosamente", 
-                "link": response.get('htmlLink'),
-                "rule": recurrence_rule
+                "message": "Tratamiento agendado exitosamente",
+                "event_id": response.get('id'),
+                "event_link": response.get('htmlLink'),
+                "producto": producto,
+                "dosis": dosis,
+                "total_recordatorios": count,
+                "recurrence_rule": recurrence_rule[0],
+                "start_date": start_dt.strftime('%Y-%m-%d %H:%M')
             })
         }
-
+        
+    except ValueError as e:
+        print(f"Error de validación: {e}")
+        return {
+            "statusCode": 400,
+            "headers": {"Access-Control-Allow-Origin": "*"},
+            "body": json.dumps({"error": str(e)})
+        }
     except Exception as e:
-        print(f"Error: {e}")
-        return {"statusCode": 400, "body": json.dumps({"error": str(e)})}
+        print(f"Error inesperado: {e}")
+        import traceback
+        traceback.print_exc()
+        return {
+            "statusCode": 500,
+            "headers": {"Access-Control-Allow-Origin": "*"},
+            "body": json.dumps({"error": f"Error interno: {str(e)}"})
+        }
+
+
+def calculate_event_count(frecuencia, medicion_frecuencia, duracion, duracion_frecuencia):
+    """
+    Calcula el número total de eventos (COUNT) para la regla de recurrencia.
+    
+    Ejemplos:
+    - Cada 8 horas durante 5 días = (5 * 24) / 8 = 15 eventos
+    - Cada 1 día durante 2 meses = 2 * 30 = 60 eventos
+    - Cada 12 horas durante 3 días = (3 * 24) / 12 = 6 eventos
+    """
+    
+    # Convertir todo a horas para facilitar el cálculo
+    duracion_en_horas = 0
+    
+    if duracion_frecuencia == 'horas':
+        duracion_en_horas = duracion
+    elif duracion_frecuencia == 'dias':
+        duracion_en_horas = duracion * 24
+    elif duracion_frecuencia == 'meses':
+        # Aproximación: 1 mes = 30 días
+        duracion_en_horas = duracion * 30 * 24
+    
+    frecuencia_en_horas = 0
+    
+    if medicion_frecuencia == 'horas':
+        frecuencia_en_horas = frecuencia
+    elif medicion_frecuencia == 'dias':
+        frecuencia_en_horas = frecuencia * 24
+    elif medicion_frecuencia == 'meses':
+        frecuencia_en_horas = frecuencia * 30 * 24
+    
+    # Calcular el número de eventos
+    count = math.ceil(duracion_en_horas / frecuencia_en_horas)
+    
+    # Asegurar al menos 1 evento
+    return max(1, count)
 
 

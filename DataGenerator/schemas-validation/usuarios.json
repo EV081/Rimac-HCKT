@@ -14,7 +14,7 @@
     "nombre": { "type": "string" },
     "rol": {
       "type": "string",
-      "enum": ["estudiante", "personal_administrativo", "autoridad"]
+      "enum": ["USER", "ADMIN", "TUTOR"]
     }
   },
   "required": ["correo", "nombre", "rol", "contrasena"],
