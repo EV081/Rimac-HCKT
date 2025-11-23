@@ -3,6 +3,7 @@ import boto3
 import os
 import uuid
 import time
+import base64
 from botocore.exceptions import ClientError
 
 dynamodb = boto3.resource('dynamodb')
@@ -20,12 +21,41 @@ def build_response(status_code, body):
         "body": json.dumps(body, ensure_ascii=False)
     }
 
+def decode_jwt_payload(token):
+    """Decodifica el payload de un JWT sin verificar firma"""
+    try:
+        parts = token.split('.')
+        if len(parts) != 3:
+            return None
+        payload = parts[1]
+        # Ajustar padding base64
+        padding = '=' * (4 - len(payload) % 4)
+        decoded = base64.urlsafe_b64decode(payload + padding).decode('utf-8')
+        return json.loads(decoded)
+    except Exception:
+        return None
+
+def get_user_email(event):
+    """Extrae el email del usuario desde el token en headers"""
+    headers = {k.lower(): v for k, v in (event.get('headers') or {}).items()}
+    auth_header = headers.get('authorization')
+    
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return None
+    
+    token = auth_header.split(" ")[1]
+    payload = decode_jwt_payload(token)
+    
+    if payload:
+        return payload.get('email') or payload.get('username')
+    return None
+
 def actualizarMemoria(event, context):
     """
     Lambda para crear o actualizar memoria contextual.
     Método: POST
+    Headers: Authorization: Bearer <token>
     Body: {
-        "correo": "usuario@example.com",
         "context_id": "opcional-si-es-update",
         "resumen_conversacion": "...",
         "intencion_detectada": "...",
@@ -33,12 +63,13 @@ def actualizarMemoria(event, context):
     }
     """
     try:
-        body = json.loads(event.get('body', '{}'))
-        correo = body.get('correo')
-        
+        # Autenticación
+        correo = get_user_email(event)
         if not correo:
-            return build_response(400, {"error": "El campo 'correo' es requerido"})
-            
+            return build_response(401, {"error": "No autorizado. Token faltante o inválido."})
+
+        body = json.loads(event.get('body', '{}'))
+        
         # Si no viene context_id, generamos uno nuevo (Create)
         context_id = body.get('context_id')
         if not context_id:

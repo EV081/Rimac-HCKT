@@ -1,6 +1,8 @@
 import json
 import boto3
 import os
+import base64
+from enum import Enum
 from google import genai
 from boto3.dynamodb.conditions import Key
 from botocore.exceptions import ClientError
@@ -18,6 +20,11 @@ client = None
 if GEMINI_API_KEY:
     client = genai.Client(api_key=GEMINI_API_KEY)
 
+class ContextoEnum(Enum):
+    GENERAL = "General"
+    SERVICIOS = "Servicios"
+    WEARABLES = "Wearables"
+
 def build_response(status_code, body):
     return {
         "statusCode": status_code,
@@ -28,6 +35,35 @@ def build_response(status_code, body):
         },
         "body": json.dumps(body, ensure_ascii=False)
     }
+
+def decode_jwt_payload(token):
+    """Decodifica el payload de un JWT sin verificar firma"""
+    try:
+        parts = token.split('.')
+        if len(parts) != 3:
+            return None
+        payload = parts[1]
+        # Ajustar padding base64
+        padding = '=' * (4 - len(payload) % 4)
+        decoded = base64.urlsafe_b64decode(payload + padding).decode('utf-8')
+        return json.loads(decoded)
+    except Exception:
+        return None
+
+def get_user_email(event):
+    """Extrae el email del usuario desde el token en headers"""
+    headers = {k.lower(): v for k, v in (event.get('headers') or {}).items()}
+    auth_header = headers.get('authorization')
+    
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return None
+    
+    token = auth_header.split(" ")[1]
+    payload = decode_jwt_payload(token)
+    
+    if payload:
+        return payload.get('email') or payload.get('username')
+    return None
 
 def get_user_data(correo):
     table = dynamodb.Table(TABLE_USUARIOS)
@@ -68,8 +104,8 @@ def iniciarAgente(event, context):
     """
     Lambda para interactuar con el Agente de Salud.
     Método: POST
+    Headers: Authorization: Bearer <token>
     Body: {
-        "correo": "usuario@example.com",
         "mensaje": "Hola, me duele la cabeza",
         "contexto": "General" | "Servicios" | "Wearables"
     }
@@ -78,33 +114,45 @@ def iniciarAgente(event, context):
         return build_response(500, {"error": "Gemini API Key no configurada"})
 
     try:
-        body = json.loads(event.get('body', '{}'))
-        correo = body.get('correo')
-        mensaje = body.get('mensaje')
-        contexto_solicitado = body.get('contexto', 'General')
-        
-        if not correo or not mensaje:
-            return build_response(400, {"error": "Correo y mensaje son requeridos"})
+        # 1. Autenticación
+        correo = get_user_email(event)
+        if not correo:
+            return build_response(401, {"error": "No autorizado. Token faltante o inválido."})
 
-        # 1. Obtener Datos del Usuario
+        body = json.loads(event.get('body', '{}'))
+        mensaje = body.get('mensaje')
+        contexto_str = body.get('contexto', 'General')
+        
+        if not mensaje:
+            return build_response(400, {"error": "El campo 'mensaje' es requerido"})
+
+        # Validar contexto
+        try:
+            contexto_enum = ContextoEnum(contexto_str)
+        except ValueError:
+            return build_response(400, {
+                "error": f"Contexto inválido. Valores permitidos: {[e.value for e in ContextoEnum]}"
+            })
+
+        # 2. Obtener Datos del Usuario
         usuario = get_user_data(correo)
         if not usuario:
             return build_response(404, {"error": "Usuario no encontrado"})
             
         nombre_usuario = usuario.get('nombre', 'Usuario')
         
-        # 2. Obtener Memoria Reciente
+        # 3. Obtener Memoria Reciente
         memoria_items = get_recent_memory(correo)
         memoria_texto = "\n".join([f"- {m.get('resumen_conversacion', '')}" for m in memoria_items])
         
-        # 3. Obtener Contexto Específico
+        # 4. Obtener Contexto Específico
         contexto_extra = ""
-        if contexto_solicitado == "Servicios":
+        if contexto_enum == ContextoEnum.SERVICIOS:
             servicios = get_services_context()
             servicios_txt = "\n".join([f"- {s.get('nombre')}: {s.get('descripcion', '')}" for s in servicios])
             contexto_extra = f"INFORMACIÓN DE SERVICIOS DISPONIBLES:\n{servicios_txt}\n"
             
-        elif contexto_solicitado == "Wearables":
+        elif contexto_enum == ContextoEnum.WEARABLES:
             historial = get_medical_history(correo)
             historial_txt = ""
             for h in historial:
@@ -114,7 +162,7 @@ def iniciarAgente(event, context):
                 historial_txt += f"Fecha: {fecha}, Sensores: {sensores}, Wearables: {wearables}\n"
             contexto_extra = f"HISTORIAL MÉDICO RECIENTE (WEARABLES):\n{historial_txt}\n"
 
-        # 4. Construir Prompt
+        # 5. Construir Prompt
         system_instruction = f"""
         Eres un asistente virtual especializado en salud y bienestar para la organización {os.environ.get('ORG_NAME', 'Rimac')}.
         Tu usuario se llama {nombre_usuario}.
@@ -122,7 +170,7 @@ def iniciarAgente(event, context):
         NO eres un médico. NO debes dar diagnósticos médicos definitivos ni recetar medicamentos.
         Tu función es orientar, sugerir hábitos saludables, y recomendar servicios disponibles si aplica.
         
-        CONTEXTO DEL USUARIO:
+        CONTEXTO ACTUAL: {contexto_enum.value}
         {contexto_extra}
         
         MEMORIA DE CONVERSACIONES PREVIAS:
@@ -135,7 +183,7 @@ def iniciarAgente(event, context):
         4. Si el usuario pide actualizar su historial o memoria, confirma que lo has entendido (aunque la acción técnica sea separada).
         """
         
-        # 5. Llamar a Gemini
+        # 6. Llamar a Gemini
         response = client.models.generate_content(
             model="gemini-2.0-flash-exp",
             contents=f"{system_instruction}\n\nUsuario: {mensaje}\nAsistente:"
@@ -145,7 +193,7 @@ def iniciarAgente(event, context):
         
         return build_response(200, {
             "mensaje": respuesta_agente,
-            "contexto_usado": contexto_solicitado
+            "contexto_usado": contexto_enum.value
         })
 
     except Exception as e:
