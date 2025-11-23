@@ -24,8 +24,8 @@ TABLE_SERVICIOS = os.getenv('TABLE_SERVICIOS', 'Servicios')
 TABLE_RECETAS = os.getenv('TABLE_RECETAS', 'Recetas')
 TABLE_MEMORIA_CONTEXTUAL = os.getenv('TABLE_MEMORIA_CONTEXTUAL', 'MemoriaContextual')
 TABLE_HISTORIAL_MEDICO = os.getenv('TABLE_HISTORIAL_MEDICO', 'HistorialMedico')
-TABLE_DEPENDIENTES = os.getenv('TABLE_DEPENDIENTES')
-TABLE_REGLAS = os.getenv('TABLE_REGLAS')
+TABLE_USUARIOS_DEPENDIENTES = os.getenv('TABLE_USUARIOS_DEPENDIENTES', 'UsuariosDependientes')
+TABLE_REGLAS = os.getenv('TABLE_REGLAS', 'TablaReglas')
 # Carpeta con los datos JSON
 DATA_DIR = "example-data"
 
@@ -37,7 +37,7 @@ TABLE_MAPPING = {
         "sk": None
     },
     "usuarios_dependientes.json":{
-        "table_name": TABLE_DEPENDIENTES,
+        "table_name": TABLE_USUARIOS_DEPENDIENTES,
         "pk": "correo_tutor",
         "sk": "dependiente_id"
     },
