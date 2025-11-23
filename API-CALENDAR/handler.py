@@ -170,7 +170,6 @@ def create_recurring_event(event, context):
         body = {}
         if isinstance(raw_body, str):
             try:
-                # Limpieza de caracteres invisibles
                 clean_body = raw_body.replace('\xa0', ' ').strip()
                 body = json.loads(clean_body)
             except json.JSONDecodeError as e:
@@ -194,18 +193,20 @@ def create_recurring_event(event, context):
         
         indicaciones_consumo = body.get('indicaciones_consumo', '')
 
-        # 2. CONFIGURACIÓN DE TIEMPO (LIMA)
-        # Limpiamos segundos a 00 para asegurar que UNTIL coincida matemáticamente con DTSTART
+        # 2. CONFIGURACIÓN DE TIEMPO BASE (Lima)
+        # Usamos pytz para consistencia con el resto del archivo y las conversiones UTC
         lima_tz = pytz.timezone('America/Lima')
-        now_lima = datetime.now(lima_tz).replace(second=0, microsecond=0)
+        lima_now = datetime.now(lima_tz).replace(second=0, microsecond=0)
 
-        start_dt_lima = None
-        end_dt_lima = None
+        # Variables unificadas para ambas estrategias
+        start_iso = None
+        end_iso = None
         recurrence_rule = []
+        
         description = f"Recordatorio médico: {pill_name}.\n{indicaciones_consumo}"
 
         # ==============================================================================
-        # ESTRATEGIA A: POR COMIDAS (COUNT funciona bien aquí porque es DAILY)
+        # ESTRATEGIA A: POR COMIDAS
         # ==============================================================================
         if indicacion in ['Desayuno', 'Almuerzo', 'Cena']:
             meal_times = {
@@ -214,48 +215,51 @@ def create_recurring_event(event, context):
                 'Cena':     {'hour': 20, 'minute': 0}
             }
             target = meal_times[indicacion]
-            start_dt_lima = now_lima.replace(hour=target['hour'], minute=target['minute'], second=0)
-            end_dt_lima = start_dt_lima + timedelta(minutes=30)
+            start_dt = lima_now.replace(hour=target['hour'], minute=target['minute'], second=0)
+            end_dt = start_dt + timedelta(minutes=30)
+            
+            # Asignamos a las variables comunes
+            start_iso = start_dt.isoformat()
+            end_iso = end_dt.isoformat()
             
             description += f"\nTomar después del {indicacion}."
             
             if medicion_duracion == 'Dias':
                 recurrence_rule = [f'RRULE:FREQ=DAILY;COUNT={duracion}']
             else:
-                treatment_end_date = now_lima + relativedelta(months=+duracion)
+                treatment_end_date = lima_now + relativedelta(months=+duracion)
                 until_utc = treatment_end_date.astimezone(pytz.utc)
                 until_str = until_utc.strftime('%Y%m%dT%H%M%SZ')
                 recurrence_rule = [f'RRULE:FREQ=DAILY;UNTIL={until_str}']
 
         # ==============================================================================
-        # ESTRATEGIA B: POR FRECUENCIA (USAMOS UNTIL OBLIGATORIAMENTE)
+        # ESTRATEGIA B: POR FRECUENCIA
         # ==============================================================================
         else:
-            # Empezamos AHORA (Lima)
-            start_dt_lima = now_lima
-            end_dt_lima = start_dt_lima + timedelta(minutes=15)
+            start_dt = lima_now
+            end_dt = start_dt + timedelta(minutes=15)
+            
+            # Asignamos a las variables comunes
+            start_iso = start_dt.isoformat()
+            end_iso = end_dt.isoformat()
             
             freq_map = {'Horas': 'HOURLY', 'Dias': 'DAILY'}
             rrule_freq = freq_map.get(medicion_frecuencia, 'DAILY')
             
             description += f"\nTomar cada {frecuencia} {medicion_frecuencia}."
             
-            # CÁLCULO DE FECHA LÍMITE (UNTIL)
-            # Volvemos a UNTIL porque Google valida mejor esto para reglas horarias complejas
-            treatment_end_date = None
+            until_str = ""
             if medicion_duracion == 'Dias':
-                treatment_end_date = start_dt_lima + timedelta(days=duracion)
-            else: # Meses
-                treatment_end_date = start_dt_lima + relativedelta(months=duracion)
-            
-            # Convertir a UTC "Z" (Requisito estricto de RFC 5545 para UNTIL)
-            until_utc = treatment_end_date.astimezone(pytz.utc)
-            until_str = until_utc.strftime('%Y%m%dT%H%M%SZ')
-            
-            # Generamos la regla
+                # Calculamos el UNTIL sumando los días a la fecha actual
+                until_date = lima_now + timedelta(days=duracion)
+                until_str = until_date.astimezone(pytz.utc).strftime('%Y%m%dT%H%M%SZ')
+            else:
+                until_date = lima_now + relativedelta(months=+duracion)
+                until_str = until_date.astimezone(pytz.utc).strftime('%Y%m%dT%H%M%SZ')
+
             recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};UNTIL={until_str}']
 
-        print(f"DEBUG RRULE FINAL: {recurrence_rule}")
+        print(f"DEBUG RRULE: {recurrence_rule}")
 
         # 3. LLAMADA A GOOGLE CALENDAR
         creds = get_google_creds() 
@@ -264,10 +268,15 @@ def create_recurring_event(event, context):
         event_body = {
             'summary': f'💊 Tomar: {pill_name}',
             'description': description,
-            # Enviamos hora Local (Lima) con su zona horaria explícita.
-            # Google manejará la conversión interna.
-            'start': { 'dateTime': start_dt_lima.isoformat(), 'timeZone': 'America/Lima' },
-            'end': { 'dateTime': end_dt_lima.isoformat(), 'timeZone': 'America/Lima' },
+            # Ahora usamos start_iso y end_iso que siempre están definidos
+            'start': {
+                'dateTime': start_iso,
+                'timeZone': "America/Lima"
+            },
+            'end': {
+                'dateTime': end_iso,
+                'timeZone': "America/Lima" 
+            },
             'recurrence': recurrence_rule,
             'attendees': [{'email': patient_email}],
             'reminders': {
@@ -275,6 +284,8 @@ def create_recurring_event(event, context):
                 'overrides': [{'method': 'popup', 'minutes': 0}],
             },
         }
+
+        print(f"DEBUG Event Body: {event_body}")
 
         response = service.events().insert(
             calendarId='primary',
@@ -295,5 +306,4 @@ def create_recurring_event(event, context):
     except Exception as e:
         print(f"Error CRITICO creando evento: {repr(e)}")
         return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
-
 
