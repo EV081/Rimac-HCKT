@@ -6,9 +6,10 @@ provider:
   runtime: python3.9
   region: us-east-1
   environment:
-    USER_POOL_ID: "us-east-1_XXXXXX"     # <--- TU ID DE COGNITO
-    CLIENT_ID: "5m3kXXXXXXX"             # <--- TU APP CLIENT ID
-    USERS_TABLE: users-table-${sls:stage}
+    USER_POOL_ID: "us-east-1_CbDyhAcqE"     # <--- TU ID DE COGNITO
+    CLIENT_ID: "3srpb1h5s3o6d2a5qu4bvoomq9"             # <--- TU APP CLIENT ID
+    USERS_TABLE: USERS_TABLE
+    DEPENDIENTES_TABLE: DEPENDIENTES_TABLE
   
   iamRoleStatements:
     - Effect: Allow
@@ -21,8 +22,7 @@ provider:
       Action:
         - dynamodb:PutItem
         - dynamodb:GetItem
-      Resource: 
-        - Fn::GetAtt: [UsersTable, Arn]
+        - dynamodb:UpdateItem
 
 functions:
   login:
@@ -39,17 +39,17 @@ functions:
           path: register
           method: post
           cors: true
-
-resources:
-  Resources:
-    UsersTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: users-table-${sls:stage}
-        AttributeDefinitions:
-          - AttributeName: email
-            AttributeType: S
-        KeySchema:
-          - AttributeName: email
-            KeyType: HASH
-        BillingMode: PAY_PER_REQUEST
+  activarModoFamiliar:
+    handler: activarModoFamiliar.activar_modo_familiar
+    events:
+      - http:
+          path: activar-modo-familiar
+          method: put
+          cors: true
+  agregarDependiente:
+    handler: agregarDependiente.agregar_dependiente
+    events:
+      - http:
+          path: agregar-dependiente
+          method: post
+          cors: true

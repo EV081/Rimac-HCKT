@@ -1,2202 +1,2187 @@
 [
   {
     "correo": "autoridad@utec.edu.pe",
-    "fecha": "2025-11-23T23:59:59.029228",
+    "fecha": "2025-11-23T23:59:59.858177",
     "sensores": {
-      "pasos": 10932,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "autoridad@utec.edu.pe",
-    "fecha": "2025-11-22T23:59:59.029254",
-    "sensores": {
-      "pasos": 6474,
+      "pasos": 3047,
       "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "autoridad@utec.edu.pe",
-    "fecha": "2025-11-21T23:59:59.029262",
-    "sensores": {
-      "pasos": 13163,
-      "horas_de_sueno": 10
     },
     "wearables": {
-      "pasos": 13116,
+      "pasos": 2979,
       "ritmo_cardiaco": 90,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "autoridad@utec.edu.pe",
-    "fecha": "2025-11-20T23:59:59.029271",
-    "sensores": {
-      "pasos": 12145,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 12217,
-      "ritmo_cardiaco": 96,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "autoridad@utec.edu.pe",
-    "fecha": "2025-11-19T23:59:59.029276",
-    "sensores": {
-      "pasos": 14744,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "autoridad@utec.edu.pe",
-    "fecha": "2025-11-18T23:59:59.029280",
-    "sensores": {
-      "pasos": 12908,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "autoridad@utec.edu.pe",
-    "fecha": "2025-11-17T23:59:59.029285",
-    "sensores": {
-      "pasos": 9443,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "juan.pérez@gmail.com",
-    "fecha": "2025-11-23T23:59:59.029289",
-    "sensores": {
-      "pasos": 8957,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 8989,
-      "ritmo_cardiaco": 67,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "juan.pérez@gmail.com",
-    "fecha": "2025-11-22T23:59:59.029294",
-    "sensores": {
-      "pasos": 4994,
       "horas_de_sueno": 5
     }
   },
   {
-    "correo": "juan.pérez@gmail.com",
-    "fecha": "2025-11-21T23:59:59.029297",
+    "correo": "autoridad@utec.edu.pe",
+    "fecha": "2025-11-22T23:59:59.858209",
     "sensores": {
-      "pasos": 13273,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "juan.pérez@gmail.com",
-    "fecha": "2025-11-20T23:59:59.029301",
-    "sensores": {
-      "pasos": 4359,
-      "horas_de_sueno": 8
-    },
-    "wearables": {
-      "pasos": 4453,
-      "ritmo_cardiaco": 64,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "juan.pérez@gmail.com",
-    "fecha": "2025-11-19T23:59:59.029306",
-    "sensores": {
-      "pasos": 12829,
+      "pasos": 6675,
       "horas_de_sueno": 7
     },
     "wearables": {
-      "pasos": 12911,
-      "ritmo_cardiaco": 75,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "juan.pérez@gmail.com",
-    "fecha": "2025-11-18T23:59:59.029311",
-    "sensores": {
-      "pasos": 8996,
-      "horas_de_sueno": 10
-    },
-    "wearables": {
-      "pasos": 8951,
-      "ritmo_cardiaco": 83,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "juan.pérez@gmail.com",
-    "fecha": "2025-11-17T23:59:59.029316",
-    "sensores": {
-      "pasos": 9694,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "pedro.flores@gmail.com",
-    "fecha": "2025-11-23T23:59:59.029320",
-    "sensores": {
-      "pasos": 7315,
-      "horas_de_sueno": 10
-    },
-    "wearables": {
-      "pasos": 7386,
-      "ritmo_cardiaco": 99,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "pedro.flores@gmail.com",
-    "fecha": "2025-11-22T23:59:59.029324",
-    "sensores": {
-      "pasos": 2538,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 2487,
+      "pasos": 6622,
       "ritmo_cardiaco": 63,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "autoridad@utec.edu.pe",
+    "fecha": "2025-11-21T23:59:59.858222",
+    "sensores": {
+      "pasos": 12630,
       "horas_de_sueno": 6
     }
   },
   {
-    "correo": "pedro.flores@gmail.com",
-    "fecha": "2025-11-21T23:59:59.029329",
+    "correo": "autoridad@utec.edu.pe",
+    "fecha": "2025-11-20T23:59:59.858229",
     "sensores": {
-      "pasos": 9176,
-      "horas_de_sueno": 5
+      "pasos": 7375,
+      "horas_de_sueno": 6
     }
   },
   {
-    "correo": "pedro.flores@gmail.com",
-    "fecha": "2025-11-20T23:59:59.029333",
+    "correo": "autoridad@utec.edu.pe",
+    "fecha": "2025-11-19T23:59:59.858235",
     "sensores": {
-      "pasos": 8939,
+      "pasos": 2320,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "autoridad@utec.edu.pe",
+    "fecha": "2025-11-18T23:59:59.858241",
+    "sensores": {
+      "pasos": 9177,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "autoridad@utec.edu.pe",
+    "fecha": "2025-11-17T23:59:59.858247",
+    "sensores": {
+      "pasos": 5498,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 5503,
+      "ritmo_cardiaco": 65,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "diego.morales@gmail.com",
+    "fecha": "2025-11-23T23:59:59.858254",
+    "sensores": {
+      "pasos": 5511,
       "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "pedro.flores@gmail.com",
-    "fecha": "2025-11-19T23:59:59.029337",
-    "sensores": {
-      "pasos": 8680,
-      "horas_de_sueno": 8
     },
     "wearables": {
-      "pasos": 8680,
-      "ritmo_cardiaco": 86,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "pedro.flores@gmail.com",
-    "fecha": "2025-11-18T23:59:59.029341",
-    "sensores": {
-      "pasos": 8679,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 8704,
-      "ritmo_cardiaco": 94,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "pedro.flores@gmail.com",
-    "fecha": "2025-11-17T23:59:59.029346",
-    "sensores": {
-      "pasos": 5222,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "diego.morales@utec.edu.pe",
-    "fecha": "2025-11-23T23:59:59.029350",
-    "sensores": {
-      "pasos": 6838,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 6885,
+      "pasos": 5494,
       "ritmo_cardiaco": 84,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "diego.morales@utec.edu.pe",
-    "fecha": "2025-11-22T23:59:59.029354",
-    "sensores": {
-      "pasos": 6669,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "diego.morales@utec.edu.pe",
-    "fecha": "2025-11-21T23:59:59.029358",
-    "sensores": {
-      "pasos": 12484,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 12576,
-      "ritmo_cardiaco": 83,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "diego.morales@utec.edu.pe",
-    "fecha": "2025-11-20T23:59:59.029365",
-    "sensores": {
-      "pasos": 6009,
-      "horas_de_sueno": 8
-    },
-    "wearables": {
-      "pasos": 6082,
-      "ritmo_cardiaco": 61,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "diego.morales@utec.edu.pe",
-    "fecha": "2025-11-19T23:59:59.029369",
-    "sensores": {
-      "pasos": 7038,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "diego.morales@utec.edu.pe",
-    "fecha": "2025-11-18T23:59:59.029373",
-    "sensores": {
-      "pasos": 14977,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 15070,
-      "ritmo_cardiaco": 98,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "diego.morales@utec.edu.pe",
-    "fecha": "2025-11-17T23:59:59.029378",
-    "sensores": {
-      "pasos": 2189,
-      "horas_de_sueno": 7
-    },
-    "wearables": {
-      "pasos": 2090,
-      "ritmo_cardiaco": 63,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "ana.martínez@utec.edu.pe",
-    "fecha": "2025-11-23T23:59:59.029382",
-    "sensores": {
-      "pasos": 2214,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 2119,
-      "ritmo_cardiaco": 70,
       "horas_de_sueno": 9
     }
   },
   {
-    "correo": "ana.martínez@utec.edu.pe",
-    "fecha": "2025-11-22T23:59:59.029387",
+    "correo": "diego.morales@gmail.com",
+    "fecha": "2025-11-22T23:59:59.858261",
     "sensores": {
-      "pasos": 12401,
+      "pasos": 8736,
       "horas_de_sueno": 4
     },
     "wearables": {
-      "pasos": 12352,
+      "pasos": 8670,
       "ritmo_cardiaco": 77,
       "horas_de_sueno": 4
     }
   },
   {
-    "correo": "ana.martínez@utec.edu.pe",
-    "fecha": "2025-11-21T23:59:59.029391",
+    "correo": "diego.morales@gmail.com",
+    "fecha": "2025-11-21T23:59:59.858268",
     "sensores": {
-      "pasos": 13547,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "ana.martínez@utec.edu.pe",
-    "fecha": "2025-11-20T23:59:59.029395",
-    "sensores": {
-      "pasos": 14083,
-      "horas_de_sueno": 5
-    },
-    "wearables": {
-      "pasos": 14003,
-      "ritmo_cardiaco": 62,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "ana.martínez@utec.edu.pe",
-    "fecha": "2025-11-19T23:59:59.029400",
-    "sensores": {
-      "pasos": 5967,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "ana.martínez@utec.edu.pe",
-    "fecha": "2025-11-18T23:59:59.029404",
-    "sensores": {
-      "pasos": 6102,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "ana.martínez@utec.edu.pe",
-    "fecha": "2025-11-17T23:59:59.029408",
-    "sensores": {
-      "pasos": 2396,
-      "horas_de_sueno": 8
-    },
-    "wearables": {
-      "pasos": 2350,
-      "ritmo_cardiaco": 95,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "maría.garcía@utec.edu.pe",
-    "fecha": "2025-11-23T23:59:59.029412",
-    "sensores": {
-      "pasos": 11715,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "maría.garcía@utec.edu.pe",
-    "fecha": "2025-11-22T23:59:59.029418",
-    "sensores": {
-      "pasos": 2665,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 2622,
-      "ritmo_cardiaco": 86,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "maría.garcía@utec.edu.pe",
-    "fecha": "2025-11-21T23:59:59.029423",
-    "sensores": {
-      "pasos": 11840,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "maría.garcía@utec.edu.pe",
-    "fecha": "2025-11-20T23:59:59.029427",
-    "sensores": {
-      "pasos": 2158,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "maría.garcía@utec.edu.pe",
-    "fecha": "2025-11-19T23:59:59.029431",
-    "sensores": {
-      "pasos": 11807,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "maría.garcía@utec.edu.pe",
-    "fecha": "2025-11-18T23:59:59.029435",
-    "sensores": {
-      "pasos": 2922,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "maría.garcía@utec.edu.pe",
-    "fecha": "2025-11-17T23:59:59.029439",
-    "sensores": {
-      "pasos": 14309,
+      "pasos": 8961,
       "horas_de_sueno": 4
     }
   },
   {
-    "correo": "carmen.fernández@utec.edu.pe",
-    "fecha": "2025-11-23T23:59:59.029443",
+    "correo": "diego.morales@gmail.com",
+    "fecha": "2025-11-20T23:59:59.858273",
     "sensores": {
-      "pasos": 10303,
-      "horas_de_sueno": 8
-    },
-    "wearables": {
-      "pasos": 10263,
-      "ritmo_cardiaco": 98,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "carmen.fernández@utec.edu.pe",
-    "fecha": "2025-11-22T23:59:59.029447",
-    "sensores": {
-      "pasos": 2209,
-      "horas_de_sueno": 10
-    },
-    "wearables": {
-      "pasos": 2292,
-      "ritmo_cardiaco": 78,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "carmen.fernández@utec.edu.pe",
-    "fecha": "2025-11-21T23:59:59.029452",
-    "sensores": {
-      "pasos": 13341,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "carmen.fernández@utec.edu.pe",
-    "fecha": "2025-11-20T23:59:59.029456",
-    "sensores": {
-      "pasos": 5258,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "carmen.fernández@utec.edu.pe",
-    "fecha": "2025-11-19T23:59:59.029460",
-    "sensores": {
-      "pasos": 2288,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "carmen.fernández@utec.edu.pe",
-    "fecha": "2025-11-18T23:59:59.029464",
-    "sensores": {
-      "pasos": 5949,
-      "horas_de_sueno": 10
-    },
-    "wearables": {
-      "pasos": 5927,
-      "ritmo_cardiaco": 60,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "carmen.fernández@utec.edu.pe",
-    "fecha": "2025-11-17T23:59:59.029469",
-    "sensores": {
-      "pasos": 2072,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 2073,
-      "ritmo_cardiaco": 80,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "miguel.torres@gmail.com",
-    "fecha": "2025-11-23T23:59:59.029475",
-    "sensores": {
-      "pasos": 6831,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 6916,
-      "ritmo_cardiaco": 66,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "miguel.torres@gmail.com",
-    "fecha": "2025-11-22T23:59:59.029480",
-    "sensores": {
-      "pasos": 2170,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "miguel.torres@gmail.com",
-    "fecha": "2025-11-21T23:59:59.029484",
-    "sensores": {
-      "pasos": 3035,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "miguel.torres@gmail.com",
-    "fecha": "2025-11-20T23:59:59.029488",
-    "sensores": {
-      "pasos": 2429,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "miguel.torres@gmail.com",
-    "fecha": "2025-11-19T23:59:59.029493",
-    "sensores": {
-      "pasos": 6651,
-      "horas_de_sueno": 5
-    },
-    "wearables": {
-      "pasos": 6607,
-      "ritmo_cardiaco": 71,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "miguel.torres@gmail.com",
-    "fecha": "2025-11-18T23:59:59.029498",
-    "sensores": {
-      "pasos": 9235,
+      "pasos": 4417,
       "horas_de_sueno": 4
     },
     "wearables": {
-      "pasos": 9231,
-      "ritmo_cardiaco": 78,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "miguel.torres@gmail.com",
-    "fecha": "2025-11-17T23:59:59.029503",
-    "sensores": {
-      "pasos": 10969,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 10942,
-      "ritmo_cardiaco": 90,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "valentina.ortiz@outlook.com",
-    "fecha": "2025-11-23T23:59:59.029508",
-    "sensores": {
-      "pasos": 10711,
-      "horas_de_sueno": 10
-    },
-    "wearables": {
-      "pasos": 10740,
-      "ritmo_cardiaco": 87,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "valentina.ortiz@outlook.com",
-    "fecha": "2025-11-22T23:59:59.029513",
-    "sensores": {
-      "pasos": 10276,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "valentina.ortiz@outlook.com",
-    "fecha": "2025-11-21T23:59:59.029517",
-    "sensores": {
-      "pasos": 5045,
-      "horas_de_sueno": 7
-    },
-    "wearables": {
-      "pasos": 4978,
-      "ritmo_cardiaco": 85,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "valentina.ortiz@outlook.com",
-    "fecha": "2025-11-20T23:59:59.029522",
-    "sensores": {
-      "pasos": 7976,
-      "horas_de_sueno": 10
-    },
-    "wearables": {
-      "pasos": 8065,
-      "ritmo_cardiaco": 89,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "valentina.ortiz@outlook.com",
-    "fecha": "2025-11-19T23:59:59.029527",
-    "sensores": {
-      "pasos": 13654,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "valentina.ortiz@outlook.com",
-    "fecha": "2025-11-18T23:59:59.029531",
-    "sensores": {
-      "pasos": 11824,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "valentina.ortiz@outlook.com",
-    "fecha": "2025-11-17T23:59:59.029536",
-    "sensores": {
-      "pasos": 10214,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 10233,
+      "pasos": 4384,
       "ritmo_cardiaco": 61,
-      "horas_de_sueno": 6
+      "horas_de_sueno": 4
     }
   },
   {
-    "correo": "juan.pérez@utec.edu.pe",
-    "fecha": "2025-11-23T23:59:59.029541",
+    "correo": "diego.morales@gmail.com",
+    "fecha": "2025-11-19T23:59:59.858279",
     "sensores": {
-      "pasos": 10868,
-      "horas_de_sueno": 10
+      "pasos": 10159,
+      "horas_de_sueno": 5
     }
   },
   {
-    "correo": "juan.pérez@utec.edu.pe",
-    "fecha": "2025-11-22T23:59:59.029545",
+    "correo": "diego.morales@gmail.com",
+    "fecha": "2025-11-18T23:59:59.858284",
     "sensores": {
-      "pasos": 7390,
-      "horas_de_sueno": 7
-    },
-    "wearables": {
-      "pasos": 7361,
-      "ritmo_cardiaco": 84,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "juan.pérez@utec.edu.pe",
-    "fecha": "2025-11-21T23:59:59.029553",
-    "sensores": {
-      "pasos": 11957,
-      "horas_de_sueno": 10
-    },
-    "wearables": {
-      "pasos": 11991,
-      "ritmo_cardiaco": 71,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "juan.pérez@utec.edu.pe",
-    "fecha": "2025-11-20T23:59:59.029557",
-    "sensores": {
-      "pasos": 13927,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 13849,
-      "ritmo_cardiaco": 84,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "juan.pérez@utec.edu.pe",
-    "fecha": "2025-11-19T23:59:59.029562",
-    "sensores": {
-      "pasos": 9272,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "juan.pérez@utec.edu.pe",
-    "fecha": "2025-11-18T23:59:59.029568",
-    "sensores": {
-      "pasos": 12988,
+      "pasos": 13862,
       "horas_de_sueno": 6
     },
     "wearables": {
-      "pasos": 12911,
-      "ritmo_cardiaco": 96,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "juan.pérez@utec.edu.pe",
-    "fecha": "2025-11-17T23:59:59.029573",
-    "sensores": {
-      "pasos": 2311,
-      "horas_de_sueno": 8
-    },
-    "wearables": {
-      "pasos": 2225,
-      "ritmo_cardiaco": 88,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "roberto.díaz@gmail.com",
-    "fecha": "2025-11-23T23:59:59.029578",
-    "sensores": {
-      "pasos": 5428,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 5388,
+      "pasos": 13933,
       "ritmo_cardiaco": 91,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "roberto.díaz@gmail.com",
-    "fecha": "2025-11-22T23:59:59.029582",
-    "sensores": {
-      "pasos": 5066,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "roberto.díaz@gmail.com",
-    "fecha": "2025-11-21T23:59:59.029586",
-    "sensores": {
-      "pasos": 2229,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "roberto.díaz@gmail.com",
-    "fecha": "2025-11-20T23:59:59.029590",
-    "sensores": {
-      "pasos": 12695,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "roberto.díaz@gmail.com",
-    "fecha": "2025-11-19T23:59:59.029596",
-    "sensores": {
-      "pasos": 10950,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "roberto.díaz@gmail.com",
-    "fecha": "2025-11-18T23:59:59.029600",
-    "sensores": {
-      "pasos": 10136,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "roberto.díaz@gmail.com",
-    "fecha": "2025-11-17T23:59:59.029604",
-    "sensores": {
-      "pasos": 13070,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "carmen.fernández@outlook.com",
-    "fecha": "2025-11-23T23:59:59.029608",
-    "sensores": {
-      "pasos": 8678,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "carmen.fernández@outlook.com",
-    "fecha": "2025-11-22T23:59:59.029612",
-    "sensores": {
-      "pasos": 7437,
-      "horas_de_sueno": 8
-    },
-    "wearables": {
-      "pasos": 7513,
-      "ritmo_cardiaco": 88,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "carmen.fernández@outlook.com",
-    "fecha": "2025-11-21T23:59:59.029616",
-    "sensores": {
-      "pasos": 9481,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "carmen.fernández@outlook.com",
-    "fecha": "2025-11-20T23:59:59.029620",
-    "sensores": {
-      "pasos": 13495,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "carmen.fernández@outlook.com",
-    "fecha": "2025-11-19T23:59:59.029623",
-    "sensores": {
-      "pasos": 10415,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "carmen.fernández@outlook.com",
-    "fecha": "2025-11-18T23:59:59.029627",
-    "sensores": {
-      "pasos": 10780,
       "horas_de_sueno": 6
     }
   },
   {
-    "correo": "carmen.fernández@outlook.com",
-    "fecha": "2025-11-17T23:59:59.029631",
+    "correo": "diego.morales@gmail.com",
+    "fecha": "2025-11-17T23:59:59.858290",
     "sensores": {
-      "pasos": 11509,
+      "pasos": 2444,
+      "horas_de_sueno": 10
+    },
+    "wearables": {
+      "pasos": 2431,
+      "ritmo_cardiaco": 68,
       "horas_de_sueno": 10
     }
   },
   {
-    "correo": "camila.rojas@utec.edu.pe",
-    "fecha": "2025-11-23T23:59:59.029635",
+    "correo": "sofía.castro@utec.edu.pe",
+    "fecha": "2025-11-23T23:59:59.858296",
     "sensores": {
-      "pasos": 8134,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "camila.rojas@utec.edu.pe",
-    "fecha": "2025-11-22T23:59:59.029639",
-    "sensores": {
-      "pasos": 4120,
-      "horas_de_sueno": 5
-    },
-    "wearables": {
-      "pasos": 4023,
-      "ritmo_cardiaco": 99,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "camila.rojas@utec.edu.pe",
-    "fecha": "2025-11-21T23:59:59.029643",
-    "sensores": {
-      "pasos": 13634,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "camila.rojas@utec.edu.pe",
-    "fecha": "2025-11-20T23:59:59.029647",
-    "sensores": {
-      "pasos": 8947,
-      "horas_de_sueno": 7
-    },
-    "wearables": {
-      "pasos": 8967,
-      "ritmo_cardiaco": 97,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "camila.rojas@utec.edu.pe",
-    "fecha": "2025-11-19T23:59:59.029655",
-    "sensores": {
-      "pasos": 11914,
-      "horas_de_sueno": 10
-    },
-    "wearables": {
-      "pasos": 11825,
-      "ritmo_cardiaco": 96,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "camila.rojas@utec.edu.pe",
-    "fecha": "2025-11-18T23:59:59.029660",
-    "sensores": {
-      "pasos": 3892,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "camila.rojas@utec.edu.pe",
-    "fecha": "2025-11-17T23:59:59.029665",
-    "sensores": {
-      "pasos": 2868,
-      "horas_de_sueno": 7
-    },
-    "wearables": {
-      "pasos": 2905,
-      "ritmo_cardiaco": 61,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "fecha": "2025-11-23T23:59:59.029669",
-    "sensores": {
-      "pasos": 4422,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "fecha": "2025-11-22T23:59:59.029673",
-    "sensores": {
-      "pasos": 4057,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "fecha": "2025-11-21T23:59:59.029677",
-    "sensores": {
-      "pasos": 11602,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 11609,
-      "ritmo_cardiaco": 76,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "fecha": "2025-11-20T23:59:59.029681",
-    "sensores": {
-      "pasos": 9609,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "fecha": "2025-11-19T23:59:59.029685",
-    "sensores": {
-      "pasos": 11127,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "fecha": "2025-11-18T23:59:59.029689",
-    "sensores": {
-      "pasos": 3680,
-      "horas_de_sueno": 5
-    },
-    "wearables": {
-      "pasos": 3596,
-      "ritmo_cardiaco": 97,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "fecha": "2025-11-17T23:59:59.029694",
-    "sensores": {
-      "pasos": 8879,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "isabel.ramírez@gmail.com",
-    "fecha": "2025-11-23T23:59:59.029699",
-    "sensores": {
-      "pasos": 4821,
-      "horas_de_sueno": 5
-    },
-    "wearables": {
-      "pasos": 4844,
-      "ritmo_cardiaco": 61,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "isabel.ramírez@gmail.com",
-    "fecha": "2025-11-22T23:59:59.029704",
-    "sensores": {
-      "pasos": 2368,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "isabel.ramírez@gmail.com",
-    "fecha": "2025-11-21T23:59:59.029707",
-    "sensores": {
-      "pasos": 4949,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "isabel.ramírez@gmail.com",
-    "fecha": "2025-11-20T23:59:59.029711",
-    "sensores": {
-      "pasos": 12061,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 12160,
-      "ritmo_cardiaco": 83,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "isabel.ramírez@gmail.com",
-    "fecha": "2025-11-19T23:59:59.029721",
-    "sensores": {
-      "pasos": 3421,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "isabel.ramírez@gmail.com",
-    "fecha": "2025-11-18T23:59:59.029729",
-    "sensores": {
-      "pasos": 9929,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "isabel.ramírez@gmail.com",
-    "fecha": "2025-11-17T23:59:59.029733",
-    "sensores": {
-      "pasos": 13546,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 13574,
-      "ritmo_cardiaco": 92,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "roberto.díaz@utec.edu.pe",
-    "fecha": "2025-11-23T23:59:59.029738",
-    "sensores": {
-      "pasos": 2287,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 2237,
-      "ritmo_cardiaco": 72,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "roberto.díaz@utec.edu.pe",
-    "fecha": "2025-11-22T23:59:59.029743",
-    "sensores": {
-      "pasos": 13978,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 13974,
-      "ritmo_cardiaco": 60,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "roberto.díaz@utec.edu.pe",
-    "fecha": "2025-11-21T23:59:59.029748",
-    "sensores": {
-      "pasos": 9010,
-      "horas_de_sueno": 5
-    },
-    "wearables": {
-      "pasos": 9015,
-      "ritmo_cardiaco": 65,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "roberto.díaz@utec.edu.pe",
-    "fecha": "2025-11-20T23:59:59.029753",
-    "sensores": {
-      "pasos": 7793,
-      "horas_de_sueno": 5
-    },
-    "wearables": {
-      "pasos": 7799,
-      "ritmo_cardiaco": 89,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "roberto.díaz@utec.edu.pe",
-    "fecha": "2025-11-19T23:59:59.029758",
-    "sensores": {
-      "pasos": 3101,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "roberto.díaz@utec.edu.pe",
-    "fecha": "2025-11-18T23:59:59.029762",
-    "sensores": {
-      "pasos": 10650,
+      "pasos": 11488,
       "horas_de_sueno": 8
     },
     "wearables": {
-      "pasos": 10575,
-      "ritmo_cardiaco": 65,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "roberto.díaz@utec.edu.pe",
-    "fecha": "2025-11-17T23:59:59.029767",
-    "sensores": {
-      "pasos": 5697,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "isabel.ramírez@outlook.com",
-    "fecha": "2025-11-23T23:59:59.029771",
-    "sensores": {
-      "pasos": 12417,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "isabel.ramírez@outlook.com",
-    "fecha": "2025-11-22T23:59:59.029775",
-    "sensores": {
-      "pasos": 11891,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 11863,
+      "pasos": 11526,
       "ritmo_cardiaco": 75,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "isabel.ramírez@outlook.com",
-    "fecha": "2025-11-21T23:59:59.029787",
-    "sensores": {
-      "pasos": 6877,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "isabel.ramírez@outlook.com",
-    "fecha": "2025-11-20T23:59:59.029791",
-    "sensores": {
-      "pasos": 5663,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "isabel.ramírez@outlook.com",
-    "fecha": "2025-11-19T23:59:59.029795",
-    "sensores": {
-      "pasos": 2666,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 2640,
-      "ritmo_cardiaco": 71,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "isabel.ramírez@outlook.com",
-    "fecha": "2025-11-18T23:59:59.029799",
-    "sensores": {
-      "pasos": 9632,
-      "horas_de_sueno": 8
-    },
-    "wearables": {
-      "pasos": 9730,
-      "ritmo_cardiaco": 97,
       "horas_de_sueno": 8
     }
   },
   {
-    "correo": "isabel.ramírez@outlook.com",
-    "fecha": "2025-11-17T23:59:59.029810",
+    "correo": "sofía.castro@utec.edu.pe",
+    "fecha": "2025-11-22T23:59:59.858307",
     "sensores": {
-      "pasos": 11865,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 11884,
-      "ritmo_cardiaco": 76,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "laura.sánchez@utec.edu.pe",
-    "fecha": "2025-11-23T23:59:59.029816",
-    "sensores": {
-      "pasos": 9436,
+      "pasos": 14499,
       "horas_de_sueno": 10
     },
     "wearables": {
-      "pasos": 9416,
-      "ritmo_cardiaco": 78,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "laura.sánchez@utec.edu.pe",
-    "fecha": "2025-11-22T23:59:59.029822",
-    "sensores": {
-      "pasos": 5856,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "laura.sánchez@utec.edu.pe",
-    "fecha": "2025-11-21T23:59:59.029827",
-    "sensores": {
-      "pasos": 5516,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "laura.sánchez@utec.edu.pe",
-    "fecha": "2025-11-20T23:59:59.029830",
-    "sensores": {
-      "pasos": 10536,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "laura.sánchez@utec.edu.pe",
-    "fecha": "2025-11-19T23:59:59.029834",
-    "sensores": {
-      "pasos": 8415,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "laura.sánchez@utec.edu.pe",
-    "fecha": "2025-11-18T23:59:59.029838",
-    "sensores": {
-      "pasos": 6478,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 6536,
-      "ritmo_cardiaco": 100,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "laura.sánchez@utec.edu.pe",
-    "fecha": "2025-11-17T23:59:59.029842",
-    "sensores": {
-      "pasos": 8414,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "carlos.lópez@utec.edu.pe",
-    "fecha": "2025-11-23T23:59:59.029846",
-    "sensores": {
-      "pasos": 5581,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "carlos.lópez@utec.edu.pe",
-    "fecha": "2025-11-22T23:59:59.029855",
-    "sensores": {
-      "pasos": 13505,
-      "horas_de_sueno": 10
-    },
-    "wearables": {
-      "pasos": 13424,
-      "ritmo_cardiaco": 71,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "carlos.lópez@utec.edu.pe",
-    "fecha": "2025-11-21T23:59:59.029866",
-    "sensores": {
-      "pasos": 2873,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 2828,
-      "ritmo_cardiaco": 69,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "carlos.lópez@utec.edu.pe",
-    "fecha": "2025-11-20T23:59:59.029872",
-    "sensores": {
-      "pasos": 3662,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 3580,
-      "ritmo_cardiaco": 66,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "carlos.lópez@utec.edu.pe",
-    "fecha": "2025-11-19T23:59:59.029876",
-    "sensores": {
-      "pasos": 9790,
-      "horas_de_sueno": 8
-    },
-    "wearables": {
-      "pasos": 9827,
-      "ritmo_cardiaco": 64,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "carlos.lópez@utec.edu.pe",
-    "fecha": "2025-11-18T23:59:59.029880",
-    "sensores": {
-      "pasos": 4159,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "carlos.lópez@utec.edu.pe",
-    "fecha": "2025-11-17T23:59:59.029884",
-    "sensores": {
-      "pasos": 9678,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "diego.morales@gmail.com",
-    "fecha": "2025-11-23T23:59:59.029888",
-    "sensores": {
-      "pasos": 9464,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "diego.morales@gmail.com",
-    "fecha": "2025-11-22T23:59:59.029892",
-    "sensores": {
-      "pasos": 7426,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 7509,
-      "ritmo_cardiaco": 82,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "diego.morales@gmail.com",
-    "fecha": "2025-11-21T23:59:59.029897",
-    "sensores": {
-      "pasos": 14182,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "diego.morales@gmail.com",
-    "fecha": "2025-11-20T23:59:59.029901",
-    "sensores": {
-      "pasos": 2349,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "diego.morales@gmail.com",
-    "fecha": "2025-11-19T23:59:59.029907",
-    "sensores": {
-      "pasos": 8324,
-      "horas_de_sueno": 10
-    },
-    "wearables": {
-      "pasos": 8272,
+      "pasos": 14564,
       "ritmo_cardiaco": 74,
       "horas_de_sueno": 10
     }
   },
   {
-    "correo": "diego.morales@gmail.com",
-    "fecha": "2025-11-18T23:59:59.029911",
+    "correo": "sofía.castro@utec.edu.pe",
+    "fecha": "2025-11-21T23:59:59.858313",
     "sensores": {
-      "pasos": 6738,
+      "pasos": 4147,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "sofía.castro@utec.edu.pe",
+    "fecha": "2025-11-20T23:59:59.858318",
+    "sensores": {
+      "pasos": 4273,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "sofía.castro@utec.edu.pe",
+    "fecha": "2025-11-19T23:59:59.858323",
+    "sensores": {
+      "pasos": 3707,
       "horas_de_sueno": 9
     },
     "wearables": {
-      "pasos": 6749,
-      "ritmo_cardiaco": 67,
+      "pasos": 3738,
+      "ritmo_cardiaco": 62,
       "horas_de_sueno": 9
     }
   },
   {
-    "correo": "diego.morales@gmail.com",
-    "fecha": "2025-11-17T23:59:59.029919",
+    "correo": "sofía.castro@utec.edu.pe",
+    "fecha": "2025-11-18T23:59:59.858328",
     "sensores": {
-      "pasos": 7191,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "miguel.torres@outlook.com",
-    "fecha": "2025-11-23T23:59:59.029923",
-    "sensores": {
-      "pasos": 2184,
+      "pasos": 7782,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 7879,
+      "ritmo_cardiaco": 69,
       "horas_de_sueno": 7
     }
   },
   {
-    "correo": "miguel.torres@outlook.com",
-    "fecha": "2025-11-22T23:59:59.029927",
+    "correo": "sofía.castro@utec.edu.pe",
+    "fecha": "2025-11-17T23:59:59.858333",
+    "sensores": {
+      "pasos": 11865,
+      "horas_de_sueno": 10
+    },
+    "wearables": {
+      "pasos": 11798,
+      "ritmo_cardiaco": 70,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "juan.pérez@utec.edu.pe",
+    "fecha": "2025-11-23T23:59:59.858339",
+    "sensores": {
+      "pasos": 7798,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "juan.pérez@utec.edu.pe",
+    "fecha": "2025-11-22T23:59:59.858344",
+    "sensores": {
+      "pasos": 13585,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "juan.pérez@utec.edu.pe",
+    "fecha": "2025-11-21T23:59:59.858349",
+    "sensores": {
+      "pasos": 8207,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "juan.pérez@utec.edu.pe",
+    "fecha": "2025-11-20T23:59:59.858354",
+    "sensores": {
+      "pasos": 13357,
+      "horas_de_sueno": 10
+    },
+    "wearables": {
+      "pasos": 13432,
+      "ritmo_cardiaco": 62,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "juan.pérez@utec.edu.pe",
+    "fecha": "2025-11-19T23:59:59.858359",
+    "sensores": {
+      "pasos": 10092,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "juan.pérez@utec.edu.pe",
+    "fecha": "2025-11-18T23:59:59.858364",
+    "sensores": {
+      "pasos": 10324,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "juan.pérez@utec.edu.pe",
+    "fecha": "2025-11-17T23:59:59.858369",
     "sensores": {
       "pasos": 3992,
       "horas_de_sueno": 4
     },
     "wearables": {
-      "pasos": 4057,
-      "ritmo_cardiaco": 72,
+      "pasos": 4071,
+      "ritmo_cardiaco": 61,
       "horas_de_sueno": 4
     }
   },
   {
-    "correo": "miguel.torres@outlook.com",
-    "fecha": "2025-11-21T23:59:59.029931",
+    "correo": "andrés.silva@gmail.com",
+    "fecha": "2025-11-23T23:59:59.858378",
     "sensores": {
-      "pasos": 11916,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "miguel.torres@outlook.com",
-    "fecha": "2025-11-20T23:59:59.029935",
-    "sensores": {
-      "pasos": 5538,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "miguel.torres@outlook.com",
-    "fecha": "2025-11-19T23:59:59.029939",
-    "sensores": {
-      "pasos": 12142,
-      "horas_de_sueno": 6
+      "pasos": 4790,
+      "horas_de_sueno": 9
     },
     "wearables": {
-      "pasos": 12152,
+      "pasos": 4862,
+      "ritmo_cardiaco": 73,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "andrés.silva@gmail.com",
+    "fecha": "2025-11-22T23:59:59.858384",
+    "sensores": {
+      "pasos": 13079,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "andrés.silva@gmail.com",
+    "fecha": "2025-11-21T23:59:59.858388",
+    "sensores": {
+      "pasos": 5664,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "andrés.silva@gmail.com",
+    "fecha": "2025-11-20T23:59:59.858393",
+    "sensores": {
+      "pasos": 5639,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "andrés.silva@gmail.com",
+    "fecha": "2025-11-19T23:59:59.858398",
+    "sensores": {
+      "pasos": 2819,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "andrés.silva@gmail.com",
+    "fecha": "2025-11-18T23:59:59.858402",
+    "sensores": {
+      "pasos": 9155,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 9184,
       "ritmo_cardiaco": 87,
-      "horas_de_sueno": 6
+      "horas_de_sueno": 9
     }
   },
   {
-    "correo": "miguel.torres@outlook.com",
-    "fecha": "2025-11-18T23:59:59.029943",
+    "correo": "andrés.silva@gmail.com",
+    "fecha": "2025-11-17T23:59:59.858408",
     "sensores": {
-      "pasos": 8104,
-      "horas_de_sueno": 4
+      "pasos": 5134,
+      "horas_de_sueno": 10
     },
     "wearables": {
-      "pasos": 8017,
-      "ritmo_cardiaco": 71,
+      "pasos": 5065,
+      "ritmo_cardiaco": 90,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "pedro.flores@utec.edu.pe",
+    "fecha": "2025-11-23T23:59:59.858413",
+    "sensores": {
+      "pasos": 3374,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 3409,
+      "ritmo_cardiaco": 91,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "pedro.flores@utec.edu.pe",
+    "fecha": "2025-11-22T23:59:59.858418",
+    "sensores": {
+      "pasos": 13718,
       "horas_de_sueno": 4
     }
   },
   {
-    "correo": "miguel.torres@outlook.com",
-    "fecha": "2025-11-17T23:59:59.029947",
+    "correo": "pedro.flores@utec.edu.pe",
+    "fecha": "2025-11-21T23:59:59.858423",
     "sensores": {
-      "pasos": 14971,
-      "horas_de_sueno": 6
+      "pasos": 4162,
+      "horas_de_sueno": 10
     }
   },
   {
-    "correo": "fernando.vega@utec.edu.pe",
-    "fecha": "2025-11-23T23:59:59.029952",
+    "correo": "pedro.flores@utec.edu.pe",
+    "fecha": "2025-11-20T23:59:59.858427",
     "sensores": {
-      "pasos": 10342,
+      "pasos": 10641,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "pedro.flores@utec.edu.pe",
+    "fecha": "2025-11-19T23:59:59.858432",
+    "sensores": {
+      "pasos": 3221,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "pedro.flores@utec.edu.pe",
+    "fecha": "2025-11-18T23:59:59.858436",
+    "sensores": {
+      "pasos": 4149,
       "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "fernando.vega@utec.edu.pe",
-    "fecha": "2025-11-22T23:59:59.029955",
-    "sensores": {
-      "pasos": 4368,
-      "horas_de_sueno": 10
     },
     "wearables": {
-      "pasos": 4278,
-      "ritmo_cardiaco": 92,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "fernando.vega@utec.edu.pe",
-    "fecha": "2025-11-21T23:59:59.029960",
-    "sensores": {
-      "pasos": 13800,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 13843,
+      "pasos": 4112,
       "ritmo_cardiaco": 93,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "fernando.vega@utec.edu.pe",
-    "fecha": "2025-11-20T23:59:59.029965",
-    "sensores": {
-      "pasos": 12980,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "fernando.vega@utec.edu.pe",
-    "fecha": "2025-11-19T23:59:59.029969",
-    "sensores": {
-      "pasos": 13036,
       "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "pedro.flores@utec.edu.pe",
+    "fecha": "2025-11-17T23:59:59.858444",
+    "sensores": {
+      "pasos": 3610,
+      "horas_de_sueno": 10
     },
     "wearables": {
-      "pasos": 13096,
+      "pasos": 3641,
       "ritmo_cardiaco": 98,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "roberto.díaz@gmail.com",
+    "fecha": "2025-11-23T23:59:59.858451",
+    "sensores": {
+      "pasos": 5006,
+      "horas_de_sueno": 6
+    },
+    "wearables": {
+      "pasos": 5081,
+      "ritmo_cardiaco": 95,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "roberto.díaz@gmail.com",
+    "fecha": "2025-11-22T23:59:59.858456",
+    "sensores": {
+      "pasos": 6307,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "roberto.díaz@gmail.com",
+    "fecha": "2025-11-21T23:59:59.858461",
+    "sensores": {
+      "pasos": 5181,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "roberto.díaz@gmail.com",
+    "fecha": "2025-11-20T23:59:59.858466",
+    "sensores": {
+      "pasos": 5153,
+      "horas_de_sueno": 4
+    },
+    "wearables": {
+      "pasos": 5068,
+      "ritmo_cardiaco": 65,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "roberto.díaz@gmail.com",
+    "fecha": "2025-11-19T23:59:59.858471",
+    "sensores": {
+      "pasos": 10228,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 10263,
+      "ritmo_cardiaco": 99,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "roberto.díaz@gmail.com",
+    "fecha": "2025-11-18T23:59:59.858476",
+    "sensores": {
+      "pasos": 9750,
+      "horas_de_sueno": 6
+    },
+    "wearables": {
+      "pasos": 9734,
+      "ritmo_cardiaco": 98,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "roberto.díaz@gmail.com",
+    "fecha": "2025-11-17T23:59:59.858481",
+    "sensores": {
+      "pasos": 12841,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "carmen.fernández@gmail.com",
+    "fecha": "2025-11-23T23:59:59.858486",
+    "sensores": {
+      "pasos": 8695,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 8771,
+      "ritmo_cardiaco": 83,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "carmen.fernández@gmail.com",
+    "fecha": "2025-11-22T23:59:59.858491",
+    "sensores": {
+      "pasos": 10658,
+      "horas_de_sueno": 5
+    },
+    "wearables": {
+      "pasos": 10618,
+      "ritmo_cardiaco": 79,
       "horas_de_sueno": 5
     }
   },
   {
-    "correo": "fernando.vega@utec.edu.pe",
-    "fecha": "2025-11-18T23:59:59.029975",
+    "correo": "carmen.fernández@gmail.com",
+    "fecha": "2025-11-21T23:59:59.858496",
     "sensores": {
-      "pasos": 2212,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "fernando.vega@utec.edu.pe",
-    "fecha": "2025-11-17T23:59:59.029979",
-    "sensores": {
-      "pasos": 13703,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "laura.sánchez@outlook.com",
-    "fecha": "2025-11-23T23:59:59.029986",
-    "sensores": {
-      "pasos": 8052,
+      "pasos": 12865,
       "horas_de_sueno": 10
     },
     "wearables": {
-      "pasos": 7993,
-      "ritmo_cardiaco": 64,
+      "pasos": 12825,
+      "ritmo_cardiaco": 98,
       "horas_de_sueno": 10
     }
   },
   {
-    "correo": "laura.sánchez@outlook.com",
-    "fecha": "2025-11-22T23:59:59.029990",
+    "correo": "carmen.fernández@gmail.com",
+    "fecha": "2025-11-20T23:59:59.858501",
     "sensores": {
-      "pasos": 3725,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 3676,
-      "ritmo_cardiaco": 81,
-      "horas_de_sueno": 6
+      "pasos": 9394,
+      "horas_de_sueno": 5
     }
   },
   {
-    "correo": "laura.sánchez@outlook.com",
-    "fecha": "2025-11-21T23:59:59.029994",
+    "correo": "carmen.fernández@gmail.com",
+    "fecha": "2025-11-19T23:59:59.858510",
     "sensores": {
-      "pasos": 9580,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 9655,
-      "ritmo_cardiaco": 70,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "laura.sánchez@outlook.com",
-    "fecha": "2025-11-20T23:59:59.029999",
-    "sensores": {
-      "pasos": 11784,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "laura.sánchez@outlook.com",
-    "fecha": "2025-11-19T23:59:59.030003",
-    "sensores": {
-      "pasos": 3803,
-      "horas_de_sueno": 8
-    },
-    "wearables": {
-      "pasos": 3817,
-      "ritmo_cardiaco": 77,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "laura.sánchez@outlook.com",
-    "fecha": "2025-11-18T23:59:59.030012",
-    "sensores": {
-      "pasos": 8270,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "laura.sánchez@outlook.com",
-    "fecha": "2025-11-17T23:59:59.030015",
-    "sensores": {
-      "pasos": 9914,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 9891,
-      "ritmo_cardiaco": 100,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "laura.sánchez@gmail.com",
-    "fecha": "2025-11-23T23:59:59.030020",
-    "sensores": {
-      "pasos": 2939,
+      "pasos": 9303,
       "horas_de_sueno": 10
     }
   },
   {
-    "correo": "laura.sánchez@gmail.com",
-    "fecha": "2025-11-22T23:59:59.030024",
+    "correo": "carmen.fernández@gmail.com",
+    "fecha": "2025-11-18T23:59:59.858515",
     "sensores": {
-      "pasos": 2804,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 2794,
-      "ritmo_cardiaco": 77,
-      "horas_de_sueno": 9
+      "pasos": 2542,
+      "horas_de_sueno": 5
     }
   },
   {
-    "correo": "laura.sánchez@gmail.com",
-    "fecha": "2025-11-21T23:59:59.030028",
+    "correo": "carmen.fernández@gmail.com",
+    "fecha": "2025-11-17T23:59:59.858520",
     "sensores": {
-      "pasos": 7424,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 7524,
-      "ritmo_cardiaco": 88,
-      "horas_de_sueno": 4
+      "pasos": 9275,
+      "horas_de_sueno": 5
     }
   },
   {
-    "correo": "laura.sánchez@gmail.com",
-    "fecha": "2025-11-20T23:59:59.030032",
+    "correo": "diego.morales@outlook.com",
+    "fecha": "2025-11-23T23:59:59.858526",
     "sensores": {
-      "pasos": 8143,
+      "pasos": 8577,
       "horas_de_sueno": 6
     },
     "wearables": {
-      "pasos": 8111,
-      "ritmo_cardiaco": 88,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "laura.sánchez@gmail.com",
-    "fecha": "2025-11-19T23:59:59.030039",
-    "sensores": {
-      "pasos": 4549,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 4510,
+      "pasos": 8562,
       "ritmo_cardiaco": 74,
       "horas_de_sueno": 6
     }
   },
   {
-    "correo": "laura.sánchez@gmail.com",
-    "fecha": "2025-11-18T23:59:59.030044",
+    "correo": "diego.morales@outlook.com",
+    "fecha": "2025-11-22T23:59:59.858531",
     "sensores": {
-      "pasos": 13237,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 13261,
-      "ritmo_cardiaco": 96,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "laura.sánchez@gmail.com",
-    "fecha": "2025-11-17T23:59:59.030048",
-    "sensores": {
-      "pasos": 6218,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "pedro.flores@outlook.com",
-    "fecha": "2025-11-23T23:59:59.030053",
-    "sensores": {
-      "pasos": 10966,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 10933,
-      "ritmo_cardiaco": 76,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "pedro.flores@outlook.com",
-    "fecha": "2025-11-22T23:59:59.030060",
-    "sensores": {
-      "pasos": 6779,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "pedro.flores@outlook.com",
-    "fecha": "2025-11-21T23:59:59.030064",
-    "sensores": {
-      "pasos": 2583,
-      "horas_de_sueno": 5
-    },
-    "wearables": {
-      "pasos": 2585,
-      "ritmo_cardiaco": 100,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "pedro.flores@outlook.com",
-    "fecha": "2025-11-20T23:59:59.030069",
-    "sensores": {
-      "pasos": 6446,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "pedro.flores@outlook.com",
-    "fecha": "2025-11-19T23:59:59.030073",
-    "sensores": {
-      "pasos": 4144,
-      "horas_de_sueno": 8
-    },
-    "wearables": {
-      "pasos": 4153,
-      "ritmo_cardiaco": 93,
+      "pasos": 2530,
       "horas_de_sueno": 8
     }
   },
   {
-    "correo": "pedro.flores@outlook.com",
-    "fecha": "2025-11-18T23:59:59.030077",
+    "correo": "diego.morales@outlook.com",
+    "fecha": "2025-11-21T23:59:59.858536",
     "sensores": {
-      "pasos": 8463,
-      "horas_de_sueno": 7
-    },
-    "wearables": {
-      "pasos": 8501,
-      "ritmo_cardiaco": 66,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "pedro.flores@outlook.com",
-    "fecha": "2025-11-17T23:59:59.030082",
-    "sensores": {
-      "pasos": 6006,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "valentina.ortiz@gmail.com",
-    "fecha": "2025-11-23T23:59:59.030086",
-    "sensores": {
-      "pasos": 3129,
-      "horas_de_sueno": 5
-    },
-    "wearables": {
-      "pasos": 3136,
-      "ritmo_cardiaco": 81,
+      "pasos": 13940,
       "horas_de_sueno": 5
     }
   },
   {
-    "correo": "valentina.ortiz@gmail.com",
-    "fecha": "2025-11-22T23:59:59.030090",
+    "correo": "diego.morales@outlook.com",
+    "fecha": "2025-11-20T23:59:59.858541",
     "sensores": {
-      "pasos": 11758,
-      "horas_de_sueno": 5
-    },
-    "wearables": {
-      "pasos": 11690,
-      "ritmo_cardiaco": 75,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "valentina.ortiz@gmail.com",
-    "fecha": "2025-11-21T23:59:59.030096",
-    "sensores": {
-      "pasos": 13418,
-      "horas_de_sueno": 10
-    },
-    "wearables": {
-      "pasos": 13387,
-      "ritmo_cardiaco": 100,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "valentina.ortiz@gmail.com",
-    "fecha": "2025-11-20T23:59:59.030103",
-    "sensores": {
-      "pasos": 2361,
-      "horas_de_sueno": 7
-    },
-    "wearables": {
-      "pasos": 2301,
-      "ritmo_cardiaco": 80,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "valentina.ortiz@gmail.com",
-    "fecha": "2025-11-19T23:59:59.030108",
-    "sensores": {
-      "pasos": 9665,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 9692,
-      "ritmo_cardiaco": 81,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "valentina.ortiz@gmail.com",
-    "fecha": "2025-11-18T23:59:59.030112",
-    "sensores": {
-      "pasos": 11822,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "valentina.ortiz@gmail.com",
-    "fecha": "2025-11-17T23:59:59.030118",
-    "sensores": {
-      "pasos": 10863,
+      "pasos": 7714,
       "horas_de_sueno": 4
     }
   },
   {
-    "correo": "magali.flores@outlook.com",
-    "fecha": "2025-11-23T23:59:59.030122",
+    "correo": "diego.morales@outlook.com",
+    "fecha": "2025-11-19T23:59:59.858545",
     "sensores": {
-      "pasos": 5053,
-      "horas_de_sueno": 10
+      "pasos": 14618,
+      "horas_de_sueno": 4
     },
     "wearables": {
-      "pasos": 5116,
-      "ritmo_cardiaco": 79,
-      "horas_de_sueno": 10
+      "pasos": 14623,
+      "ritmo_cardiaco": 89,
+      "horas_de_sueno": 4
     }
   },
   {
-    "correo": "magali.flores@outlook.com",
-    "fecha": "2025-11-22T23:59:59.030126",
+    "correo": "diego.morales@outlook.com",
+    "fecha": "2025-11-18T23:59:59.858551",
     "sensores": {
-      "pasos": 14600,
+      "pasos": 9780,
       "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "magali.flores@outlook.com",
-    "fecha": "2025-11-21T23:59:59.030130",
-    "sensores": {
-      "pasos": 6877,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "magali.flores@outlook.com",
-    "fecha": "2025-11-20T23:59:59.030134",
-    "sensores": {
-      "pasos": 13723,
-      "horas_de_sueno": 7
     },
     "wearables": {
-      "pasos": 13757,
+      "pasos": 9733,
       "ritmo_cardiaco": 65,
-      "horas_de_sueno": 7
-    }
-  },
-  {
-    "correo": "magali.flores@outlook.com",
-    "fecha": "2025-11-19T23:59:59.030138",
-    "sensores": {
-      "pasos": 11965,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "magali.flores@outlook.com",
-    "fecha": "2025-11-18T23:59:59.030142",
-    "sensores": {
-      "pasos": 12518,
-      "horas_de_sueno": 10
-    },
-    "wearables": {
-      "pasos": 12526,
-      "ritmo_cardiaco": 81,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "magali.flores@outlook.com",
-    "fecha": "2025-11-17T23:59:59.030146",
-    "sensores": {
-      "pasos": 9092,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "josé.gonzález@outlook.com",
-    "fecha": "2025-11-23T23:59:59.030152",
-    "sensores": {
-      "pasos": 8317,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "josé.gonzález@outlook.com",
-    "fecha": "2025-11-22T23:59:59.030156",
-    "sensores": {
-      "pasos": 10590,
       "horas_de_sueno": 5
     }
   },
   {
-    "correo": "josé.gonzález@outlook.com",
-    "fecha": "2025-11-21T23:59:59.030160",
+    "correo": "diego.morales@outlook.com",
+    "fecha": "2025-11-17T23:59:59.858556",
     "sensores": {
-      "pasos": 2058,
-      "horas_de_sueno": 8
-    },
-    "wearables": {
-      "pasos": 2126,
-      "ritmo_cardiaco": 99,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "josé.gonzález@outlook.com",
-    "fecha": "2025-11-20T23:59:59.030164",
-    "sensores": {
-      "pasos": 9305,
+      "pasos": 11164,
       "horas_de_sueno": 5
     },
     "wearables": {
-      "pasos": 9218,
-      "ritmo_cardiaco": 76,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "josé.gonzález@outlook.com",
-    "fecha": "2025-11-19T23:59:59.030169",
-    "sensores": {
-      "pasos": 3770,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 3824,
-      "ritmo_cardiaco": 76,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "josé.gonzález@outlook.com",
-    "fecha": "2025-11-18T23:59:59.030173",
-    "sensores": {
-      "pasos": 3451,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "josé.gonzález@outlook.com",
-    "fecha": "2025-11-17T23:59:59.030177",
-    "sensores": {
-      "pasos": 4381,
-      "horas_de_sueno": 5
-    },
-    "wearables": {
-      "pasos": 4452,
-      "ritmo_cardiaco": 84,
-      "horas_de_sueno": 5
-    }
-  },
-  {
-    "correo": "sofía.castro@gmail.com",
-    "fecha": "2025-11-23T23:59:59.030181",
-    "sensores": {
-      "pasos": 2217,
-      "horas_de_sueno": 10
-    },
-    "wearables": {
-      "pasos": 2184,
-      "ritmo_cardiaco": 81,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "sofía.castro@gmail.com",
-    "fecha": "2025-11-22T23:59:59.030186",
-    "sensores": {
-      "pasos": 3143,
-      "horas_de_sueno": 8
-    }
-  },
-  {
-    "correo": "sofía.castro@gmail.com",
-    "fecha": "2025-11-21T23:59:59.030190",
-    "sensores": {
-      "pasos": 9811,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 9784,
-      "ritmo_cardiaco": 65,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "sofía.castro@gmail.com",
-    "fecha": "2025-11-20T23:59:59.030194",
-    "sensores": {
-      "pasos": 2206,
-      "horas_de_sueno": 9
-    },
-    "wearables": {
-      "pasos": 2211,
-      "ritmo_cardiaco": 62,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "sofía.castro@gmail.com",
-    "fecha": "2025-11-19T23:59:59.030198",
-    "sensores": {
-      "pasos": 9678,
-      "horas_de_sueno": 6
-    },
-    "wearables": {
-      "pasos": 9721,
-      "ritmo_cardiaco": 84,
-      "horas_de_sueno": 6
-    }
-  },
-  {
-    "correo": "sofía.castro@gmail.com",
-    "fecha": "2025-11-18T23:59:59.030204",
-    "sensores": {
-      "pasos": 2924,
-      "horas_de_sueno": 9
-    }
-  },
-  {
-    "correo": "sofía.castro@gmail.com",
-    "fecha": "2025-11-17T23:59:59.030208",
-    "sensores": {
-      "pasos": 3589,
-      "horas_de_sueno": 4
-    },
-    "wearables": {
-      "pasos": 3557,
-      "ritmo_cardiaco": 82,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "patricia.ruiz@outlook.com",
-    "fecha": "2025-11-23T23:59:59.030214",
-    "sensores": {
-      "pasos": 3130,
-      "horas_de_sueno": 4
-    }
-  },
-  {
-    "correo": "patricia.ruiz@outlook.com",
-    "fecha": "2025-11-22T23:59:59.030218",
-    "sensores": {
-      "pasos": 9371,
-      "horas_de_sueno": 10
-    }
-  },
-  {
-    "correo": "patricia.ruiz@outlook.com",
-    "fecha": "2025-11-21T23:59:59.030222",
-    "sensores": {
-      "pasos": 9057,
-      "horas_de_sueno": 5
-    },
-    "wearables": {
-      "pasos": 9030,
+      "pasos": 11074,
       "ritmo_cardiaco": 77,
       "horas_de_sueno": 5
     }
   },
   {
-    "correo": "patricia.ruiz@outlook.com",
-    "fecha": "2025-11-20T23:59:59.030226",
+    "correo": "fernando.vega@outlook.com",
+    "fecha": "2025-11-23T23:59:59.858561",
     "sensores": {
-      "pasos": 11084,
+      "pasos": 8491,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "fernando.vega@outlook.com",
+    "fecha": "2025-11-22T23:59:59.858565",
+    "sensores": {
+      "pasos": 10416,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 10370,
+      "ritmo_cardiaco": 67,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "fernando.vega@outlook.com",
+    "fecha": "2025-11-21T23:59:59.858571",
+    "sensores": {
+      "pasos": 4597,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "fernando.vega@outlook.com",
+    "fecha": "2025-11-20T23:59:59.858578",
+    "sensores": {
+      "pasos": 4197,
+      "horas_de_sueno": 10
+    },
+    "wearables": {
+      "pasos": 4170,
+      "ritmo_cardiaco": 76,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "fernando.vega@outlook.com",
+    "fecha": "2025-11-19T23:59:59.858586",
+    "sensores": {
+      "pasos": 9211,
+      "horas_de_sueno": 10
+    },
+    "wearables": {
+      "pasos": 9290,
+      "ritmo_cardiaco": 69,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "fernando.vega@outlook.com",
+    "fecha": "2025-11-18T23:59:59.858591",
+    "sensores": {
+      "pasos": 6939,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "fernando.vega@outlook.com",
+    "fecha": "2025-11-17T23:59:59.858596",
+    "sensores": {
+      "pasos": 3474,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "miguel.torres@utec.edu.pe",
+    "fecha": "2025-11-23T23:59:59.858601",
+    "sensores": {
+      "pasos": 14216,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 14270,
+      "ritmo_cardiaco": 95,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "miguel.torres@utec.edu.pe",
+    "fecha": "2025-11-22T23:59:59.858606",
+    "sensores": {
+      "pasos": 7431,
+      "horas_de_sueno": 5
+    },
+    "wearables": {
+      "pasos": 7489,
+      "ritmo_cardiaco": 100,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "miguel.torres@utec.edu.pe",
+    "fecha": "2025-11-21T23:59:59.858611",
+    "sensores": {
+      "pasos": 2899,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "miguel.torres@utec.edu.pe",
+    "fecha": "2025-11-20T23:59:59.858616",
+    "sensores": {
+      "pasos": 10116,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "miguel.torres@utec.edu.pe",
+    "fecha": "2025-11-19T23:59:59.858620",
+    "sensores": {
+      "pasos": 4221,
+      "horas_de_sueno": 5
+    },
+    "wearables": {
+      "pasos": 4172,
+      "ritmo_cardiaco": 85,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "miguel.torres@utec.edu.pe",
+    "fecha": "2025-11-18T23:59:59.858627",
+    "sensores": {
+      "pasos": 14670,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 14681,
+      "ritmo_cardiaco": 80,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "miguel.torres@utec.edu.pe",
+    "fecha": "2025-11-17T23:59:59.858631",
+    "sensores": {
+      "pasos": 7121,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 7124,
+      "ritmo_cardiaco": 77,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "camila.rojas@outlook.com",
+    "fecha": "2025-11-23T23:59:59.858637",
+    "sensores": {
+      "pasos": 6539,
+      "horas_de_sueno": 6
+    },
+    "wearables": {
+      "pasos": 6485,
+      "ritmo_cardiaco": 79,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "camila.rojas@outlook.com",
+    "fecha": "2025-11-22T23:59:59.858645",
+    "sensores": {
+      "pasos": 9064,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 9116,
+      "ritmo_cardiaco": 77,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "camila.rojas@outlook.com",
+    "fecha": "2025-11-21T23:59:59.858651",
+    "sensores": {
+      "pasos": 10653,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "camila.rojas@outlook.com",
+    "fecha": "2025-11-20T23:59:59.858656",
+    "sensores": {
+      "pasos": 2520,
+      "horas_de_sueno": 6
+    },
+    "wearables": {
+      "pasos": 2599,
+      "ritmo_cardiaco": 74,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "camila.rojas@outlook.com",
+    "fecha": "2025-11-19T23:59:59.858660",
+    "sensores": {
+      "pasos": 12514,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "camila.rojas@outlook.com",
+    "fecha": "2025-11-18T23:59:59.858665",
+    "sensores": {
+      "pasos": 12502,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "camila.rojas@outlook.com",
+    "fecha": "2025-11-17T23:59:59.858670",
+    "sensores": {
+      "pasos": 9133,
+      "horas_de_sueno": 4
+    },
+    "wearables": {
+      "pasos": 9209,
+      "ritmo_cardiaco": 75,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "luis.rodríguez@utec.edu.pe",
+    "fecha": "2025-11-23T23:59:59.858675",
+    "sensores": {
+      "pasos": 11182,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "luis.rodríguez@utec.edu.pe",
+    "fecha": "2025-11-22T23:59:59.858679",
+    "sensores": {
+      "pasos": 13910,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 13831,
+      "ritmo_cardiaco": 78,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "luis.rodríguez@utec.edu.pe",
+    "fecha": "2025-11-21T23:59:59.858687",
+    "sensores": {
+      "pasos": 5155,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "luis.rodríguez@utec.edu.pe",
+    "fecha": "2025-11-20T23:59:59.858691",
+    "sensores": {
+      "pasos": 2018,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "luis.rodríguez@utec.edu.pe",
+    "fecha": "2025-11-19T23:59:59.858696",
+    "sensores": {
+      "pasos": 14618,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 14542,
+      "ritmo_cardiaco": 73,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "luis.rodríguez@utec.edu.pe",
+    "fecha": "2025-11-18T23:59:59.858701",
+    "sensores": {
+      "pasos": 4046,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 4125,
+      "ritmo_cardiaco": 80,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "luis.rodríguez@utec.edu.pe",
+    "fecha": "2025-11-17T23:59:59.858706",
+    "sensores": {
+      "pasos": 3070,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 3107,
+      "ritmo_cardiaco": 82,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "carmen.fernández@outlook.com",
+    "fecha": "2025-11-23T23:59:59.858714",
+    "sensores": {
+      "pasos": 10847,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 10915,
+      "ritmo_cardiaco": 82,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "carmen.fernández@outlook.com",
+    "fecha": "2025-11-22T23:59:59.858719",
+    "sensores": {
+      "pasos": 12926,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "carmen.fernández@outlook.com",
+    "fecha": "2025-11-21T23:59:59.858724",
+    "sensores": {
+      "pasos": 10194,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 10280,
+      "ritmo_cardiaco": 65,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "carmen.fernández@outlook.com",
+    "fecha": "2025-11-20T23:59:59.858729",
+    "sensores": {
+      "pasos": 5201,
+      "horas_de_sueno": 4
+    },
+    "wearables": {
+      "pasos": 5183,
+      "ritmo_cardiaco": 74,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "carmen.fernández@outlook.com",
+    "fecha": "2025-11-19T23:59:59.858734",
+    "sensores": {
+      "pasos": 8095,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "carmen.fernández@outlook.com",
+    "fecha": "2025-11-18T23:59:59.858738",
+    "sensores": {
+      "pasos": 10874,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "carmen.fernández@outlook.com",
+    "fecha": "2025-11-17T23:59:59.858743",
+    "sensores": {
+      "pasos": 14976,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "magali.flores@gmail.com",
+    "fecha": "2025-11-23T23:59:59.858748",
+    "sensores": {
+      "pasos": 6122,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "magali.flores@gmail.com",
+    "fecha": "2025-11-22T23:59:59.858752",
+    "sensores": {
+      "pasos": 12197,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "magali.flores@gmail.com",
+    "fecha": "2025-11-21T23:59:59.858757",
+    "sensores": {
+      "pasos": 7994,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 8092,
+      "ritmo_cardiaco": 65,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "magali.flores@gmail.com",
+    "fecha": "2025-11-20T23:59:59.858761",
+    "sensores": {
+      "pasos": 9375,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "magali.flores@gmail.com",
+    "fecha": "2025-11-19T23:59:59.858766",
+    "sensores": {
+      "pasos": 14710,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 14698,
+      "ritmo_cardiaco": 74,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "magali.flores@gmail.com",
+    "fecha": "2025-11-18T23:59:59.858771",
+    "sensores": {
+      "pasos": 6799,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "magali.flores@gmail.com",
+    "fecha": "2025-11-17T23:59:59.858778",
+    "sensores": {
+      "pasos": 7113,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "miguel.torres@gmail.com",
+    "fecha": "2025-11-23T23:59:59.858783",
+    "sensores": {
+      "pasos": 4861,
+      "horas_de_sueno": 4
+    },
+    "wearables": {
+      "pasos": 4817,
+      "ritmo_cardiaco": 70,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "miguel.torres@gmail.com",
+    "fecha": "2025-11-22T23:59:59.858787",
+    "sensores": {
+      "pasos": 12824,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "miguel.torres@gmail.com",
+    "fecha": "2025-11-21T23:59:59.858792",
+    "sensores": {
+      "pasos": 12707,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "miguel.torres@gmail.com",
+    "fecha": "2025-11-20T23:59:59.858796",
+    "sensores": {
+      "pasos": 6751,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "miguel.torres@gmail.com",
+    "fecha": "2025-11-19T23:59:59.858801",
+    "sensores": {
+      "pasos": 7045,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "miguel.torres@gmail.com",
+    "fecha": "2025-11-18T23:59:59.858806",
+    "sensores": {
+      "pasos": 7119,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "miguel.torres@gmail.com",
+    "fecha": "2025-11-17T23:59:59.858811",
+    "sensores": {
+      "pasos": 13201,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "maría.garcía@gmail.com",
+    "fecha": "2025-11-23T23:59:59.858817",
+    "sensores": {
+      "pasos": 5515,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "maría.garcía@gmail.com",
+    "fecha": "2025-11-22T23:59:59.858822",
+    "sensores": {
+      "pasos": 7679,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "maría.garcía@gmail.com",
+    "fecha": "2025-11-21T23:59:59.858827",
+    "sensores": {
+      "pasos": 13859,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "maría.garcía@gmail.com",
+    "fecha": "2025-11-20T23:59:59.858832",
+    "sensores": {
+      "pasos": 2617,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "maría.garcía@gmail.com",
+    "fecha": "2025-11-19T23:59:59.858836",
+    "sensores": {
+      "pasos": 13179,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "maría.garcía@gmail.com",
+    "fecha": "2025-11-18T23:59:59.858840",
+    "sensores": {
+      "pasos": 4248,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "maría.garcía@gmail.com",
+    "fecha": "2025-11-17T23:59:59.858845",
+    "sensores": {
+      "pasos": 4174,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "pedro.flores@outlook.com",
+    "fecha": "2025-11-23T23:59:59.858855",
+    "sensores": {
+      "pasos": 8286,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "pedro.flores@outlook.com",
+    "fecha": "2025-11-22T23:59:59.858860",
+    "sensores": {
+      "pasos": 9216,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 9254,
+      "ritmo_cardiaco": 92,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "pedro.flores@outlook.com",
+    "fecha": "2025-11-21T23:59:59.858866",
+    "sensores": {
+      "pasos": 8128,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 8148,
+      "ritmo_cardiaco": 81,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "pedro.flores@outlook.com",
+    "fecha": "2025-11-20T23:59:59.858870",
+    "sensores": {
+      "pasos": 11060,
+      "horas_de_sueno": 4
+    },
+    "wearables": {
+      "pasos": 11016,
+      "ritmo_cardiaco": 71,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "pedro.flores@outlook.com",
+    "fecha": "2025-11-19T23:59:59.858875",
+    "sensores": {
+      "pasos": 6355,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "pedro.flores@outlook.com",
+    "fecha": "2025-11-18T23:59:59.858880",
+    "sensores": {
+      "pasos": 10379,
+      "horas_de_sueno": 6
+    },
+    "wearables": {
+      "pasos": 10327,
+      "ritmo_cardiaco": 62,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "pedro.flores@outlook.com",
+    "fecha": "2025-11-17T23:59:59.858885",
+    "sensores": {
+      "pasos": 9930,
+      "horas_de_sueno": 6
+    },
+    "wearables": {
+      "pasos": 9921,
+      "ritmo_cardiaco": 82,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "ana.martínez@gmail.com",
+    "fecha": "2025-11-23T23:59:59.858890",
+    "sensores": {
+      "pasos": 5425,
+      "horas_de_sueno": 4
+    },
+    "wearables": {
+      "pasos": 5353,
+      "ritmo_cardiaco": 83,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "ana.martínez@gmail.com",
+    "fecha": "2025-11-22T23:59:59.858895",
+    "sensores": {
+      "pasos": 3172,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 3108,
+      "ritmo_cardiaco": 89,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "ana.martínez@gmail.com",
+    "fecha": "2025-11-21T23:59:59.858900",
+    "sensores": {
+      "pasos": 9547,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "ana.martínez@gmail.com",
+    "fecha": "2025-11-20T23:59:59.858904",
+    "sensores": {
+      "pasos": 8629,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "ana.martínez@gmail.com",
+    "fecha": "2025-11-19T23:59:59.858909",
+    "sensores": {
+      "pasos": 11179,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 11146,
+      "ritmo_cardiaco": 83,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "ana.martínez@gmail.com",
+    "fecha": "2025-11-18T23:59:59.858916",
+    "sensores": {
+      "pasos": 11473,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 11545,
+      "ritmo_cardiaco": 91,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "ana.martínez@gmail.com",
+    "fecha": "2025-11-17T23:59:59.858921",
+    "sensores": {
+      "pasos": 5719,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 5720,
+      "ritmo_cardiaco": 73,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "josé.gonzález@utec.edu.pe",
+    "fecha": "2025-11-23T23:59:59.858927",
+    "sensores": {
+      "pasos": 8471,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 8502,
+      "ritmo_cardiaco": 80,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "josé.gonzález@utec.edu.pe",
+    "fecha": "2025-11-22T23:59:59.858931",
+    "sensores": {
+      "pasos": 13503,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "josé.gonzález@utec.edu.pe",
+    "fecha": "2025-11-21T23:59:59.858936",
+    "sensores": {
+      "pasos": 4416,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 4501,
+      "ritmo_cardiaco": 94,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "josé.gonzález@utec.edu.pe",
+    "fecha": "2025-11-20T23:59:59.858941",
+    "sensores": {
+      "pasos": 11567,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "josé.gonzález@utec.edu.pe",
+    "fecha": "2025-11-19T23:59:59.858945",
+    "sensores": {
+      "pasos": 3975,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 3975,
+      "ritmo_cardiaco": 79,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "josé.gonzález@utec.edu.pe",
+    "fecha": "2025-11-18T23:59:59.858965",
+    "sensores": {
+      "pasos": 11355,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 11324,
+      "ritmo_cardiaco": 91,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "josé.gonzález@utec.edu.pe",
+    "fecha": "2025-11-17T23:59:59.858970",
+    "sensores": {
+      "pasos": 14658,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "laura.sánchez@gmail.com",
+    "fecha": "2025-11-23T23:59:59.858975",
+    "sensores": {
+      "pasos": 4312,
+      "horas_de_sueno": 5
+    },
+    "wearables": {
+      "pasos": 4311,
+      "ritmo_cardiaco": 96,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "laura.sánchez@gmail.com",
+    "fecha": "2025-11-22T23:59:59.858980",
+    "sensores": {
+      "pasos": 5719,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "laura.sánchez@gmail.com",
+    "fecha": "2025-11-21T23:59:59.858984",
+    "sensores": {
+      "pasos": 9902,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 9934,
+      "ritmo_cardiaco": 60,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "laura.sánchez@gmail.com",
+    "fecha": "2025-11-20T23:59:59.858993",
+    "sensores": {
+      "pasos": 2636,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 2637,
+      "ritmo_cardiaco": 71,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "laura.sánchez@gmail.com",
+    "fecha": "2025-11-19T23:59:59.858998",
+    "sensores": {
+      "pasos": 11265,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "laura.sánchez@gmail.com",
+    "fecha": "2025-11-18T23:59:59.859004",
+    "sensores": {
+      "pasos": 11620,
+      "horas_de_sueno": 6
+    },
+    "wearables": {
+      "pasos": 11652,
+      "ritmo_cardiaco": 68,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "laura.sánchez@gmail.com",
+    "fecha": "2025-11-17T23:59:59.859016",
+    "sensores": {
+      "pasos": 7004,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 7093,
+      "ritmo_cardiaco": 61,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "pedro.flores@gmail.com",
+    "fecha": "2025-11-23T23:59:59.859021",
+    "sensores": {
+      "pasos": 10723,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "pedro.flores@gmail.com",
+    "fecha": "2025-11-22T23:59:59.859026",
+    "sensores": {
+      "pasos": 4422,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 4433,
+      "ritmo_cardiaco": 72,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "pedro.flores@gmail.com",
+    "fecha": "2025-11-21T23:59:59.859031",
+    "sensores": {
+      "pasos": 5951,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "pedro.flores@gmail.com",
+    "fecha": "2025-11-20T23:59:59.859035",
+    "sensores": {
+      "pasos": 3404,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "pedro.flores@gmail.com",
+    "fecha": "2025-11-19T23:59:59.859040",
+    "sensores": {
+      "pasos": 11670,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 11594,
+      "ritmo_cardiaco": 87,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "pedro.flores@gmail.com",
+    "fecha": "2025-11-18T23:59:59.859045",
+    "sensores": {
+      "pasos": 5479,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "pedro.flores@gmail.com",
+    "fecha": "2025-11-17T23:59:59.859049",
+    "sensores": {
+      "pasos": 8639,
+      "horas_de_sueno": 5
+    },
+    "wearables": {
+      "pasos": 8658,
+      "ritmo_cardiaco": 96,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "patricia.ruiz@gmail.com",
+    "fecha": "2025-11-23T23:59:59.859054",
+    "sensores": {
+      "pasos": 13474,
+      "horas_de_sueno": 5
+    },
+    "wearables": {
+      "pasos": 13460,
+      "ritmo_cardiaco": 68,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "patricia.ruiz@gmail.com",
+    "fecha": "2025-11-22T23:59:59.859063",
+    "sensores": {
+      "pasos": 3782,
+      "horas_de_sueno": 10
+    },
+    "wearables": {
+      "pasos": 3826,
+      "ritmo_cardiaco": 69,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "patricia.ruiz@gmail.com",
+    "fecha": "2025-11-21T23:59:59.859068",
+    "sensores": {
+      "pasos": 7500,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 7510,
+      "ritmo_cardiaco": 65,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "patricia.ruiz@gmail.com",
+    "fecha": "2025-11-20T23:59:59.859073",
+    "sensores": {
+      "pasos": 6786,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "patricia.ruiz@gmail.com",
+    "fecha": "2025-11-19T23:59:59.859078",
+    "sensores": {
+      "pasos": 10760,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "patricia.ruiz@gmail.com",
+    "fecha": "2025-11-18T23:59:59.859082",
+    "sensores": {
+      "pasos": 9660,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "patricia.ruiz@gmail.com",
+    "fecha": "2025-11-17T23:59:59.859087",
+    "sensores": {
+      "pasos": 10445,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "magali.flores@utec.edu.pe",
+    "fecha": "2025-11-23T23:59:59.859091",
+    "sensores": {
+      "pasos": 3868,
+      "horas_de_sueno": 6
+    },
+    "wearables": {
+      "pasos": 3868,
+      "ritmo_cardiaco": 69,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "magali.flores@utec.edu.pe",
+    "fecha": "2025-11-22T23:59:59.859096",
+    "sensores": {
+      "pasos": 9150,
+      "horas_de_sueno": 10
+    },
+    "wearables": {
+      "pasos": 9090,
+      "ritmo_cardiaco": 78,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "magali.flores@utec.edu.pe",
+    "fecha": "2025-11-21T23:59:59.859104",
+    "sensores": {
+      "pasos": 12597,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "magali.flores@utec.edu.pe",
+    "fecha": "2025-11-20T23:59:59.859109",
+    "sensores": {
+      "pasos": 6064,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "magali.flores@utec.edu.pe",
+    "fecha": "2025-11-19T23:59:59.859113",
+    "sensores": {
+      "pasos": 14468,
+      "horas_de_sueno": 5
+    },
+    "wearables": {
+      "pasos": 14401,
+      "ritmo_cardiaco": 73,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "magali.flores@utec.edu.pe",
+    "fecha": "2025-11-18T23:59:59.859119",
+    "sensores": {
+      "pasos": 9188,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "magali.flores@utec.edu.pe",
+    "fecha": "2025-11-17T23:59:59.859124",
+    "sensores": {
+      "pasos": 7100,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "juan.pérez@gmail.com",
+    "fecha": "2025-11-23T23:59:59.859129",
+    "sensores": {
+      "pasos": 2625,
+      "horas_de_sueno": 6
+    },
+    "wearables": {
+      "pasos": 2545,
+      "ritmo_cardiaco": 85,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "juan.pérez@gmail.com",
+    "fecha": "2025-11-22T23:59:59.859141",
+    "sensores": {
+      "pasos": 8084,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "juan.pérez@gmail.com",
+    "fecha": "2025-11-21T23:59:59.859146",
+    "sensores": {
+      "pasos": 4901,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "juan.pérez@gmail.com",
+    "fecha": "2025-11-20T23:59:59.859152",
+    "sensores": {
+      "pasos": 12976,
+      "horas_de_sueno": 6
+    },
+    "wearables": {
+      "pasos": 12881,
+      "ritmo_cardiaco": 70,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "juan.pérez@gmail.com",
+    "fecha": "2025-11-19T23:59:59.859157",
+    "sensores": {
+      "pasos": 8928,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 8914,
+      "ritmo_cardiaco": 87,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "juan.pérez@gmail.com",
+    "fecha": "2025-11-18T23:59:59.859162",
+    "sensores": {
+      "pasos": 11858,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "juan.pérez@gmail.com",
+    "fecha": "2025-11-17T23:59:59.859167",
+    "sensores": {
+      "pasos": 10720,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "patricia.ruiz@outlook.com",
+    "fecha": "2025-11-23T23:59:59.859171",
+    "sensores": {
+      "pasos": 6840,
+      "horas_de_sueno": 5
+    },
+    "wearables": {
+      "pasos": 6835,
+      "ritmo_cardiaco": 66,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "patricia.ruiz@outlook.com",
+    "fecha": "2025-11-22T23:59:59.859176",
+    "sensores": {
+      "pasos": 9754,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 9725,
+      "ritmo_cardiaco": 64,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "patricia.ruiz@outlook.com",
+    "fecha": "2025-11-21T23:59:59.859181",
+    "sensores": {
+      "pasos": 13275,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 13179,
+      "ritmo_cardiaco": 85,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "patricia.ruiz@outlook.com",
+    "fecha": "2025-11-20T23:59:59.859186",
+    "sensores": {
+      "pasos": 13906,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "patricia.ruiz@outlook.com",
+    "fecha": "2025-11-19T23:59:59.859191",
+    "sensores": {
+      "pasos": 10918,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 10897,
+      "ritmo_cardiaco": 97,
       "horas_de_sueno": 8
     }
   },
   {
     "correo": "patricia.ruiz@outlook.com",
-    "fecha": "2025-11-19T23:59:59.030230",
+    "fecha": "2025-11-18T23:59:59.859196",
     "sensores": {
-      "pasos": 5533,
+      "pasos": 6690,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "patricia.ruiz@outlook.com",
+    "fecha": "2025-11-17T23:59:59.859203",
+    "sensores": {
+      "pasos": 6944,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "fernando.vega@gmail.com",
+    "fecha": "2025-11-23T23:59:59.859211",
+    "sensores": {
+      "pasos": 6893,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 6976,
+      "ritmo_cardiaco": 89,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "fernando.vega@gmail.com",
+    "fecha": "2025-11-22T23:59:59.859216",
+    "sensores": {
+      "pasos": 4664,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "fernando.vega@gmail.com",
+    "fecha": "2025-11-21T23:59:59.859221",
+    "sensores": {
+      "pasos": 2615,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "fernando.vega@gmail.com",
+    "fecha": "2025-11-20T23:59:59.859225",
+    "sensores": {
+      "pasos": 13973,
+      "horas_de_sueno": 4
+    },
+    "wearables": {
+      "pasos": 14037,
+      "ritmo_cardiaco": 95,
+      "horas_de_sueno": 4
+    }
+  },
+  {
+    "correo": "fernando.vega@gmail.com",
+    "fecha": "2025-11-19T23:59:59.859230",
+    "sensores": {
+      "pasos": 4479,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "fernando.vega@gmail.com",
+    "fecha": "2025-11-18T23:59:59.859235",
+    "sensores": {
+      "pasos": 8259,
+      "horas_de_sueno": 9
+    },
+    "wearables": {
+      "pasos": 8333,
+      "ritmo_cardiaco": 98,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "fernando.vega@gmail.com",
+    "fecha": "2025-11-17T23:59:59.859240",
+    "sensores": {
+      "pasos": 9887,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "andrés.silva@outlook.com",
+    "fecha": "2025-11-23T23:59:59.859249",
+    "sensores": {
+      "pasos": 3818,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "andrés.silva@outlook.com",
+    "fecha": "2025-11-22T23:59:59.859253",
+    "sensores": {
+      "pasos": 7623,
+      "horas_de_sueno": 10
+    },
+    "wearables": {
+      "pasos": 7570,
+      "ritmo_cardiaco": 93,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "andrés.silva@outlook.com",
+    "fecha": "2025-11-21T23:59:59.859258",
+    "sensores": {
+      "pasos": 9773,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 9838,
+      "ritmo_cardiaco": 99,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "andrés.silva@outlook.com",
+    "fecha": "2025-11-20T23:59:59.859263",
+    "sensores": {
+      "pasos": 6809,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "andrés.silva@outlook.com",
+    "fecha": "2025-11-19T23:59:59.859268",
+    "sensores": {
+      "pasos": 11590,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "andrés.silva@outlook.com",
+    "fecha": "2025-11-18T23:59:59.859272",
+    "sensores": {
+      "pasos": 14157,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 14134,
+      "ritmo_cardiaco": 63,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "andrés.silva@outlook.com",
+    "fecha": "2025-11-17T23:59:59.859285",
+    "sensores": {
+      "pasos": 2989,
       "horas_de_sueno": 6
     }
   },
   {
-    "correo": "patricia.ruiz@outlook.com",
-    "fecha": "2025-11-18T23:59:59.030234",
+    "correo": "carlos.lópez@gmail.com",
+    "fecha": "2025-11-23T23:59:59.859290",
     "sensores": {
-      "pasos": 3681,
+      "pasos": 10497,
+      "horas_de_sueno": 5
+    },
+    "wearables": {
+      "pasos": 10449,
+      "ritmo_cardiaco": 89,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "carlos.lópez@gmail.com",
+    "fecha": "2025-11-22T23:59:59.859295",
+    "sensores": {
+      "pasos": 13586,
+      "horas_de_sueno": 5
+    },
+    "wearables": {
+      "pasos": 13489,
+      "ritmo_cardiaco": 81,
+      "horas_de_sueno": 5
+    }
+  },
+  {
+    "correo": "carlos.lópez@gmail.com",
+    "fecha": "2025-11-21T23:59:59.859300",
+    "sensores": {
+      "pasos": 10271,
+      "horas_de_sueno": 8
+    },
+    "wearables": {
+      "pasos": 10278,
+      "ritmo_cardiaco": 86,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "carlos.lópez@gmail.com",
+    "fecha": "2025-11-20T23:59:59.859305",
+    "sensores": {
+      "pasos": 11647,
+      "horas_de_sueno": 7
+    },
+    "wearables": {
+      "pasos": 11593,
+      "ritmo_cardiaco": 71,
+      "horas_de_sueno": 7
+    }
+  },
+  {
+    "correo": "carlos.lópez@gmail.com",
+    "fecha": "2025-11-19T23:59:59.859309",
+    "sensores": {
+      "pasos": 11247,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "carlos.lópez@gmail.com",
+    "fecha": "2025-11-18T23:59:59.859314",
+    "sensores": {
+      "pasos": 9587,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "carlos.lópez@gmail.com",
+    "fecha": "2025-11-17T23:59:59.859318",
+    "sensores": {
+      "pasos": 3757,
+      "horas_de_sueno": 6
+    },
+    "wearables": {
+      "pasos": 3824,
+      "ritmo_cardiaco": 78,
+      "horas_de_sueno": 6
+    }
+  },
+  {
+    "correo": "sofía.castro@outlook.com",
+    "fecha": "2025-11-23T23:59:59.859324",
+    "sensores": {
+      "pasos": 7609,
+      "horas_de_sueno": 8
+    }
+  },
+  {
+    "correo": "sofía.castro@outlook.com",
+    "fecha": "2025-11-22T23:59:59.859328",
+    "sensores": {
+      "pasos": 6116,
       "horas_de_sueno": 10
     }
   },
   {
-    "correo": "patricia.ruiz@outlook.com",
-    "fecha": "2025-11-17T23:59:59.030239",
+    "correo": "sofía.castro@outlook.com",
+    "fecha": "2025-11-21T23:59:59.859333",
     "sensores": {
-      "pasos": 7408,
+      "pasos": 7792,
+      "horas_de_sueno": 9
+    }
+  },
+  {
+    "correo": "sofía.castro@outlook.com",
+    "fecha": "2025-11-20T23:59:59.859337",
+    "sensores": {
+      "pasos": 2448,
       "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "sofía.castro@outlook.com",
+    "fecha": "2025-11-19T23:59:59.859345",
+    "sensores": {
+      "pasos": 9977,
+      "horas_de_sueno": 10
+    },
+    "wearables": {
+      "pasos": 10018,
+      "ritmo_cardiaco": 61,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "sofía.castro@outlook.com",
+    "fecha": "2025-11-18T23:59:59.859351",
+    "sensores": {
+      "pasos": 8310,
+      "horas_de_sueno": 10
+    }
+  },
+  {
+    "correo": "sofía.castro@outlook.com",
+    "fecha": "2025-11-17T23:59:59.859355",
+    "sensores": {
+      "pasos": 8594,
+      "horas_de_sueno": 9
     }
   }
 ]

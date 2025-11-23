@@ -1,11 +1,1 @@
-[
-  {
-    "alerta_id": "alert-152ca658",
-    "correo_tutor": "autoridad@utec.edu.pe",
-    "dependent_id": "dep-5cecd4d3",
-    "regla_nombre": "Vacuna BCG",
-    "title": "Vacuna pendiente: Vacuna BCG",
-    "message": "Es momento de aplicar vacuna contra tuberculosis, aplicada al nacer",
-    "estado": false
-  }
-]
+[]
