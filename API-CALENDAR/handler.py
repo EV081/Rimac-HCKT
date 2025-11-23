@@ -273,7 +273,7 @@ def create_recurring_event(event, context):
 
             recurrence_rule = []
             if (medicion_frecuencia == 'Horas'):
-                recurrence_rule = [f'RRULE:FREQ=HOURLY;INTERVAL={frecuencia};COUNT={int(count)}']
+                recurrence_rule = [f'RRULE:FREQ=HOURLY;INTERVAL=8;COUNT=6']
             else:
                 recurrence_rule = [f'RRULE:FREQ=DAILY;INTERVAL={frecuencia};COUNT={int(count)}']
 
