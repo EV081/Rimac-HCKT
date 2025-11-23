@@ -1,0 +1,372 @@
+[
+  {
+    "nombre": "Terry Mora Monica Tatiana",
+    "codigo_cmp": "034572",
+    "especialidad": "Medicina Interna",
+    "sedes": ["San Borja", "Surco"],
+    "tipo_atencion": "Presencial y Virtual",
+    "horarios": {
+        "San Borja": {
+            "virtual": {
+                "lunes": [""],
+                "martes": ["15:00 a 17:00"],
+                "miercoles": [""],
+                "jueves": [""],
+                "viernes": ["15:00 a 21:00"],
+                "sabado": [""]
+            },
+            "presencial":{
+                "lunes":[""],
+                "martes":[""],
+                "miercoles":[""],
+                "jueves":[""],
+                "viernes":[""],
+                "sabado":[""]
+            }
+        },
+        "Surco": {
+            "virtual": {
+                "lunes": [""],
+                "martes": [""],
+                "miercoles": [""],
+                "jueves": [""],
+                "viernes": [""],
+                "sabado": [""]
+            },
+            "presencial": {
+                "lunes": ["15:00 a 19:00"],
+                "martes": ["09:00 a 13:00"],
+                "miercoles": ["15:00 a 19:00"],
+                "jueves": [""],
+                "viernes": [""],
+                "sabado": ["14:30 a 19:00"]
+            }
+        }
+    }
+    
+  },
+  {
+    "nombre": "Soto Anamaco Nelson Felipe",
+    "codigo_cmp": "016284",
+    "especialidad": "Medicina Interna",
+    "sedes": ["San Borja"],
+    "tipo_atencion": "Presencial y Virtual",
+    "horarios": {
+        "San Borja": {
+            "virtual": {
+                "lunes": [""],
+                "martes": [""],
+                "miercoles": ["15:00 a 19:00"],
+                "jueves": [""],
+                "viernes": [""],
+                "sabado": [""]
+            },
+            "presencial":{
+                "lunes":["15:00 a 19:00"],
+                "martes":[""],
+                "miercoles":[""],
+                "jueves":["15:00 a 19:00"],
+                "viernes":[""],
+                "sabado":["08:00 a 16:00"]
+            }
+        }
+    }
+  },
+  {
+    "nombre": "Caceres Vargas Doris",
+    "codigo_cmp": "015719",
+    "especialidad": "Psiquiatría",
+    "sedes": ["San Borja","Lima"],
+    "tipo_atencion": "Presencial y Virtual",
+    "horarios": {
+        "San Borja": {
+            "virtual": {
+                "lunes": ["08:30 a 12:00"],
+                "martes": [""],
+                "miercoles": [""],
+                "jueves": [""],
+                "viernes": ["08:00 a 12:00"],
+                "sabado": [""]
+            },
+            "presencial":{
+                "lunes":[""],
+                "martes":["08:00 a 12:00","14:00 a 19:00"],
+                "miercoles":[""],
+                "jueves":["08:00 a 12:00","15:00 a 20:00"],
+                "viernes":["15:00 a 20:00"],
+                "sabado":[""]
+            }
+        },
+        "Lima": {
+            "virtual": {
+                "lunes": [""],
+                "martes": [""],
+                "miercoles": [""],
+                "jueves": [""],
+                "viernes": [""],
+                "sabado": [""]
+            },
+            "presencial": {
+                "lunes": [""],
+                "martes": [""],
+                "miercoles": [""],
+                "jueves": ["16:00 a 20:00"],
+                "viernes": [""],
+                "sabado": [""]
+            }            
+        }
+    }
+  },
+  {
+    "nombre": "Flores Bustamante Claver Reynaldo",
+    "codigo_cmp": "013978",
+    "especialidad": "Psiquiatría",
+    "sedes": ["San Borja","Surco"],
+    "tipo_atencion": "Presencial y Virtual",
+    "horarios": {
+        "San Borja": {
+            "virtual": {
+                "lunes": [""],
+                "martes": ["16:00 a 20:00"],
+                "miercoles": [""],
+                "jueves": [""],
+                "viernes": [""],
+                "sabado": [""]
+            },
+            "presencial":{
+                "lunes":["15:00 a 20:00"],
+                "martes":[""],
+                "miercoles":["08:00 a 13:00","15:00 a 20:00"],
+                "jueves":["15:00 a 18:00"],
+                "viernes":["08:00 a 12:00"],
+                "sabado":["08:00 a 14:00"]
+            }
+        },
+        "Surco": {
+            "virtual": {
+                "lunes": [""],
+                "martes": [""],
+                "miercoles": [""],
+                "jueves": [""],
+                "viernes": [""],
+                "sabado": [""]
+            },
+            "presencial": {
+                "lunes": [""],
+                "martes": [""],
+                "miercoles": [""],
+                "jueves": [""],
+                "viernes": [""],
+                "sabado": ["15:00 a 19:00"]
+            }
+            
+        }
+    }
+  },
+  {
+    "nombre": "Ingar Armijo Wilfredo Humberto",
+    "codigo_cmp": "017823",
+    "especialidad": "Pediatría",
+    "sedes": ["San Borja","San Isidro"],
+    "tipo_atencion": "Presencial y Virtual",
+    "horarios": {
+        "San Borja": {
+            "virtual": {
+                "lunes": [""],
+                "martes": ["15:00 a 19:00"],
+                "miercoles": [""],
+                "jueves": ["15:00 a 18:00"],
+                "viernes": [""],
+                "sabado": [""]
+            },
+            "presencial":{
+                "lunes":["08:00 a 13:00","15:00 a 20:00"],
+                "martes":[""],
+                "miercoles":["08:00 a 13:00"],
+                "jueves":[""],
+                "viernes":["08:00 a 13:00","15:00 a 20:00"],
+                "sabado":[""]
+            }
+        },
+        "San Isidro": {
+            "virtual": {
+                "lunes": [""],
+                "martes": [""],
+                "miercoles": [""],
+                "jueves": [""],
+                "viernes": [""],
+                "sabado": [""]
+            },
+            "presencial": {
+                "lunes": [""],
+                "martes": [""],
+                "miercoles": ["15:00 a 20:00"],
+                "jueves": [""],
+                "viernes": [""],
+                "sabado": ["15:00 a 19:00"]
+            }
+            
+        }
+    }
+  },
+  {
+    "nombre": "Llanos Rodriguez Gumercindo Rodolfo",
+    "codigo_cmp": "009932",
+    "especialidad": "Cirugía General",
+    "sedes": ["San Borja"],
+    "tipo_atencion": "Presencial",
+    "horarios": {
+        "San Borja": {
+            "presencial":{
+                "lunes":["12:00 a 16:00"],
+                "martes":[""],
+                "miercoles":[""],
+                "jueves":["08:00 a 12:00"],
+                "viernes":["12:00 a 16:00"],
+                "sabado":[""]
+            }
+        }
+    }
+  },
+  {
+    "nombre": "Palomino Guerrero Carmen",
+    "codigo_cmp": "015897",
+    "especialidad": "Medicina Interna",
+    "sedes": ["San Borja"],
+    "tipo_atencion": "Presencial y Virtual",
+    "horarios": {
+        "San Borja": {
+            "virtual": {
+                "lunes": [""],
+                "martes": [""],
+                "miercoles": ["15:00 a 20:00"],
+                "jueves": [""],
+                "viernes": ["15:00 a 20:00"],
+                "sabado": [""]
+            },
+            "presencial":{
+                "lunes":["08:00 a 14:00","14:00 a 20:00"],
+                "martes":["08:00 a 15:00","15:00 a 20:00"],
+                "miercoles":["08:00 a 13:00"],
+                "jueves":["08:00 a 15:00","15:00 a 19:00"],
+                "viernes":[""],
+                "sabado":[""]
+            }
+        }
+    }
+  },
+  {
+    "nombre": "Mejia Barrutia Ana Maria",
+    "codigo_cmp": "012882",
+    "especialidad": "Oftalmología",
+    "sedes": ["San Isidro"],
+    "tipo_atencion": "Presencial",
+    "horarios": {
+        "San Isidro": {
+            "presencial": {
+                "lunes": [""],
+                "martes": ["08:00 a 13:00"],
+                "miercoles": ["15:00 a 20:00"],
+                "jueves": [""],
+                "viernes": ["14:00 a 19:00"],
+                "sabado": ["08:00 a 13:00"]
+            }
+        }
+    }
+  },
+  {
+    "nombre": "Robles Morales Carlos Ariel",
+    "codigo_cmp": "007101",
+    "especialidad": "Oftalmología",
+    "sedes": ["San Borja","Lima"],
+    "tipo_atencion": "Presencial",
+    "horarios": {
+        "San Borja": {
+            "presencial":{
+                "lunes":[""],
+                "martes":[""],
+                "miercoles":["14:00 a 19:00"],
+                "jueves":["08:00 a 13:00"],
+                "viernes":["08:00 a 13:00","14:00 a 19:00"],
+                "sabado":[""]
+            }
+        },
+        "Lima": {
+            "presencial": {
+                "lunes": ["14:00 a 19:00"],
+                "martes": [""],
+                "miercoles": [""],
+                "jueves": [""],
+                "viernes": [""],
+                "sabado": [""]
+            }
+            
+        }
+    }
+  },
+  {
+    "nombre": "Urteaga Pasache Walter Gregorio",
+    "codigo_cmp": "014138",
+    "especialidad": "Ginecología y Obstetricia",
+    "sedes": ["San Borja"],
+   "tipo_atencion": "Presencial",
+    "horarios": {
+        "San Borja": {
+            "presencial":{
+                "lunes":[""],
+                "martes":["16:00 a 20:00"],
+                "miercoles":["08:00 a 12:00"],
+                "jueves":["12:00 a 13:00","14:00 a 20:00"],
+                "viernes":[""],
+                "sabado":[""]
+            }
+        }
+    }
+  },
+  {
+    "nombre": "Valladares Alvarez Guillermo Bernardo",
+    "codigo_cmp": "007598",
+    "especialidad": "Gastroenterología",
+    "sedes": ["San Borja"],
+    "tipo_atencion": "Presencial y Virtual",
+    "horarios": {
+        "San Borja": {
+            "virtual": {
+                "lunes": [""],
+                "martes": [""],
+                "miercoles": ["13:40 a 18:00"],
+                "jueves": [""],
+                "viernes": [""],
+                "sabado": [""]
+            },
+            "presencial":{
+                "lunes":[""],
+                "martes":["08:00 a 13:00","15:00 a 20:00"],
+                "miercoles":["08:00 a 13:00"],
+                "jueves":["08:00 a 13:00"],
+                "viernes":[""],
+                "sabado":[""]
+            }
+        }
+    }
+  },
+  {
+    "nombre": "Van Hemelrijck Tejada Jaime Jorge",
+    "codigo_cmp": "015479",
+    "especialidad": "Ortopedia y Traumatología",
+    "sedes": ["San Borja"],
+    "tipo_atencion": "Presencial",
+    "horarios": {
+        "San Borja": {
+            "presencial":{
+                "lunes":["14:00 a 19:30"],
+                "martes":[""],
+                "miercoles":[""],
+                "jueves":["08:00 a 13:00"],
+                "viernes":["14:00 a 19:30"],
+                "sabado":[""]
+            }
+        }
+    }
+  }
+]
