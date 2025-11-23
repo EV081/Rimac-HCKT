@@ -24,8 +24,8 @@ TABLE_SERVICIOS = os.getenv('TABLE_SERVICIOS', 'Servicios')
 TABLE_RECETAS = os.getenv('TABLE_RECETAS', 'Recetas')
 TABLE_MEMORIA_CONTEXTUAL = os.getenv('TABLE_MEMORIA_CONTEXTUAL', 'MemoriaContextual')
 TABLE_HISTORIAL_MEDICO = os.getenv('TABLE_HISTORIAL_MEDICO', 'HistorialMedico')
-TABLE_DEPENDIENTES = os.getenv('DEPENDIENTES_TABLE')
-TABLE_REGLAS = os.getenv('REGLAS_TABLE')
+TABLE_DEPENDIENTES = os.getenv('TABLE_DEPENDIENTES')
+TABLE_REGLAS = os.getenv('TABLE_REGLAS')
 # Carpeta con los datos JSON
 DATA_DIR = "example-data"
 
