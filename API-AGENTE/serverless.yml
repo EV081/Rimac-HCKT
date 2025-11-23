@@ -1,72 +1,130 @@
 service: api-agente
 
+frameworkVersion: '3'
+
 provider:
   name: aws
-  runtime: python3.12
+  runtime: python3.11
+  region: ${env:AWS_REGION, 'us-east-1'}
+  stage: ${opt:stage, 'dev'}
+  timeout: 30
   memorySize: 512
-  timeout: 60
-  region: us-east-1
-  stage: ${param:stage}
-
+  
   environment:
+    # DynamoDB Tables
+    TABLE_USUARIOS: ${env:TABLE_USUARIOS, 'usuarios'}
+    TABLE_RECETAS: ${env:TABLE_RECETAS, 'recetas'}
+    TABLE_SERVICIOS: ${env:TABLE_SERVICIOS, 'servicios'}
+    TABLE_HISTORIAL_MEDICO: ${env:TABLE_HISTORIAL_MEDICO, 'historial_medico'}
+    TABLE_MEMORIA_CONTEXTUAL: ${env:TABLE_MEMORIA_CONTEXTUAL, 'memoria_contextual'}
+    
+    # API Keys
     GEMINI_API_KEY: ${env:GEMINI_API_KEY}
-    TABLE_USUARIOS: ${env:TABLE_USUARIOS}
-    TABLE_SERVICIOS: ${env:TABLE_SERVICIOS}
-    TABLE_MEMORIA_CONTEXTUAL: ${env:TABLE_MEMORIA_CONTEXTUAL}
-    TABLE_HISTORIAL_MEDICO: ${env:TABLE_HISTORIAL_MEDICO}
-    ORG_NAME: ${env:ORG_NAME}
+    GEMINI_MODEL: ${env:GEMINI_MODEL, 'gemini-pro'}
+    
+    # Configuración
+    LIMITE_HISTORIAL: ${env:LIMITE_HISTORIAL, '30'}
+    LIMITE_MEMORIA: ${env:LIMITE_MEMORIA, '10'}
+    LIMITE_SERVICIOS: ${env:LIMITE_SERVICIOS, '20'}
+  
+  iam:
+    role:
+      statements:
+        # Permisos para DynamoDB
+        - Effect: Allow
+          Action:
+            - dynamodb:GetItem
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+            - dynamodb:BatchGetItem
+            - dynamodb:BatchWriteItem
+          Resource:
+            - arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:provider.environment.TABLE_USUARIOS}
+            - arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:provider.environment.TABLE_RECETAS}
+            - arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:provider.environment.TABLE_SERVICIOS}
+            - arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:provider.environment.TABLE_HISTORIAL_MEDICO}
+            - arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:provider.environment.TABLE_MEMORIA_CONTEXTUAL}
 
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - cognito-idp:GetUser
-      Resource: "*"
-    - Effect: Allow
-      Action:
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:Query
-        - dynamodb:Scan
-      Resource:
-        - "arn:aws:dynamodb:us-east-1:${env:AWS_ACCOUNT_ID}:table/${env:TABLE_USUARIOS}"
-        - "arn:aws:dynamodb:us-east-1:${env:AWS_ACCOUNT_ID}:table/${env:TABLE_SERVICIOS}"
-        - "arn:aws:dynamodb:us-east-1:${env:AWS_ACCOUNT_ID}:table/${env:TABLE_MEMORIA_CONTEXTUAL}"
-        - "arn:aws:dynamodb:us-east-1:${env:AWS_ACCOUNT_ID}:table/${env:TABLE_HISTORIAL_MEDICO}"
+functions:
+  # Handler principal del agente
+  agenteIniciar:
+    handler: handlers/agente_iniciar.handler
+    events:
+      - http:
+          path: agente/consultar
+          method: post
+          cors: true
+    description: "Procesa consultas del usuario con el agente conversacional"
+  
+  # Obtener sugerencias proactivas
+  agenteSugerencias:
+    handler: handlers/agente_iniciar.obtener_sugerencias_handler
+    events:
+      - http:
+          path: agente/sugerencias
+          method: get
+          cors: true
+    description: "Obtiene sugerencias proactivas basadas en el contexto"
+  
+  # Health check
+  agenteHealth:
+    handler: handlers/agente_iniciar.health_check_handler
+    events:
+      - http:
+          path: agente/health
+          method: get
+          cors: true
+    description: "Health check del servicio"
+  
+  # Actualizar historial médico
+  actualizarHistorial:
+    handler: handlers/actualizar_historial.handler
+    events:
+      - http:
+          path: historial/actualizar
+          method: post
+          cors: true
+    description: "Actualiza el historial médico del usuario"
+  
+  # Actualizar memoria contextual
+  actualizarMemoria:
+    handler: handlers/actualizar_memoria.handler
+    events:
+      - http:
+          path: memoria/actualizar
+          method: post
+          cors: true
+    description: "Actualiza la memoria contextual de conversaciones"
 
 plugins:
   - serverless-python-requirements
-
-functions:
-  iniciarAgente:
-    handler: agenteIniciar.iniciarAgente
-    events:
-      - http:
-          path: agente/iniciar
-          method: post
-          cors: true
-  
-  actualizarMemoria:
-    handler: actualizarMemoria.actualizarMemoria
-
-  actualizarHistorial:
-    handler: actualizarHistorial.actualizarHistorial
-
-package:
-  patterns:
-    - '!.venv/**'
-    - '!node_modules/**'
-    - '!.serverless/**'
-    - '!__pycache__/**'
-    - '!*.pyc'
+  - serverless-offline
 
 custom:
   pythonRequirements:
     dockerizePip: true
-    dockerImage: public.ecr.aws/sam/build-python3.12:latest
+    layer: true
     slim: true
-    useDownloadCache: false
-    useStaticCache: false
-    invalidateCaches: true
-    pipCmdExtraArgs:
-      - '--no-cache-dir'
+    strip: false
+    zip: true
+    fileName: requirements.txt
+  
+  serverless-offline:
+    httpPort: 3001
+    lambdaPort: 3002
+
+package:
+  individually: true
+  exclude:
+    - node_modules/**
+    - .git/**
+    - .venv/**
+    - __pycache__/**
+    - "*.pyc"
+    - .pytest_cache/**
+    - tests/**
+    - .vscode/**
+    - .idea/**
