@@ -1,45 +1,33 @@
 [
   {
     "correo": "autoridad@utec.edu.pe",
-    "context_id": "ctx-e9c587cd",
-    "fecha": "2025-11-02T12:28:29.026875",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
+    "context_id": "ctx-1d9c2c13",
+    "fecha": "2025-10-31T10:47:24.524918",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "quejarse",
     "datos_extraidos": {
-      "tema_principal": "ejercicio",
+      "tema_principal": "sueño",
       "sentimiento": "positivo",
+      "urgencia": "media",
+      "horas_promedio": 9
+    }
+  },
+  {
+    "correo": "autoridad@utec.edu.pe",
+    "context_id": "ctx-774d98aa",
+    "fecha": "2025-11-13T00:47:24.524988",
+    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "estrés",
+      "sentimiento": "negativo",
       "urgencia": "baja"
     }
   },
   {
-    "correo": "autoridad@utec.edu.pe",
-    "context_id": "ctx-7b3cae04",
-    "fecha": "2025-11-18T21:28:29.026923",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "quejarse",
-    "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "negativo",
-      "urgencia": "media"
-    }
-  },
-  {
-    "correo": "autoridad@utec.edu.pe",
-    "context_id": "ctx-ce9360e4",
-    "fecha": "2025-11-21T12:28:29.026932",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
-    "datos_extraidos": {
-      "tema_principal": "sueño",
-      "sentimiento": "positivo",
-      "urgencia": "baja",
-      "horas_promedio": 6
-    }
-  },
-  {
-    "correo": "autoridad@utec.edu.pe",
-    "context_id": "ctx-a744bbeb",
-    "fecha": "2025-10-23T04:28:29.026940",
+    "correo": "luis.rodríguez@gmail.com",
+    "context_id": "ctx-709adaa4",
+    "fecha": "2025-10-28T09:47:24.525018",
     "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
     "intencion_detectada": "registrar",
     "datos_extraidos": {
@@ -49,50 +37,306 @@
     }
   },
   {
-    "correo": "juan.pérez@gmail.com",
-    "context_id": "ctx-9bc6a1cf",
-    "fecha": "2025-11-13T02:28:29.026949",
+    "correo": "luis.rodríguez@gmail.com",
+    "context_id": "ctx-d70aa1fa",
+    "fecha": "2025-11-14T06:47:24.525025",
+    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "medicación",
+      "sentimiento": "neutral",
+      "urgencia": "media"
+    }
+  },
+  {
+    "correo": "luis.rodríguez@gmail.com",
+    "context_id": "ctx-84b09a19",
+    "fecha": "2025-11-03T23:47:24.525030",
+    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "ejercicio",
+      "sentimiento": "positivo",
+      "urgencia": "media"
+    }
+  },
+  {
+    "correo": "juan.pérez@outlook.com",
+    "context_id": "ctx-1f28ff76",
+    "fecha": "2025-11-16T21:47:24.525035",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "sueño",
+      "sentimiento": "negativo",
+      "urgencia": "baja",
+      "horas_promedio": 6
+    }
+  },
+  {
+    "correo": "miguel.torres@utec.edu.pe",
+    "context_id": "ctx-e1a95bd3",
+    "fecha": "2025-11-08T20:47:24.525041",
+    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "pedir consejo",
+    "datos_extraidos": {
+      "tema_principal": "ejercicio",
+      "sentimiento": "positivo",
+      "urgencia": "media"
+    }
+  },
+  {
+    "correo": "miguel.torres@utec.edu.pe",
+    "context_id": "ctx-c40d0e03",
+    "fecha": "2025-10-25T11:47:24.525046",
+    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "consultar",
+    "datos_extraidos": {
+      "tema_principal": "estrés",
+      "sentimiento": "positivo",
+      "urgencia": "media"
+    }
+  },
+  {
+    "correo": "miguel.torres@utec.edu.pe",
+    "context_id": "ctx-c83b882c",
+    "fecha": "2025-11-20T21:47:24.525051",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "consultar",
+    "datos_extraidos": {
+      "tema_principal": "sueño",
+      "sentimiento": "neutral",
+      "urgencia": "media",
+      "horas_promedio": 8
+    }
+  },
+  {
+    "correo": "pedro.flores@utec.edu.pe",
+    "context_id": "ctx-a138232f",
+    "fecha": "2025-11-02T05:47:24.525057",
+    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "medicación",
+      "sentimiento": "neutral",
+      "urgencia": "baja"
+    }
+  },
+  {
+    "correo": "pedro.flores@utec.edu.pe",
+    "context_id": "ctx-11b5cf4f",
+    "fecha": "2025-11-17T15:47:24.525061",
+    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "consultar",
+    "datos_extraidos": {
+      "tema_principal": "nutrición",
+      "sentimiento": "negativo",
+      "urgencia": "alta",
+      "preferencia_alimenticia": "vegetariano"
+    }
+  },
+  {
+    "correo": "pedro.flores@utec.edu.pe",
+    "context_id": "ctx-613eba21",
+    "fecha": "2025-11-16T13:47:24.525066",
+    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "pedir consejo",
+    "datos_extraidos": {
+      "tema_principal": "estrés",
+      "sentimiento": "negativo",
+      "urgencia": "baja"
+    }
+  },
+  {
+    "correo": "patricia.ruiz@outlook.com",
+    "context_id": "ctx-8319175c",
+    "fecha": "2025-11-19T22:47:24.525071",
+    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "ejercicio",
+      "sentimiento": "neutral",
+      "urgencia": "baja"
+    }
+  },
+  {
+    "correo": "patricia.ruiz@outlook.com",
+    "context_id": "ctx-337da885",
+    "fecha": "2025-11-19T05:47:24.525076",
+    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "pedir consejo",
+    "datos_extraidos": {
+      "tema_principal": "ejercicio",
+      "sentimiento": "negativo",
+      "urgencia": "media"
+    }
+  },
+  {
+    "correo": "patricia.ruiz@outlook.com",
+    "context_id": "ctx-4862f598",
+    "fecha": "2025-11-04T12:47:24.525080",
+    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "pedir consejo",
+    "datos_extraidos": {
+      "tema_principal": "estrés",
+      "sentimiento": "negativo",
+      "urgencia": "alta"
+    }
+  },
+  {
+    "correo": "patricia.ruiz@gmail.com",
+    "context_id": "ctx-40f72060",
+    "fecha": "2025-11-18T11:47:24.525086",
     "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
     "intencion_detectada": "pedir consejo",
     "datos_extraidos": {
       "tema_principal": "sueño",
       "sentimiento": "negativo",
-      "urgencia": "baja",
+      "urgencia": "alta",
+      "horas_promedio": 4
+    }
+  },
+  {
+    "correo": "patricia.ruiz@gmail.com",
+    "context_id": "ctx-e26af411",
+    "fecha": "2025-11-02T00:47:24.525095",
+    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "consultar",
+    "datos_extraidos": {
+      "tema_principal": "medicación",
+      "sentimiento": "positivo",
+      "urgencia": "media"
+    }
+  },
+  {
+    "correo": "patricia.ruiz@gmail.com",
+    "context_id": "ctx-8ae49ad7",
+    "fecha": "2025-10-30T12:47:24.525099",
+    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "consultar",
+    "datos_extraidos": {
+      "tema_principal": "estrés",
+      "sentimiento": "neutral",
+      "urgencia": "baja"
+    }
+  },
+  {
+    "correo": "patricia.ruiz@gmail.com",
+    "context_id": "ctx-023bd016",
+    "fecha": "2025-11-05T06:47:24.525104",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "quejarse",
+    "datos_extraidos": {
+      "tema_principal": "sueño",
+      "sentimiento": "neutral",
+      "urgencia": "alta",
       "horas_promedio": 8
     }
   },
   {
-    "correo": "juan.pérez@gmail.com",
-    "context_id": "ctx-1834725a",
-    "fecha": "2025-11-03T04:28:29.026959",
-    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
+    "correo": "laura.sánchez@gmail.com",
+    "context_id": "ctx-db1494cc",
+    "fecha": "2025-11-09T14:47:24.525110",
+    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
     "datos_extraidos": {
-      "tema_principal": "nutrición",
-      "sentimiento": "negativo",
-      "urgencia": "media",
-      "preferencia_alimenticia": "omnívoro"
+      "tema_principal": "medicación",
+      "sentimiento": "neutral",
+      "urgencia": "media"
     }
   },
   {
-    "correo": "pedro.flores@gmail.com",
-    "context_id": "ctx-2fcae73f",
-    "fecha": "2025-11-02T18:28:29.026971",
-    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
+    "correo": "laura.sánchez@gmail.com",
+    "context_id": "ctx-9f060b9d",
+    "fecha": "2025-10-26T15:47:24.525114",
+    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
     "intencion_detectada": "registrar",
     "datos_extraidos": {
-      "tema_principal": "nutrición",
+      "tema_principal": "estrés",
+      "sentimiento": "neutral",
+      "urgencia": "alta"
+    }
+  },
+  {
+    "correo": "laura.sánchez@gmail.com",
+    "context_id": "ctx-8c8a640c",
+    "fecha": "2025-10-26T15:47:24.525118",
+    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "pedir consejo",
+    "datos_extraidos": {
+      "tema_principal": "estrés",
+      "sentimiento": "neutral",
+      "urgencia": "baja"
+    }
+  },
+  {
+    "correo": "fernando.vega@gmail.com",
+    "context_id": "ctx-9481875d",
+    "fecha": "2025-11-09T14:47:24.525124",
+    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "consultar",
+    "datos_extraidos": {
+      "tema_principal": "ejercicio",
       "sentimiento": "negativo",
-      "urgencia": "baja",
-      "preferencia_alimenticia": "vegetariano"
+      "urgencia": "media"
+    }
+  },
+  {
+    "correo": "fernando.vega@gmail.com",
+    "context_id": "ctx-d47e40cb",
+    "fecha": "2025-10-30T14:47:24.525129",
+    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "quejarse",
+    "datos_extraidos": {
+      "tema_principal": "ejercicio",
+      "sentimiento": "neutral",
+      "urgencia": "baja"
     }
   },
   {
     "correo": "diego.morales@utec.edu.pe",
-    "context_id": "ctx-e0571aff",
-    "fecha": "2025-10-31T18:28:29.026982",
+    "context_id": "ctx-116f2265",
+    "fecha": "2025-11-13T19:47:24.525133",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "sueño",
+      "sentimiento": "positivo",
+      "urgencia": "baja",
+      "horas_promedio": 9
+    }
+  },
+  {
+    "correo": "andrés.silva@outlook.com",
+    "context_id": "ctx-582e4e10",
+    "fecha": "2025-11-10T11:47:24.525139",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "sueño",
+      "sentimiento": "negativo",
+      "urgencia": "alta",
+      "horas_promedio": 7
+    }
+  },
+  {
+    "correo": "andrés.silva@outlook.com",
+    "context_id": "ctx-8df53081",
+    "fecha": "2025-11-08T23:47:24.525144",
+    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "quejarse",
+    "datos_extraidos": {
+      "tema_principal": "ejercicio",
+      "sentimiento": "positivo",
+      "urgencia": "media"
+    }
+  },
+  {
+    "correo": "andrés.silva@outlook.com",
+    "context_id": "ctx-93538552",
+    "fecha": "2025-10-31T01:47:24.525148",
     "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
+    "intencion_detectada": "pedir consejo",
     "datos_extraidos": {
       "tema_principal": "estrés",
       "sentimiento": "positivo",
@@ -100,21 +344,172 @@
     }
   },
   {
-    "correo": "diego.morales@utec.edu.pe",
-    "context_id": "ctx-4047864e",
-    "fecha": "2025-10-28T22:28:29.026991",
+    "correo": "andrés.silva@outlook.com",
+    "context_id": "ctx-5200fd08",
+    "fecha": "2025-11-05T18:47:24.525153",
+    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "quejarse",
+    "datos_extraidos": {
+      "tema_principal": "medicación",
+      "sentimiento": "neutral",
+      "urgencia": "alta"
+    }
+  },
+  {
+    "correo": "laura.sánchez@outlook.com",
+    "context_id": "ctx-3394f714",
+    "fecha": "2025-11-22T05:47:24.525157",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "consultar",
+    "datos_extraidos": {
+      "tema_principal": "sueño",
+      "sentimiento": "negativo",
+      "urgencia": "media",
+      "horas_promedio": 5
+    }
+  },
+  {
+    "correo": "laura.sánchez@outlook.com",
+    "context_id": "ctx-0d2a0313",
+    "fecha": "2025-11-15T20:47:24.525162",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "sueño",
+      "sentimiento": "positivo",
+      "urgencia": "media",
+      "horas_promedio": 9
+    }
+  },
+  {
+    "correo": "laura.sánchez@outlook.com",
+    "context_id": "ctx-09c17de2",
+    "fecha": "2025-11-07T02:47:24.525167",
+    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "quejarse",
+    "datos_extraidos": {
+      "tema_principal": "nutrición",
+      "sentimiento": "neutral",
+      "urgencia": "baja",
+      "preferencia_alimenticia": "omnívoro"
+    }
+  },
+  {
+    "correo": "carlos.lópez@outlook.com",
+    "context_id": "ctx-6497ccc6",
+    "fecha": "2025-10-23T18:47:24.525172",
+    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "medicación",
+      "sentimiento": "positivo",
+      "urgencia": "media"
+    }
+  },
+  {
+    "correo": "carlos.lópez@outlook.com",
+    "context_id": "ctx-c97e1677",
+    "fecha": "2025-11-22T06:47:24.525177",
+    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "estrés",
+      "sentimiento": "positivo",
+      "urgencia": "media"
+    }
+  },
+  {
+    "correo": "carlos.lópez@outlook.com",
+    "context_id": "ctx-e5e30ae9",
+    "fecha": "2025-11-02T15:47:24.525182",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "consultar",
+    "datos_extraidos": {
+      "tema_principal": "sueño",
+      "sentimiento": "neutral",
+      "urgencia": "baja",
+      "horas_promedio": 5
+    }
+  },
+  {
+    "correo": "carlos.lópez@outlook.com",
+    "context_id": "ctx-55d07b32",
+    "fecha": "2025-11-19T18:47:24.525186",
     "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
     "intencion_detectada": "consultar",
     "datos_extraidos": {
       "tema_principal": "medicación",
-      "sentimiento": "negativo",
-      "urgencia": "baja"
+      "sentimiento": "positivo",
+      "urgencia": "media"
     }
   },
   {
-    "correo": "diego.morales@utec.edu.pe",
-    "context_id": "ctx-9d6f823d",
-    "fecha": "2025-11-01T05:28:29.026999",
+    "correo": "carlos.lópez@outlook.com",
+    "context_id": "ctx-e7f734f5",
+    "fecha": "2025-11-18T12:47:24.525190",
+    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "consultar",
+    "datos_extraidos": {
+      "tema_principal": "estrés",
+      "sentimiento": "negativo",
+      "urgencia": "alta"
+    }
+  },
+  {
+    "correo": "magali.flores@gmail.com",
+    "context_id": "ctx-420a15f3",
+    "fecha": "2025-11-10T04:47:24.525198",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "quejarse",
+    "datos_extraidos": {
+      "tema_principal": "sueño",
+      "sentimiento": "neutral",
+      "urgencia": "baja",
+      "horas_promedio": 9
+    }
+  },
+  {
+    "correo": "magali.flores@gmail.com",
+    "context_id": "ctx-a2250a45",
+    "fecha": "2025-10-29T08:47:24.525282",
+    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "consultar",
+    "datos_extraidos": {
+      "tema_principal": "medicación",
+      "sentimiento": "neutral",
+      "urgencia": "media"
+    }
+  },
+  {
+    "correo": "magali.flores@gmail.com",
+    "context_id": "ctx-fceff381",
+    "fecha": "2025-11-19T08:47:24.525289",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "pedir consejo",
+    "datos_extraidos": {
+      "tema_principal": "sueño",
+      "sentimiento": "positivo",
+      "urgencia": "media",
+      "horas_promedio": 6
+    }
+  },
+  {
+    "correo": "isabel.ramírez@outlook.com",
+    "context_id": "ctx-8e08ce10",
+    "fecha": "2025-10-31T13:47:24.525295",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "consultar",
+    "datos_extraidos": {
+      "tema_principal": "sueño",
+      "sentimiento": "negativo",
+      "urgencia": "media",
+      "horas_promedio": 7
+    }
+  },
+  {
+    "correo": "isabel.ramírez@outlook.com",
+    "context_id": "ctx-3e94cda3",
+    "fecha": "2025-11-01T07:47:24.525300",
     "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
     "intencion_detectada": "consultar",
     "datos_extraidos": {
@@ -125,838 +520,199 @@
     }
   },
   {
-    "correo": "diego.morales@utec.edu.pe",
-    "context_id": "ctx-0975c7da",
-    "fecha": "2025-11-04T20:28:29.027014",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "quejarse",
-    "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "neutral",
-      "urgencia": "media"
-    }
-  },
-  {
-    "correo": "diego.morales@utec.edu.pe",
-    "context_id": "ctx-562109ef",
-    "fecha": "2025-10-26T15:28:29.027023",
-    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
-    "datos_extraidos": {
-      "tema_principal": "nutrición",
-      "sentimiento": "negativo",
-      "urgencia": "media",
-      "preferencia_alimenticia": "omnívoro"
-    }
-  },
-  {
-    "correo": "maría.garcía@utec.edu.pe",
-    "context_id": "ctx-899ee08d",
-    "fecha": "2025-10-23T10:28:29.027034",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "quejarse",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "positivo",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "maría.garcía@utec.edu.pe",
-    "context_id": "ctx-1fa90ba5",
-    "fecha": "2025-10-23T18:28:29.027042",
-    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "estrés",
-      "sentimiento": "positivo",
-      "urgencia": "baja"
-    }
-  },
-  {
-    "correo": "maría.garcía@utec.edu.pe",
-    "context_id": "ctx-89b4706e",
-    "fecha": "2025-11-17T12:28:29.027051",
-    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "quejarse",
-    "datos_extraidos": {
-      "tema_principal": "estrés",
-      "sentimiento": "neutral",
-      "urgencia": "media"
-    }
-  },
-  {
-    "correo": "carmen.fernández@utec.edu.pe",
-    "context_id": "ctx-ecfc34d6",
-    "fecha": "2025-11-15T14:28:29.027059",
-    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
-    "datos_extraidos": {
-      "tema_principal": "nutrición",
-      "sentimiento": "neutral",
-      "urgencia": "baja",
-      "preferencia_alimenticia": "vegetariano"
-    }
-  },
-  {
-    "correo": "carmen.fernández@utec.edu.pe",
-    "context_id": "ctx-f3525867",
-    "fecha": "2025-11-12T04:28:29.027068",
-    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "quejarse",
-    "datos_extraidos": {
-      "tema_principal": "estrés",
-      "sentimiento": "positivo",
-      "urgencia": "baja"
-    }
-  },
-  {
-    "correo": "miguel.torres@gmail.com",
-    "context_id": "ctx-3618e4ac",
-    "fecha": "2025-11-23T00:28:29.027077",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "positivo",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "miguel.torres@gmail.com",
-    "context_id": "ctx-a970e05d",
-    "fecha": "2025-11-18T14:28:29.027085",
-    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "estrés",
-      "sentimiento": "positivo",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "miguel.torres@gmail.com",
-    "context_id": "ctx-60d0d2e2",
-    "fecha": "2025-11-12T13:28:29.027093",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "positivo",
-      "urgencia": "media"
-    }
-  },
-  {
-    "correo": "miguel.torres@gmail.com",
-    "context_id": "ctx-6ea897c8",
-    "fecha": "2025-11-22T07:28:29.027104",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "quejarse",
-    "datos_extraidos": {
-      "tema_principal": "sueño",
-      "sentimiento": "positivo",
-      "urgencia": "baja",
-      "horas_promedio": 5
-    }
-  },
-  {
-    "correo": "miguel.torres@gmail.com",
-    "context_id": "ctx-5546c3c9",
-    "fecha": "2025-11-16T23:28:29.027113",
-    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
-    "datos_extraidos": {
-      "tema_principal": "estrés",
-      "sentimiento": "neutral",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "valentina.ortiz@outlook.com",
-    "context_id": "ctx-0e831105",
-    "fecha": "2025-11-16T01:28:29.027121",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "negativo",
-      "urgencia": "baja"
-    }
-  },
-  {
-    "correo": "valentina.ortiz@outlook.com",
-    "context_id": "ctx-8f476aaf",
-    "fecha": "2025-11-10T04:28:29.027129",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "positivo",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "juan.pérez@utec.edu.pe",
-    "context_id": "ctx-b97bc737",
-    "fecha": "2025-11-03T05:28:29.027138",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "neutral",
-      "urgencia": "baja"
-    }
-  },
-  {
-    "correo": "juan.pérez@utec.edu.pe",
-    "context_id": "ctx-64367e12",
-    "fecha": "2025-11-15T13:28:29.027146",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "neutral",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "juan.pérez@utec.edu.pe",
-    "context_id": "ctx-c787b4ef",
-    "fecha": "2025-11-20T11:28:29.027155",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "positivo",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "carmen.fernández@outlook.com",
-    "context_id": "ctx-a7fb923e",
-    "fecha": "2025-10-31T06:28:29.027166",
-    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "estrés",
-      "sentimiento": "positivo",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "carmen.fernández@outlook.com",
-    "context_id": "ctx-c5648e6c",
-    "fecha": "2025-11-13T15:28:29.027175",
-    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "nutrición",
-      "sentimiento": "neutral",
-      "urgencia": "baja",
-      "preferencia_alimenticia": "vegetariano"
-    }
-  },
-  {
-    "correo": "camila.rojas@utec.edu.pe",
-    "context_id": "ctx-db3fb385",
-    "fecha": "2025-11-02T18:28:29.027184",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
-    "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "negativo",
-      "urgencia": "baja"
-    }
-  },
-  {
-    "correo": "camila.rojas@utec.edu.pe",
-    "context_id": "ctx-140b7141",
-    "fecha": "2025-11-08T12:28:29.027192",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "sueño",
-      "sentimiento": "negativo",
-      "urgencia": "media",
-      "horas_promedio": 6
-    }
-  },
-  {
-    "correo": "camila.rojas@utec.edu.pe",
-    "context_id": "ctx-621210df",
-    "fecha": "2025-11-07T13:28:29.027200",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "sueño",
-      "sentimiento": "positivo",
-      "urgencia": "alta",
-      "horas_promedio": 9
-    }
-  },
-  {
-    "correo": "camila.rojas@utec.edu.pe",
-    "context_id": "ctx-1ebaa216",
-    "fecha": "2025-11-07T07:28:29.027209",
-    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "nutrición",
-      "sentimiento": "negativo",
-      "urgencia": "alta",
-      "preferencia_alimenticia": "omnívoro"
-    }
-  },
-  {
-    "correo": "camila.rojas@utec.edu.pe",
-    "context_id": "ctx-ce24c068",
-    "fecha": "2025-10-27T11:28:29.027218",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "sueño",
-      "sentimiento": "neutral",
-      "urgencia": "baja",
-      "horas_promedio": 8
-    }
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "context_id": "ctx-46b7166a",
-    "fecha": "2025-11-13T16:28:29.027227",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "neutral",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "context_id": "ctx-c2ea3fc9",
-    "fecha": "2025-11-03T02:28:29.027234",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "positivo",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "context_id": "ctx-dd639f0f",
-    "fecha": "2025-11-15T12:28:29.027242",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "quejarse",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "neutral",
-      "urgencia": "baja"
-    }
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "context_id": "ctx-07707b71",
-    "fecha": "2025-11-17T18:28:29.027250",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "positivo",
-      "urgencia": "baja"
-    }
-  },
-  {
-    "correo": "patricia.ruiz@gmail.com",
-    "context_id": "ctx-5e3b62b5",
-    "fecha": "2025-10-24T12:28:29.027258",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "negativo",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "isabel.ramírez@gmail.com",
-    "context_id": "ctx-58498a08",
-    "fecha": "2025-11-17T20:28:29.027270",
+    "correo": "fernando.vega@utec.edu.pe",
+    "context_id": "ctx-f8265c2a",
+    "fecha": "2025-10-27T12:47:24.525307",
     "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
     "intencion_detectada": "quejarse",
     "datos_extraidos": {
       "tema_principal": "nutrición",
-      "sentimiento": "neutral",
+      "sentimiento": "positivo",
       "urgencia": "baja",
       "preferencia_alimenticia": "omnívoro"
-    }
-  },
-  {
-    "correo": "isabel.ramírez@gmail.com",
-    "context_id": "ctx-e048c5a9",
-    "fecha": "2025-10-29T17:28:29.027278",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "sueño",
-      "sentimiento": "neutral",
-      "urgencia": "media",
-      "horas_promedio": 9
-    }
-  },
-  {
-    "correo": "isabel.ramírez@gmail.com",
-    "context_id": "ctx-488d6950",
-    "fecha": "2025-11-09T09:28:29.027288",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "sueño",
-      "sentimiento": "negativo",
-      "urgencia": "media",
-      "horas_promedio": 9
-    }
-  },
-  {
-    "correo": "isabel.ramírez@gmail.com",
-    "context_id": "ctx-b8fabe37",
-    "fecha": "2025-11-11T05:28:29.027297",
-    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "estrés",
-      "sentimiento": "neutral",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "isabel.ramírez@gmail.com",
-    "context_id": "ctx-3c3d65e1",
-    "fecha": "2025-10-23T07:28:29.027307",
-    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "estrés",
-      "sentimiento": "negativo",
-      "urgencia": "media"
-    }
-  },
-  {
-    "correo": "roberto.díaz@utec.edu.pe",
-    "context_id": "ctx-ac3a8023",
-    "fecha": "2025-10-29T06:28:29.027316",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "sueño",
-      "sentimiento": "negativo",
-      "urgencia": "baja",
-      "horas_promedio": 5
-    }
-  },
-  {
-    "correo": "roberto.díaz@utec.edu.pe",
-    "context_id": "ctx-69c2f2f3",
-    "fecha": "2025-11-22T14:28:29.027324",
-    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "nutrición",
-      "sentimiento": "negativo",
-      "urgencia": "media",
-      "preferencia_alimenticia": "omnívoro"
-    }
-  },
-  {
-    "correo": "isabel.ramírez@outlook.com",
-    "context_id": "ctx-17a7b339",
-    "fecha": "2025-11-02T04:28:29.027333",
-    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "estrés",
-      "sentimiento": "negativo",
-      "urgencia": "media"
-    }
-  },
-  {
-    "correo": "isabel.ramírez@outlook.com",
-    "context_id": "ctx-1e4aad1b",
-    "fecha": "2025-11-14T03:28:29.027341",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "quejarse",
-    "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "neutral",
-      "urgencia": "media"
-    }
-  },
-  {
-    "correo": "isabel.ramírez@outlook.com",
-    "context_id": "ctx-547e7290",
-    "fecha": "2025-11-16T08:28:29.027349",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "negativo",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "laura.sánchez@utec.edu.pe",
-    "context_id": "ctx-7f4bce96",
-    "fecha": "2025-11-11T20:28:29.027357",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
-    "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "negativo",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "carlos.lópez@utec.edu.pe",
-    "context_id": "ctx-cc0d0134",
-    "fecha": "2025-10-28T04:28:29.027366",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "positivo",
-      "urgencia": "baja"
-    }
-  },
-  {
-    "correo": "miguel.torres@outlook.com",
-    "context_id": "ctx-96ca2679",
-    "fecha": "2025-10-30T03:28:29.027376",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "positivo",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "miguel.torres@outlook.com",
-    "context_id": "ctx-b260e700",
-    "fecha": "2025-11-22T21:28:29.027385",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "neutral",
-      "urgencia": "media"
-    }
-  },
-  {
-    "correo": "miguel.torres@outlook.com",
-    "context_id": "ctx-9c0e4cba",
-    "fecha": "2025-11-15T08:28:29.027392",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "quejarse",
-    "datos_extraidos": {
-      "tema_principal": "sueño",
-      "sentimiento": "negativo",
-      "urgencia": "baja",
-      "horas_promedio": 9
-    }
-  },
-  {
-    "correo": "miguel.torres@outlook.com",
-    "context_id": "ctx-e2bdce32",
-    "fecha": "2025-11-04T08:28:29.027401",
-    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "nutrición",
-      "sentimiento": "neutral",
-      "urgencia": "alta",
-      "preferencia_alimenticia": "vegetariano"
     }
   },
   {
     "correo": "fernando.vega@utec.edu.pe",
-    "context_id": "ctx-b46b19ed",
-    "fecha": "2025-11-05T23:28:29.027411",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "quejarse",
-    "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "positivo",
-      "urgencia": "baja"
-    }
-  },
-  {
-    "correo": "fernando.vega@utec.edu.pe",
-    "context_id": "ctx-dc25ae55",
-    "fecha": "2025-11-04T14:28:29.027419",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "quejarse",
-    "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "negativo",
-      "urgencia": "baja"
-    }
-  },
-  {
-    "correo": "laura.sánchez@outlook.com",
-    "context_id": "ctx-c5053dd0",
-    "fecha": "2025-11-17T03:28:29.027427",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
+    "context_id": "ctx-8b5425cf",
+    "fecha": "2025-10-31T19:47:24.525315",
+    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
     "intencion_detectada": "registrar",
     "datos_extraidos": {
-      "tema_principal": "ejercicio",
+      "tema_principal": "nutrición",
       "sentimiento": "positivo",
-      "urgencia": "alta"
+      "urgencia": "media",
+      "preferencia_alimenticia": "keto"
     }
   },
   {
-    "correo": "laura.sánchez@outlook.com",
-    "context_id": "ctx-c6a9fe35",
-    "fecha": "2025-11-06T19:28:29.027434",
+    "correo": "patricia.ruiz@utec.edu.pe",
+    "context_id": "ctx-d13bfec3",
+    "fecha": "2025-11-21T12:47:24.525325",
+    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "consultar",
+    "datos_extraidos": {
+      "tema_principal": "ejercicio",
+      "sentimiento": "positivo",
+      "urgencia": "media"
+    }
+  },
+  {
+    "correo": "patricia.ruiz@utec.edu.pe",
+    "context_id": "ctx-3e1d00a1",
+    "fecha": "2025-10-30T18:47:24.525332",
     "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
     "intencion_detectada": "pedir consejo",
     "datos_extraidos": {
       "tema_principal": "nutrición",
-      "sentimiento": "neutral",
-      "urgencia": "baja",
+      "sentimiento": "positivo",
+      "urgencia": "media",
       "preferencia_alimenticia": "vegetariano"
     }
   },
   {
-    "correo": "laura.sánchez@outlook.com",
-    "context_id": "ctx-41b5d19a",
-    "fecha": "2025-11-16T19:28:29.027441",
-    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "quejarse",
-    "datos_extraidos": {
-      "tema_principal": "estrés",
-      "sentimiento": "positivo",
-      "urgencia": "alta"
-    }
-  },
-  {
-    "correo": "laura.sánchez@outlook.com",
-    "context_id": "ctx-fda24871",
-    "fecha": "2025-10-25T18:28:29.027448",
+    "correo": "patricia.ruiz@utec.edu.pe",
+    "context_id": "ctx-8f496cf9",
+    "fecha": "2025-11-03T12:47:24.525343",
     "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
     "intencion_detectada": "pedir consejo",
     "datos_extraidos": {
       "tema_principal": "sueño",
       "sentimiento": "negativo",
-      "urgencia": "media",
+      "urgencia": "baja",
       "horas_promedio": 4
     }
   },
   {
-    "correo": "laura.sánchez@gmail.com",
-    "context_id": "ctx-09eb8f17",
-    "fecha": "2025-11-05T05:28:29.027455",
-    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
+    "correo": "patricia.ruiz@utec.edu.pe",
+    "context_id": "ctx-3442418b",
+    "fecha": "2025-11-15T03:47:24.525353",
+    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "quejarse",
     "datos_extraidos": {
-      "tema_principal": "nutrición",
-      "sentimiento": "negativo",
-      "urgencia": "baja",
-      "preferencia_alimenticia": "vegetariano"
-    }
-  },
-  {
-    "correo": "laura.sánchez@gmail.com",
-    "context_id": "ctx-33d7b675",
-    "fecha": "2025-11-07T00:28:29.027463",
-    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "estrés",
-      "sentimiento": "positivo",
+      "tema_principal": "medicación",
+      "sentimiento": "neutral",
       "urgencia": "baja"
     }
   },
   {
-    "correo": "laura.sánchez@gmail.com",
-    "context_id": "ctx-52a43a88",
-    "fecha": "2025-11-03T11:28:29.027470",
+    "correo": "patricia.ruiz@utec.edu.pe",
+    "context_id": "ctx-2c952798",
+    "fecha": "2025-11-04T05:47:24.525363",
     "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
-    "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "positivo",
-      "urgencia": "media"
-    }
-  },
-  {
-    "correo": "laura.sánchez@gmail.com",
-    "context_id": "ctx-d8464f63",
-    "fecha": "2025-11-18T09:28:29.027477",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "sueño",
-      "sentimiento": "positivo",
-      "urgencia": "baja",
-      "horas_promedio": 9
-    }
-  },
-  {
-    "correo": "pedro.flores@outlook.com",
-    "context_id": "ctx-d7805f2d",
-    "fecha": "2025-11-13T07:28:29.027486",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
-    "datos_extraidos": {
-      "tema_principal": "medicación",
-      "sentimiento": "negativo",
-      "urgencia": "media"
-    }
-  },
-  {
-    "correo": "magali.flores@outlook.com",
-    "context_id": "ctx-cd2de1c1",
-    "fecha": "2025-11-06T03:28:29.027494",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
+    "intencion_detectada": "quejarse",
     "datos_extraidos": {
       "tema_principal": "ejercicio",
       "sentimiento": "neutral",
-      "urgencia": "media"
+      "urgencia": "baja"
     }
   },
   {
-    "correo": "magali.flores@outlook.com",
-    "context_id": "ctx-45d9bc77",
-    "fecha": "2025-11-22T23:28:29.027503",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "sueño",
-      "sentimiento": "negativo",
-      "urgencia": "alta",
-      "horas_promedio": 8
-    }
-  },
-  {
-    "correo": "magali.flores@outlook.com",
-    "context_id": "ctx-3ceb19a7",
-    "fecha": "2025-11-05T22:28:29.027623",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
+    "correo": "magali.flores@utec.edu.pe",
+    "context_id": "ctx-4485bd0a",
+    "fecha": "2025-10-23T04:47:24.525371",
+    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
     "intencion_detectada": "pedir consejo",
     "datos_extraidos": {
-      "tema_principal": "medicación",
+      "tema_principal": "ejercicio",
+      "sentimiento": "positivo",
+      "urgencia": "alta"
+    }
+  },
+  {
+    "correo": "fernando.vega@outlook.com",
+    "context_id": "ctx-0f949fdb",
+    "fecha": "2025-11-02T03:47:24.525383",
+    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "consultar",
+    "datos_extraidos": {
+      "tema_principal": "ejercicio",
       "sentimiento": "neutral",
       "urgencia": "alta"
     }
   },
   {
-    "correo": "josé.gonzález@outlook.com",
-    "context_id": "ctx-df261430",
-    "fecha": "2025-11-08T23:28:29.027632",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "sueño",
-      "sentimiento": "neutral",
-      "urgencia": "media",
-      "horas_promedio": 7
-    }
-  },
-  {
-    "correo": "josé.gonzález@outlook.com",
-    "context_id": "ctx-9cb41571",
-    "fecha": "2025-11-07T10:28:29.027639",
+    "correo": "fernando.vega@outlook.com",
+    "context_id": "ctx-8f9c0fcf",
+    "fecha": "2025-11-22T19:47:24.525391",
     "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
+    "intencion_detectada": "registrar",
     "datos_extraidos": {
       "tema_principal": "medicación",
-      "sentimiento": "neutral",
+      "sentimiento": "positivo",
       "urgencia": "baja"
     }
   },
   {
-    "correo": "josé.gonzález@outlook.com",
-    "context_id": "ctx-92f9b567",
-    "fecha": "2025-10-28T20:28:29.027646",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
+    "correo": "fernando.vega@outlook.com",
+    "context_id": "ctx-7d40adac",
+    "fecha": "2025-11-09T12:47:24.525396",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
     "intencion_detectada": "consultar",
     "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "positivo",
-      "urgencia": "media"
-    }
-  },
-  {
-    "correo": "josé.gonzález@outlook.com",
-    "context_id": "ctx-d4f442b6",
-    "fecha": "2025-10-27T01:28:29.027658",
-    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "estrés",
-      "sentimiento": "negativo",
-      "urgencia": "baja"
-    }
-  },
-  {
-    "correo": "josé.gonzález@outlook.com",
-    "context_id": "ctx-273d85dd",
-    "fecha": "2025-10-23T08:28:29.027665",
-    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
-      "tema_principal": "estrés",
-      "sentimiento": "positivo",
-      "urgencia": "baja"
-    }
-  },
-  {
-    "correo": "sofía.castro@gmail.com",
-    "context_id": "ctx-c7c00250",
-    "fecha": "2025-11-04T16:28:29.027672",
-    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "registrar",
-    "datos_extraidos": {
-      "tema_principal": "ejercicio",
-      "sentimiento": "negativo",
-      "urgencia": "baja"
-    }
-  },
-  {
-    "correo": "sofía.castro@gmail.com",
-    "context_id": "ctx-299203f6",
-    "fecha": "2025-11-20T11:28:29.027679",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "pedir consejo",
-    "datos_extraidos": {
       "tema_principal": "sueño",
-      "sentimiento": "negativo",
+      "sentimiento": "neutral",
       "urgencia": "alta",
       "horas_promedio": 4
     }
   },
   {
-    "correo": "sofía.castro@gmail.com",
-    "context_id": "ctx-6d6c3c9d",
-    "fecha": "2025-11-10T09:28:29.027686",
+    "correo": "fernando.vega@outlook.com",
+    "context_id": "ctx-0f27bec1",
+    "fecha": "2025-11-08T16:47:24.525401",
+    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "nutrición",
+      "sentimiento": "positivo",
+      "urgencia": "alta",
+      "preferencia_alimenticia": "keto"
+    }
+  },
+  {
+    "correo": "ana.martínez@gmail.com",
+    "context_id": "ctx-3f696466",
+    "fecha": "2025-11-02T12:47:24.525407",
     "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
     "intencion_detectada": "pedir consejo",
     "datos_extraidos": {
       "tema_principal": "sueño",
-      "sentimiento": "neutral",
-      "urgencia": "baja",
+      "sentimiento": "positivo",
+      "urgencia": "media",
       "horas_promedio": 4
     }
   },
   {
-    "correo": "patricia.ruiz@outlook.com",
-    "context_id": "ctx-f19e05ac",
-    "fecha": "2025-10-28T18:28:29.027695",
-    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "correo": "ana.martínez@gmail.com",
+    "context_id": "ctx-7e6648ed",
+    "fecha": "2025-10-27T10:47:24.525415",
+    "resumen_conversacion": "El usuario consultó sobre ejercicio y se le recomendó mejorar sus hábitos.",
     "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "ejercicio",
+      "sentimiento": "negativo",
+      "urgencia": "baja"
+    }
+  },
+  {
+    "correo": "ana.martínez@gmail.com",
+    "context_id": "ctx-aa735e72",
+    "fecha": "2025-11-22T18:47:24.525422",
+    "resumen_conversacion": "El usuario consultó sobre nutrición y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "quejarse",
+    "datos_extraidos": {
+      "tema_principal": "nutrición",
+      "sentimiento": "negativo",
+      "urgencia": "alta",
+      "preferencia_alimenticia": "keto"
+    }
+  },
+  {
+    "correo": "ana.martínez@gmail.com",
+    "context_id": "ctx-409f3de9",
+    "fecha": "2025-10-25T19:47:24.525430",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "pedir consejo",
     "datos_extraidos": {
       "tema_principal": "sueño",
       "sentimiento": "neutral",
@@ -965,15 +721,28 @@
     }
   },
   {
-    "correo": "patricia.ruiz@outlook.com",
-    "context_id": "ctx-a55c8b19",
-    "fecha": "2025-10-25T05:28:29.027702",
-    "resumen_conversacion": "El usuario consultó sobre medicación y se le recomendó mejorar sus hábitos.",
-    "intencion_detectada": "consultar",
+    "correo": "josé.gonzález@outlook.com",
+    "context_id": "ctx-05433337",
+    "fecha": "2025-11-18T12:47:24.525439",
+    "resumen_conversacion": "El usuario consultó sobre estrés y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "quejarse",
     "datos_extraidos": {
-      "tema_principal": "medicación",
+      "tema_principal": "estrés",
       "sentimiento": "positivo",
       "urgencia": "baja"
+    }
+  },
+  {
+    "correo": "josé.gonzález@outlook.com",
+    "context_id": "ctx-f7401593",
+    "fecha": "2025-11-18T15:47:24.525446",
+    "resumen_conversacion": "El usuario consultó sobre sueño y se le recomendó mejorar sus hábitos.",
+    "intencion_detectada": "registrar",
+    "datos_extraidos": {
+      "tema_principal": "sueño",
+      "sentimiento": "positivo",
+      "urgencia": "baja",
+      "horas_promedio": 4
     }
   }
 ]
