@@ -64,7 +64,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"farid.aquino@utec.edu.pe\",\r\n    \"password\": \"Password123!\"\r\n}",
+							"raw": "{\r\n    \"correo\": \"farid.aquino@utec.edu.pe\",\r\n    \"contrasena\": \"Password123!\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -105,7 +105,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"fabricio.lanche@utec.edu.pe\",\r\n  \"password\": \"12Desetiembre!!!\"\r\n}",
+							"raw": "{\r\n  \"correo\": \"fabricio.lanche@utec.edu.pe\",\r\n  \"contrasena\": \"12Desetiembre!!!\",\r\n  \"nombre\": \"Fabricio Lanche\",\r\n  \"sexo\": \"M\",\r\n  \"rol\": \"USER\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

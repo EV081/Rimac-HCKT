@@ -1,212 +1,212 @@
 [
   {
-    "email": "autoridad@utec.edu.pe",
-    "password": "autoridad123",
+    "correo": "autoridad@utec.edu.pe",
+    "contrasena": "autoridad123",
     "nombre": "Autoridad UTEC",
     "sexo": "M",
-    "role": "TUTOR"
+    "rol": "TUTOR"
   },
   {
-    "email": "pedro.flores@gmail.com",
-    "password": "hash_d3a3dd56fc824780",
+    "correo": "pedro.flores@gmail.com",
+    "contrasena": "hash_d3a3dd56fc824780",
     "nombre": "Pedro Flores",
     "sexo": "M",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "luis.rodríguez@gmail.com",
-    "password": "hash_edfb4ad2c5dd4f02",
+    "correo": "luis.rodríguez@gmail.com",
+    "contrasena": "hash_edfb4ad2c5dd4f02",
     "nombre": "Luis Rodríguez",
     "sexo": "F",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "juan.pérez@outlook.com",
-    "password": "hash_b318b917ffbc4d76",
+    "correo": "juan.pérez@outlook.com",
+    "contrasena": "hash_b318b917ffbc4d76",
     "nombre": "Juan Pérez",
     "sexo": "M",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "miguel.torres@utec.edu.pe",
-    "password": "hash_99e35c45d6064593",
+    "correo": "miguel.torres@utec.edu.pe",
+    "contrasena": "hash_99e35c45d6064593",
     "nombre": "Miguel Torres",
     "sexo": "M",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "pedro.flores@utec.edu.pe",
-    "password": "hash_190f0f8807ec4a74",
+    "correo": "pedro.flores@utec.edu.pe",
+    "contrasena": "hash_190f0f8807ec4a74",
     "nombre": "Pedro Flores",
     "sexo": "M",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "patricia.ruiz@outlook.com",
-    "password": "hash_19d7096c64164eac",
+    "correo": "patricia.ruiz@outlook.com",
+    "contrasena": "hash_19d7096c64164eac",
     "nombre": "Patricia Ruiz",
     "sexo": "M",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "patricia.ruiz@gmail.com",
-    "password": "hash_7a8f258020134875",
+    "correo": "patricia.ruiz@gmail.com",
+    "contrasena": "hash_7a8f258020134875",
     "nombre": "Patricia Ruiz",
     "sexo": "F",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "isabel.ramírez@utec.edu.pe",
-    "password": "hash_0f3cbe8ea4314a52",
+    "correo": "isabel.ramírez@utec.edu.pe",
+    "contrasena": "hash_0f3cbe8ea4314a52",
     "nombre": "Isabel Ramírez",
     "sexo": "M",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "laura.sánchez@gmail.com",
-    "password": "hash_4308861fd9a24591",
+    "correo": "laura.sánchez@gmail.com",
+    "contrasena": "hash_4308861fd9a24591",
     "nombre": "Laura Sánchez",
     "sexo": "F",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "fernando.vega@gmail.com",
-    "password": "hash_4d3240194bb44929",
+    "correo": "fernando.vega@gmail.com",
+    "contrasena": "hash_4d3240194bb44929",
     "nombre": "Fernando Vega",
     "sexo": "F",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "diego.morales@utec.edu.pe",
-    "password": "hash_63f84ad9793a4c3b",
+    "correo": "diego.morales@utec.edu.pe",
+    "contrasena": "hash_63f84ad9793a4c3b",
     "nombre": "Diego Morales",
     "sexo": "F",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "roberto.díaz@outlook.com",
-    "password": "hash_66afb17c1ff14299",
+    "correo": "roberto.díaz@outlook.com",
+    "contrasena": "hash_66afb17c1ff14299",
     "nombre": "Roberto Díaz",
     "sexo": "M",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "andrés.silva@outlook.com",
-    "password": "hash_728def4b12b2413d",
+    "correo": "andrés.silva@outlook.com",
+    "contrasena": "hash_728def4b12b2413d",
     "nombre": "Andrés Silva",
     "sexo": "M",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "laura.sánchez@outlook.com",
-    "password": "hash_bad1c790753a4e7a",
+    "correo": "laura.sánchez@outlook.com",
+    "contrasena": "hash_bad1c790753a4e7a",
     "nombre": "Laura Sánchez",
     "sexo": "F",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "carlos.lópez@outlook.com",
-    "password": "hash_5933b924bd044809",
+    "correo": "carlos.lópez@outlook.com",
+    "contrasena": "hash_5933b924bd044809",
     "nombre": "Carlos López",
     "sexo": "M",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "andrés.silva@utec.edu.pe",
-    "password": "hash_67dd7c0978bd472e",
+    "correo": "andrés.silva@utec.edu.pe",
+    "contrasena": "hash_67dd7c0978bd472e",
     "nombre": "Andrés Silva",
     "sexo": "M",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "carmen.fernández@gmail.com",
-    "password": "hash_f5691ba323724901",
+    "correo": "carmen.fernández@gmail.com",
+    "contrasena": "hash_f5691ba323724901",
     "nombre": "Carmen Fernández",
     "sexo": "M",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "magali.flores@gmail.com",
-    "password": "hash_c52f168e3e414b2c",
+    "correo": "magali.flores@gmail.com",
+    "contrasena": "hash_c52f168e3e414b2c",
     "nombre": "Magali Flores",
     "sexo": "M",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "isabel.ramírez@outlook.com",
-    "password": "hash_0064feba6f4048e1",
+    "correo": "isabel.ramírez@outlook.com",
+    "contrasena": "hash_0064feba6f4048e1",
     "nombre": "Isabel Ramírez",
     "sexo": "M",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "miguel.torres@gmail.com",
-    "password": "hash_fb6a21870c3140c0",
+    "correo": "miguel.torres@gmail.com",
+    "contrasena": "hash_fb6a21870c3140c0",
     "nombre": "Miguel Torres",
     "sexo": "F",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "fernando.vega@utec.edu.pe",
-    "password": "hash_f3dc0c6b175847e0",
+    "correo": "fernando.vega@utec.edu.pe",
+    "contrasena": "hash_f3dc0c6b175847e0",
     "nombre": "Fernando Vega",
     "sexo": "M",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "patricia.ruiz@utec.edu.pe",
-    "password": "hash_b49307f3e6714c2e",
+    "correo": "patricia.ruiz@utec.edu.pe",
+    "contrasena": "hash_b49307f3e6714c2e",
     "nombre": "Patricia Ruiz",
     "sexo": "M",
-    "role": "USER"
+    "rol": "USER"
   },
   {
-    "email": "magali.flores@utec.edu.pe",
-    "password": "hash_b9f4a8e77fc54938",
+    "correo": "magali.flores@utec.edu.pe",
+    "contrasena": "hash_b9f4a8e77fc54938",
     "nombre": "Magali Flores",
     "sexo": "M",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "fernando.vega@outlook.com",
-    "password": "hash_8104966087fb4599",
+    "correo": "fernando.vega@outlook.com",
+    "contrasena": "hash_8104966087fb4599",
     "nombre": "Fernando Vega",
     "sexo": "M",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "ana.martínez@gmail.com",
-    "password": "hash_106fce5c71194b1f",
+    "correo": "ana.martínez@gmail.com",
+    "contrasena": "hash_106fce5c71194b1f",
     "nombre": "Ana Martínez",
     "sexo": "M",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "camila.rojas@gmail.com",
-    "password": "hash_0725d1b2b19149fc",
+    "correo": "camila.rojas@gmail.com",
+    "contrasena": "hash_0725d1b2b19149fc",
     "nombre": "Camila Rojas",
     "sexo": "F",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "josé.gonzález@outlook.com",
-    "password": "hash_bad0c901833b46f1",
+    "correo": "josé.gonzález@outlook.com",
+    "contrasena": "hash_bad0c901833b46f1",
     "nombre": "José González",
     "sexo": "F",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "roberto.díaz@gmail.com",
-    "password": "hash_669425e52a824137",
+    "correo": "roberto.díaz@gmail.com",
+    "contrasena": "hash_669425e52a824137",
     "nombre": "Roberto Díaz",
     "sexo": "F",
-    "role": "ADMIN"
+    "rol": "ADMIN"
   },
   {
-    "email": "sofía.castro@utec.edu.pe",
-    "password": "hash_39255af5188c46fe",
+    "correo": "sofía.castro@utec.edu.pe",
+    "contrasena": "hash_39255af5188c46fe",
     "nombre": "Sofía Castro",
     "sexo": "F",
-    "role": "USER"
+    "rol": "USER"
   }
 ]

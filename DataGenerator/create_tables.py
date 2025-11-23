@@ -19,8 +19,6 @@ SCHEMA_MAPPING = {
     "historial_medico.json": os.getenv('TABLE_HISTORIAL_MEDICO', 'HistorialMedico'),
     "usuarios_dependientes.json": os.getenv('TABLE_USUARIOS_DEPENDIENTES', 'UsuariosDependientes'),
     "reglas.json": os.getenv('TABLE_REGLAS', 'Reglas')
-
-
 }
 
 # Definición de tablas sin esquema (creación directa)
