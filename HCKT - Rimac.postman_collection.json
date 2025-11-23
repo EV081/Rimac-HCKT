@@ -11,8 +11,33 @@
 			"name": "API - Recetas",
 			"item": [
 				{
-					"name": "Extraer receta",
+					"name": "Subir Receta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();\r",
+									"pm.collectionVariables.set(\"receta_id\", response.receta_id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -21,21 +46,559 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/Users/ADMIN/Downloads/receta.webp"
+									"src": "/C:/Users/ADMIN/Downloads/receta_3.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{baseUrl_recetas}}/analizar",
+							"raw": "{{baseUrl_recetas}}/recetas",
 							"host": [
 								"{{baseUrl_recetas}}"
 							],
 							"path": [
-								"analizar"
+								"recetas"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Subir Receta",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/ADMIN/Downloads/receta_3.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl_recetas}}/recetas",
+									"host": [
+										"{{baseUrl_recetas}}"
+									],
+									"path": [
+										"recetas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "435"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Nov 2025 08:32:53 GMT"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6922c6a9-0b406c7622f3a4e31ae3f21d;Parent=7c96a1efea7225bc;Sampled=0;Lineage=1:d8a982a1:0"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "8327b92c-ca60-4cd4-b492-1a2fc5aadee2"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "UfP6sHQpIAMEakQ="
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 0ac54f2b9b40b78e8265da4a090ddc16.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LIM50-P3"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "bPn_k1wLFm2_YryT6I6yNGP0AjPBQNGmlRw4BbcIFH77WHfia98eIA=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Receta procesada y guardada exitosamente\",\n    \"receta_id\": \"rec-e947fe49\",\n    \"url_receta\": \"https://recetas-medicas-data-724129139067.s3.amazonaws.com/recetas/farid.aquino@utec.edu.pe/rec-e947fe49.jpg\",\n    \"data\": {\n        \"paciente\": null,\n        \"institucion\": \"RECETA MÉDICA PARA ASISTENCIA SANITARIA PRIVADA\",\n        \"recetas\": [\n            {\n                \"producto\": \"Benstrol\",\n                \"dosis\": \"2 mg\",\n                \"frecuencia_valor\": 2,\n                \"frecuencia_unidad\": \"dia\",\n                \"duracion\": \"2 años\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Listar Recetas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl_recetas}}/recetas",
+							"host": [
+								"{{baseUrl_recetas}}"
+							],
+							"path": [
+								"recetas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl_recetas}}/recetas",
+									"host": [
+										"{{baseUrl_recetas}}"
+									],
+									"path": [
+										"recetas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "968"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Nov 2025 08:41:49 GMT"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6922c8cc-74a541313dfb2ab4273155c0;Parent=0cfa43fce19ec9f9;Sampled=0;Lineage=1:5e0052ff:0"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "87e3d392-f1b5-40a0-8430-3fc5b90dd66e"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "UfRQCHk6oAMEnnQ="
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 6661b3e776ac4415519cb7cafc0eecd4.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LIM50-P3"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "LDKGPKc-M1uIoE8aDdajDUOsnTnmuuExtJfHX-ZB5rOXuTX4Sq6CfA=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Recetas obtenidas exitosamente\",\n    \"count\": 2,\n    \"data\": [\n        {\n            \"correo\": \"farid.aquino@utec.edu.pe\",\n            \"recetas\": [\n                {\n                    \"frecuencia_unidad\": \"hora\",\n                    \"duracion\": \"2 años\",\n                    \"producto\": \"Revustrol\",\n                    \"frecuencia_valor\": 24,\n                    \"dosis\": \"2 mg\"\n                }\n            ],\n            \"url_receta\": \"https://recetas-medicas-data-724129139067.s3.amazonaws.com/recetas/farid.aquino@utec.edu.pe/rec-e145691b.jpg\",\n            \"paciente\": null,\n            \"institucion\": \"RECETA MÉDICA PARA ASISTENCIA SANITARIA PRIVADA\",\n            \"fecha_subida\": \"2025-11-23T08:41:33\",\n            \"receta_id\": \"rec-e145691b\"\n        },\n        {\n            \"correo\": \"farid.aquino@utec.edu.pe\",\n            \"recetas\": [\n                {\n                    \"frecuencia_unidad\": \"dia\",\n                    \"duracion\": \"2 años\",\n                    \"producto\": \"Benstrol\",\n                    \"frecuencia_valor\": 2,\n                    \"dosis\": \"2 mg\"\n                }\n            ],\n            \"url_receta\": \"https://recetas-medicas-data-724129139067.s3.amazonaws.com/recetas/farid.aquino@utec.edu.pe/rec-e947fe49.jpg\",\n            \"paciente\": null,\n            \"institucion\": \"RECETA MÉDICA PARA ASISTENCIA SANITARIA PRIVADA\",\n            \"fecha_subida\": \"2025-11-23T08:32:45\",\n            \"receta_id\": \"rec-e947fe49\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Obtener Receta por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl_recetas}}/recetas/:id",
+							"host": [
+								"{{baseUrl_recetas}}"
+							],
+							"path": [
+								"recetas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{receta_id}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obtener Receta por id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl_recetas}}/recetas/:id",
+									"host": [
+										"{{baseUrl_recetas}}"
+									],
+									"path": [
+										"recetas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{receta_id}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "482"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Nov 2025 08:44:59 GMT"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6922c98a-5a04c4a3360eb2bf3e7baa72;Parent=26264a4323a81695;Sampled=0;Lineage=1:198a8557:0"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "3189316e-ce1c-404f-a2ad-33df45d07896"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "UfRtsEuqIAMEUlQ="
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 8592de31dc1915805258099ce67a6ce6.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LIM50-P3"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "WU44eWT9Y0xIIcmU6ojSkKAcHUM_Ck9cjRZN94PuMcPSS59B7Qc09Q=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Receta obtenida exitosamente\",\n    \"data\": {\n        \"correo\": \"farid.aquino@utec.edu.pe\",\n        \"recetas\": [\n            {\n                \"frecuencia_unidad\": \"hora\",\n                \"duracion\": \"2 años\",\n                \"producto\": \"Rerustrol\",\n                \"frecuencia_valor\": 2,\n                \"dosis\": \"2 mg\"\n            }\n        ],\n        \"url_receta\": \"https://recetas-medicas-data-724129139067.s3.amazonaws.com/recetas/farid.aquino@utec.edu.pe/rec-9dab08b6.jpg\",\n        \"paciente\": null,\n        \"institucion\": \"ASISTENCIA SANITARIA PRIVADA\",\n        \"receta_id\": \"rec-9dab08b6\",\n        \"fecha_subida\": \"2025-11-23T08:42:17\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Actualizar Recetas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"paciente\": \"Juan Torres\",\r\n  \"institucion\": \"Clínica Internacional\",\r\n  \"recetas\": [\r\n    {\r\n      \"producto\": \"Amoxicilina 500 mg\",\r\n      \"dosis\": \"500 mg\",\r\n      \"frecuencia_valor\": 12,\r\n      \"frecuencia_unidad\": \"hora\",\r\n      \"duracion\": \"7 días\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl_recetas}}/recetas/:id",
+							"host": [
+								"{{baseUrl_recetas}}"
+							],
+							"path": [
+								"recetas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{receta_id}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"paciente\": \"Juan Torres\",\r\n  \"institucion\": \"Clínica Internacional\",\r\n  \"recetas\": [\r\n    {\r\n      \"producto\": \"Amoxicilina 500 mg\",\r\n      \"dosis\": \"500 mg\",\r\n      \"frecuencia_valor\": 12,\r\n      \"frecuencia_unidad\": \"hora\",\r\n      \"duracion\": \"7 días\"\r\n    }\r\n  ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl_recetas}}/recetas/:id",
+									"host": [
+										"{{baseUrl_recetas}}"
+									],
+									"path": [
+										"recetas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{receta_id}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "500"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Nov 2025 08:49:00 GMT"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6922ca7c-7b16956f715be59e61ad6dde;Parent=40cdf554f19a953a;Sampled=0;Lineage=1:94e7a633:0"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "7bb38632-6444-4c32-989d-cf046f35a478"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "UfSTcEaOIAMEtZw="
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 d68c31c2871039a780113c4f91981f3e.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LIM50-P3"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "UhVlsEmHRQkOwiz9-M2H0giXGlQBYWf8urtbrx-AQWrmK1JmOvvocQ=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Receta actualizada exitosamente\",\n    \"data\": {\n        \"correo\": \"farid.aquino@utec.edu.pe\",\n        \"fecha_subida\": \"2025-11-23T08:45:37\",\n        \"institucion\": \"Clínica Internacional\",\n        \"paciente\": \"Juan Torres\",\n        \"recetas\": [\n            {\n                \"frecuencia_unidad\": \"hora\",\n                \"duracion\": \"7 días\",\n                \"producto\": \"Amoxicilina 500 mg\",\n                \"frecuencia_valor\": 12,\n                \"dosis\": \"500 mg\"\n            }\n        ],\n        \"url_receta\": \"https://recetas-medicas-data-724129139067.s3.amazonaws.com/recetas/farid.aquino@utec.edu.pe/rec-b8b5ab5e.jpg\",\n        \"receta_id\": \"rec-b8b5ab5e\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Eliminar Recetas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl_recetas}}/recetas/:id",
+							"host": [
+								"{{baseUrl_recetas}}"
+							],
+							"path": [
+								"recetas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{receta_id}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl_recetas}}/recetas/:id",
+									"host": [
+										"{{baseUrl_recetas}}"
+									],
+									"path": [
+										"recetas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{receta_id}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Nov 2025 08:45:15 GMT"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6922c99b-6445cabe54069315582cfa59;Parent=09be4e4588fb0b0a;Sampled=0;Lineage=1:1422a77b:0"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "0727f4a1-5ee7-4ad8-8049-7d09bf645cdf"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "UfRwWGQhoAMEXXA="
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 8592de31dc1915805258099ce67a6ce6.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LIM50-P3"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "pO3EeoIAUH32lOuElkM9Hc-q6LG3yzKJmm2QGqOfNStIwTDqGQfNBg=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Receta eliminada exitosamente\",\n    \"receta_id\": \"rec-9dab08b6\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -81,7 +644,92 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Login Usuario",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"correo\": \"farid.aquino@utec.edu.pe\",\r\n    \"contrasena\": \"Password123!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl_registro}}/login",
+									"host": [
+										"{{baseUrl_registro}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2323"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Nov 2025 08:50:00 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "f031b13a-5388-4eab-a11c-6086ca7234ad"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "UfScyE0cIAMEqFg="
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6922cab7-76730dc97c78b83f611c5885;Parent=377762c82a78f09c;Sampled=0;Lineage=1:2decfcf3:0"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 0b63381bca90b6d116f0766778be6bb2.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LIM50-P1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "6azxC6t3-kCoIwM-QL8UUPq_1zWH46qSMR2lrK3Gbax9ponZLmfBfg=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Login exitoso\",\n    \"usuario\": {\n        \"correo\": \"farid.aquino@utec.edu.pe\",\n        \"nombre\": \"\",\n        \"sexo\": \"\",\n        \"rol\": \"USER\"\n    },\n    \"access_token\": \"eyJraWQiOiJuMVVGeTJoRlZDXC9rREJjbitpcGpxRWFoSDVzWm5JUkpiUEJUSEJJZnFcLzQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJlNGQ4OTRiOC1kMDExLTcwNjktYWYzYS1jMDE0MGY1YmUzODEiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9DYkR5aEFjcUUiLCJjbGllbnRfaWQiOiIzc3JwYjFoNXMzbzZkMmE1cXU0YnZvb21xOSIsIm9yaWdpbl9qdGkiOiI2YWJhMjA3Yi1jYmI4LTQzNDgtOTJlZS00ZDM3NjAxZjdlOWIiLCJldmVudF9pZCI6IjFhZjg1ZDVmLWQxY2MtNDUxZS04YWI3LTI3MjQxMmE1MmRlNiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3NjM4ODc4MDAsImV4cCI6MTc2Mzg5MTQwMCwiaWF0IjoxNzYzODg3ODAwLCJqdGkiOiIxZDA3YjRlMy0yN2VmLTQ2M2MtODBkOS0yMjMwZTFjNzA2M2QiLCJ1c2VybmFtZSI6ImU0ZDg5NGI4LWQwMTEtNzA2OS1hZjNhLWMwMTQwZjViZTM4MSJ9.Lbx200T-fE3HGG0ZeyUq5b-a_pvfdDaJ5qOY85NThi2aAqqaZHcnrER0GgU3dcvtQRSp8tF6PTTJh6qIN4JCt6sSSAtXBpIyMJPT2tmNf8F7YdFFyjxuu5eo8bQljUCFMz2mNuAgLWZCWcmR1ul0f1EAkDWrKsbNyqK-gjGaJEXxMBIF8RtyS5jDZTQl6ytymtPI1z9O9kG6m0nKRqW7USA16lelokBvXmciC4Q9GKs0p-M9W89bO5DASoug077gG0vD0S-QCKJtpChwVZ4phJULrgYsd8n01164MguxDrWUkR3_Ya0Y2Lg4HBU1vcePEys1ioJfaYqTk4y0WVi1-w\",\n    \"id_token\": \"eyJraWQiOiI0dktyRkMxVGFxSyt2SVFSYmRySkxwYXNFQ0huYjdFdmJHWnhGYTJhVzNJPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJlNGQ4OTRiOC1kMDExLTcwNjktYWYzYS1jMDE0MGY1YmUzODEiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX0NiRHloQWNxRSIsImNvZ25pdG86dXNlcm5hbWUiOiJlNGQ4OTRiOC1kMDExLTcwNjktYWYzYS1jMDE0MGY1YmUzODEiLCJvcmlnaW5fanRpIjoiNmFiYTIwN2ItY2JiOC00MzQ4LTkyZWUtNGQzNzYwMWY3ZTliIiwiYXVkIjoiM3NycGIxaDVzM282ZDJhNXF1NGJ2b29tcTkiLCJldmVudF9pZCI6IjFhZjg1ZDVmLWQxY2MtNDUxZS04YWI3LTI3MjQxMmE1MmRlNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzYzODg3ODAwLCJleHAiOjE3NjM4OTE0MDAsImlhdCI6MTc2Mzg4NzgwMCwianRpIjoiMmQyOTA5ODQtNmFkOS00MmIxLTg2MDMtNGVhYzk4OTAxMTVkIiwiZW1haWwiOiJmYXJpZC5hcXVpbm9AdXRlYy5lZHUucGUifQ.Zz0TFwRim5UAmP4W6bdoX1KDO29IE2qR5rlXRDjk9lNk43qmtuKPdA1KvOlOVHM0vafLwswVR1ZSM149Hi_eFF5M7O4T4DIw3K25IzvLeGwax7dx0ptAIcR0t4WlUcEWiJXeRQdslUJig2rFy9kLSmi6qqoea3Qi6YQ3btxSx7bL51k2jvnO0BDVtB1p96S1gXHAX4fcVZWsXK3lZsnP4Hh6NPgKwi8s64lExL3fmHuKsu-v87RAQUjqjnUll8BspUnJ_deXNJc9ITx_Yl8UMVBzTyB8GhQbs8LCtFSxiv_Bu4L4Q4qDWIZmrFktjwMvoN0pLPAjtkmZETGix3b_xw\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Registro",
@@ -105,7 +753,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"correo\": \"fabricio.lanche@utec.edu.pe\",\r\n  \"contrasena\": \"12Desetiembre!!!\",\r\n  \"nombre\": \"Fabricio Lanche\",\r\n  \"sexo\": \"M\",\r\n  \"rol\": \"USER\"\r\n}",
+							"raw": "{\r\n  \"correo\": \"fabricio.lanche@utec.edu.pe.SU\",\r\n  \"nombre\": \"Fabricio Alonso\",\r\n  \"sexo\": \"M\",\r\n  \"contrasena\": \"12Desetiembre!!!\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -122,7 +770,92 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Registro",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"correo\": \"fabricio.lanche@utec.edu.pe.SU\",\r\n  \"nombre\": \"Fabricio Alonso\",\r\n  \"sexo\": \"M\",\r\n  \"contrasena\": \"12Desetiembre!!!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl_registro}}/register",
+									"host": [
+										"{{baseUrl_registro}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2382"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Nov 2025 08:51:19 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "39968f0f-3432-419f-a03a-a6915e28dcd4"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "UfSpBHpIoAMEpVQ="
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6922cb06-03ddd5ae27487a7c20013ac4;Parent=20cb904888947180;Sampled=0;Lineage=1:1f92d88e:0"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 0b63381bca90b6d116f0766778be6bb2.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LIM50-P1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "7hp1_UFGe2fbULxCuJsYrOMe5sc8SFp1tf1imqNOOb3bwiNCuCfrIQ=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Registro completado. Sesión iniciada.\",\n    \"usuario\": {\n        \"correo\": \"fabricio.lanche@utec.edu.pe.SU\",\n        \"nombre\": \"Fabricio Alonso\",\n        \"sexo\": \"M\",\n        \"rol\": \"USER\"\n    },\n    \"access_token\": \"eyJraWQiOiJuMVVGeTJoRlZDXC9rREJjbitpcGpxRWFoSDVzWm5JUkpiUEJUSEJJZnFcLzQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI4NGY4NDQzOC01MDYxLTcwMWEtNmFlYi1iYzQwYjk5MzgzNzQiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9DYkR5aEFjcUUiLCJjbGllbnRfaWQiOiIzc3JwYjFoNXMzbzZkMmE1cXU0YnZvb21xOSIsIm9yaWdpbl9qdGkiOiIyYWYxNjExMy1kY2FhLTQyNDAtYjM3Mi0zZTc4Yzc5ODY3ZGUiLCJldmVudF9pZCI6IjBhNTg5OWNiLWU1ZjItNDg2NC1iZWMwLTY4NDMwMjMyMjVjZSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3NjM4ODc4NzksImV4cCI6MTc2Mzg5MTQ3OSwiaWF0IjoxNzYzODg3ODc5LCJqdGkiOiIyNjJiNjZlMi00NmY2LTRhYjEtYWVjMS1iYWQxYmY1MWNhM2MiLCJ1c2VybmFtZSI6Ijg0Zjg0NDM4LTUwNjEtNzAxYS02YWViLWJjNDBiOTkzODM3NCJ9.M4OGBqVA0aEU-0uKhRoEha4_xoG6R41rR5OQyqAG4CbflmzkdLzCXJicEII3EJSGoO_rwH_UGvtkWTSuk4_2YTuFS_dJup2Tl_X3eB6GBwGY1z4UuIfOSvpLp0aOLv0mbOTwvhvc8UoPB4pK-CZehFiPtBgM62XmTE7tVWOOlbHI9JqzhmhEJFBFmUOUbEUR1cVXizMUA5IEv6xsMPBdxnRJeg5lM-EO-eOv6TQpJ50UiShquzO1Axi7AEF584u8dUVvLJlTRL51Svw9lpPpSe4lsi3is0I4wNxGRN4-P-kEGEMPmtg4_XrxOeC2CLlx-jT6OxBZNO21N-MHco9JTg\",\n    \"id_token\": \"eyJraWQiOiI0dktyRkMxVGFxSyt2SVFSYmRySkxwYXNFQ0huYjdFdmJHWnhGYTJhVzNJPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI4NGY4NDQzOC01MDYxLTcwMWEtNmFlYi1iYzQwYjk5MzgzNzQiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX0NiRHloQWNxRSIsImNvZ25pdG86dXNlcm5hbWUiOiI4NGY4NDQzOC01MDYxLTcwMWEtNmFlYi1iYzQwYjk5MzgzNzQiLCJvcmlnaW5fanRpIjoiMmFmMTYxMTMtZGNhYS00MjQwLWIzNzItM2U3OGM3OTg2N2RlIiwiYXVkIjoiM3NycGIxaDVzM282ZDJhNXF1NGJ2b29tcTkiLCJldmVudF9pZCI6IjBhNTg5OWNiLWU1ZjItNDg2NC1iZWMwLTY4NDMwMjMyMjVjZSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzYzODg3ODc5LCJleHAiOjE3NjM4OTE0NzksImlhdCI6MTc2Mzg4Nzg3OSwianRpIjoiYjdiMjc3MmYtNTJkMy00M2M4LWI3NjEtNDZjNTI2YTIxZTU2IiwiZW1haWwiOiJmYWJyaWNpby5sYW5jaGVAdXRlYy5lZHUucGUuU1UifQ.h-V-S3ym0d4EFSr17PxR0T95ZtqRWfzQdJZuEknc3pqFQ05MJHI2MeoREL9mv_eEwuu__ITEvd6Xy8OaCkFvh7WnT1M0jirUUBOtkrucEFn4e8GbRAJ7Hr_pBhJca20WRjVy0rsfw5lHYn1plWPGP33Zi83PcYOOpQKHoleK13hmmKWqci2W4Wg3MjZjLr3CA3gC39TAFBIzwmm-3JRuX2WhVdOtZsGM1YxucJFaOt-QUyX-Rl8F0dNTKie0nO4-s1LfnnHe73plScJzgyaXeNov7BsKqRhAY_38pTOW0mD3xyUQMxLurOVWKE6VcvmQ4ClcrKHjJvmBCvQuV-edaw\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -170,6 +903,10 @@
 		},
 		{
 			"key": "userToken",
+			"value": ""
+		},
+		{
+			"key": "receta_id",
 			"value": ""
 		}
 	]
