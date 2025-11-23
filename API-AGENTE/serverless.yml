@@ -1,0 +1,66 @@
+service: api-agente
+
+provider:
+  name: aws
+  runtime: python3.12
+  memorySize: 512
+  timeout: 60
+  region: us-east-1
+  stage: ${param:stage}
+
+  environment:
+    GEMINI_API_KEY: ${env:GEMINI_API_KEY}
+    TABLE_USUARIOS: ${env:TABLE_USUARIOS}
+    TABLE_SERVICIOS: ${env:TABLE_SERVICIOS}
+    TABLE_MEMORIA_CONTEXTUAL: ${env:TABLE_MEMORIA_CONTEXTUAL}
+    TABLE_HISTORIAL_MEDICO: ${env:TABLE_HISTORIAL_MEDICO}
+    ORG_NAME: ${env:ORG_NAME}
+
+  role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/LabRole
+
+plugins:
+  - serverless-python-requirements
+
+functions:
+  iniciarAgente:
+    handler: agenteIniciar.iniciarAgente
+    events:
+      - http:
+          path: agente/iniciar
+          method: post
+          cors: true
+  
+  actualizarMemoria:
+    handler: actualizarMemoria.actualizarMemoria
+    events:
+      - http:
+          path: agente/memoria
+          method: post
+          cors: true
+
+  actualizarHistorial:
+    handler: actualizarHistorial.actualizarHistorial
+    events:
+      - http:
+          path: agente/historial
+          method: post
+          cors: true
+
+package:
+  patterns:
+    - '!.venv/**'
+    - '!node_modules/**'
+    - '!.serverless/**'
+    - '!__pycache__/**'
+    - '!*.pyc'
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    dockerImage: public.ecr.aws/sam/build-python3.12:latest
+    slim: true
+    useDownloadCache: false
+    useStaticCache: false
+    invalidateCaches: true
+    pipCmdExtraArgs:
+      - '--no-cache-dir'
