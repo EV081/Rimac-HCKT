@@ -18,6 +18,12 @@ provider:
 
   role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/LabRole
 
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - cognito-idp:GetUser
+      Resource: "*"
+
 plugins:
   - serverless-python-requirements
 
