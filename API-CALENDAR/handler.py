@@ -237,19 +237,18 @@ def create_recurring_event(event, context):
         # ESTRATEGIA B: POR FRECUENCIA (Forzamos UTC y TimeZone UTC)
         # ==============================================================================
         else:
-            # Convertimos "Ahora" a UTC puro
-            start_utc = lima_now.astimezone(pytz.utc)
-            end_utc = start_utc + timedelta(minutes=15)
+
+            lima_now = datetime.now(lima_tz).replace(second=0, microsecond=0)
+            start_dt = lima_now
+            end_dt = start_dt + timedelta(minutes=10)
             
-            # CORRECCIÓN: Agregamos 'timeZone': 'UTC' explícitamente.
-            # Al usar UTC + COUNT (calculado abajo), Google acepta la regla sin problemas.
             start_payload = {
-                'dateTime': start_utc.strftime('%Y-%m-%dT%H:%M:%SZ'),
-                'timeZone': 'UTC' 
+                'dateTime': start_dt.isoformat(),
+                'timeZone': 'America/Lima'
             }
             end_payload = {
-                'dateTime': end_utc.strftime('%Y-%m-%dT%H:%M:%SZ'),
-                'timeZone': 'UTC'
+                'dateTime': end_dt.isoformat(),
+                'timeZone': 'America/Lima'
             }
             
             freq_map = {'Horas': 'HOURLY', 'Dias': 'DAILY'}
@@ -257,7 +256,6 @@ def create_recurring_event(event, context):
             
             description += f"\nTomar cada {frecuencia} {medicion_frecuencia}."
             
-            # CÁLCULO DE COUNT (Matemática para evitar error de UNTIL en Hourly)
             count = 1
             if medicion_duracion == 'Dias':
                 total_horas = duracion * 24
@@ -272,7 +270,12 @@ def create_recurring_event(event, context):
                 count = math.ceil(total_horas / frecuencia)
             
             if count < 1: count = 1
-            recurrence_rule = [f'RRULE:FREQ={rrule_freq};INTERVAL={frecuencia};COUNT={int(count)}']
+
+            recurrence_rule = []
+            if (medicion_frecuencia == 'Horas'):
+                recurrence_rule = [f'RRULE:FREQ=HOURLY;INTERVAL=8;COUNT=6']
+            else:
+                recurrence_rule = [f'RRULE:FREQ=DAILY;INTERVAL={frecuencia};COUNT={int(count)}']
 
         print(f"DEBUG RRULE: {recurrence_rule}")
         print(f"DEBUG START PAYLOAD: {start_payload}")
