@@ -221,7 +221,7 @@ def iniciarAgente(event, context):
         
         # 6. Llamar a Gemini
         response = client.models.generate_content(
-            model="gemini-2.0-flash-exp",
+            model="gemini-2.5-flash",
             contents=f"{system_instruction}\n\nUsuario: {mensaje}\nAsistente:"
         )
         
