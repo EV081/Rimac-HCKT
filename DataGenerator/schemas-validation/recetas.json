@@ -3,14 +3,22 @@
   "title": "Recetas",
   "type": "object",
   "x-dynamodb": {
-    "partition_key": "receta_id"
+    "partition_key": "correo",
+    "sort_key": "receta_id"
   },
   "properties": {
+    "correo": {
+      "type": "string",
+      "format": "email"
+    },
     "receta_id": {
       "type": "string"
     },
     "paciente": {
-      "type": "string"
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "institucion": {
       "type": "string"
@@ -24,28 +32,36 @@
             "type": "string"
           },
           "dosis": {
-            "type": ["string", "null"]
+            "type": [
+              "string",
+              "null"
+            ]
           },
-          "frecuencia": {
+          "frecuencia_valor": {
             "type": "integer"
           },
-          "medicion_frecuencia": {
-            "type": "string",
-            "enum": ["dias", "horas", "meses"]
+          "frecuencia_unidad": {
+            "type": "string"
           },
           "duracion": {
-            "type": "integer"
-          },
-          "duracion_frecuencia": {
-            "type": "string",
-            "enum": ["dias", "horas", "meses"]
+            "type": "string"
           }
         },
-        "required": ["producto", "frecuencia", "medicion_frecuencia", "duracion", "duracion_frecuencia"],
+        "required": [
+          "producto",
+          "frecuencia_valor",
+          "frecuencia_unidad",
+          "duracion"
+        ],
         "additionalProperties": false
       }
     }
   },
-  "required": ["receta_id", "paciente", "institucion", "recetas"],
+  "required": [
+    "correo",
+    "receta_id",
+    "institucion",
+    "recetas"
+  ],
   "additionalProperties": false
 }

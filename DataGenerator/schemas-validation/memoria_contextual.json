@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Memoria Contextual",
+    "type": "object",
+    "x-dynamodb": {
+        "partition_key": "correo",
+        "sort_key": "context_id"
+    },
+    "properties": {
+        "correo": {
+            "type": "string",
+            "format": "email"
+        },
+        "context_id": {
+            "type": "string"
+        },
+        "fecha": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "resumen_conversacion": {
+            "type": "string"
+        },
+        "intencion_detectada": {
+            "type": "string"
+        },
+        "datos_extraidos": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "correo",
+        "context_id",
+        "fecha",
+        "resumen_conversacion"
+    ],
+    "additionalProperties": false
+}

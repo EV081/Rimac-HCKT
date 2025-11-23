@@ -1,0 +1,61 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Historial Medico",
+    "type": "object",
+    "x-dynamodb": {
+        "partition_key": "correo",
+        "sort_key": "fecha"
+    },
+    "properties": {
+        "correo": {
+            "type": "string",
+            "format": "email"
+        },
+        "fecha": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "wearables": {
+            "type": "object",
+            "properties": {
+                "pasos": {
+                    "type": "integer"
+                },
+                "ritmo_cardiaco": {
+                    "type": "integer"
+                },
+                "horas_de_sueno": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "pasos",
+                "ritmo_cardiaco",
+                "horas_de_sueno"
+            ],
+            "additionalProperties": false
+        },
+        "sensores": {
+            "type": "object",
+            "properties": {
+                "pasos": {
+                    "type": "integer"
+                },
+                "horas_de_sueno": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "pasos",
+                "horas_de_sueno"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "required": [
+        "correo",
+        "fecha",
+        "sensores"
+    ],
+    "additionalProperties": false
+}

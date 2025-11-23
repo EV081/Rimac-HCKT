@@ -14,7 +14,9 @@ dynamodb = boto3.client('dynamodb', region_name=AWS_REGION)
 SCHEMA_MAPPING = {
     "recetas.json": os.getenv('TABLE_RECETAS', 'Recetas'),
     "servicios.json": os.getenv('TABLE_SERVICIOS', 'Servicios'),
-    "usuarios.json": os.getenv('TABLE_USUARIOS', 'Usuarios')
+    "usuarios.json": os.getenv('TABLE_USUARIOS', 'Usuarios'),
+    "memoria_contextual.json": os.getenv('TABLE_MEMORIA_CONTEXTUAL', 'MemoriaContextual'),
+    "historial_medico.json": os.getenv('TABLE_HISTORIAL_MEDICO', 'HistorialMedico')
 }
 
 SCHEMAS_DIR = "schemas-validation"

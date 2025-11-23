@@ -24,6 +24,8 @@ s3_client = boto3.client('s3', region_name=AWS_REGION)
 TABLE_USUARIOS = os.getenv('TABLE_USUARIOS')
 TABLE_SERVICIOS = os.getenv('TABLE_SERVICIOS')
 TABLE_RECETAS = os.getenv('TABLE_RECETAS')
+TABLE_MEMORIA_CONTEXTUAL = os.getenv('TABLE_MEMORIA_CONTEXTUAL')
+TABLE_HISTORIAL_MEDICO = os.getenv('TABLE_HISTORIAL_MEDICO')
 
 # Nombre del bucket
 S3_BUCKET_NAME = f"recetas-medicas-data-{AWS_ACCOUNT_ID}"
@@ -31,6 +33,7 @@ S3_BUCKET_NAME = f"recetas-medicas-data-{AWS_ACCOUNT_ID}"
 # Carpeta con los datos JSON
 DATA_DIR = "example-data"
 
+# Mapeo de archivos JSON a tablas
 # Mapeo de archivos JSON a tablas
 TABLE_MAPPING = {
     "usuarios.json": {
@@ -45,8 +48,18 @@ TABLE_MAPPING = {
     },
     "recetas.json": {
         "table_name": TABLE_RECETAS,
-        "pk": "receta_id",
-        "sk": None
+        "pk": "correo",
+        "sk": "receta_id"
+    },
+    "memoria_contextual.json": {
+        "table_name": os.getenv('TABLE_MEMORIA_CONTEXTUAL'),
+        "pk": "correo",
+        "sk": "context_id"
+    },
+    "historial_medico.json": {
+        "table_name": os.getenv('TABLE_HISTORIAL_MEDICO'),
+        "pk": "correo",
+        "sk": "fecha"
     }
 }
 
