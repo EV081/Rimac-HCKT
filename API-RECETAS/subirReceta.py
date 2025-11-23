@@ -175,7 +175,7 @@ def lambda_handler(event, context):
         """
 
         response = client.models.generate_content(
-            model="gemini-3-pro",
+            model="gemini-2.5-flash",
             contents=[
                 types.Part.from_bytes(data=image_bytes, mime_type="image/jpeg"),
                 prompt
