@@ -15,26 +15,20 @@ load_dotenv()
 # Configuración de AWS
 AWS_REGION = os.getenv('AWS_REGION', 'us-east-1')
 AWS_ACCOUNT_ID = os.getenv('AWS_ACCOUNT_ID')
-
 dynamodb = boto3.resource('dynamodb', region_name=AWS_REGION)
 dynamodb_client = boto3.client('dynamodb', region_name=AWS_REGION)
-s3_client = boto3.client('s3', region_name=AWS_REGION)
 
 # Nombres de las tablas
-TABLE_USUARIOS = os.getenv('TABLE_USUARIOS')
-TABLE_SERVICIOS = os.getenv('TABLE_SERVICIOS')
-TABLE_RECETAS = os.getenv('TABLE_RECETAS')
-TABLE_MEMORIA_CONTEXTUAL = os.getenv('TABLE_MEMORIA_CONTEXTUAL')
-TABLE_HISTORIAL_MEDICO = os.getenv('TABLE_HISTORIAL_MEDICO')
-
-# Nombre del bucket
-S3_BUCKET_NAME = f"recetas-medicas-data-{AWS_ACCOUNT_ID}"
+TABLE_USUARIOS = os.getenv('TABLE_USUARIOS', 'Usuarios')
+TABLE_SERVICIOS = os.getenv('TABLE_SERVICIOS', 'Servicios')
+TABLE_RECETAS = os.getenv('TABLE_RECETAS', 'Recetas')
+TABLE_MEMORIA_CONTEXTUAL = os.getenv('TABLE_MEMORIA_CONTEXTUAL', 'MemoriaContextual')
+TABLE_HISTORIAL_MEDICO = os.getenv('TABLE_HISTORIAL_MEDICO', 'HistorialMedico')
 
 # Carpeta con los datos JSON
 DATA_DIR = "example-data"
 
-# Mapeo de archivos JSON a tablas
-# Mapeo de archivos JSON a tablas
+# Mapeo correcto de archivos JSON a tablas
 TABLE_MAPPING = {
     "usuarios.json": {
         "table_name": TABLE_USUARIOS,
@@ -52,17 +46,16 @@ TABLE_MAPPING = {
         "sk": "receta_id"
     },
     "memoria_contextual.json": {
-        "table_name": os.getenv('TABLE_MEMORIA_CONTEXTUAL'),
-        "pk": "correo",
-        "sk": "context_id"
+        "table_name": TABLE_MEMORIA_CONTEXTUAL,
+        "pk": "userId",
+        "sk": "timestamp"
     },
     "historial_medico.json": {
-        "table_name": os.getenv('TABLE_HISTORIAL_MEDICO'),
-        "pk": "correo",
+        "table_name": TABLE_HISTORIAL_MEDICO,
+        "pk": "userId",
         "sk": "fecha"
     }
 }
-
 
 def convert_float_to_decimal(obj):
     """Convierte float a Decimal recursivamente"""
@@ -75,7 +68,6 @@ def convert_float_to_decimal(obj):
     else:
         return obj
 
-
 def table_exists(table_name):
     """Verifica si una tabla existe"""
     try:
@@ -87,7 +79,6 @@ def table_exists(table_name):
         else:
             raise
 
-
 def load_json_file(filename):
     """Carga un archivo JSON"""
     filepath = os.path.join(DATA_DIR, filename)
@@ -96,12 +87,11 @@ def load_json_file(filename):
             data = json.load(f)
             return convert_float_to_decimal(data)
     except FileNotFoundError:
-        print(f"⚠️  Archivo no encontrado: {filepath}")
+        print(f"   ⚠️  Archivo no encontrado: {filepath}")
         return None
     except json.JSONDecodeError as e:
-        print(f"⚠️  Error al decodificar JSON en {filename}: {e}")
+        print(f"   ⚠️  Error al decodificar JSON en {filename}: {e}")
         return None
-
 
 def delete_all_items_from_table(table_name, pk_name, sk_name=None):
     """Elimina todos los items de una tabla"""
@@ -122,20 +112,27 @@ def delete_all_items_from_table(table_name, pk_name, sk_name=None):
         
         print(f"   🗑️  Eliminando {len(items)} items de '{table_name}'...")
         
-        with table.batch_writer() as batch:
-            for item in items:
-                key = {pk_name: item[pk_name]}
-                if sk_name:
-                    key[sk_name] = item[sk_name]
-                batch.delete_item(Key=key)
+        # Eliminar en lotes
+        batch_size = 25
+        for i in range(0, len(items), batch_size):
+            batch = items[i:i + batch_size]
+            
+            with table.batch_writer() as batch_writer:
+                for item in batch:
+                    # Construir key correctamente
+                    key = {pk_name: item[pk_name]}
+                    if sk_name and sk_name in item:
+                        key[sk_name] = item[sk_name]
+                    batch_writer.delete_item(Key=key)
         
         print(f"   ✅ {len(items)} items eliminados")
         return True
         
     except Exception as e:
         print(f"   ❌ Error al limpiar tabla: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return False
-
 
 def batch_write_items(table, items, table_name):
     """Escribe items en lotes con retry"""
@@ -229,7 +226,6 @@ def batch_write_items(table, items, table_name):
     
     return success_count, error_count, error_details
 
-
 def populate_table(filename, table_config):
     """Puebla una tabla"""
     table_name = table_config["table_name"]
@@ -241,7 +237,7 @@ def populate_table(filename, table_config):
     
     # Verificar que la tabla existe
     if not table_exists(table_name):
-        print(f"   ⚠️  Tabla '{table_name}' no existe. Debe crearse primero con Serverless Framework")
+        print(f"   ⚠️  Tabla '{table_name}' no existe. Ejecuta CreateTables.py primero")
         return False
     
     print(f"   ✅ Tabla '{table_name}' existe")
@@ -255,21 +251,28 @@ def populate_table(filename, table_config):
     # Cargar datos
     items = load_json_file(filename)
     
-    if items is None or not isinstance(items, list) or len(items) == 0:
-        print(f"   ⚠️  No hay datos para insertar")
+    if items is None:
+        print(f"   ⚠️  No se pudo cargar el archivo")
+        return False
+    
+    if not isinstance(items, list):
+        items = [items]
+    
+    if len(items) == 0:
+        print(f"   ℹ️  No hay datos para insertar")
         return True
     
-    print(f"   �  Total de items: {len(items)}")
+    print(f"   📝 Total de items: {len(items)}")
     
     # Validar que los items tengan las claves requeridas
-    if items:
-        first_item = items[0]
-        if pk_name not in first_item:
-            print(f"   ❌ Error: Los items no tienen la clave primaria '{pk_name}'")
-            return False
-        if sk_name and sk_name not in first_item:
-            print(f"   ❌ Error: Los items no tienen la clave de ordenamiento '{sk_name}'")
-            return False
+    first_item = items[0]
+    if pk_name not in first_item:
+        print(f"   ❌ Error: Los items no tienen la clave primaria '{pk_name}'")
+        print(f"   📋 Keys disponibles: {list(first_item.keys())}")
+        return False
+    if sk_name and sk_name not in first_item:
+        print(f"   ⚠️  Advertencia: Los items no tienen la clave de ordenamiento '{sk_name}'")
+        print(f"   📋 Keys disponibles: {list(first_item.keys())}")
     
     try:
         table = dynamodb.Table(table_name)
@@ -283,8 +286,9 @@ def populate_table(filename, table_config):
         
     except Exception as e:
         print(f"   ❌ Error: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return False
-
 
 def verify_credentials():
     """Verifica credenciales AWS"""
@@ -294,215 +298,62 @@ def verify_credentials():
         
         if credentials is None:
             print("❌ No se encontraron credenciales de AWS")
+            print("   Configura AWS CLI o variables de entorno:")
+            print("   - AWS_ACCESS_KEY_ID")
+            print("   - AWS_SECRET_ACCESS_KEY")
+            print("   - AWS_REGION")
             return False
         
+        print(f"✅ Credenciales AWS encontradas")
+        print(f"   Región: {AWS_REGION}")
         return True
     except Exception as e:
         print(f"❌ Error al verificar credenciales: {e}")
         return False
 
-
-def create_s3_bucket():
-    """Crea el bucket S3 si no existe"""
-    try:
-        print(f"\n📦 Verificando bucket S3: {S3_BUCKET_NAME}")
-        s3_client.head_bucket(Bucket=S3_BUCKET_NAME)
-        print(f"   ✅ El bucket '{S3_BUCKET_NAME}' ya existe")
-        return True
-    except ClientError as e:
-        error_code = e.response['Error']['Code']
-        if error_code == '404':
-            try:
-                print(f"   🔨 Creando bucket '{S3_BUCKET_NAME}'...")
-                if AWS_REGION == 'us-east-1':
-                    s3_client.create_bucket(Bucket=S3_BUCKET_NAME)
-                else:
-                    s3_client.create_bucket(
-                        Bucket=S3_BUCKET_NAME,
-                        CreateBucketConfiguration={'LocationConstraint': AWS_REGION}
-                    )
-                
-                # Habilitar versionado
-                s3_client.put_bucket_versioning(
-                    Bucket=S3_BUCKET_NAME,
-                    VersioningConfiguration={'Status': 'Enabled'}
-                )
-                
-                # Bloquear acceso público
-                s3_client.put_public_access_block(
-                    Bucket=S3_BUCKET_NAME,
-                    PublicAccessBlockConfiguration={
-                        'BlockPublicAcls': True,
-                        'IgnorePublicAcls': True,
-                        'BlockPublicPolicy': True,
-                        'RestrictPublicBuckets': True
-                    }
-                )
-                
-                print(f"   ✅ Bucket '{S3_BUCKET_NAME}' creado exitosamente")
-                return True
-            except Exception as create_error:
-                print(f"   ❌ Error al crear bucket: {str(create_error)}")
-                return False
-        else:
-            print(f"   ❌ Error al verificar bucket: {str(e)}")
-            return False
-
-
-def create_dynamodb_table(table_name, key_schema, attribute_definitions, 
-                          global_secondary_indexes=None, stream_enabled=False, ttl_attribute=None):
-    """Crea una tabla DynamoDB si no existe"""
-    try:
-        print(f"\n📊 Verificando tabla: {table_name}")
-        dynamodb_client.describe_table(TableName=table_name)
-        print(f"   ✅ La tabla '{table_name}' ya existe")
-        return True
-    except ClientError as e:
-        if e.response['Error']['Code'] == 'ResourceNotFoundException':
-            try:
-                print(f"   🔨 Creando tabla '{table_name}'...")
-                
-                table_config = {
-                    'TableName': table_name,
-                    'KeySchema': key_schema,
-                    'AttributeDefinitions': attribute_definitions,
-                    'BillingMode': 'PAY_PER_REQUEST',
-                    'Tags': [
-                        {'Key': 'Project', 'Value': 'recetas-medicas'},
-                        {'Key': 'Environment', 'Value': 'dev'}
-                    ]
-                }
-                
-                if global_secondary_indexes:
-                    table_config['GlobalSecondaryIndexes'] = global_secondary_indexes
-                
-                if stream_enabled:
-                    table_config['StreamSpecification'] = {
-                        'StreamEnabled': True,
-                        'StreamViewType': 'NEW_AND_OLD_IMAGES'
-                    }
-                
-                dynamodb_client.create_table(**table_config)
-                
-                # Esperar a que la tabla esté activa
-                waiter = dynamodb_client.get_waiter('table_exists')
-                waiter.wait(TableName=table_name)
-                
-                # Habilitar TTL si se especifica
-                if ttl_attribute:
-                    dynamodb_client.update_time_to_live(
-                        TableName=table_name,
-                        TimeToLiveSpecification={
-                            'Enabled': True,
-                            'AttributeName': ttl_attribute
-                        }
-                    )
-                
-                print(f"   ✅ Tabla '{table_name}' creada exitosamente")
-                return True
-            except Exception as create_error:
-                print(f"   ❌ Error al crear tabla: {str(create_error)}")
-                return False
-        else:
-            print(f"   ❌ Error al verificar tabla: {str(e)}")
-            return False
-
-
-def create_all_resources():
-    """Crea todas las tablas DynamoDB y el bucket S3"""
+def main():
     print("\n" + "=" * 60)
-    print("🏗️  CREANDO RECURSOS AWS")
+    print("🚀 POBLADOR DE DATOS - RIMAC HCKT")
     print("=" * 60)
     
-    # Crear bucket S3
-    if not create_s3_bucket():
-        return False
-    
-    # Crear tabla de Usuarios
-    if not create_dynamodb_table(
-        table_name=TABLE_USUARIOS,
-        key_schema=[{'AttributeName': 'correo', 'KeyType': 'HASH'}],
-        attribute_definitions=[
-            {'AttributeName': 'correo', 'AttributeType': 'S'}
-        ]
-    ):
-        return False
-    
-    # Crear tabla de Servicios
-    if not create_dynamodb_table(
-        table_name=TABLE_SERVICIOS,
-        key_schema=[{'AttributeName': 'nombre', 'KeyType': 'HASH'}],
-        attribute_definitions=[
-            {'AttributeName': 'nombre', 'AttributeType': 'S'}
-        ]
-    ):
-        return False
-    
-    # Crear tabla de Recetas
-    if not create_dynamodb_table(
-        table_name=TABLE_RECETAS,
-        key_schema=[{'AttributeName': 'receta_id', 'KeyType': 'HASH'}],
-        attribute_definitions=[
-            {'AttributeName': 'receta_id', 'AttributeType': 'S'},
-            {'AttributeName': 'paciente', 'AttributeType': 'S'}
-        ],
-        global_secondary_indexes=[{
-            'IndexName': 'PacienteIndex',
-            'KeySchema': [
-                {'AttributeName': 'paciente', 'KeyType': 'HASH'}
-            ],
-            'Projection': {'ProjectionType': 'ALL'}
-        }],
-        stream_enabled=True
-    ):
-        return False
-    
-    print("\n✅ Todos los recursos creados exitosamente")
-    return True
-
-
-def main():
     if not verify_credentials():
         return
-
-    # Crear recursos
-    if not create_all_resources():
-        print("\n❌ Error al crear recursos. Abortando...")
-        return
-
+    
     if not os.path.exists(DATA_DIR):
         print(f"\n❌ La carpeta '{DATA_DIR}/' no existe")
         return
-
+    
     print(f"\n🔌 Conectando a DynamoDB ({AWS_REGION})")
-    print("✅ Conexión establecida")
-
+    
     print("\n" + "=" * 60)
     print("📊 POBLANDO TABLAS")
     print("=" * 60)
-
+    
     results = {}
     for filename, config in TABLE_MAPPING.items():
         if config["table_name"]:
             success = populate_table(filename, config)
             results[filename] = success
-        time.sleep(1)
-
+        time.sleep(0.5)  # Pequeña pausa entre tablas
+    
     print("\n" + "=" * 60)
     print("📋 RESUMEN")
     print("=" * 60)
-
+    
     successful = sum(1 for success in results.values() if success)
     failed = len(results) - successful
-
+    
     print(f"\n✅ Tablas pobladas: {successful}")
     if failed > 0:
         print(f"❌ Tablas con errores: {failed}")
-
+        print("\nTablas con errores:")
+        for filename, success in results.items():
+            if not success:
+                print(f"   - {filename} -> {TABLE_MAPPING[filename]['table_name']}")
+    
     print("\n" + "=" * 60)
     print("🎉 COMPLETADO")
     print("=" * 60)
-
 
 if __name__ == "__main__":
     main()
