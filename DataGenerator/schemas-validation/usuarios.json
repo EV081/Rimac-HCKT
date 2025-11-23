@@ -6,21 +6,21 @@
     "partition_key": "correo"
   },
   "properties": {
-    "email": {
+    "correo": {
       "type": "string",
       "format": "email"
     },
-    "password": { "type": "string" },
+    "contrasena": { "type": "string" },
     "nombre": { "type": "string" },
     "sexo": { 
         "type": "string",
         "enum": ["M", "F"]
     },
-    "rol": {
+    "role": {
       "type": "string",
       "enum": ["USER", "ADMIN", "TUTOR"]
     }
   },
-  "required": ["email", "nombre", "sexo" ,"rol", "password"],
+  "required": ["correo", "nombre", "sexo" ,"rol", "contrasena"],
   "additionalProperties": false
 }
