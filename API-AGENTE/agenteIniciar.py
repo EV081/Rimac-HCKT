@@ -25,6 +25,18 @@ class ContextoEnum(Enum):
     SERVICIOS = "Servicios"
     WEARABLES = "Wearables"
 
+def get_user_email(event):
+    """Extrae el email del usuario desde el token"""
+    headers = {k.lower(): v for k, v in (event.get('headers') or {}).items()}
+    auth_header = headers.get('authorization')
+    
+    if auth_header and auth_header.startswith("Bearer "):
+        token = auth_header.split(" ")[1]
+        payload = decode_jwt_payload(token)
+        if payload:
+            return payload.get('email') or payload.get('username')
+    return None
+
 def build_response(status_code, body):
     return {
         "statusCode": status_code,
