@@ -16,13 +16,23 @@ provider:
     TABLE_HISTORIAL_MEDICO: ${env:TABLE_HISTORIAL_MEDICO}
     ORG_NAME: ${env:ORG_NAME}
 
-  role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/LabRole
-
   iamRoleStatements:
     - Effect: Allow
       Action:
         - cognito-idp:GetUser
       Resource: "*"
+    - Effect: Allow
+      Action:
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:Query
+        - dynamodb:Scan
+      Resource:
+        - "arn:aws:dynamodb:us-east-1:${env:AWS_ACCOUNT_ID}:table/${env:TABLE_USUARIOS}"
+        - "arn:aws:dynamodb:us-east-1:${env:AWS_ACCOUNT_ID}:table/${env:TABLE_SERVICIOS}"
+        - "arn:aws:dynamodb:us-east-1:${env:AWS_ACCOUNT_ID}:table/${env:TABLE_MEMORIA_CONTEXTUAL}"
+        - "arn:aws:dynamodb:us-east-1:${env:AWS_ACCOUNT_ID}:table/${env:TABLE_HISTORIAL_MEDICO}"
 
 plugins:
   - serverless-python-requirements

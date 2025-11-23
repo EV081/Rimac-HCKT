@@ -7,11 +7,41 @@ provider:
   timeout: 300
   region: us-east-1
   stage: ${param:stage}
+
   environment:
     GEMINI_API_KEY: ${env:GEMINI_API_KEY}
     TABLE_RECETAS: ${env:TABLE_RECETAS}
     S3_BUCKET_RECETAS: recetas-medicas-data-${env:AWS_ACCOUNT_ID}
-  role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/LabRole
+
+  iamRoleStatements:
+    # DynamoDB permisos
+    - Effect: Allow
+      Action:
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:Query
+        - dynamodb:Scan
+      Resource:
+        - "arn:aws:dynamodb:us-east-1:${env:AWS_ACCOUNT_ID}:table/${env:TABLE_RECETAS}"
+
+    # S3 permisos para subir y leer recetas
+    - Effect: Allow
+      Action:
+        - s3:PutObject
+        - s3:GetObject
+        - s3:DeleteObject
+      Resource:
+        - "arn:aws:s3:::recetas-medicas-data-${env:AWS_ACCOUNT_ID}/*"
+
+    # Permitir generar URL firmada (GetObject)
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+      Resource:
+        - "arn:aws:s3:::recetas-medicas-data-${env:AWS_ACCOUNT_ID}/*"
+
   apiGateway:
     binaryMediaTypes:
       - 'multipart/form-data'
