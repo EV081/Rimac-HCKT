@@ -2,105 +2,66 @@ service: api-agente
 
 provider:
   name: aws
-  runtime: python3.11
-  region: ${env:AWS_REGION, 'us-east-1'}
-  stage: ${opt:stage, 'dev'}
-  timeout: 30
+  runtime: python3.12
   memorySize: 512
-  
+  timeout: 60
+  region: us-east-1
+  stage: ${param:stage}
+
   environment:
-    # DynamoDB Tables
-    TABLE_USUARIOS: ${env:TABLE_USUARIOS, 'Usuarios'}
-    TABLE_RECETAS: ${env:TABLE_RECETAS, 'Recetas'}
-    TABLE_SERVICIOS: ${env:TABLE_SERVICIOS, 'Servicios'}
-    TABLE_HISTORIAL_MEDICO: ${env:TABLE_HISTORIAL_MEDICO, 'HistorialMedico'}
-    TABLE_MEMORIA_CONTEXTUAL: ${env:TABLE_MEMORIA_CONTEXTUAL, 'MemoriaContextual'}
-    
-    # API Keys
     GEMINI_API_KEY: ${env:GEMINI_API_KEY}
-    GEMINI_MODEL: ${env:GEMINI_MODEL, 'gemini-2.0-flash-exp'}
-    
-    # Configuración
-    LIMITE_HISTORIAL: ${env:LIMITE_HISTORIAL, '30'}
-    LIMITE_MEMORIA: ${env:LIMITE_MEMORIA, '10'}
-    LIMITE_SERVICIOS: ${env:LIMITE_SERVICIOS, '20'}
-  
-  iam:
-    role:
-      statements:
-        # Permisos para DynamoDB
-        - Effect: Allow
-          Action:
-            - dynamodb:GetItem
-            - dynamodb:Query
-            - dynamodb:Scan
-            - dynamodb:PutItem
-            - dynamodb:UpdateItem
-            - dynamodb:DeleteItem
-            - dynamodb:BatchGetItem
-            - dynamodb:BatchWriteItem
-          Resource:
-            - "arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:provider.environment.TABLE_USUARIOS}"
-            - "arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:provider.environment.TABLE_RECETAS}"
-            - "arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:provider.environment.TABLE_SERVICIOS}"
-            - "arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:provider.environment.TABLE_HISTORIAL_MEDICO}"
-            - "arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:provider.environment.TABLE_MEMORIA_CONTEXTUAL}"
+    TABLE_USUARIOS: ${env:TABLE_USUARIOS}
+    TABLE_SERVICIOS: ${env:TABLE_SERVICIOS}
+    TABLE_RECETAS: ${env:TABLE_RECETAS}
+    TABLE_MEMORIA_CONTEXTUAL: ${env:TABLE_MEMORIA_CONTEXTUAL}
+    TABLE_HISTORIAL_MEDICO: ${env:TABLE_HISTORIAL_MEDICO}
+    ORG_NAME: ${env:ORG_NAME}
+
+  role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/LabRole
+
+plugins:
+  - serverless-python-requirements
 
 functions:
-  # Handler principal del agente conversacional
   agenteIniciar:
-    handler: handlers/agente_iniciar.handler
+    handler: handlers.agente_iniciar.handler
     events:
       - http:
           path: agente/consultar
           method: post
           cors: true
-    description: "Procesa consultas del usuario con el agente conversacional"
   
-  # Handler para actualizar historial médico
   agregarHistorial:
-    handler: handlers/agregar_historial.handler
+    handler: handlers.agregar_historial.handler
     events:
       - http:
           path: historial/agregar
           method: post
           cors: true
-    description: "Actualiza el historial médico del usuario"
-  
-  # Handler para actualizar memoria contextual
+
   agregarMemoria:
-    handler: handlers/agregar_memoria.handler
+    handler: handlers.agregar_memoria.handler
     events:
       - http:
           path: memoria/agregar
           method: post
           cors: true
-    description: "Actualiza la memoria contextual de conversaciones"
 
-plugins:
-  - serverless-python-requirements
+package:
+  patterns:
+    - '!.venv/**'
+    - '!node_modules/**'
+    - '!.serverless/**'
+    - '!__pycache__/**'
+    - '!*.pyc'
 
 custom:
   pythonRequirements:
     dockerizePip: true
-    dockerImage: public.ecr.aws/sam/build-python3.11:latest
+    dockerImage: public.ecr.aws/sam/build-python3.12:latest
     slim: true
-    strip: false
-    zip: true
-    fileName: requirements.txt
     useDownloadCache: false
     useStaticCache: false
     invalidateCaches: true
-
-package:
-  individually: false
-  exclude:
-    - node_modules/**
-    - .git/**
-    - .venv/**
-    - __pycache__/**
-    - "*.pyc"
-    - .pytest_cache/**
-    - tests/**
-    - .vscode/**
-    - .idea/**
+    pipCmdExtraArgs:
+      - '--no-cache-dir'
