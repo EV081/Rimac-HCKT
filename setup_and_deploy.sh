@@ -53,6 +53,18 @@ setup_database() {
         exit 1
     fi
     
+    # Crear tablas si no existen
+    log "🏗️  Creando tablas DynamoDB si no existen..."
+    python3 CreateTables.py
+    
+    if [ $? -ne 0 ]; then
+        log_error "Error al crear tablas"
+        cd ..
+        exit 1
+    fi
+    
+    log_success "Tablas verificadas/creadas correctamente"
+    
     # Verificar si las tablas tienen datos
     log "🔍 Verificando estado de las tablas..."
     HAS_DATA=$(python3 -c "
