@@ -10,6 +10,7 @@ provider:
 
   environment:
     GEMINI_API_KEY: ${env:GEMINI_API_KEY}
+    TABLE_RECETAS: ${env:TABLE_RECETAS}
 
   # Usar un role existente (ARN). No declarar campos arbitrarios bajo provider.iam
   role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/LabRole
@@ -20,11 +21,11 @@ provider:
       - 'image/*'
 
 functions:
-  analizarReceta:
+  subirReceta:
     handler: handler.subirReceta
     events:
       - http:
-          path: analizar
+          path: subir-receta
           method: post
           cors: true
 
