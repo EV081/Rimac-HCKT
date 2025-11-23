@@ -68,7 +68,7 @@ def get_user_data(correo):
     return response.get('Item')
 
 def get_user_from_cognito(event):
-    """Obtiene datos del usuario directamente de Cognito usando el token"""
+    """Obtiene datos del usuario directamente del ID Token (sin llamar a Cognito API)"""
     headers = {k.lower(): v for k, v in (event.get('headers') or {}).items()}
     auth_header = headers.get('authorization')
     
@@ -76,21 +76,23 @@ def get_user_from_cognito(event):
         return None
         
     token = auth_header.split(" ")[1]
-    cognito = boto3.client('cognito-idp')
+    payload = decode_jwt_payload(token)
     
-    try:
-        response = cognito.get_user(AccessToken=token)
-        attributes = {attr['Name']: attr['Value'] for attr in response.get('UserAttributes', [])}
-        
-        return {
-            'correo': attributes.get('email'),
-            'nombre': attributes.get('name', 'Usuario'),
-            'rol': attributes.get('custom:rol', 'USER'),
-            'sexo': attributes.get('gender', '')
-        }
-    except Exception as e:
-        print(f"Error fetching from Cognito: {str(e)}")
+    if not payload:
         return None
+        
+    # Si es un ID Token, ya tiene los atributos
+    if payload.get('token_use') == 'id':
+        return {
+            'correo': payload.get('email'),
+            'nombre': payload.get('name', 'Usuario'),
+            'rol': payload.get('custom:rol', 'USER'),
+            'sexo': payload.get('gender', '')
+        }
+        
+    # Si es un Access Token, no tiene atributos estándar (email, name) usualmente,
+    # pero en este caso el cliente está enviando ID Token según los logs.
+    return None
 
 def get_recent_memory(correo):
     table = dynamodb.Table(TABLE_MEMORIA)
