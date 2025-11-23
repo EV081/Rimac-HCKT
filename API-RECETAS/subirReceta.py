@@ -211,26 +211,32 @@ def lambda_handler(event, context):
             })
 
         # ===============================
-        # 3e. Subir imagen a S3
+        # 3e. Subir imagen a S3 (private) + URL firmada
         # ===============================
-        url_receta = None
+        url_receta_firmada = None
+        s3_key = f"recetas/{user_email}/{receta_id}.jpg"
+
         if S3_BUCKET:
             try:
-                # Usar receta_id ya generado
-                s3_key = f"recetas/{user_email}/{receta_id}.jpg"
+                # Subida privada (sin ACL)
                 s3.put_object(
                     Bucket=S3_BUCKET,
                     Key=s3_key,
                     Body=image_bytes,
-                    ContentType='image/jpeg',
-                    ACL='public-read'
+                    ContentType='image/jpeg'
                 )
-                # Generar URL pública
-                url_receta = f"https://{S3_BUCKET}.s3.amazonaws.com/{s3_key}"
-                print(f"✅ Imagen subida a S3: {url_receta}")
+
+                # Crear URL firmada (24 horas)
+                url_receta_firmada = s3.generate_presigned_url(
+                    ClientMethod='get_object',
+                    Params={'Bucket': S3_BUCKET, 'Key': s3_key},
+                    ExpiresIn=86400  # 24h
+                )
+
+                print(f"✅ Imagen subida y URL firmada generada: {url_receta_firmada}")
+
             except Exception as s3_error:
-                print(f"❌ Error al subir a S3: {s3_error}")
-                # Continuar sin URL si falla S3
+                print(f"❌ Error al subir a S3 o generar URL firmada: {s3_error}")
         else:
             print("⚠️ S3_BUCKET no configurado, saltando subida de imagen")
 
@@ -245,16 +251,17 @@ def lambda_handler(event, context):
             'institucion': data.get('institucion'),
             'recetas': data.get('recetas', [])
         }
-        
-        # Agregar URL si existe
-        if url_receta:
-            item['url_receta'] = url_receta
-        
+
+        # Guardar URL firmada si existe
+        if url_receta_firmada:
+            item['url_firmada'] = url_receta_firmada
+
         try:
             table_recetas.put_item(Item=item)
             print(f"✅ Receta guardada en DynamoDB: {receta_id}")
         except Exception as e:
             return _response(500, {"message": f"Error al guardar en BD: {str(e)}"})
+
 
         # ===============================
         # 3g. Respuesta Final
@@ -262,7 +269,7 @@ def lambda_handler(event, context):
         return _response(200, {
             "message": "Receta procesada y guardada exitosamente",
             "receta_id": receta_id,
-            "url_receta": url_receta,
+            "url_firmada": url_receta_firmada,
             "data": data
         })
 
